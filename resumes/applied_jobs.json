@@ -1,24 +1,10 @@
 {
   "applied": [
     {
-      "id": "spacex",
-      "title": "Sr. Business Analyst – Starlink Growth",
-      "company": "SpaceX",
-      "applyUrl": "https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384",
-      "appliedAt": "Apr 26, 2026"
-    },
-    {
       "id": "amazon_ta",
       "title": "Senior Business Analyst – Talent Acquisition Analytics",
       "company": "Amazon",
       "applyUrl": "https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315",
-      "appliedAt": "Apr 26, 2026"
-    },
-    {
-      "id": "amazon_otr",
-      "title": "Sr. Business Analyst – AMZL OTR Planning",
-      "company": "Amazon",
-      "applyUrl": "https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159",
       "appliedAt": "Apr 26, 2026"
     },
     {
@@ -43,5 +29,5 @@
       "appliedAt": "Apr 26, 2026"
     }
   ],
-  "lastUpdated": "2026-04-27T04:37:07.383Z"
+  "lastUpdated": "2026-04-27T04:50:06.355Z"
 }
