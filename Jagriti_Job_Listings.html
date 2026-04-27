@@ -1498,6 +1498,9 @@ async function triggerRefresh() {
 }
 
 // ── Init ──
+// Pre-load Adzuna keys if not already saved
+if (!localStorage.getItem('adzuna_app_id'))  localStorage.setItem('adzuna_app_id',  '5975f043');
+if (!localStorage.getItem('adzuna_app_key')) localStorage.setItem('adzuna_app_key', '8f81b1c0abed562e98c9a0d5a1890d93');
 initAppliedState();
 updateApiKeyStatus();
 updateCount();
