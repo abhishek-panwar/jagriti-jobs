@@ -526,7 +526,7 @@
   }
   .city-input {
     width: 100%;
-    padding: 9px 16px;
+    padding: 9px 36px 9px 16px;
     border-radius: 999px;
     border: 1.5px solid var(--border);
     font-size: 13px;
@@ -534,6 +534,29 @@
     background: #fff;
   }
   .city-input:focus { border-color: var(--purple); }
+  .input-clear-btn {
+    position: absolute;
+    right: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #d1d5db;
+    border: none;
+    color: #fff;
+    font-size: 11px;
+    line-height: 1;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-weight: 700;
+    transition: background .15s;
+  }
+  .input-clear-btn:hover { background: #9ca3af; }
+  .input-clear-btn.visible { display: flex; }
   .city-suggestions {
     position: absolute;
     top: calc(100% + 4px);
@@ -584,7 +607,7 @@
     border: none;
     padding: 0;
     margin-bottom: 12px;
-    display: inline-block;
+    display: none;
   }
   .api-setup-box {
     background: var(--purple-bg);
@@ -1313,10 +1336,11 @@
             id="cityInput"
             placeholder="e.g. Rochester, Chicago, Austin..."
             autocomplete="off"
-            oninput="onCityInput()"
+            oninput="onCityInput(); togglePracticeClear()"
             onkeydown="onCityKeydown(event)"
             onblur="hideSuggestionsDelayed()"
           >
+          <button class="input-clear-btn" id="practiceClearBtn" onclick="clearPracticeSearch()" title="Clear search">✕</button>
           <div class="city-suggestions" id="citySuggestions"></div>
         </div>
         <button class="practice-search-btn" id="practiceSearchBtn" onclick="searchPracticeJobs()">🔍 Search</button>
@@ -1376,11 +1400,12 @@
             id="careerCompanyInput"
             placeholder="e.g. Google, Microsoft, Salesforce..."
             autocomplete="off"
-            oninput="onCareerCompanyInput()"
+            oninput="onCareerCompanyInput(); toggleCareerClear()"
             onkeydown="onCareerCompanyKeydown(event)"
             onblur="hideCareerSuggestionsDelayed()"
             style="border-color:var(--purple)"
           >
+          <button class="input-clear-btn" id="careerClearBtn" onclick="clearCareerSearch()" title="Clear search">✕</button>
           <div class="city-suggestions" id="careerCompanySuggestions"></div>
         </div>
         <div class="career-city-wrap">
@@ -2290,6 +2315,37 @@ function updateApiKeyStatus() {
 }
 
 // ── Practice job search ──
+function togglePracticeClear() {
+  const val = document.getElementById('cityInput').value;
+  document.getElementById('practiceClearBtn').classList.toggle('visible', val.length > 0);
+}
+
+function clearPracticeSearch() {
+  document.getElementById('cityInput').value = '';
+  document.getElementById('practiceClearBtn').classList.remove('visible');
+  document.getElementById('practiceStatus').textContent = '';
+  document.getElementById('practiceGrid').innerHTML = '';
+  document.getElementById('practiceFallback').style.display = 'none';
+  document.getElementById('citySuggestions').classList.remove('visible');
+}
+
+function toggleCareerClear() {
+  const val = document.getElementById('careerCompanyInput').value;
+  document.getElementById('careerClearBtn').classList.toggle('visible', val.length > 0);
+}
+
+function clearCareerSearch() {
+  document.getElementById('careerCompanyInput').value = '';
+  document.getElementById('careerCityInput').value = '';
+  document.getElementById('careerClearBtn').classList.remove('visible');
+  document.getElementById('careerStatus').textContent = '';
+  document.getElementById('careerResults').innerHTML = '';
+  const cl = document.getElementById('careerPageLink');
+  cl.style.display = 'none'; cl.href = '#'; cl.textContent = '';
+  document.getElementById('careerCompanySuggestions').classList.remove('visible');
+  document.getElementById('careerCitySuggestions').classList.remove('visible');
+}
+
 async function searchPracticeJobs() {
   const city = document.getElementById('cityInput').value.trim();
   if (!city) { document.getElementById('practiceStatus').textContent = 'Please enter a city name.'; return; }
