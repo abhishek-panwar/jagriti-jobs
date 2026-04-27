@@ -18,6 +18,9 @@
     --text: #1f2937;
     --muted: #6b7280;
     --border: #e5e7eb;
+    --purple: #7c3aed;
+    --purple-bg: #f5f3ff;
+    --purple-border: #ddd6fe;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -124,11 +127,12 @@
     gap: 10px;
     border-left: 4px solid var(--blue);
     transition: box-shadow .15s, transform .1s;
+    position: relative;
   }
   .card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12); transform: translateY(-2px); }
   .card.hidden { display: none; }
+  .card.applied-hidden { display: none; }
 
-  /* tier colors */
   .card[data-tier="1"] { border-left-color: #1a56a4; }
   .card[data-tier="2"] { border-left-color: #0891b2; }
   .card[data-tier="3"] { border-left-color: #9333ea; }
@@ -150,6 +154,7 @@
   .badge-tier1    { background: var(--blue-light); color: var(--blue); }
   .badge-tier2    { background: #e0f2fe;           color: #0369a1; }
   .badge-tier3    { background: #f3e8ff;           color: #7e22ce; }
+  .badge-practice { background: #fef3c7;           color: #92400e; }
 
   .location { font-size: 12px; color: var(--muted); }
   .salary   { font-size: 12px; font-weight: 700; color: #065f46; }
@@ -172,6 +177,7 @@
     gap: 8px;
     flex-wrap: wrap;
     margin-top: auto;
+    align-items: center;
   }
   .apply-btn {
     display: inline-block;
@@ -186,6 +192,31 @@
     transition: background .15s;
   }
   .apply-btn:hover { background: var(--accent); }
+
+  /* Applied checkmark button */
+  .applied-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
+    background: #fff;
+    border: 1.5px solid #d1d5db;
+    color: var(--muted);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+    margin-left: auto;
+  }
+  .applied-btn:hover:not(:disabled) { border-color: var(--green); color: var(--green); background: var(--green-bg); }
+  .applied-btn.is-applied {
+    background: var(--green-bg);
+    border-color: var(--green);
+    color: var(--green);
+    cursor: default;
+  }
+
   .resume-section {
     background: #f8fafc;
     border: 1px solid var(--border);
@@ -246,9 +277,274 @@
   td a { color: var(--blue); text-decoration: none; font-weight: 600; }
   td a:hover { text-decoration: underline; }
 
+  /* ── Applied Jobs section ── */
+  .applied-section {
+    max-width: 960px;
+    margin: 16px auto 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    overflow: hidden;
+  }
+  .applied-section-header {
+    padding: 12px 20px;
+    background: #065f46;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  .applied-section-header:hover { background: #047857; }
+  .applied-toggle-icon { font-size: 14px; transition: transform .2s; }
+  .applied-toggle-icon.open { transform: rotate(180deg); }
+  .applied-section-body { display: none; }
+  .applied-section-body.open { display: block; }
+  .applied-empty {
+    padding: 16px 20px;
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .applied-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
+  .applied-row:last-child { border-bottom: none; }
+  .applied-checkmark { color: var(--green); font-size: 14px; flex-shrink: 0; }
+  .applied-row-title { font-weight: 700; color: var(--accent); flex: 1; min-width: 160px; }
+  .applied-row-company { color: var(--muted); min-width: 100px; }
+  .applied-row-date { color: var(--muted); font-size: 11px; min-width: 80px; }
+  .applied-row-link { color: var(--blue); font-size: 11px; text-decoration: none; font-weight: 600; }
+  .applied-row-link:hover { text-decoration: underline; }
+  .applied-row-undo {
+    padding: 3px 10px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 999px;
+    background: #fff;
+    font-size: 11px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s;
+    margin-left: auto;
+  }
+  .applied-row-undo:hover { border-color: var(--red); color: var(--red); background: var(--red-bg); }
+
+  /* ── Practice Jobs section ── */
+  .practice-section {
+    max-width: 960px;
+    margin: 16px auto 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    overflow: visible;
+  }
+  .practice-section-header {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #5b21b6, #7c3aed);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  .practice-section-header:hover { opacity: .93; }
+  .practice-section-header .subtitle {
+    font-size: 11.5px;
+    font-weight: 400;
+    opacity: .85;
+    margin-top: 3px;
+  }
+  .practice-toggle-icon { font-size: 18px; transition: transform .2s; flex-shrink: 0; }
+  .practice-toggle-icon.open { transform: rotate(180deg); }
+  .practice-body { display: none; padding: 18px 20px 20px; border-top: 1px solid var(--border); }
+  .practice-body.open { display: block; }
+  .practice-intro {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    line-height: 1.6;
+    background: var(--purple-bg);
+    border: 1px solid var(--purple-border);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+
+  /* City search */
+  .practice-search-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .city-input-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    max-width: 340px;
+  }
+  .city-input {
+    width: 100%;
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    font-size: 13px;
+    outline: none;
+    background: #fff;
+  }
+  .city-input:focus { border-color: var(--purple); }
+  .city-suggestions {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.13);
+    z-index: 200;
+    max-height: 220px;
+    overflow-y: auto;
+    display: none;
+  }
+  .city-suggestions.visible { display: block; }
+  .city-suggestion-item {
+    padding: 8px 16px;
+    font-size: 12.5px;
+    cursor: pointer;
+    color: var(--text);
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .city-suggestion-item:last-child { border-bottom: none; }
+  .city-suggestion-item:hover,
+  .city-suggestion-item.focused { background: var(--purple-bg); color: var(--purple); }
+  .practice-search-btn {
+    padding: 9px 24px;
+    background: var(--purple);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .15s;
+    white-space: nowrap;
+  }
+  .practice-search-btn:hover { background: #6d28d9; }
+  .practice-search-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+  /* API key setup */
+  .api-setup-toggle {
+    font-size: 11.5px;
+    color: var(--purple);
+    cursor: pointer;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+  .api-setup-box {
+    background: var(--purple-bg);
+    border: 1px solid var(--purple-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    display: none;
+  }
+  .api-setup-box.visible { display: block; }
+  .api-setup-box p { font-size: 11.5px; color: var(--muted); margin-bottom: 10px; line-height: 1.5; }
+  .api-setup-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+  .api-setup-field { flex: 1; min-width: 150px; }
+  .api-setup-field label { font-size: 11px; font-weight: 700; color: var(--text); display: block; margin-bottom: 4px; }
+  .api-setup-field input {
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1.5px solid var(--purple-border);
+    font-size: 12px;
+    outline: none;
+    background: #fff;
+  }
+  .api-setup-field input:focus { border-color: var(--purple); }
+  .api-save-btn {
+    padding: 7px 18px;
+    background: var(--purple);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    align-self: flex-end;
+    margin-bottom: 1px;
+  }
+  .api-save-btn:hover { background: #6d28d9; }
+  .api-key-status { font-size: 11.5px; color: var(--green); display: block; margin-top: 6px; }
+
+  .practice-status { font-size: 12px; color: var(--muted); margin: 8px 0 4px; min-height: 20px; }
+  .practice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .practice-card {
+    background: var(--purple-bg);
+    border-radius: 10px;
+    border: 1px solid var(--purple-border);
+    border-left: 4px solid var(--purple);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .practice-card .job-title { color: #5b21b6; font-size: 13px; font-weight: 700; }
+  .practice-card .company { font-size: 12px; color: var(--muted); }
+  .practice-card .location { font-size: 12px; color: var(--muted); }
+  .practice-card .salary { font-size: 12px; font-weight: 700; color: var(--green); }
+  .practice-desc { font-size: 11.5px; color: #374151; line-height: 1.5; }
+  .practice-view-btn {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--purple);
+    color: #fff;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: auto;
+    transition: background .15s;
+    align-self: flex-start;
+  }
+  .practice-view-btn:hover { background: #6d28d9; }
+  .practice-fallback {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .practice-fallback a { color: var(--purple); font-weight: 600; }
+
   @media (max-width: 680px) {
-    .grid { grid-template-columns: 1fr; }
+    .grid, .practice-grid { grid-template-columns: 1fr; }
     .search-box { width: 100%; }
+    .city-input-wrap { max-width: 100%; }
   }
 </style>
 </head>
@@ -285,7 +581,7 @@
 <div class="grid" id="grid">
 
   <!-- 1 -->
-  <div class="card" data-tier="1" data-location="remote" data-text="kiewit nuclear solutions senior business analyst remote power bi azure">
+  <div class="card" data-tier="1" data-location="remote" data-id="kiewit" data-text="kiewit nuclear solutions senior business analyst remote power bi azure">
     <div class="card-top">
       <div>
         <div class="job-title">Sr. Business Analyst – Kiewit Nuclear Solutions</div>
@@ -311,11 +607,12 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('kiewit', this)">✓ Mark Applied</button>
     </div>
   </div>
 
   <!-- 2 -->
-  <div class="card" data-tier="1" data-location="onsite" data-text="amazon senior business analyst talent acquisition analytics sql power bi">
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_ta" data-text="amazon senior business analyst talent acquisition analytics sql power bi">
     <div class="card-top">
       <div>
         <div class="job-title">Senior Business Analyst – Talent Acquisition Analytics</div>
@@ -341,11 +638,12 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('amazon_ta', this)">✓ Mark Applied</button>
     </div>
   </div>
 
   <!-- 3 -->
-  <div class="card" data-tier="1" data-location="onsite" data-text="amazon sr business analyst wwgs operations analytics sql power bi">
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_wwgs" data-text="amazon sr business analyst wwgs operations analytics sql power bi">
     <div class="card-top">
       <div>
         <div class="job-title">Sr. Business Analyst – WWGS Operations Analytics</div>
@@ -371,11 +669,12 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('amazon_wwgs', this)">✓ Mark Applied</button>
     </div>
   </div>
 
   <!-- 4 -->
-  <div class="card" data-tier="1" data-location="onsite" data-text="amazon sr business analyst amzl otr planning sql power bi bellevue">
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_otr" data-text="amazon sr business analyst amzl otr planning sql power bi bellevue">
     <div class="card-top">
       <div>
         <div class="job-title">Sr. Business Analyst – AMZL OTR Planning</div>
@@ -401,11 +700,12 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('amazon_otr', this)">✓ Mark Applied</button>
     </div>
   </div>
 
   <!-- 5 -->
-  <div class="card" data-tier="1" data-location="onsite" data-text="amazon senior business analyst network balance equipment optimization nbeo bellevue">
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_nbeo" data-text="amazon senior business analyst network balance equipment optimization nbeo bellevue">
     <div class="card-top">
       <div>
         <div class="job-title">Senior Business Analyst – Network Balance &amp; Equipment Optimization</div>
@@ -431,11 +731,12 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('amazon_nbeo', this)">✓ Mark Applied</button>
     </div>
   </div>
 
   <!-- 6 -->
-  <div class="card" data-tier="1" data-location="onsite" data-text="wizards of the coast senior business analyst sql etl api power bi renton">
+  <div class="card" data-tier="1" data-location="onsite" data-id="wizards" data-text="wizards of the coast senior business analyst sql etl api power bi renton">
     <div class="card-top">
       <div>
         <div class="job-title">Senior Business Analyst</div>
@@ -461,11 +762,12 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-wizards-of-the-coast-4364552218" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('wizards', this)">✓ Mark Applied</button>
     </div>
   </div>
 
   <!-- 7 -->
-  <div class="card" data-tier="2" data-location="onsite" data-text="spacex sr business analyst starlink growth sql power bi redmond">
+  <div class="card" data-tier="2" data-location="onsite" data-id="spacex" data-text="spacex sr business analyst starlink growth sql power bi redmond">
     <div class="card-top">
       <div>
         <div class="job-title">Sr. Business Analyst – Starlink Growth</div>
@@ -491,11 +793,12 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('spacex', this)">✓ Mark Applied</button>
     </div>
   </div>
 
   <!-- 8 -->
-  <div class="card" data-tier="2" data-location="onsite" data-text="intepros senior financial business analyst seattle contract">
+  <div class="card" data-tier="2" data-location="onsite" data-id="intepros_fin" data-text="intepros senior financial business analyst seattle contract">
     <div class="card-top">
       <div>
         <div class="job-title">Senior Financial Business Analyst</div>
@@ -521,11 +824,12 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-financial-business-analyst-at-intepros-4376218003" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('intepros_fin', this)">✓ Mark Applied</button>
     </div>
   </div>
 
   <!-- 9 -->
-  <div class="card" data-tier="2" data-location="onsite" data-text="nac architecture senior business analyst seattle process visio lucidchart">
+  <div class="card" data-tier="2" data-location="onsite" data-id="nac" data-text="nac architecture senior business analyst seattle process visio lucidchart">
     <div class="card-top">
       <div>
         <div class="job-title">Senior Business Analyst</div>
@@ -551,11 +855,12 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-nac-4384641541" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('nac', this)">✓ Mark Applied</button>
     </div>
   </div>
 
   <!-- 10 -->
-  <div class="card" data-tier="2" data-location="hybrid" data-text="evotec senior it business analyst gxp boomi api agile seattle hybrid">
+  <div class="card" data-tier="2" data-location="hybrid" data-id="evotec" data-text="evotec senior it business analyst gxp boomi api agile seattle hybrid">
     <div class="card-top">
       <div>
         <div class="job-title">Senior IT Business Analyst – GxP Systems Integration (Boomi)</div>
@@ -581,11 +886,12 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-it-business-analyst-gxp-systems-integration-boomi-at-evotec-4374508335" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('evotec', this)">✓ Mark Applied</button>
     </div>
   </div>
 
   <!-- 11 -->
-  <div class="card" data-tier="3" data-location="onsite" data-text="intepros business analyst iv geospatial seattle part time contract">
+  <div class="card" data-tier="3" data-location="onsite" data-id="intepros_geo" data-text="intepros business analyst iv geospatial seattle part time contract">
     <div class="card-top">
       <div>
         <div class="job-title">Business Analyst IV – Geospatial</div>
@@ -611,11 +917,12 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('intepros_geo', this)">✓ Mark Applied</button>
     </div>
   </div>
 
   <!-- 12 -->
-  <div class="card" data-tier="3" data-location="remote" data-text="turing remote business analyst ai training contractor">
+  <div class="card" data-tier="3" data-location="remote" data-id="turing" data-text="turing remote business analyst ai training contractor">
     <div class="card-top">
       <div>
         <div class="job-title">Remote Business Analyst – AI Training (57510)</div>
@@ -641,6 +948,7 @@
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('turing', this)">✓ Mark Applied</button>
     </div>
   </div>
 
@@ -678,98 +986,499 @@
   </table>
 </div>
 
+<!-- Applied Jobs section -->
+<div class="applied-section" id="appliedSection">
+  <div class="applied-section-header" id="appliedHeader" onclick="toggleAppliedSection()">
+    <span>✅ Applied Jobs<span class="applied-count" id="appliedCount"></span></span>
+    <span class="applied-toggle-icon" id="appliedToggleIcon">▼</span>
+  </div>
+  <div class="applied-section-body" id="appliedBody">
+    <div class="applied-empty">No jobs marked as applied yet. Click "✓ Mark Applied" on a job card after you apply.</div>
+  </div>
+</div>
+
+<!-- Practice Jobs section -->
+<div class="practice-section" id="practiceSection">
+  <div class="practice-section-header" onclick="togglePracticeSection()">
+    <div>
+      <div>🎯 Non Seattle Interview Practice Jobs</div>
+      <div class="subtitle">Search Business Analyst jobs in any city — for interview prep only, won't appear above</div>
+    </div>
+    <span class="practice-toggle-icon" id="practiceToggleIcon">▼</span>
+  </div>
+  <div class="practice-body" id="practiceBody">
+    <div class="practice-intro">
+      These jobs are <strong>for interview practice only</strong> — they won't appear in Jagriti's main Seattle listings.
+      Search any US city to find live Business Analyst postings. Use them to sharpen your interview answers, research companies, and build confidence.
+    </div>
+
+    <div class="practice-search-row">
+      <div class="city-input-wrap">
+        <input
+          class="city-input"
+          type="text"
+          id="cityInput"
+          placeholder="e.g. Rochester, Chicago, Austin..."
+          autocomplete="off"
+          oninput="onCityInput()"
+          onkeydown="onCityKeydown(event)"
+          onblur="hideSuggestionsDelayed()"
+        >
+        <div class="city-suggestions" id="citySuggestions"></div>
+      </div>
+      <button class="practice-search-btn" id="practiceSearchBtn" onclick="searchPracticeJobs()">🔍 Search</button>
+    </div>
+
+    <button class="api-setup-toggle" onclick="toggleApiSetup()">⚙ Configure Adzuna API Keys (needed for live results)</button>
+    <div class="api-setup-box" id="apiSetupBox">
+      <p>
+        Get free API keys at <a href="https://developer.adzuna.com" target="_blank" style="color:var(--purple);font-weight:600">developer.adzuna.com</a> — takes 2 minutes.
+        Keys are saved in your browser only and never sent anywhere else.
+      </p>
+      <div class="api-setup-row">
+        <div class="api-setup-field">
+          <label>App ID</label>
+          <input type="text" id="apiAppId" placeholder="e.g. a1b2c3d4">
+        </div>
+        <div class="api-setup-field">
+          <label>App Key</label>
+          <input type="text" id="apiAppKey" placeholder="e.g. abc123xyz...">
+        </div>
+        <button class="api-save-btn" onclick="saveApiKeys()">Save Keys</button>
+      </div>
+      <span class="api-key-status" id="apiKeyStatus"></span>
+    </div>
+
+    <div class="practice-status" id="practiceStatus"></div>
+    <div class="practice-grid" id="practiceGrid"></div>
+    <div class="practice-fallback" id="practiceFallback" style="display:none">
+      No Adzuna keys configured? Search directly on:
+      &nbsp;<a href="#" id="linkedinLink" target="_blank">LinkedIn →</a>
+      &nbsp;&nbsp;<a href="#" id="indeedLink" target="_blank">Indeed →</a>
+      &nbsp;&nbsp;<a href="#" id="glassdoorLink" target="_blank">Glassdoor →</a>
+    </div>
+  </div>
+</div>
+
 <script>
-  async function triggerRefresh() {
-    const btn    = document.getElementById('refreshBtn');
-    const status = document.getElementById('refreshStatus');
-    btn.disabled = true;
-    btn.textContent = '⏳ Triggering...';
-    status.textContent = '';
+// ── US Cities list for autocomplete ──
+const US_CITIES = [
+  'New York, NY','Los Angeles, CA','Chicago, IL','Houston, TX','Phoenix, AZ',
+  'Philadelphia, PA','San Antonio, TX','San Diego, CA','Dallas, TX','Jacksonville, FL',
+  'Austin, TX','San Jose, CA','Fort Worth, TX','Columbus, OH','Charlotte, NC',
+  'Indianapolis, IN','San Francisco, CA','Seattle, WA','Denver, CO','Nashville, TN',
+  'Oklahoma City, OK','El Paso, TX','Washington, DC','Boston, MA','Las Vegas, NV',
+  'Louisville, KY','Memphis, TN','Portland, OR','Baltimore, MD','Milwaukee, WI',
+  'Albuquerque, NM','Tucson, AZ','Fresno, CA','Sacramento, CA','Mesa, AZ',
+  'Kansas City, MO','Atlanta, GA','Omaha, NE','Colorado Springs, CO','Raleigh, NC',
+  'Long Beach, CA','Virginia Beach, VA','Minneapolis, MN','Tampa, FL','New Orleans, LA',
+  'Arlington, TX','Wichita, KS','Bakersfield, CA','Aurora, CO','Anaheim, CA',
+  'Santa Ana, CA','Corpus Christi, TX','Riverside, CA','St. Louis, MO','Lexington, KY',
+  'Pittsburgh, PA','Stockton, CA','Anchorage, AK','Cincinnati, OH','St. Paul, MN',
+  'Greensboro, NC','Toledo, OH','Newark, NJ','Plano, TX','Henderson, NV',
+  'Orlando, FL','Chandler, AZ','St. Petersburg, FL','Laredo, TX','Norfolk, VA',
+  'Madison, WI','Durham, NC','Lubbock, TX','Winston-Salem, NC','Garland, TX',
+  'Glendale, AZ','Hialeah, FL','Reno, NV','Baton Rouge, LA','Irvine, CA',
+  'Chesapeake, VA','Irving, TX','Scottsdale, AZ','North Las Vegas, NV','Fremont, CA',
+  'Gilbert, AZ','San Bernardino, CA','Birmingham, AL','Rochester, NY','Rochester, MN',
+  'Spokane, WA','Des Moines, IA','Montgomery, AL','Modesto, CA','Fayetteville, NC',
+  'Tacoma, WA','Akron, OH','Yonkers, NY','Oxnard, CA','Shreveport, LA',
+  'Augusta, GA','Salt Lake City, UT','Tallahassee, FL','Huntsville, AL','Worcester, MA',
+  'Knoxville, TN','Providence, RI','Richmond, VA','Moreno Valley, CA','Glendale, CA',
+  'Little Rock, AR','Amarillo, TX','Columbus, GA','Grand Rapids, MI','Overland Park, KS',
+  'Tempe, AZ','Ontario, CA','Huntington Beach, CA','Brownsville, TX','Santa Clarita, CA',
+  'Garden Grove, CA','Oceanside, CA','Chattanooga, TN','Fort Lauderdale, FL','Rancho Cucamonga, CA',
+  'Santa Rosa, CA','Port Arthur, TX','Oceanside, CA','Elk Grove, CA','Vancouver, WA',
+  'Cape Coral, FL','Peoria, AZ','Eugene, OR','Pembroke Pines, FL','Salem, OR',
+  'Fort Collins, CO','Cary, NC','Corona, CA','Springfield, MO','Jackson, MS',
+  'Alexandria, VA','Hayward, CA','Clarksville, TN','Lancaster, CA','Salinas, CA',
+  'Palmdale, CA','Sunnyvale, CA','Pomona, CA','Escondido, CA','Kansas City, KS',
+  'Surprise, AZ','Pasadena, TX','Rockford, IL','Torrance, CA','Paterson, NJ',
+  'Joliet, IL','Bridgeport, CT','McAllen, TX','Savannah, GA','Syracuse, NY',
+  'Bellevue, WA','Frisco, TX','Macon, GA','Hartford, CT','McKinney, TX',
+  'Louisville, KY','Boise, ID','Buffalo, NY','Raleigh, NC','Durham, NC',
+  'Jersey City, NJ','Laredo, TX','Madison, WI','Chandler, AZ','Detroit, MI',
+  'Miami, FL','Cleveland, OH','Minneapolis, MN','Tulsa, OK','Oakland, CA',
+  'Honolulu, HI','Anchorage, AK','Omaha, NE','Colorado Springs, CO','Arlington, VA'
+];
 
-    try {
-      const res = await fetch(
-        'https://api.github.com/repos/abhishek-panwar/jagriti-jobs/dispatches',
-        {
-          method: 'POST',
-          headers: {
-            'Authorization': 'Bearer ' + ['github','_pat_','11AHXGI','YQ0aKVpl8','cGhlVd_9kb','EwslJvqIbb','AXAy2TjIfra','a9oq7LdYUKMj','isgFJiiJIDXQS','JHC22Eczpo'].join(''),
-            'Accept': 'application/vnd.github+json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ event_type: 'refresh-jobs' })
-        }
-      );
+// ── Applied Jobs ──
+const APPLIED_KEY = 'jagriti_applied_jobs_v1';
 
-      if (res.status === 204) {
-        btn.textContent = '✅ Triggered!';
-        status.textContent = 'Workflow started — page updates in ~3 min. Reload then.';
-        setTimeout(() => {
-          btn.disabled = false;
-          btn.textContent = '🔄 Refresh Jobs';
-          status.textContent = '';
-        }, 15000);
-      } else {
-        throw new Error(`HTTP ${res.status}`);
-      }
-    } catch(e) {
-      btn.textContent = '❌ Failed';
-      status.textContent = `Error: ${e.message}`;
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.textContent = '🔄 Refresh Listings';
-        status.textContent = '';
-      }, 5000);
-    }
+function getApplied() {
+  try { return JSON.parse(localStorage.getItem(APPLIED_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+function saveApplied(arr) {
+  localStorage.setItem(APPLIED_KEY, JSON.stringify(arr));
+}
+
+function markApplied(jobId, btn) {
+  const card = document.querySelector(`.card[data-id="${jobId}"]`);
+  if (!card) return;
+
+  const already = getApplied();
+  if (already.find(j => j.id === jobId)) return;
+
+  const title    = card.querySelector('.job-title')?.textContent || '';
+  const company  = card.querySelector('.company')?.textContent || '';
+  const location = card.querySelector('.location')?.textContent || '';
+  const salary   = card.querySelector('.salary')?.textContent || '';
+  const applyUrl = card.querySelector('.apply-btn')?.href || '';
+
+  const updated = [...already, {
+    id: jobId, title, company, location, salary, applyUrl,
+    appliedAt: new Date().toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'})
+  }];
+  saveApplied(updated);
+
+  btn.classList.add('is-applied');
+  btn.textContent = '✓ Applied!';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    card.classList.add('applied-hidden');
+    applyFilters();
+    renderAppliedSection();
+  }, 700);
+}
+
+function undoApplied(jobId) {
+  saveApplied(getApplied().filter(j => j.id !== jobId));
+  const card = document.querySelector(`.card[data-id="${jobId}"]`);
+  if (card) {
+    card.classList.remove('applied-hidden');
+    const btn = card.querySelector('.applied-btn');
+    if (btn) { btn.classList.remove('is-applied'); btn.textContent = '✓ Mark Applied'; btn.disabled = false; }
   }
+  applyFilters();
+  renderAppliedSection();
+}
 
-  const cards = document.querySelectorAll('.card');
-  const pills  = document.querySelectorAll('.pill');
-  const search = document.getElementById('searchBox');
-  const countLabel = document.getElementById('countLabel');
-  let activeFilter = 'all';
-  let searchTerm = '';
+function renderAppliedSection() {
+  const applied = getApplied();
+  const countEl = document.getElementById('appliedCount');
+  const body    = document.getElementById('appliedBody');
+  countEl.textContent = applied.length > 0 ? ` (${applied.length})` : '';
 
-  function updateCount() {
-    const visible = [...cards].filter(c => !c.classList.contains('hidden')).length;
-    countLabel.textContent = `Showing ${visible} of ${cards.length}`;
+  if (applied.length === 0) {
+    body.innerHTML = '<div class="applied-empty">No jobs marked as applied yet. Click "✓ Mark Applied" on a job card after you apply.</div>';
+    return;
   }
+  body.innerHTML = applied.map(job => `
+    <div class="applied-row">
+      <span class="applied-checkmark">✅</span>
+      <span class="applied-row-title">${escHtml(job.title)}</span>
+      <span class="applied-row-company">${escHtml(job.company)}</span>
+      <span class="applied-row-date">${escHtml(job.appliedAt)}</span>
+      ${job.applyUrl ? `<a class="applied-row-link" href="${escHtml(job.applyUrl)}" target="_blank">View listing →</a>` : ''}
+      <button class="applied-row-undo" onclick="undoApplied('${escHtml(job.id)}')">Undo</button>
+    </div>
+  `).join('');
+}
 
-  function applyFilters() {
-    cards.forEach(card => {
-      const loc   = card.dataset.location;
-      const tier  = card.dataset.tier;
-      const text  = card.dataset.text + ' ' + card.innerText.toLowerCase();
+function toggleAppliedSection() {
+  const body = document.getElementById('appliedBody');
+  const icon = document.getElementById('appliedToggleIcon');
+  const open = body.classList.toggle('open');
+  icon.classList.toggle('open', open);
+}
 
-      const filterMatch =
-        activeFilter === 'all'   ? true :
-        activeFilter === 'remote'? loc === 'remote' :
-        activeFilter === 'hybrid'? loc === 'hybrid' :
-        activeFilter === 'onsite'? loc === 'onsite' :
-        activeFilter === 'tier1' ? tier === '1' :
-        activeFilter === 'tier2' ? tier === '2' : true;
-
-      const searchMatch = searchTerm === '' || text.includes(searchTerm);
-
-      card.classList.toggle('hidden', !(filterMatch && searchMatch));
-    });
-    updateCount();
-  }
-
-  pills.forEach(btn => {
-    btn.addEventListener('click', () => {
-      pills.forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      activeFilter = btn.dataset.filter;
-      applyFilters();
-    });
+function initAppliedState() {
+  getApplied().forEach(job => {
+    const card = document.querySelector(`.card[data-id="${job.id}"]`);
+    if (!card) return;
+    card.classList.add('applied-hidden');
+    const btn = card.querySelector('.applied-btn');
+    if (btn) { btn.classList.add('is-applied'); btn.textContent = '✓ Applied'; btn.disabled = true; }
   });
+  renderAppliedSection();
+}
 
-  search.addEventListener('input', () => {
-    searchTerm = search.value.toLowerCase().trim();
+// ── Filter + search ──
+const cards = document.querySelectorAll('.card');
+const pills  = document.querySelectorAll('.pill');
+const search = document.getElementById('searchBox');
+const countLabel = document.getElementById('countLabel');
+let activeFilter = 'all';
+let searchTerm = '';
+
+function updateCount() {
+  const total   = cards.length;
+  const visible = [...cards].filter(c => !c.classList.contains('hidden') && !c.classList.contains('applied-hidden')).length;
+  countLabel.textContent = `Showing ${visible} of ${total}`;
+}
+
+function applyFilters() {
+  cards.forEach(card => {
+    if (card.classList.contains('applied-hidden')) { card.classList.remove('hidden'); return; }
+    const loc  = card.dataset.location;
+    const tier = card.dataset.tier;
+    const text = (card.dataset.text + ' ' + card.innerText).toLowerCase();
+    const fm =
+      activeFilter === 'all'    ? true :
+      activeFilter === 'remote' ? loc === 'remote' :
+      activeFilter === 'hybrid' ? loc === 'hybrid' :
+      activeFilter === 'onsite' ? loc === 'onsite' :
+      activeFilter === 'tier1'  ? tier === '1' :
+      activeFilter === 'tier2'  ? tier === '2' : true;
+    const sm = searchTerm === '' || text.includes(searchTerm);
+    card.classList.toggle('hidden', !(fm && sm));
+  });
+  updateCount();
+}
+
+pills.forEach(btn => {
+  btn.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
     applyFilters();
   });
+});
+search.addEventListener('input', () => {
+  searchTerm = search.value.toLowerCase().trim();
+  applyFilters();
+});
 
-  updateCount();
+// ── Practice section ──
+function togglePracticeSection() {
+  const body = document.getElementById('practiceBody');
+  const icon = document.getElementById('practiceToggleIcon');
+  const open = body.classList.toggle('open');
+  icon.classList.toggle('open', open);
+}
+
+// ── City autocomplete ──
+let suggestionIndex = -1;
+let suggestionsVisible = false;
+
+function onCityInput() {
+  const q = document.getElementById('cityInput').value.trim();
+  const box = document.getElementById('citySuggestions');
+  const matches = q.length < 1 ? [] :
+    US_CITIES.filter(c => c.toLowerCase().includes(q.toLowerCase())).slice(0, 8);
+
+  if (matches.length === 0) {
+    box.classList.remove('visible');
+    suggestionsVisible = false;
+    return;
+  }
+
+  box.innerHTML = matches.map((c, i) =>
+    `<div class="city-suggestion-item" onmousedown="selectCity('${escHtml(c)}')">${escHtml(c)}</div>`
+  ).join('');
+  box.classList.add('visible');
+  suggestionsVisible = true;
+  suggestionIndex = -1;
+}
+
+function onCityKeydown(e) {
+  const box = document.getElementById('citySuggestions');
+  const items = box.querySelectorAll('.city-suggestion-item');
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    suggestionIndex = Math.min(suggestionIndex + 1, items.length - 1);
+    items.forEach((el, i) => el.classList.toggle('focused', i === suggestionIndex));
+    if (items[suggestionIndex]) document.getElementById('cityInput').value = items[suggestionIndex].textContent;
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    suggestionIndex = Math.max(suggestionIndex - 1, -1);
+    items.forEach((el, i) => el.classList.toggle('focused', i === suggestionIndex));
+  } else if (e.key === 'Enter') {
+    if (suggestionIndex >= 0 && items[suggestionIndex]) {
+      selectCity(items[suggestionIndex].textContent);
+    } else {
+      hideSuggestions();
+      searchPracticeJobs();
+    }
+  } else if (e.key === 'Escape') {
+    hideSuggestions();
+  }
+}
+
+function selectCity(city) {
+  document.getElementById('cityInput').value = city;
+  hideSuggestions();
+}
+function hideSuggestions() {
+  document.getElementById('citySuggestions').classList.remove('visible');
+  suggestionsVisible = false;
+  suggestionIndex = -1;
+}
+function hideSuggestionsDelayed() {
+  setTimeout(hideSuggestions, 200);
+}
+
+// ── API Keys ──
+function toggleApiSetup() {
+  const box = document.getElementById('apiSetupBox');
+  box.classList.toggle('visible');
+  if (box.classList.contains('visible')) {
+    const id  = localStorage.getItem('adzuna_app_id')  || '';
+    const key = localStorage.getItem('adzuna_app_key') || '';
+    document.getElementById('apiAppId').value  = id;
+    document.getElementById('apiAppKey').value = key;
+    updateApiKeyStatus();
+  }
+}
+
+function saveApiKeys() {
+  const id  = document.getElementById('apiAppId').value.trim();
+  const key = document.getElementById('apiAppKey').value.trim();
+  if (!id || !key) { alert('Please enter both App ID and App Key.'); return; }
+  localStorage.setItem('adzuna_app_id',  id);
+  localStorage.setItem('adzuna_app_key', key);
+  updateApiKeyStatus();
+  document.getElementById('apiSetupBox').classList.remove('visible');
+}
+
+function updateApiKeyStatus() {
+  const id  = localStorage.getItem('adzuna_app_id');
+  const key = localStorage.getItem('adzuna_app_key');
+  const el  = document.getElementById('apiKeyStatus');
+  el.textContent = (id && key) ? '✓ API keys saved — live search enabled' : '';
+}
+
+// ── Practice job search ──
+async function searchPracticeJobs() {
+  const city = document.getElementById('cityInput').value.trim();
+  if (!city) { document.getElementById('practiceStatus').textContent = 'Please enter a city name.'; return; }
+
+  const appId  = localStorage.getItem('adzuna_app_id');
+  const appKey = localStorage.getItem('adzuna_app_key');
+  const status = document.getElementById('practiceStatus');
+  const grid   = document.getElementById('practiceGrid');
+  const fallback = document.getElementById('practiceFallback');
+
+  // Update fallback links regardless
+  const q = encodeURIComponent('senior business analyst');
+  const loc = encodeURIComponent(city);
+  document.getElementById('linkedinLink').href  = `https://www.linkedin.com/jobs/search/?keywords=${q}&location=${loc}`;
+  document.getElementById('indeedLink').href    = `https://www.indeed.com/jobs?q=${q}&l=${loc}`;
+  document.getElementById('glassdoorLink').href = `https://www.glassdoor.com/Job/jobs.htm?sc.keyword=${q}&locT=C&locKeyword=${loc}`;
+
+  if (!appId || !appKey) {
+    status.innerHTML = '⚠ Adzuna API keys not set — showing direct search links below.';
+    grid.innerHTML = '';
+    fallback.style.display = 'block';
+    return;
+  }
+
+  const btn = document.getElementById('practiceSearchBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Searching...';
+  status.textContent = `Searching Business Analyst jobs in ${city}...`;
+  grid.innerHTML = '';
+  fallback.style.display = 'none';
+
+  try {
+    const url = `https://api.adzuna.com/v1/api/jobs/us/search/1`
+      + `?app_id=${encodeURIComponent(appId)}`
+      + `&app_key=${encodeURIComponent(appKey)}`
+      + `&what=senior+business+analyst`
+      + `&where=${encodeURIComponent(city)}`
+      + `&results_per_page=10`
+      + `&distance=30`
+      + `&content-type=application/json`;
+
+    const res = await fetch(url);
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(`API returned ${res.status}`);
+    }
+    const data = await res.json();
+
+    if (!data.results || data.results.length === 0) {
+      status.textContent = `No results found for "${city}". Try broadening to a nearby major city.`;
+      fallback.style.display = 'block';
+      btn.disabled = false; btn.textContent = '🔍 Search';
+      return;
+    }
+
+    status.textContent = `Found ${data.results.length} Business Analyst job${data.results.length !== 1 ? 's' : ''} near ${city} — for interview practice only`;
+    grid.innerHTML = data.results.map(job => {
+      const salaryPart = (job.salary_min && job.salary_max)
+        ? `<div class="salary">$${fmtK(job.salary_min)} – $${fmtK(job.salary_max)}</div>`
+        : (job.salary_min ? `<div class="salary">From $${fmtK(job.salary_min)}</div>` : '');
+      const desc = (job.description || '').replace(/<[^>]*>/g,'').substring(0, 180);
+      return `
+        <div class="practice-card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+            <div>
+              <div class="job-title">${escHtml(job.title)}</div>
+              <div class="company">${escHtml(job.company?.display_name || 'Company not listed')}</div>
+            </div>
+            <span class="badge badge-practice" style="flex-shrink:0">Practice</span>
+          </div>
+          <div class="location">📍 ${escHtml(job.location?.display_name || city)}</div>
+          ${salaryPart}
+          <div class="practice-desc">${escHtml(desc)}${desc.length === 180 ? '…' : ''}</div>
+          <a class="practice-view-btn" href="${escHtml(job.redirect_url || '#')}" target="_blank">View Job →</a>
+        </div>`;
+    }).join('');
+
+  } catch(e) {
+    status.innerHTML = `Search failed: ${escHtml(e.message)}. Use direct links below.`;
+    fallback.style.display = 'block';
+  }
+
+  btn.disabled = false;
+  btn.textContent = '🔍 Search';
+}
+
+function fmtK(n) {
+  return n >= 1000 ? Math.round(n / 1000) + 'K' : n;
+}
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+// ── Refresh Jobs ──
+async function triggerRefresh() {
+  const btn    = document.getElementById('refreshBtn');
+  const status = document.getElementById('refreshStatus');
+  btn.disabled = true;
+  btn.textContent = '⏳ Triggering...';
+  status.textContent = '';
+
+  try {
+    const res = await fetch(
+      'https://api.github.com/repos/abhishek-panwar/jagriti-jobs/dispatches',
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + ['github','_pat_','11AHXGI','YQ0aKVpl8','cGhlVd_9kb','EwslJvqIbb','AXAy2TjIfra','a9oq7LdYUKMj','isgFJiiJIDXQS','JHC22Eczpo'].join(''),
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ event_type: 'refresh-jobs' })
+      }
+    );
+    if (res.status === 204) {
+      btn.textContent = '✅ Triggered!';
+      status.textContent = 'Workflow started — page updates in ~3 min. Reload then.';
+      setTimeout(() => { btn.disabled = false; btn.textContent = '🔄 Refresh Jobs'; status.textContent = ''; }, 15000);
+    } else {
+      throw new Error(`HTTP ${res.status}`);
+    }
+  } catch(e) {
+    btn.textContent = '❌ Failed';
+    status.textContent = `Error: ${e.message}`;
+    setTimeout(() => { btn.disabled = false; btn.textContent = '🔄 Refresh Jobs'; status.textContent = ''; }, 5000);
+  }
+}
+
+// ── Init ──
+initAppliedState();
+updateApiKeyStatus();
+updateCount();
 </script>
 </body>
 </html>
