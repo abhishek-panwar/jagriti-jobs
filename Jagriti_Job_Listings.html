@@ -253,6 +253,26 @@
   }
   .download-btn:hover { background: var(--blue); color: #fff; }
 
+  /* Resume change note */
+  .change-note {
+    margin-top: 8px;
+    font-size: 11px;
+    line-height: 1.5;
+    border-radius: 6px;
+    padding: 7px 10px;
+  }
+  .change-note.changed {
+    background: #fef9c3;
+    color: #78350f;
+    border: 1px solid #fde68a;
+  }
+  .change-note.unchanged {
+    background: var(--green-bg);
+    color: var(--green);
+    border: 1px solid #6ee7b7;
+  }
+  .change-note strong { font-weight: 700; }
+
   /* ── Summary table ── */
   .summary-title {
     padding: 12px 20px;
@@ -606,7 +626,7 @@
 <div class="grid" id="grid">
 
   <!-- 1 -->
-  <div class="card" data-tier="1" data-location="remote" data-id="kiewit" data-text="kiewit nuclear solutions senior business analyst remote power bi azure">
+  <div class="card" data-tier="1" data-location="remote" data-id="kiewit" data-resume="resume_job_01" data-text="kiewit nuclear solutions senior business analyst remote power bi azure">
     <div class="card-top">
       <div>
         <div class="job-title">Sr. Business Analyst – Kiewit Nuclear Solutions</div>
@@ -629,6 +649,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: BRD/FRD documentation, Power BI, Azure-adjacent data platforms, multi-initiative intake management — aligned to Kiewit's 7-year BA requirement.</div>
       <a class="download-btn" href="resumes/resume_kiewit.pdf" download="Jagriti_Mahajan_Resume_Kiewit.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_01"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182" target="_blank">Apply on LinkedIn →</a>
@@ -637,7 +658,7 @@
   </div>
 
   <!-- 2 -->
-  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_ta" data-text="amazon senior business analyst talent acquisition analytics sql power bi">
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_ta" data-resume="resume_job_02" data-text="amazon senior business analyst talent acquisition analytics sql power bi">
     <div class="card-top">
       <div>
         <div class="job-title">Senior Business Analyst – Talent Acquisition Analytics</div>
@@ -660,6 +681,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: KPI definition, Power BI executive dashboards, SQL analytics, and senior stakeholder communication — aligned to Amazon's TA Analytics requirements.</div>
       <a class="download-btn" href="resumes/resume_amazon_ta.pdf" download="Jagriti_Mahajan_Resume_Amazon_TA.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_02"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315" target="_blank">Apply on LinkedIn →</a>
@@ -668,7 +690,7 @@
   </div>
 
   <!-- 3 -->
-  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_wwgs" data-text="amazon sr business analyst wwgs operations analytics sql power bi">
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_wwgs" data-resume="resume_job_03" data-text="amazon sr business analyst wwgs operations analytics sql power bi">
     <div class="card-top">
       <div>
         <div class="job-title">Sr. Business Analyst – WWGS Operations Analytics</div>
@@ -691,6 +713,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: Operational deep-dive analysis, SQL + Power BI, AWS ecosystem familiarity, and cross-domain data insights — aligned to Amazon WWGS Operations Analytics.</div>
       <a class="download-btn" href="resumes/resume_amazon_wwgs.pdf" download="Jagriti_Mahajan_Resume_Amazon_WWGS.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_03"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335" target="_blank">Apply on LinkedIn →</a>
@@ -699,7 +722,7 @@
   </div>
 
   <!-- 4 -->
-  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_otr" data-text="amazon sr business analyst amzl otr planning sql power bi bellevue">
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_otr" data-resume="resume_job_04" data-text="amazon sr business analyst amzl otr planning sql power bi bellevue">
     <div class="card-top">
       <div>
         <div class="job-title">Sr. Business Analyst – AMZL OTR Planning</div>
@@ -722,6 +745,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: 5+ years SQL and Power BI, data-driven planning recommendations, financial analysis background — aligned to Amazon AMZL OTR Planning.</div>
       <a class="download-btn" href="resumes/resume_amazon_otr.pdf" download="Jagriti_Mahajan_Resume_Amazon_OTR.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_04"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159" target="_blank">Apply on LinkedIn →</a>
@@ -730,7 +754,7 @@
   </div>
 
   <!-- 5 -->
-  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_nbeo" data-text="amazon senior business analyst network balance equipment optimization nbeo bellevue">
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_nbeo" data-resume="resume_job_05" data-text="amazon senior business analyst network balance equipment optimization nbeo bellevue">
     <div class="card-top">
       <div>
         <div class="job-title">Senior Business Analyst – Network Balance &amp; Equipment Optimization</div>
@@ -753,6 +777,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: Cross-functional collaboration across tech/ops/finance, Snowflake data governance, Power BI dashboards — aligned to Amazon NBEO role.</div>
       <a class="download-btn" href="resumes/resume_amazon_nbeo.pdf" download="Jagriti_Mahajan_Resume_Amazon_NBEO.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_05"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662" target="_blank">Apply on LinkedIn →</a>
@@ -761,7 +786,7 @@
   </div>
 
   <!-- 6 -->
-  <div class="card" data-tier="1" data-location="onsite" data-id="wizards" data-text="wizards of the coast senior business analyst sql etl api power bi renton">
+  <div class="card" data-tier="1" data-location="onsite" data-id="wizards" data-resume="resume_job_06" data-text="wizards of the coast senior business analyst sql etl api power bi renton">
     <div class="card-top">
       <div>
         <div class="job-title">Senior Business Analyst</div>
@@ -784,6 +809,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: Advanced SQL with query optimization, ETL pipelines, API design, Power BI/Tableau — aligned to Wizards of the Coast's digital analytics requirements.</div>
       <a class="download-btn" href="resumes/resume_wizards.pdf" download="Jagriti_Mahajan_Resume_WizardsOfTheCoast.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_06"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-wizards-of-the-coast-4364552218" target="_blank">Apply on LinkedIn →</a>
@@ -792,7 +818,7 @@
   </div>
 
   <!-- 7 -->
-  <div class="card" data-tier="2" data-location="onsite" data-id="spacex" data-text="spacex sr business analyst starlink growth sql power bi redmond">
+  <div class="card" data-tier="2" data-location="onsite" data-id="spacex" data-resume="resume_job_07" data-text="spacex sr business analyst starlink growth sql power bi redmond">
     <div class="card-top">
       <div>
         <div class="job-title">Sr. Business Analyst – Starlink Growth</div>
@@ -815,6 +841,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: SQL, Power BI, financial metrics expertise, growth analytics background — aligned to SpaceX Starlink Growth BA role.</div>
       <a class="download-btn" href="resumes/resume_spacex.pdf" download="Jagriti_Mahajan_Resume_SpaceX.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_07"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384" target="_blank">Apply on LinkedIn →</a>
@@ -823,7 +850,7 @@
   </div>
 
   <!-- 8 -->
-  <div class="card" data-tier="2" data-location="onsite" data-id="intepros_fin" data-text="intepros senior financial business analyst seattle contract">
+  <div class="card" data-tier="2" data-location="onsite" data-id="intepros_fin" data-resume="resume_job_08" data-text="intepros senior financial business analyst seattle contract">
     <div class="card-top">
       <div>
         <div class="job-title">Senior Financial Business Analyst</div>
@@ -846,6 +873,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: Financial data platforms (LSEG/Refinitiv), complex stakeholder management, data governance, process automation — aligned to IntePros Financial BA role.</div>
       <a class="download-btn" href="resumes/resume_intepros_financial.pdf" download="Jagriti_Mahajan_Resume_IntePros_Financial.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_08"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-financial-business-analyst-at-intepros-4376218003" target="_blank">Apply on LinkedIn →</a>
@@ -854,7 +882,7 @@
   </div>
 
   <!-- 9 -->
-  <div class="card" data-tier="2" data-location="onsite" data-id="nac" data-text="nac architecture senior business analyst seattle process visio lucidchart">
+  <div class="card" data-tier="2" data-location="onsite" data-id="nac" data-resume="resume_job_09" data-text="nac architecture senior business analyst seattle process visio lucidchart">
     <div class="card-top">
       <div>
         <div class="job-title">Senior Business Analyst</div>
@@ -877,6 +905,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: Workflow documentation, Visio/LucidChart process mapping, Microsoft 365, technology adoption facilitation — aligned to NAC Architecture BA role.</div>
       <a class="download-btn" href="resumes/resume_nac.pdf" download="Jagriti_Mahajan_Resume_NAC_Architecture.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_09"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-nac-4384641541" target="_blank">Apply on LinkedIn →</a>
@@ -885,7 +914,7 @@
   </div>
 
   <!-- 10 -->
-  <div class="card" data-tier="2" data-location="hybrid" data-id="evotec" data-text="evotec senior it business analyst gxp boomi api agile seattle hybrid">
+  <div class="card" data-tier="2" data-location="hybrid" data-id="evotec" data-resume="resume_job_10" data-text="evotec senior it business analyst gxp boomi api agile seattle hybrid">
     <div class="card-top">
       <div>
         <div class="job-title">Senior IT Business Analyst – GxP Systems Integration (Boomi)</div>
@@ -908,6 +937,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: RESTful API integration, Agile/Scrum, compliance-sensitive UAT, regulated environment experience — aligned to Evotec GxP Systems Integration role.</div>
       <a class="download-btn" href="resumes/resume_evotec.pdf" download="Jagriti_Mahajan_Resume_Evotec.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_10"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-it-business-analyst-gxp-systems-integration-boomi-at-evotec-4374508335" target="_blank">Apply on LinkedIn →</a>
@@ -916,7 +946,7 @@
   </div>
 
   <!-- 11 -->
-  <div class="card" data-tier="3" data-location="onsite" data-id="intepros_geo" data-text="intepros business analyst iv geospatial seattle part time contract">
+  <div class="card" data-tier="3" data-location="onsite" data-id="intepros_geo" data-resume="resume_job_11" data-text="intepros business analyst iv geospatial seattle part time contract">
     <div class="card-top">
       <div>
         <div class="job-title">Business Analyst IV – Geospatial</div>
@@ -939,6 +969,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: Large-scale database management, advanced Excel, SQL analytics, data quality validation — aligned to IntePros Geospatial BA IV role.</div>
       <a class="download-btn" href="resumes/resume_intepros_geo.pdf" download="Jagriti_Mahajan_Resume_IntePros_Geo.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_11"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389" target="_blank">Apply on LinkedIn →</a>
@@ -947,7 +978,7 @@
   </div>
 
   <!-- 12 -->
-  <div class="card" data-tier="3" data-location="remote" data-id="turing" data-text="turing remote business analyst ai training contractor">
+  <div class="card" data-tier="3" data-location="remote" data-id="turing" data-resume="resume_job_12" data-text="turing remote business analyst ai training contractor">
     <div class="card-top">
       <div>
         <div class="job-title">Remote Business Analyst – AI Training (57510)</div>
@@ -970,6 +1001,7 @@
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
       <div class="resume-note">Highlights: AI-assisted data workflows, structured analytical thinking, detailed written justifications, enterprise governance — aligned to Turing Remote BA role.</div>
       <a class="download-btn" href="resumes/resume_turing.pdf" download="Jagriti_Mahajan_Resume_Turing.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_12"></div>
     </div>
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114" target="_blank">Apply on LinkedIn →</a>
@@ -1497,6 +1529,39 @@ async function triggerRefresh() {
   }
 }
 
+// ── Resume change notes ──
+async function loadChangeNotes() {
+  try {
+    const res = await fetch('resumes/changes.json?_=' + Date.now());
+    if (!res.ok) return;
+    const data = await res.json();
+    Object.entries(data).forEach(([key, info]) => {
+      const el = document.getElementById('change-' + key);
+      if (!el) return;
+      if (info.changed) {
+        el.className = 'change-note changed';
+        el.innerHTML = '<strong>✏ Summary tailored for this role.</strong> '
+          + 'Professional Summary was updated to emphasise '
+          + describeChange(info.new_summary) + '.';
+      } else {
+        el.className = 'change-note unchanged';
+        el.innerHTML = '<strong>✓ Your existing resume is good to go for this job.</strong> No changes were needed — the standard summary is the best fit.';
+      }
+    });
+  } catch(e) {
+    // changes.json not yet generated — silently skip
+  }
+}
+
+function describeChange(summary) {
+  const s = summary.toLowerCase();
+  if (s.includes('financial')) return 'financial data platforms and enterprise analytics expertise';
+  if (s.includes('api') || s.includes('integration')) return 'API design, system integration, and RESTful expertise';
+  if (s.includes('agile') || s.includes('scrum')) return 'Agile delivery, sprint ownership, and cross-functional alignment';
+  if (s.includes('data') || s.includes('analytics')) return 'data platform delivery and analytics solution expertise';
+  return 'role-specific strengths';
+}
+
 // ── Init ──
 // Pre-load Adzuna keys if not already saved
 if (!localStorage.getItem('adzuna_app_id'))  localStorage.setItem('adzuna_app_id',  '5975f043');
@@ -1504,6 +1569,7 @@ if (!localStorage.getItem('adzuna_app_key')) localStorage.setItem('adzuna_app_ke
 initAppliedState();
 updateApiKeyStatus();
 updateCount();
+loadChangeNotes();
 </script>
 </body>
 </html>
