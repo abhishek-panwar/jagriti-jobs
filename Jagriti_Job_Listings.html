@@ -2114,57 +2114,18 @@ async function searchCareerJobs() {
     const r = await fetch('https://api.adzuna.com/v1/api/jobs/us/search/1?' + new URLSearchParams(params));
     if (!r.ok) throw new Error(`Adzuna ${r.status}`);
     const data = await r.json();
-    const raw = data.results || [];
-
-    // ── Filter by company name (word match) ──
-    const companyWords = companyRaw.toLowerCase().split(/\s+/).filter(w => w.length > 2);
-    const companyMatch = j => {
-      const co = (j.company?.display_name || '').toLowerCase();
-      return companyWords.some(w => co.includes(w));
-    };
-
-    // ── Filter by city if provided (word match in location) ──
-    const cityWords = cityRaw.toLowerCase().split(/\s+/).filter(w => w.length > 2);
-    const cityMatch = j => {
-      if (!cityRaw) return true;
-      const loc = (j.location?.display_name || '').toLowerCase();
-      return cityWords.some(w => loc.includes(w));
-    };
-
-    // Keep only company-matched results; city filter is soft (warn but don't drop)
-    let matched = raw.filter(companyMatch);
-    const cityFiltered = matched.filter(cityMatch);
-    // If city filtering leaves results, use them; otherwise keep all company matches
-    if (cityRaw && cityFiltered.length > 0) matched = cityFiltered;
+    const results = data.results || [];
 
     btn.disabled = false; btn.textContent = '🔍 Search';
 
-    if (matched.length === 0) {
-      statusEl.innerHTML = `No listings found for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — try leaving city blank or check the spelling.`;
+    if (results.length === 0) {
+      statusEl.innerHTML = `No listings found for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — try leaving city blank.`;
       return;
     }
 
-    // ── Sort: career-page-looking URLs first, then by recency ──
-    // Adzuna's redirect_url goes to the employer's ATS/career site for direct postings
-    const BOARD_DOMAINS = ['adzuna.com','indeed.com','linkedin.com','glassdoor.com','ziprecruiter.com','monster.com','careerbuilder.com'];
-    const isCareerPage = j => {
-      try {
-        const host = new URL(j.redirect_url || '').hostname.toLowerCase();
-        return !BOARD_DOMAINS.some(d => host.includes(d));
-      } catch { return false; }
-    };
-    matched.sort((a, b) => {
-      const aCareer = isCareerPage(a) ? 0 : 1;
-      const bCareer = isCareerPage(b) ? 0 : 1;
-      if (aCareer !== bCareer) return aCareer - bCareer;
-      // Then by date descending
-      return (b.created || '').localeCompare(a.created || '');
-    });
+    statusEl.innerHTML = `Found <strong>${results.length}</strong> listing${results.length !== 1 ? 's' : ''} for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''}`;
 
-    const shown = matched.slice(0, 15);
-    statusEl.innerHTML = `Found <strong>${shown.length}</strong> listing${shown.length !== 1 ? 's' : ''} at <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''}`;
-
-    resultsEl.innerHTML = shown.map(j => {
+    resultsEl.innerHTML = results.map(j => {
       const pid        = 'c_' + slugifyPractice((j.title || '') + '_' + (j.company?.display_name || companyRaw));
       const pApplied   = getPracticeApplied().find(x => x.id === pid);
       const pCancelled = getPracticeCancelled().find(x => x.id === pid);
@@ -2177,19 +2138,13 @@ async function searchCareerJobs() {
       const desc    = (j.description || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim().substring(0, 220);
       const mn = j.salary_min, mx = j.salary_max;
       const salary  = (mn && mx) ? `$${Math.round(mn/1000)}K – $${Math.round(mx/1000)}K/yr` : '';
-      const direct  = isCareerPage(j);
-      const srcLabel = direct ? '🏢 Career Page' : 'Adzuna';
-      const srcBg    = direct ? '#d1fae5' : '#e8f0fb';
-      const srcFg    = direct ? '#065f46' : '#1a56a4';
-      const listed   = j.created ? j.created.substring(0, 10) : '';
+      const listed  = j.created ? j.created.substring(0, 10) : '';
       return `
       <div class="career-job-card" data-pid="${escHtml(pid)}">
         <div class="career-job-top">
           <div>
             <div class="career-job-title">${escHtml(title)}</div>
-            <div class="career-job-company">${escHtml(company)}
-              <span style="font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;background:${srcBg};color:${srcFg};margin-left:5px">${srcLabel}</span>
-            </div>
+            <div class="career-job-company">${escHtml(company)}</div>
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0">
             ${salary ? `<span style="font-size:11.5px;font-weight:700;color:#065f46">${escHtml(salary)}</span>` : ''}
