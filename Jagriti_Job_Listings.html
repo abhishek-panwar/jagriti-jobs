@@ -2372,6 +2372,13 @@ const GREENHOUSE_COMPANIES = [
 // Init on load
 document.addEventListener('DOMContentLoaded', () => {
   if (getWatchlist().length === 0) setWatchlist([...new Set(GREENHOUSE_COMPANIES)]);
+  // Default scan focus: SpaceX
+  const ua = getUserAdded();
+  if (!ua.some(c => c.toLowerCase() === 'spacex')) {
+    setUserAdded([...ua, 'SpaceX']);
+    const wl = getWatchlist();
+    if (!wl.some(c => c.toLowerCase() === 'spacex')) setWatchlist([...wl, 'SpaceX']);
+  }
   renderWatchlistChips();
   renderPersistedJobs();       // restore saved scan results immediately
   scheduleAutoScans();         // set up midnight + noon PST auto-scans
