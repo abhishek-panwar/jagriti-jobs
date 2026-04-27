@@ -1,13 +1,6 @@
 {
   "cancelled": [
     {
-      "id": "intepros_fin",
-      "title": "Senior Financial Business Analyst",
-      "company": "IntePros (contract placement)",
-      "applyUrl": "https://www.linkedin.com/jobs/view/senior-financial-business-analyst-at-intepros-4376218003",
-      "cancelledAt": "Apr 26, 2026"
-    },
-    {
       "id": "nac",
       "title": "Senior Business Analyst",
       "company": "NAC Architecture",
@@ -15,5 +8,5 @@
       "cancelledAt": "Apr 26, 2026"
     }
   ],
-  "lastUpdated": "2026-04-27T04:30:26.754Z"
+  "lastUpdated": "2026-04-27T04:30:30.027Z"
 }
