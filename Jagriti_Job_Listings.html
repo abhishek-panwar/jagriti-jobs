@@ -2117,9 +2117,12 @@ async function searchCareerJobs() {
     );
     if (r.ok) {
       const data = await r.json();
+      // Keep any result where the employer name shares at least one word with what the user typed
+      const companyWords = companyRaw.toLowerCase().split(/\s+/);
       for (const j of (data.data || [])) {
         const emp = (j.employer_name || '').toLowerCase();
-        if (!emp.includes(companyRaw.toLowerCase()) && !companyRaw.toLowerCase().includes(emp.split(' ')[0])) continue;
+        const match = companyWords.some(w => w.length > 2 && emp.includes(w));
+        if (!match) continue;
         const city  = j.job_city  || '';
         const state = j.job_state || '';
         const loc   = (city + (state ? ', ' + state : '')).trim() || 'USA';
@@ -2153,9 +2156,11 @@ async function searchCareerJobs() {
     );
     if (r.ok) {
       const data = await r.json();
+      const companyWords = companyRaw.toLowerCase().split(/\s+/);
       for (const j of (data.results || [])) {
         const co = (j.company?.display_name || '').toLowerCase();
-        if (!co.includes(companyRaw.toLowerCase()) && !companyRaw.toLowerCase().includes(co.split(' ')[0])) continue;
+        const match = companyWords.some(w => w.length > 2 && co.includes(w));
+        if (!match) continue;
         const mn = j.salary_min, mx = j.salary_max;
         jobs.push({
           title:   j.title || '',
@@ -2191,10 +2196,13 @@ async function searchCareerJobs() {
     const pid  = 'c_' + slugifyPractice(j.title + '_' + j.company);
     const pApplied   = getPracticeApplied().find(x => x.id === pid);
     const pCancelled = getPracticeCancelled().find(x => x.id === pid);
+    // Disable OPPOSITE button; active button stays enabled for undo
+    const appliedDis   = pCancelled ? 'disabled' : '';
+    const cancelledDis = pApplied   ? 'disabled' : '';
     const srcBadge = { JSearch:'#1a56a4', Adzuna:'#1a56a4', LinkedIn:'#0a66c2', Indeed:'#2d2d2d', Glassdoor:'#0caa41' };
     const srcColor = srcBadge[j.source] || '#6b7280';
     return `
-    <div class="career-job-card">
+    <div class="career-job-card" data-pid="${escHtml(pid)}">
       <div class="career-job-top">
         <div>
           <div class="career-job-title">${escHtml(j.title)}</div>
@@ -2210,11 +2218,11 @@ async function searchCareerJobs() {
       ${j.desc ? `<div class="career-job-desc">${escHtml(j.desc)}${j.desc.length===220?'…':''}</div>` : ''}
       <div class="career-job-actions">
         <a class="apply-btn" href="${escHtml(j.url)}" target="_blank" style="font-size:12px;padding:6px 14px">Apply →</a>
-        <button class="applied-btn ${pApplied?'is-applied':''}" ${pApplied?'disabled':''} style="font-size:11.5px;padding:5px 12px"
+        <button class="applied-btn ${pApplied?'is-applied':''}" ${appliedDis} style="font-size:11.5px;padding:5px 12px"
           onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
           ${pApplied ? '✓ Applied!' : '✓ Mark Applied'}
         </button>
-        <button class="cancel-btn ${pCancelled?'is-cancelled':''}" ${pCancelled?'disabled':''} style="font-size:11.5px;padding:5px 12px"
+        <button class="cancel-btn ${pCancelled?'is-cancelled':''}" ${cancelledDis} style="font-size:11.5px;padding:5px 12px"
           onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
           ${pCancelled ? '✕ Cancelled' : '✕ Cancel'}
         </button>
@@ -2417,6 +2425,9 @@ async function searchPracticeJobs() {
       const cancelledCls = pCancelled ? 'cancel-btn is-cancelled'  : 'cancel-btn';
       const appliedTxt   = pApplied   ? '✓ Applied!'    : '✓ Mark Applied';
       const cancelledTxt = pCancelled ? '✕ Cancelled'   : '✕ Cancel';
+      // Disable the OPPOSITE button, not the active one (active stays clickable for undo)
+      const appliedDis   = pCancelled ? 'disabled' : '';
+      const cancelledDis = pApplied   ? 'disabled' : '';
       return `
         <div class="practice-card" data-pid="${escHtml(pid)}">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
@@ -2431,8 +2442,8 @@ async function searchPracticeJobs() {
           <div class="practice-desc">${escHtml(desc)}${desc.length === 180 ? '…' : ''}</div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;align-items:center">
             <a class="practice-view-btn" href="${escHtml(pUrl)}" target="_blank">View Job →</a>
-            <button class="${appliedCls}" ${pApplied?'disabled':''} onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(pTitle)}','${escHtml(pCompany)}','${escHtml(pUrl)}',this)">${appliedTxt}</button>
-            <button class="${cancelledCls}" ${pCancelled?'disabled':''} onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(pTitle)}','${escHtml(pCompany)}','${escHtml(pUrl)}',this)">${cancelledTxt}</button>
+            <button class="${appliedCls}" ${appliedDis} onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(pTitle)}','${escHtml(pCompany)}','${escHtml(pUrl)}',this)">${appliedTxt}</button>
+            <button class="${cancelledCls}" ${cancelledDis} onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(pTitle)}','${escHtml(pCompany)}','${escHtml(pUrl)}',this)">${cancelledTxt}</button>
           </div>
         </div>`;
     }).join('');
