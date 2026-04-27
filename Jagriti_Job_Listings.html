@@ -2099,89 +2099,113 @@ async function searchCareerJobs() {
   }
 
   btn.disabled = true; btn.textContent = '⏳ Searching...';
-  statusEl.innerHTML = `Searching Indeed for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''}…`;
+  statusEl.innerHTML = `Searching for <strong>${escHtml(companyRaw)}</strong> listings${cityRaw ? ' in ' + escHtml(cityRaw) : ''}…`;
   resultsEl.innerHTML = '';
 
   try {
-    const q = `"senior business analyst" "${companyRaw}"`;
-    const indeedRss = 'https://www.indeed.com/rss?' + new URLSearchParams(
-      Object.assign({ q, limit: '15', sort: 'relevance' }, cityRaw ? { l: cityRaw } : {})
-    );
+    const appId  = localStorage.getItem('adzuna_app_id')  || '5975f043';
+    const appKey = localStorage.getItem('adzuna_app_key') || '8f81b1c0abed562e98c9a0d5a1890d93';
 
-    // Try multiple CORS proxies in order — use the first one that succeeds
-    async function fetchRss(targetUrl) {
-      const proxies = [
-        u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
-        u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
-        u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
-      ];
-      for (const makeUrl of proxies) {
-        try {
-          const r = await fetch(makeUrl(targetUrl), { signal: AbortSignal.timeout(9000) });
-          if (!r.ok) continue;
-          const text = await r.text();
-          // allorigins /get returns a JSON envelope; unwrap it
-          if (text.trimStart().startsWith('{')) {
-            try { const j = JSON.parse(text); if (j.contents) return j.contents; } catch {}
-          }
-          if (text.includes('<item>') || text.includes('<rss')) return text;
-        } catch {}
-      }
-      throw new Error('all proxies failed — try the direct Indeed link below');
-    }
+    // Embed company name in the query so Adzuna relevance-ranks it to the top
+    const what = `senior business analyst ${companyRaw}`;
+    const params = { app_id: appId, app_key: appKey, what, results_per_page: '20', sort_by: 'relevance' };
+    if (cityRaw) { params.where = cityRaw; params.distance = '30'; }
 
-    const xmlText = await fetchRss(indeedRss);
-    const xml   = new DOMParser().parseFromString(xmlText, 'text/xml');
-    const items = [...xml.querySelectorAll('item')];
+    const r = await fetch('https://api.adzuna.com/v1/api/jobs/us/search/1?' + new URLSearchParams(params));
+    if (!r.ok) throw new Error(`Adzuna ${r.status}`);
+    const data = await r.json();
+    const raw = data.results || [];
+
+    // ── Filter by company name (word match) ──
+    const companyWords = companyRaw.toLowerCase().split(/\s+/).filter(w => w.length > 2);
+    const companyMatch = j => {
+      const co = (j.company?.display_name || '').toLowerCase();
+      return companyWords.some(w => co.includes(w));
+    };
+
+    // ── Filter by city if provided (word match in location) ──
+    const cityWords = cityRaw.toLowerCase().split(/\s+/).filter(w => w.length > 2);
+    const cityMatch = j => {
+      if (!cityRaw) return true;
+      const loc = (j.location?.display_name || '').toLowerCase();
+      return cityWords.some(w => loc.includes(w));
+    };
+
+    // Keep only company-matched results; city filter is soft (warn but don't drop)
+    let matched = raw.filter(companyMatch);
+    const cityFiltered = matched.filter(cityMatch);
+    // If city filtering leaves results, use them; otherwise keep all company matches
+    if (cityRaw && cityFiltered.length > 0) matched = cityFiltered;
 
     btn.disabled = false; btn.textContent = '🔍 Search';
 
-    if (items.length === 0) {
-      statusEl.innerHTML = `No Indeed results for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — try leaving city blank.`;
+    if (matched.length === 0) {
+      statusEl.innerHTML = `No listings found for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — try leaving city blank or check the spelling.`;
       return;
     }
 
-    const jobs = items.map(item => {
-      // Indeed RSS title format: "Job Title - Company Name"
-      const titleFull = item.querySelector('title')?.textContent?.trim() || '';
-      const dash    = titleFull.lastIndexOf(' - ');
-      const title   = dash > -1 ? titleFull.substring(0, dash).trim() : titleFull;
-      const company = dash > -1 ? titleFull.substring(dash + 3).trim() : companyRaw;
-      // <guid> holds the canonical job URL in Indeed RSS
-      const url  = item.querySelector('guid')?.textContent?.trim() || '#';
-      const desc = (item.querySelector('description')?.textContent || '')
-                     .replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
-      return { title, company, loc: cityRaw || 'USA', url, desc: desc.substring(0, 220) };
+    // ── Sort: career-page-looking URLs first, then by recency ──
+    // Adzuna's redirect_url goes to the employer's ATS/career site for direct postings
+    const BOARD_DOMAINS = ['adzuna.com','indeed.com','linkedin.com','glassdoor.com','ziprecruiter.com','monster.com','careerbuilder.com'];
+    const isCareerPage = j => {
+      try {
+        const host = new URL(j.redirect_url || '').hostname.toLowerCase();
+        return !BOARD_DOMAINS.some(d => host.includes(d));
+      } catch { return false; }
+    };
+    matched.sort((a, b) => {
+      const aCareer = isCareerPage(a) ? 0 : 1;
+      const bCareer = isCareerPage(b) ? 0 : 1;
+      if (aCareer !== bCareer) return aCareer - bCareer;
+      // Then by date descending
+      return (b.created || '').localeCompare(a.created || '');
     });
 
-    statusEl.innerHTML = `Found <strong>${jobs.length}</strong> listing${jobs.length !== 1 ? 's' : ''} at <strong>${escHtml(companyRaw)}</strong> on Indeed${cityRaw ? ' in ' + escHtml(cityRaw) : ''}`;
+    const shown = matched.slice(0, 15);
+    statusEl.innerHTML = `Found <strong>${shown.length}</strong> listing${shown.length !== 1 ? 's' : ''} at <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''}`;
 
-    resultsEl.innerHTML = jobs.map(j => {
-      const pid        = 'c_' + slugifyPractice(j.title + '_' + j.company);
+    resultsEl.innerHTML = shown.map(j => {
+      const pid        = 'c_' + slugifyPractice((j.title || '') + '_' + (j.company?.display_name || companyRaw));
       const pApplied   = getPracticeApplied().find(x => x.id === pid);
       const pCancelled = getPracticeCancelled().find(x => x.id === pid);
       const appliedDis   = pCancelled ? 'disabled' : '';
       const cancelledDis = pApplied   ? 'disabled' : '';
+      const title   = j.title || '';
+      const company = j.company?.display_name || companyRaw;
+      const loc     = j.location?.display_name || cityRaw || 'USA';
+      const url     = j.redirect_url || '#';
+      const desc    = (j.description || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim().substring(0, 220);
+      const mn = j.salary_min, mx = j.salary_max;
+      const salary  = (mn && mx) ? `$${Math.round(mn/1000)}K – $${Math.round(mx/1000)}K/yr` : '';
+      const direct  = isCareerPage(j);
+      const srcLabel = direct ? '🏢 Career Page' : 'Adzuna';
+      const srcBg    = direct ? '#d1fae5' : '#e8f0fb';
+      const srcFg    = direct ? '#065f46' : '#1a56a4';
+      const listed   = j.created ? j.created.substring(0, 10) : '';
       return `
       <div class="career-job-card" data-pid="${escHtml(pid)}">
         <div class="career-job-top">
           <div>
-            <div class="career-job-title">${escHtml(j.title)}</div>
-            <div class="career-job-company">${escHtml(j.company)}
-              <span style="font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;background:#f3f4f6;color:#2d2d2d;margin-left:5px">Indeed</span>
+            <div class="career-job-title">${escHtml(title)}</div>
+            <div class="career-job-company">${escHtml(company)}
+              <span style="font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;background:${srcBg};color:${srcFg};margin-left:5px">${srcLabel}</span>
             </div>
           </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0">
+            ${salary ? `<span style="font-size:11.5px;font-weight:700;color:#065f46">${escHtml(salary)}</span>` : ''}
+            ${listed ? `<span style="font-size:10.5px;color:#6b7280">${escHtml(listed)}</span>` : ''}
+          </div>
         </div>
-        <div class="career-job-loc">📍 ${escHtml(j.loc)}</div>
-        ${j.desc ? `<div class="career-job-desc">${escHtml(j.desc)}${j.desc.length >= 220 ? '…' : ''}</div>` : ''}
+        <div class="career-job-loc">📍 ${escHtml(loc)}</div>
+        ${desc ? `<div class="career-job-desc">${escHtml(desc)}${desc.length >= 220 ? '…' : ''}</div>` : ''}
         <div class="career-job-actions">
-          <a class="apply-btn" href="${escHtml(j.url)}" target="_blank" style="font-size:12px;padding:6px 14px">View on Indeed →</a>
+          <a class="apply-btn" href="${escHtml(url)}" target="_blank" style="font-size:12px;padding:6px 14px">Apply →</a>
           <button class="applied-btn ${pApplied ? 'is-applied' : ''}" ${appliedDis} style="font-size:11.5px;padding:5px 12px"
-            onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
+            onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(title)}','${escHtml(company)}','${escHtml(url)}',this)">
             ${pApplied ? '✓ Applied!' : '✓ Mark Applied'}
           </button>
           <button class="cancel-btn ${pCancelled ? 'is-cancelled' : ''}" ${cancelledDis} style="font-size:11.5px;padding:5px 12px"
-            onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
+            onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(title)}','${escHtml(company)}','${escHtml(url)}',this)">
             ${pCancelled ? '✕ Cancelled' : '✕ Cancel'}
           </button>
         </div>
@@ -2190,7 +2214,7 @@ async function searchCareerJobs() {
 
   } catch(e) {
     btn.disabled = false; btn.textContent = '🔍 Search';
-    statusEl.innerHTML = `Search failed (${escHtml(e.message)}) — <a href="https://www.indeed.com/jobs?q=senior+business+analyst+%22${encodeURIComponent(companyRaw)}%22${cityRaw ? '&l=' + encodeURIComponent(cityRaw) : ''}" target="_blank" style="color:var(--purple)">search on Indeed directly →</a>`;
+    statusEl.innerHTML = `Search failed: ${escHtml(e.message)}`;
   }
 }
 
