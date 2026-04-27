@@ -599,7 +599,7 @@
   <div class="page-header-top">
     <div>
       <h1>Sr. Business Analyst — Job Listings for Jagriti ❤️</h1>
-      <p>Seattle, WA area &amp; Remote &nbsp;|&nbsp; Curated for Jagriti Mahajan &nbsp;|&nbsp; April 2026 &nbsp;|&nbsp; 20 active listings</p>
+      <p>Seattle, WA area &amp; Remote &nbsp;|&nbsp; Curated for Jagriti Mahajan &nbsp;|&nbsp; April 2026 &nbsp;|&nbsp; 12 active listings</p>
     </div>
     <div style="text-align:right">
       <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">🔄 Refresh Jobs</button>
@@ -611,7 +611,7 @@
 <!-- Controls -->
 <div class="controls">
   <div class="filter-group">
-    <button class="pill active" data-filter="all">All (20)</button>
+    <button class="pill active" data-filter="all">All (12)</button>
     <button class="pill" data-filter="remote">Remote</button>
     <button class="pill" data-filter="hybrid">Hybrid</button>
     <button class="pill" data-filter="onsite">On-site</button>
@@ -619,611 +619,399 @@
     <button class="pill" data-filter="tier2">Good Match</button>
   </div>
   <input class="search-box" type="text" placeholder="Search by title or company..." id="searchBox">
-  <span class="count-label" id="countLabel">Showing 20 of 20</span>
+  <span class="count-label" id="countLabel">Showing 12 of 12</span>
 </div>
+
+<!-- Threshold progress bar -->
+<div id="thresholdBar" style="max-width:960px;margin:0 auto 14px;background:#fff;border-radius:8px;padding:10px 16px;box-shadow:0 1px 4px rgba(0,0,0,.06)"></div>
 
 <!-- Cards grid -->
 <div class="grid" id="grid">
 
-  <!-- Job 1 -->
-  <div class="card" data-tier="2" data-location="onsite" data-id="job_senior_business_analyst_kiewit_nuclear_s" data-resume="resume_job_01" data-text="senior business analyst-kiewit nuclear solutions kiewit seattle, washington">
+  <!-- 1 -->
+  <div class="card" data-tier="1" data-location="remote" data-id="kiewit" data-resume="resume_job_01" data-text="kiewit nuclear solutions senior business analyst remote power bi azure">
     <div class="card-top">
       <div>
-        <div class="job-title">Senior Business Analyst-Kiewit Nuclear Solutions <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#e8f0fb;color:#0a66c2;margin-left:4px">LinkedIn</span></div>
+        <div class="job-title">Sr. Business Analyst – Kiewit Nuclear Solutions</div>
         <div class="company">Kiewit</div>
       </div>
       <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier2">Good Match</span>
+        <span class="badge badge-remote">Remote</span>
+        <span class="badge badge-tier1">Best Match</span>
       </div>
     </div>
-    <div class="location">📍 Seattle, Washington</div>
-    <div class="salary">Salary not listed</div>
+    <div class="location">📍 Seattle, WA (Remote with occasional travel)</div>
+    <div class="salary">$136,000 – $142,000 / year</div>
     <ul class="requirements">
-      <li>Requisition ID: 180213  Job Level: Mid Level  Home District/Group: Kiewit Nuclear Solutions  Department: Technology Group  Market: Nuclear  Employment Type: Full Time  Position Overview  Kiewit is seeking a highly struct…</li>
+      <li>7+ years in Business Analysis, Systems Analysis, or Technical BA roles</li>
+      <li>Power BI, Azure Data Lake, Azure DevOps, SQL Server</li>
+      <li>BRDs, FRS documents, process flow diagrams; multi-initiative intake management</li>
     </ul>
-    <div class="fit-note"><strong>Good Match:</strong> 5/21 keywords matched — Power BI, business analyst, stakeholder, analytics, requirements. &nbsp;·&nbsp; via <em>LinkedIn</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> Fully remote, best overall match — Azure maps to AWS background, Power BI is a direct hit, 7-year min is well below Jagriti's 12+.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_01.pdf" download="Jagriti_Mahajan_Resume_1.pdf">⬇ Download Resume PDF</a>
+      <div class="resume-note">Highlights: BRD/FRD documentation, Power BI, Azure-adjacent data platforms, multi-initiative intake management — aligned to Kiewit's 7-year BA requirement.</div>
+      <a class="download-btn" href="resumes/resume_kiewit.pdf" download="Jagriti_Mahajan_Resume_Kiewit.pdf">⬇ Download Resume PDF</a>
       <div class="change-note" id="change-resume_job_01"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_business_analyst_kiewit_nuclear_s', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('kiewit', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 2 -->
-  <div class="card" data-tier="2" data-location="remote" data-id="job_business_analyst_rca_b2b_commerce_usa_os" data-resume="resume_job_02" data-text="business analyst, rca/b2b commerce, usa osf digital seattle, wa">
+  <!-- 2 -->
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_ta" data-resume="resume_job_02" data-text="amazon senior business analyst talent acquisition analytics sql power bi">
     <div class="card-top">
       <div>
-        <div class="job-title">Business Analyst, RCA/B2B Commerce, USA <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">Jobgether</span></div>
-        <div class="company">OSF Digital</div>
+        <div class="job-title">Senior Business Analyst – Talent Acquisition Analytics</div>
+        <div class="company">Amazon</div>
       </div>
       <div class="badges">
-        <span class="badge badge-remote">Remote</span>
-        <span class="badge badge-tier2">Good Match</span>
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier1">Best Match</span>
       </div>
     </div>
     <div class="location">📍 Seattle, WA</div>
-    <div class="salary">Salary not listed</div>
+    <div class="salary">$118,200 – $160,000 / year</div>
     <ul class="requirements">
-      <li>This a Full Remote job, the offer is available from: United States OSF Digital is a leading digital transformation firm with a global footprint in 30+ countries and over 1500+ employees. Our passion is in helping busines…</li>
+      <li>5+ years in finance or analytical field; SQL + Tableau or Power BI</li>
+      <li>Define metrics and extract business insights from large datasets</li>
+      <li>Stakeholder communication up to executive level</li>
     </ul>
-    <div class="fit-note"><strong>Good Match:</strong> 5/21 keywords matched — API, business analyst, stakeholder, analytics, requirements. &nbsp;·&nbsp; via <em>Jobgether</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> Power BI, SQL, and financial data platform experience are direct matches. 12+ years far exceeds the 5-year minimum.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_02.pdf" download="Jagriti_Mahajan_Resume_2.pdf">⬇ Download Resume PDF</a>
+      <div class="resume-note">Highlights: KPI definition, Power BI executive dashboards, SQL analytics, and senior stakeholder communication — aligned to Amazon's TA Analytics requirements.</div>
+      <a class="download-btn" href="resumes/resume_amazon_ta.pdf" download="Jagriti_Mahajan_Resume_Amazon_TA.pdf">⬇ Download Resume PDF</a>
       <div class="change-note" id="change-resume_job_02"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://jobgether.com/offer/69e9926ac646310ee3982b1d-business-analyst-rca-b2b-commerce-usa" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_business_analyst_rca_b2b_commerce_usa_os', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('amazon_ta', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 3 -->
-  <div class="card" data-tier="2" data-location="remote" data-id="job_remote_senior_business_analyst_data_anal" data-resume="resume_job_03" data-text="remote senior business analyst: data &amp; analytics solutions kiewit seattle, washington">
+  <!-- 3 -->
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_wwgs" data-resume="resume_job_03" data-text="amazon sr business analyst wwgs operations analytics sql power bi">
     <div class="card-top">
       <div>
-        <div class="job-title">Remote Senior Business Analyst: Data &amp; Analytics Solutions <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">WhatJobs</span></div>
-        <div class="company">Kiewit</div>
+        <div class="job-title">Sr. Business Analyst – WWGS Operations Analytics</div>
+        <div class="company">Amazon</div>
       </div>
       <div class="badges">
-        <span class="badge badge-remote">Remote</span>
-        <span class="badge badge-tier2">Good Match</span>
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier1">Best Match</span>
       </div>
     </div>
-    <div class="location">📍 Seattle, Washington</div>
-    <div class="salary">Salary not listed</div>
+    <div class="location">📍 Seattle, WA (also Bothell, Austin, Arlington)</div>
+    <div class="salary">$118,200 – $160,000 / year</div>
     <ul class="requirements">
-      <li>A leading engineering firm is seeking a Senior Business Analyst to manage analytics and data solutions. The successful candidate will drive onboarding processes, define requirements, and manage documentation across diver…</li>
+      <li>5+ years analytical field; 3+ years SQL and Power BI / Tableau</li>
+      <li>Deep-dive analysis to generate actionable business insights</li>
+      <li>Preferred: MBA, AWS QuickSight, financial / business analysis background</li>
     </ul>
-    <div class="fit-note"><strong>Good Match:</strong> 3/21 keywords matched — business analyst, analytics, requirements. &nbsp;·&nbsp; via <em>WhatJobs</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> Strong SQL + Power BI match; AWS QuickSight is adjacent to existing AWS skills.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_03.pdf" download="Jagriti_Mahajan_Resume_3.pdf">⬇ Download Resume PDF</a>
+      <div class="resume-note">Highlights: Operational deep-dive analysis, SQL + Power BI, AWS ecosystem familiarity, and cross-domain data insights — aligned to Amazon WWGS Operations Analytics.</div>
+      <a class="download-btn" href="resumes/resume_amazon_wwgs.pdf" download="Jagriti_Mahajan_Resume_Amazon_WWGS.pdf">⬇ Download Resume PDF</a>
       <div class="change-note" id="change-resume_job_03"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://www.whatjobs.com/jobs/senior-business-analyst-data/remote?id=2644071415" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_remote_senior_business_analyst_data_anal', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('amazon_wwgs', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 4 -->
-  <div class="card" data-tier="2" data-location="onsite" data-id="job_senior_business_analyst_seller_trust_gro" data-resume="resume_job_04" data-text="senior business analyst, seller trust &amp; growth analytics amazon seattle, washington">
+  <!-- 4 -->
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_otr" data-resume="resume_job_04" data-text="amazon sr business analyst amzl otr planning sql power bi bellevue">
     <div class="card-top">
       <div>
-        <div class="job-title">Senior Business Analyst, Seller Trust &amp; Growth Analytics <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">WhatJobs</span></div>
+        <div class="job-title">Sr. Business Analyst – AMZL OTR Planning</div>
         <div class="company">Amazon</div>
       </div>
       <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier2">Good Match</span>
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier1">Best Match</span>
       </div>
     </div>
-    <div class="location">📍 Seattle, Washington</div>
-    <div class="salary">Salary not listed</div>
+    <div class="location">📍 Bellevue, WA (also Austin, Nashville)</div>
+    <div class="salary">$118,200 – $160,000 / year</div>
     <ul class="requirements">
-      <li>A leading tech company in Seattle is searching for a skilled Business Analyst to join their team. The role involves developing scalable solutions for metrics and reports, translating business needs into analytics, and ut…</li>
+      <li>5+ years analytical experience; 5+ years SQL and Power BI / Tableau</li>
+      <li>Excel proficiency with data-driven stakeholder recommendations</li>
+      <li>Preferred: MBA, 7+ years financial / business analysis</li>
     </ul>
-    <div class="fit-note"><strong>Good Match:</strong> 3/21 keywords matched — SQL, business analyst, analytics. &nbsp;·&nbsp; via <em>WhatJobs</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> Direct SQL + Power BI match in a data-heavy last-mile logistics analytics environment.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_04.pdf" download="Jagriti_Mahajan_Resume_4.pdf">⬇ Download Resume PDF</a>
+      <div class="resume-note">Highlights: 5+ years SQL and Power BI, data-driven planning recommendations, financial analysis background — aligned to Amazon AMZL OTR Planning.</div>
+      <a class="download-btn" href="resumes/resume_amazon_otr.pdf" download="Jagriti_Mahajan_Resume_Amazon_OTR.pdf">⬇ Download Resume PDF</a>
       <div class="change-note" id="change-resume_job_04"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://www.whatjobs.com/jobs/senior-business-analyst-seller-trust/seattle-washington?id=2640765737" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_business_analyst_seller_trust_gro', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('amazon_otr', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 5 -->
-  <div class="card" data-tier="2" data-location="onsite" data-id="job_senior_business_analyst_uk_maximus" data-resume="resume_job_05" data-text="senior business analyst, uk maximus times square, king county">
+  <!-- 5 -->
+  <div class="card" data-tier="1" data-location="onsite" data-id="amazon_nbeo" data-resume="resume_job_05" data-text="amazon senior business analyst network balance equipment optimization nbeo bellevue">
     <div class="card-top">
       <div>
-        <div class="job-title">Senior Business Analyst, UK <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#e8f0fb;color:#1a56a4;margin-left:4px">Adzuna</span></div>
-        <div class="company">Maximus</div>
+        <div class="job-title">Senior Business Analyst – Network Balance &amp; Equipment Optimization</div>
+        <div class="company">Amazon</div>
       </div>
       <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier2">Good Match</span>
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier1">Best Match</span>
       </div>
     </div>
-    <div class="location">📍 Times Square, King County</div>
-    <div class="salary">$80,789 – $80,789 / year</div>
+    <div class="location">📍 Bellevue, WA</div>
+    <div class="salary">$118,200 – $160,000 / year</div>
     <ul class="requirements">
-      <li>Key Responsibilities Business Analysis &amp; Requirements Definition • Lead the elicitation, analysis, refinement, and validation of business, functional, and non-functional requirements using recognised tools, techniques, a…</li>
+      <li>5+ years analytical experience; SQL, Power BI / Tableau for dashboards</li>
+      <li>Cross-functional collaboration across tech, ops, finance, and transportation</li>
+      <li>Preferred: Master's in supply chain, operations, engineering, or analytics</li>
     </ul>
-    <div class="fit-note"><strong>Good Match:</strong> 3/21 keywords matched — business analyst, requirements, user stories. &nbsp;·&nbsp; via <em>Adzuna</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> Power BI and SQL are core requirements; strong cross-functional stakeholder background is a direct match.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_05.pdf" download="Jagriti_Mahajan_Resume_5.pdf">⬇ Download Resume PDF</a>
+      <div class="resume-note">Highlights: Cross-functional collaboration across tech/ops/finance, Snowflake data governance, Power BI dashboards — aligned to Amazon NBEO role.</div>
+      <a class="download-btn" href="resumes/resume_amazon_nbeo.pdf" download="Jagriti_Mahajan_Resume_Amazon_NBEO.pdf">⬇ Download Resume PDF</a>
       <div class="change-note" id="change-resume_job_05"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://www.adzuna.com/details/5706378110?utm_medium=api&utm_source=5975f043" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_business_analyst_uk_maximus', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('amazon_nbeo', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 6 -->
-  <div class="card" data-tier="3" data-location="remote" data-id="job_sr_business_systems_analyst_teksystems" data-resume="resume_job_06" data-text="sr. business systems analyst teksystems seattle, washington">
+  <!-- 6 -->
+  <div class="card" data-tier="1" data-location="onsite" data-id="wizards" data-resume="resume_job_06" data-text="wizards of the coast senior business analyst sql etl api power bi renton">
     <div class="card-top">
       <div>
-        <div class="job-title">Sr. Business Systems Analyst <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">TEKsystems Careers</span></div>
-        <div class="company">TEKsystems</div>
+        <div class="job-title">Senior Business Analyst</div>
+        <div class="company">Wizards of the Coast</div>
       </div>
       <div class="badges">
-        <span class="badge badge-remote">Remote</span>
-        <span class="badge badge-tier3">Partial Match</span>
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier1">Best Match</span>
       </div>
     </div>
-    <div class="location">📍 Seattle, Washington</div>
-    <div class="salary">$65 – $80 / year</div>
+    <div class="location">📍 Renton, WA (~20 min from Seattle)</div>
+    <div class="salary">$95,000 – $159,000 / year</div>
     <ul class="requirements">
-      <li>Business Systems Analyst  Contract Duration: 7 Months  Work Arrangement: 100% Remote  Overview • We are seeking an experienced Business Systems Analyst to support the transformation and expansion of an enterprise Portfol…</li>
+      <li>Master's + 5 yrs OR Bachelor's + 8 yrs in consumer, digital, or tech analysis</li>
+      <li>Advanced SQL including query optimization; ETL processes and API knowledge</li>
+      <li>Sophisticated dashboards in Tableau and / or Power BI</li>
     </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 2/21 keywords matched — Agile, stakeholder. &nbsp;·&nbsp; via <em>TEKsystems Careers</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> ETL + API + Power BI + SQL are all direct matches. 12+ years exceeds the 8-year requirement.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_06.pdf" download="Jagriti_Mahajan_Resume_6.pdf">⬇ Download Resume PDF</a>
+      <div class="resume-note">Highlights: Advanced SQL with query optimization, ETL pipelines, API design, Power BI/Tableau — aligned to Wizards of the Coast's digital analytics requirements.</div>
+      <a class="download-btn" href="resumes/resume_wizards.pdf" download="Jagriti_Mahajan_Resume_WizardsOfTheCoast.pdf">⬇ Download Resume PDF</a>
       <div class="change-note" id="change-resume_job_06"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://careers.teksystems.com/us/en/job/JP-005965345/Sr-Business-Systems-Analyst" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_sr_business_systems_analyst_teksystems', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-wizards-of-the-coast-4364552218" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('wizards', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 7 -->
-  <div class="card" data-tier="3" data-location="onsite" data-id="job_senior_business_analyst_puget_sound_ener" data-resume="resume_job_07" data-text="senior business analyst puget sound energy, inc bothell, washington">
+  <!-- 7 -->
+  <div class="card" data-tier="2" data-location="onsite" data-id="spacex" data-resume="resume_job_07" data-text="spacex sr business analyst starlink growth sql power bi redmond">
     <div class="card-top">
       <div>
-        <div class="job-title">Senior Business Analyst <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">Monster</span></div>
-        <div class="company">Puget Sound Energy, Inc</div>
+        <div class="job-title">Sr. Business Analyst – Starlink Growth</div>
+        <div class="company">SpaceX</div>
       </div>
       <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier3">Partial Match</span>
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier2">Good Match</span>
       </div>
     </div>
-    <div class="location">📍 Bothell, Washington</div>
-    <div class="salary">Salary not listed</div>
+    <div class="location">📍 Redmond, WA (~30 min from Seattle)</div>
+    <div class="salary">$115,000 – $150,000 / year</div>
     <ul class="requirements">
-      <li>Puget Sound Energy is looking to grow our community with top talented individuals like you! With our rapidly growing, award winning energy efficiency programs, our pathway to an exciting and innovative future is now.  PS…</li>
+      <li>Bachelor's + 5+ years in business analytics, consulting, or growth operations</li>
+      <li>3+ years SQL and dashboard management (Tableau / Power BI / Looker)</li>
+      <li>Preferred: ETL processes, statistical modeling (Python / R), financial metrics expertise</li>
     </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 2/21 keywords matched — API, business analyst. &nbsp;·&nbsp; via <em>Monster</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> SQL, Power BI, and financial data background are relevant in a high-growth tech environment.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_07.pdf" download="Jagriti_Mahajan_Resume_7.pdf">⬇ Download Resume PDF</a>
+      <div class="resume-note">Highlights: SQL, Power BI, financial metrics expertise, growth analytics background — aligned to SpaceX Starlink Growth BA role.</div>
+      <a class="download-btn" href="resumes/resume_spacex.pdf" download="Jagriti_Mahajan_Resume_SpaceX.pdf">⬇ Download Resume PDF</a>
       <div class="change-note" id="change-resume_job_07"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://www.monster.com/job-openings/senior-business-analyst-bothell-wa--7b943406-a42c-4cf3-80f0-f75a776fbc1e?mstr_dist=true" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_business_analyst_puget_sound_ener', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('spacex', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 8 -->
-  <div class="card" data-tier="3" data-location="onsite" data-id="job_senior_business_analyst_life_sciences_fm" data-resume="resume_job_08" data-text="senior business analyst – life sciences fme us, llc seattle, wa">
+  <!-- 8 -->
+  <div class="card" data-tier="2" data-location="onsite" data-id="intepros_fin" data-resume="resume_job_08" data-text="intepros senior financial business analyst seattle contract">
     <div class="card-top">
       <div>
-        <div class="job-title">Senior Business Analyst – Life Sciences <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">Remote Rocketship</span></div>
-        <div class="company">fme US, LLC</div>
+        <div class="job-title">Senior Financial Business Analyst</div>
+        <div class="company">IntePros (contract placement)</div>
       </div>
       <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier3">Partial Match</span>
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier2">Good Match</span>
       </div>
     </div>
-    <div class="location">📍 Seattle, WA</div>
-    <div class="salary">Salary not listed</div>
+    <div class="location">📍 Seattle / Bothell, WA</div>
+    <div class="salary">Salary not listed (contract)</div>
     <ul class="requirements">
-      <li>Job Description: • Drive project management and business analysis activities for Life Sciences projects. • Lead and manage projects from initiation to completion, ensuring they are delivered on time, within budget, and t…</li>
+      <li>Complex financial modeling for strategic and operational decision-making</li>
+      <li>Cross-functional stakeholder management across senior leadership</li>
+      <li>Product strategy alignment; process improvement and automation experience</li>
     </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 2/21 keywords matched — business analyst, requirements. &nbsp;·&nbsp; via <em>Remote Rocketship</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> Financial data platforms experience is a direct match; contract role with placement through IntePros staffing.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_08.pdf" download="Jagriti_Mahajan_Resume_8.pdf">⬇ Download Resume PDF</a>
+      <div class="resume-note">Highlights: Financial data platforms (LSEG/Refinitiv), complex stakeholder management, data governance, process automation — aligned to IntePros Financial BA role.</div>
+      <a class="download-btn" href="resumes/resume_intepros_financial.pdf" download="Jagriti_Mahajan_Resume_IntePros_Financial.pdf">⬇ Download Resume PDF</a>
       <div class="change-note" id="change-resume_job_08"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://www.remoterocketship.com/company/fme-us/jobs/senior-business-analyst-life-sciences-united-states-remote/" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_business_analyst_life_sciences_fm', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-financial-business-analyst-at-intepros-4376218003" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('intepros_fin', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 9 -->
-  <div class="card" data-tier="3" data-location="remote" data-id="job_fresher_business_analyst_only_citizen_ve" data-resume="resume_job_09" data-text="fresher business analyst (only citizen) veracity software inc seattle, wa">
+  <!-- 9 -->
+  <div class="card" data-tier="2" data-location="onsite" data-id="nac" data-resume="resume_job_09" data-text="nac architecture senior business analyst seattle process visio lucidchart">
     <div class="card-top">
       <div>
-        <div class="job-title">Fresher Business Analyst (Only Citizen) <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#e8f0fb;color:#0a66c2;margin-left:4px">LinkedIn</span></div>
-        <div class="company">Veracity Software Inc</div>
+        <div class="job-title">Senior Business Analyst</div>
+        <div class="company">NAC Architecture</div>
       </div>
       <div class="badges">
-        <span class="badge badge-remote">Remote</span>
-        <span class="badge badge-tier3">Partial Match</span>
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier2">Good Match</span>
       </div>
     </div>
     <div class="location">📍 Seattle, WA</div>
-    <div class="salary">Salary not listed</div>
+    <div class="salary">$115,000 – $170,000 / year</div>
     <ul class="requirements">
-      <li>Job Title: Fresher Business Analyst (Only Citizen)  Location: Location: New Jersey (Hybrid/Onsite) or Remote  Employment Type: Training + Internship Opportunity  Candidates: Only Citizen  Job Description:  We are looking…</li>
+      <li>Bachelor's + 6–8+ years in business analysis or process improvement</li>
+      <li>Workflow documentation, cross-functional facilitation, technology adoption</li>
+      <li>Microsoft 365 suite; Visio / LucidChart process mapping</li>
     </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 2/21 keywords matched — business analyst, UAT. &nbsp;·&nbsp; via <em>LinkedIn</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> Strong process/governance background matches data governance experience; Visio and LucidChart are already on the resume.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_09.pdf" download="Jagriti_Mahajan_Resume_9.pdf">⬇ Download Resume PDF</a>
+      <div class="resume-note">Highlights: Workflow documentation, Visio/LucidChart process mapping, Microsoft 365, technology adoption facilitation — aligned to NAC Architecture BA role.</div>
+      <a class="download-btn" href="resumes/resume_nac.pdf" download="Jagriti_Mahajan_Resume_NAC_Architecture.pdf">⬇ Download Resume PDF</a>
       <div class="change-note" id="change-resume_job_09"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/fresher-business-analyst-only-citizen-at-veracity-software-inc-4403754536" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_fresher_business_analyst_only_citizen_ve', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-nac-4384641541" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('nac', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 10 -->
-  <div class="card" data-tier="3" data-location="onsite" data-id="job_senior_business_analyst_talent_acquisiti" data-resume="resume_job_10" data-text="senior business analyst, talent acquisition analytics amazon international, king county">
+  <!-- 10 -->
+  <div class="card" data-tier="2" data-location="hybrid" data-id="evotec" data-resume="resume_job_10" data-text="evotec senior it business analyst gxp boomi api agile seattle hybrid">
     <div class="card-top">
       <div>
-        <div class="job-title">Senior Business Analyst, Talent Acquisition Analytics <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#e8f0fb;color:#1a56a4;margin-left:4px">Adzuna</span></div>
-        <div class="company">Amazon</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier3">Partial Match</span>
-      </div>
-    </div>
-    <div class="location">📍 International, King County</div>
-    <div class="salary">$153,049 – $153,049 / year</div>
-    <ul class="requirements">
-      <li>Description As a Senior Business Analyst, this is your opportunity to be at the intersection of data, analysis, hiring, and strategy that will make it possible for our teams to fulfill that customer promise every day. In…</li>
-    </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 2/21 keywords matched — business analyst, analytics. &nbsp;·&nbsp; via <em>Adzuna</em></div>
-    <div class="resume-section">
-      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_10.pdf" download="Jagriti_Mahajan_Resume_10.pdf">⬇ Download Resume PDF</a>
-      <div class="change-note" id="change-resume_job_10"></div>
-    </div>
-    <div class="card-actions">
-      <a class="apply-btn" href="https://www.adzuna.com/land/ad/5646930969?se=HCPPcOxB8RG60p_fUSdYlA&utm_medium=api&utm_source=5975f043&v=D88979940F394928E37400FE715A37C0373BA595" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_business_analyst_talent_acquisiti', this)">✓ Mark Applied</button>
-    </div>
-  </div>
-
-  <!-- Job 11 -->
-  <div class="card" data-tier="3" data-location="onsite" data-id="job_senior_business_analyst_network_balance_" data-resume="resume_job_11" data-text="senior business analyst, network balance and equipment optimization (nbeo) amazon bellevue, king county">
-    <div class="card-top">
-      <div>
-        <div class="job-title">Senior Business Analyst, Network Balance and Equipment Optimization (NBEO) <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#e8f0fb;color:#1a56a4;margin-left:4px">Adzuna</span></div>
-        <div class="company">Amazon</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier3">Partial Match</span>
-      </div>
-    </div>
-    <div class="location">📍 Bellevue, King County</div>
-    <div class="salary">$231,556 – $231,556 / year</div>
-    <ul class="requirements">
-      <li>Description Amazon Transportation Services (ATS) Line Haul is looking for a talented Sr. Business Analyst who will own analytics and develop solutions to drive insights and optimization for Network Planning and Forecasti…</li>
-    </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 2/21 keywords matched — business analyst, analytics. &nbsp;·&nbsp; via <em>Adzuna</em></div>
-    <div class="resume-section">
-      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_11.pdf" download="Jagriti_Mahajan_Resume_11.pdf">⬇ Download Resume PDF</a>
-      <div class="change-note" id="change-resume_job_11"></div>
-    </div>
-    <div class="card-actions">
-      <a class="apply-btn" href="https://www.adzuna.com/land/ad/5710050002?se=HCPPcOxB8RG60p_fUSdYlA&utm_medium=api&utm_source=5975f043&v=3C42D583FDC1B4E10EFF3791DD507BB2A2C0EAF6" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_business_analyst_network_balance_', this)">✓ Mark Applied</button>
-    </div>
-  </div>
-
-  <!-- Job 12 -->
-  <div class="card" data-tier="3" data-location="hybrid" data-id="job_senior_business_analyst_commercial_econo" data-resume="resume_job_12" data-text="senior business analyst, commercial economics job id 2026-1386 internet brands seattle, king county">
-    <div class="card-top">
-      <div>
-        <div class="job-title">Senior Business Analyst, Commercial Economics Job ID 2026-1386 <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#e8f0fb;color:#1a56a4;margin-left:4px">Adzuna</span></div>
-        <div class="company">Internet Brands</div>
+        <div class="job-title">Senior IT Business Analyst – GxP Systems Integration (Boomi)</div>
+        <div class="company">Evotec</div>
       </div>
       <div class="badges">
         <span class="badge badge-hybrid">Hybrid</span>
-        <span class="badge badge-tier3">Partial Match</span>
+        <span class="badge badge-tier2">Good Match</span>
       </div>
     </div>
-    <div class="location">📍 Seattle, King County</div>
-    <div class="salary">$70,022 – $70,022 / year</div>
+    <div class="location">📍 Seattle, WA (Hybrid)</div>
+    <div class="salary">$126,000 – $140,000 + discretionary bonus</div>
     <ul class="requirements">
-      <li>Description Position: Senior Business Analyst, Commercial Economics Location: Seattle, WA (Hybrid), or Eagan, MN (Hybrid) Overview: The Senior Business Analyst, Commercial Economics supports pricing, deal performance, an…</li>
+      <li>5+ years IT Business Analyst experience in regulated / GxP environments</li>
+      <li>Boomi or comparable integration platform; ERP / LIMS / MES integrations</li>
+      <li>API integration knowledge; Agile methodology familiarity</li>
     </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 2/21 keywords matched — business analyst, analytics. &nbsp;·&nbsp; via <em>Adzuna</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> RESTful API and Agile/Scrum are directly called out as preferred skills; hybrid arrangement.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_12.pdf" download="Jagriti_Mahajan_Resume_12.pdf">⬇ Download Resume PDF</a>
-      <div class="change-note" id="change-resume_job_12"></div>
+      <div class="resume-note">Highlights: RESTful API integration, Agile/Scrum, compliance-sensitive UAT, regulated environment experience — aligned to Evotec GxP Systems Integration role.</div>
+      <a class="download-btn" href="resumes/resume_evotec.pdf" download="Jagriti_Mahajan_Resume_Evotec.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_10"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://www.adzuna.com/details/5696475676?utm_medium=api&utm_source=5975f043" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_business_analyst_commercial_econo', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-it-business-analyst-gxp-systems-integration-boomi-at-evotec-4374508335" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('evotec', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 13 -->
-  <div class="card" data-tier="3" data-location="onsite" data-id="job_senior_business_analyst_king_county" data-resume="resume_job_13" data-text="senior business analyst king county seattle, washington">
+  <!-- 11 -->
+  <div class="card" data-tier="3" data-location="onsite" data-id="intepros_geo" data-resume="resume_job_11" data-text="intepros business analyst iv geospatial seattle part time contract">
     <div class="card-top">
       <div>
-        <div class="job-title">Senior Business Analyst <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">GovernmentJobs.com</span></div>
-        <div class="company">King County</div>
+        <div class="job-title">Business Analyst IV – Geospatial</div>
+        <div class="company">IntePros (contract placement)</div>
       </div>
       <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
+        <span class="badge badge-onsite">On-site</span>
         <span class="badge badge-tier3">Partial Match</span>
       </div>
     </div>
-    <div class="location">📍 Seattle, Washington</div>
-    <div class="salary">$129,958 – $157,102 / year</div>
+    <div class="location">📍 Seattle, WA (20 hrs/week contract)</div>
+    <div class="salary">Salary not listed (part-time contract)</div>
     <ul class="requirements">
-      <li>King County Metro Transit’s Facilities Division (TFD) has an exciting opportunity for a project and process leader to fulfill the role of a Senior Business Analyst. This position will be a crucial link between business n…</li>
+      <li>5+ years geospatial analysis; 5+ years advanced Excel; 2+ years large database management</li>
+      <li>Python and / or R for statistical methods</li>
+      <li>Bachelor's required; Master's preferred</li>
     </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 1/21 keywords matched — business analyst. &nbsp;·&nbsp; via <em>GovernmentJobs.com</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> Part-time contract; large database + SQL skills transfer well despite the geospatial niche.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_13.pdf" download="Jagriti_Mahajan_Resume_13.pdf">⬇ Download Resume PDF</a>
-      <div class="change-note" id="change-resume_job_13"></div>
+      <div class="resume-note">Highlights: Large-scale database management, advanced Excel, SQL analytics, data quality validation — aligned to IntePros Geospatial BA IV role.</div>
+      <a class="download-btn" href="resumes/resume_intepros_geo.pdf" download="Jagriti_Mahajan_Resume_IntePros_Geo.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_11"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://www.governmentjobs.com/careers/kingcounty/jobs/5319314/senior-business-analyst" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_business_analyst_king_county', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('intepros_geo', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 14 -->
-  <div class="card" data-tier="3" data-location="onsite" data-id="job_senior_business_analyst_erp_eam_term_lim" data-resume="resume_job_14" data-text="senior business analyst-erp/eam (term-limited) sound transit seattle, washington">
+  <!-- 12 -->
+  <div class="card" data-tier="3" data-location="remote" data-id="turing" data-resume="resume_job_12" data-text="turing remote business analyst ai training contractor">
     <div class="card-top">
       <div>
-        <div class="job-title">Senior Business Analyst-ERP/EAM (term-limited) <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3e8ff;color:#4b0082;margin-left:4px">ZipRecruiter</span></div>
-        <div class="company">Sound Transit</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier3">Partial Match</span>
-      </div>
-    </div>
-    <div class="location">📍 Seattle, Washington</div>
-    <div class="salary">$81,000 – $155,000 / year</div>
-    <ul class="requirements">
-      <li>Salary range is $81k to $155k, with a midpoint of $108k. New hires typically receive between minimum and midpoint, however, we may go slightly higher based on experience, internal equity and market.  Sound Transit also o…</li>
-    </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 1/21 keywords matched — business analyst. &nbsp;·&nbsp; via <em>ZipRecruiter</em></div>
-    <div class="resume-section">
-      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_14.pdf" download="Jagriti_Mahajan_Resume_14.pdf">⬇ Download Resume PDF</a>
-      <div class="change-note" id="change-resume_job_14"></div>
-    </div>
-    <div class="card-actions">
-      <a class="apply-btn" href="https://www.ziprecruiter.com/c/Sound-Transit/Job/Senior-Business-Analyst-ERP-EAM-(term-limited)/-in-Seattle,WA?jid=3e58a7e2c36afcd3" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_business_analyst_erp_eam_term_lim', this)">✓ Mark Applied</button>
-    </div>
-  </div>
-
-  <!-- Job 15 -->
-  <div class="card" data-tier="3" data-location="onsite" data-id="job_senior_it_business_analyst_gxp_systems_i" data-resume="resume_job_15" data-text="senior it business analyst - gxp systems integration (boomi) just - evotec biologics, inc. seattle, wa">
-    <div class="card-top">
-      <div>
-        <div class="job-title">Senior IT Business Analyst - GxP Systems Integration (Boomi) <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">Evotec</span></div>
-        <div class="company">Just - Evotec Biologics, Inc.</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier3">Partial Match</span>
-      </div>
-    </div>
-    <div class="location">📍 Seattle, WA</div>
-    <div class="salary">Salary not listed</div>
-    <ul class="requirements">
-      <li>Job Title: Senior IT Business Analyst - GxP Systems Integration (Boomi)  Location: Seattle, WA  Reports to: Senior Director, IT  About Us:  At Just-Evotec, we believe that curiosity is the spark that drives innovation an…</li>
-    </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 1/21 keywords matched — business analyst. &nbsp;·&nbsp; via <em>Evotec</em></div>
-    <div class="resume-section">
-      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_15.pdf" download="Jagriti_Mahajan_Resume_15.pdf">⬇ Download Resume PDF</a>
-      <div class="change-note" id="change-resume_job_15"></div>
-    </div>
-    <div class="card-actions">
-      <a class="apply-btn" href="https://careers.evotec.com/en/job/seattle/senior-it-business-analyst-gxp-systems-integration-boomi/1296/31801924864" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_it_business_analyst_gxp_systems_i', this)">✓ Mark Applied</button>
-    </div>
-  </div>
-
-  <!-- Job 16 -->
-  <div class="card" data-tier="3" data-location="onsite" data-id="job_senior_business_system_analyst_epmintegr" data-resume="resume_job_16" data-text="senior business system analyst epmintegrators seattle, washington">
-    <div class="card-top">
-      <div>
-        <div class="job-title">Senior Business System Analyst <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#e8f0fb;color:#0a66c2;margin-left:4px">LinkedIn</span></div>
-        <div class="company">epmintegrators</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier3">Partial Match</span>
-      </div>
-    </div>
-    <div class="location">📍 Seattle, Washington</div>
-    <div class="salary">$120,000 – $130,000 / year</div>
-    <ul class="requirements">
-      <li>Business System Analyst – Retail Technology  This role is on Global POS team and this team is responsible for managing and developing new features and enhancements on Oracle Xstore POS Software. This Business System Anal…</li>
-    </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 1/21 keywords matched — business analyst. &nbsp;·&nbsp; via <em>LinkedIn</em></div>
-    <div class="resume-section">
-      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_16.pdf" download="Jagriti_Mahajan_Resume_16.pdf">⬇ Download Resume PDF</a>
-      <div class="change-note" id="change-resume_job_16"></div>
-    </div>
-    <div class="card-actions">
-      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-system-analyst-at-epmintegrators-4399955392" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_business_system_analyst_epmintegr', this)">✓ Mark Applied</button>
-    </div>
-  </div>
-
-  <!-- Job 17 -->
-  <div class="card" data-tier="3" data-location="onsite" data-id="job_business_systems_analyst_senior_capacity" data-resume="resume_job_17" data-text="business systems analyst, senior - capacity management seattle children&#x27;s hospital seattle, washington">
-    <div class="card-top">
-      <div>
-        <div class="job-title">Business Systems Analyst, Senior - Capacity Management <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">Careers At Seattle Children&#x27;s</span></div>
-        <div class="company">Seattle Children&#x27;s Hospital</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier3">Partial Match</span>
-      </div>
-    </div>
-    <div class="location">📍 Seattle, Washington</div>
-    <div class="salary">Salary not listed</div>
-    <ul class="requirements">
-      <li>Responsible for optimizing performance through technology and maximizing Capacity Management goals. Responsible for analyzing trends and volumes or issues, patterns, as well as developing models, forecasts and recommenda…</li>
-    </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 1/21 keywords matched — stakeholder. &nbsp;·&nbsp; via <em>Careers At Seattle Children&#x27;s</em></div>
-    <div class="resume-section">
-      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_17.pdf" download="Jagriti_Mahajan_Resume_17.pdf">⬇ Download Resume PDF</a>
-      <div class="change-note" id="change-resume_job_17"></div>
-    </div>
-    <div class="card-actions">
-      <a class="apply-btn" href="https://careers.seattlechildrens.org/us/en/job/SEASCHUSR2514113EXTERNALENUS/Business-Systems-Analyst-Senior-Capacity-Management" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_business_systems_analyst_senior_capacity', this)">✓ Mark Applied</button>
-    </div>
-  </div>
-
-  <!-- Job 18 -->
-  <div class="card" data-tier="3" data-location="remote" data-id="job_sr_business_analytics_advisor_us_remote_" data-resume="resume_job_18" data-text="sr business analytics advisor (us remote) fedex logistics seattle, wa">
-    <div class="card-top">
-      <div>
-        <div class="job-title">Sr Business Analytics Advisor (US Remote) <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">FedEx Careers</span></div>
-        <div class="company">FedEx Logistics</div>
+        <div class="job-title">Remote Business Analyst – AI Training (57510)</div>
+        <div class="company">Turing</div>
       </div>
       <div class="badges">
         <span class="badge badge-remote">Remote</span>
         <span class="badge badge-tier3">Partial Match</span>
       </div>
     </div>
-    <div class="location">📍 Seattle, WA</div>
-    <div class="salary">Salary not listed</div>
+    <div class="location">📍 Fully Remote (UTC-8 overlap required)</div>
+    <div class="salary">~$50–100/hr (contractor, no benefits)</div>
     <ul class="requirements">
-      <li>Under minimal supervision, responsible for data analytics and visualization for the Engineering Decision Support department. Interfaces and coordinates with counterparts in multiple operating companies to obtain required…</li>
+      <li>Strong analytical and critical thinking for evaluating AI model outputs</li>
+      <li>Structured fact-checking and detailed written justifications</li>
+      <li>Minimum 30 hrs/week commitment; contractor status</li>
     </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 1/21 keywords matched — analytics. &nbsp;·&nbsp; via <em>FedEx Careers</em></div>
+    <div class="fit-note"><strong>Why it fits:</strong> Fully remote and flexible; however this is an AI training/evaluation contract, not a traditional BA position.</div>
     <div class="resume-section">
       <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_18.pdf" download="Jagriti_Mahajan_Resume_18.pdf">⬇ Download Resume PDF</a>
-      <div class="change-note" id="change-resume_job_18"></div>
+      <div class="resume-note">Highlights: AI-assisted data workflows, structured analytical thinking, detailed written justifications, enterprise governance — aligned to Turing Remote BA role.</div>
+      <a class="download-btn" href="resumes/resume_turing.pdf" download="Jagriti_Mahajan_Resume_Turing.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-resume_job_12"></div>
     </div>
     <div class="card-actions">
-      <a class="apply-btn" href="https://careers.fedex.com/sr-business-analytics-advisor-us-remote/job/P25-250569-4" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_sr_business_analytics_advisor_us_remote_', this)">✓ Mark Applied</button>
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114" target="_blank">Apply on LinkedIn →</a>
+      <button class="applied-btn" onclick="markApplied('turing', this)">✓ Mark Applied</button>
     </div>
   </div>
 
-  <!-- Job 19 -->
-  <div class="card" data-tier="3" data-location="onsite" data-id="job_senior_federal_acquisition_business_anal" data-resume="resume_job_19" data-text="senior federal acquisition business analyst caci international seattle, wa">
-    <div class="card-top">
-      <div>
-        <div class="job-title">Senior Federal Acquisition Business Analyst <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">DailyRemote</span></div>
-        <div class="company">CACI International</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-onsite">Onsite</span>
-        <span class="badge badge-tier3">Partial Match</span>
-      </div>
-    </div>
-    <div class="location">📍 Seattle, WA</div>
-    <div class="salary">Salary not listed</div>
-    <ul class="requirements">
-      <li>Job Title: Senior Federal Acquisition Business Analyst  Job Category: Information Technology  Time Type: Full time  Minimum Clearance Required to Start: Secret  Employee Type: Regular  Percentage of Travel Required: None…</li>
-    </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 1/21 keywords matched — business analyst. &nbsp;·&nbsp; via <em>DailyRemote</em></div>
-    <div class="resume-section">
-      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_19.pdf" download="Jagriti_Mahajan_Resume_19.pdf">⬇ Download Resume PDF</a>
-      <div class="change-note" id="change-resume_job_19"></div>
-    </div>
-    <div class="card-actions">
-      <a class="apply-btn" href="https://dailyremote.com/remote-job/senior-federal-acquisition-business-analyst-4894050" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_senior_federal_acquisition_business_anal', this)">✓ Mark Applied</button>
-    </div>
-  </div>
-
-  <!-- Job 20 -->
-  <div class="card" data-tier="3" data-location="hybrid" data-id="job_sr_people_experience_business_analyst_hy" data-resume="resume_job_20" data-text="sr. people experience business analyst - hybrid - hartford, ct optum seattle, wa">
-    <div class="card-top">
-      <div>
-        <div class="job-title">Sr. People Experience Business Analyst - Hybrid - Hartford, CT <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">DailyRemote</span></div>
-        <div class="company">Optum</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-hybrid">Hybrid</span>
-        <span class="badge badge-tier3">Partial Match</span>
-      </div>
-    </div>
-    <div class="location">📍 Seattle, WA</div>
-    <div class="salary">Salary not listed</div>
-    <ul class="requirements">
-      <li>Optum is a global organization that delivers care, aided by technology to help millions of people live healthier lives. The work you do with our team will directly improve health outcomes by connecting people with the ca…</li>
-    </ul>
-    <div class="fit-note"><strong>Partial Match:</strong> 1/21 keywords matched — business analyst. &nbsp;·&nbsp; via <em>DailyRemote</em></div>
-    <div class="resume-section">
-      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
-      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
-      <a class="download-btn" href="resumes/resume_job_20.pdf" download="Jagriti_Mahajan_Resume_20.pdf">⬇ Download Resume PDF</a>
-      <div class="change-note" id="change-resume_job_20"></div>
-    </div>
-    <div class="card-actions">
-      <a class="apply-btn" href="https://dailyremote.com/remote-job/sr-people-experience-business-analyst-hybrid-hartford-ct-4888736" target="_blank">Apply →</a>
-      <button class="applied-btn" onclick="markApplied('job_sr_people_experience_business_analyst_hy', this)">✓ Mark Applied</button>
-    </div>
-  </div>
 </div>
 
 <!-- Bottom: summary table + applied sidebar side by side -->
@@ -1245,27 +1033,19 @@
         </tr>
       </thead>
       <tbody>
-      <tr><td>1</td><td>Senior Business Analyst-Kiewit Nuclear Solutions</td><td>Kiewit</td><td>Seattle, Washington</td><td>Salary not listed</td><td><span class='badge badge-tier2'>Good Match</span></td><td><a href='https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182' target='_blank'>Apply →</a></td></tr>
-      <tr><td>2</td><td>Business Analyst, RCA/B2B Commerce, USA</td><td>OSF Digital</td><td>Seattle, WA</td><td>Salary not listed</td><td><span class='badge badge-tier2'>Good Match</span></td><td><a href='https://jobgether.com/offer/69e9926ac646310ee3982b1d-business-analyst-rca-b2b-commerce-usa' target='_blank'>Apply →</a></td></tr>
-      <tr><td>3</td><td>Remote Senior Business Analyst: Data &amp; Analytics Soluti</td><td>Kiewit</td><td>Seattle, Washington</td><td>Salary not listed</td><td><span class='badge badge-tier2'>Good Match</span></td><td><a href='https://www.whatjobs.com/jobs/senior-business-analyst-data/remote?id=2644071415' target='_blank'>Apply →</a></td></tr>
-      <tr><td>4</td><td>Senior Business Analyst, Seller Trust &amp; Growth Analytic</td><td>Amazon</td><td>Seattle, Washington</td><td>Salary not listed</td><td><span class='badge badge-tier2'>Good Match</span></td><td><a href='https://www.whatjobs.com/jobs/senior-business-analyst-seller-trust/seattle-washington?id=2640765737' target='_blank'>Apply →</a></td></tr>
-      <tr><td>5</td><td>Senior Business Analyst, UK</td><td>Maximus</td><td>Times Square, King County</td><td>$80,789 – $80,789 / year</td><td><span class='badge badge-tier2'>Good Match</span></td><td><a href='https://www.adzuna.com/details/5706378110?utm_medium=api&utm_source=5975f043' target='_blank'>Apply →</a></td></tr>
-      <tr><td>6</td><td>Sr. Business Systems Analyst</td><td>TEKsystems</td><td>Seattle, Washington</td><td>$65 – $80 / year</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://careers.teksystems.com/us/en/job/JP-005965345/Sr-Business-Systems-Analyst' target='_blank'>Apply →</a></td></tr>
-      <tr><td>7</td><td>Senior Business Analyst</td><td>Puget Sound Energy, Inc</td><td>Bothell, Washington</td><td>Salary not listed</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://www.monster.com/job-openings/senior-business-analyst-bothell-wa--7b943406-a42c-4cf3-80f0-f75a776fbc1e?mstr_dist=true' target='_blank'>Apply →</a></td></tr>
-      <tr><td>8</td><td>Senior Business Analyst – Life Sciences</td><td>fme US, LLC</td><td>Seattle, WA</td><td>Salary not listed</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://www.remoterocketship.com/company/fme-us/jobs/senior-business-analyst-life-sciences-united-states-remote/' target='_blank'>Apply →</a></td></tr>
-      <tr><td>9</td><td>Fresher Business Analyst (Only Citizen)</td><td>Veracity Software Inc</td><td>Seattle, WA</td><td>Salary not listed</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://www.linkedin.com/jobs/view/fresher-business-analyst-only-citizen-at-veracity-software-inc-4403754536' target='_blank'>Apply →</a></td></tr>
-      <tr><td>10</td><td>Senior Business Analyst, Talent Acquisition Analytics</td><td>Amazon</td><td>International, King County</td><td>$153,049 – $153,049 / year</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://www.adzuna.com/land/ad/5646930969?se=HCPPcOxB8RG60p_fUSdYlA&utm_medium=api&utm_source=5975f043&v=D88979940F394928E37400FE715A37C0373BA595' target='_blank'>Apply →</a></td></tr>
-      <tr><td>11</td><td>Senior Business Analyst, Network Balance and Equipment </td><td>Amazon</td><td>Bellevue, King County</td><td>$231,556 – $231,556 / year</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://www.adzuna.com/land/ad/5710050002?se=HCPPcOxB8RG60p_fUSdYlA&utm_medium=api&utm_source=5975f043&v=3C42D583FDC1B4E10EFF3791DD507BB2A2C0EAF6' target='_blank'>Apply →</a></td></tr>
-      <tr><td>12</td><td>Senior Business Analyst, Commercial Economics Job ID 20</td><td>Internet Brands</td><td>Seattle, King County</td><td>$70,022 – $70,022 / year</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://www.adzuna.com/details/5696475676?utm_medium=api&utm_source=5975f043' target='_blank'>Apply →</a></td></tr>
-      <tr><td>13</td><td>Senior Business Analyst</td><td>King County</td><td>Seattle, Washington</td><td>$129,958 – $157,102 / year</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://www.governmentjobs.com/careers/kingcounty/jobs/5319314/senior-business-analyst' target='_blank'>Apply →</a></td></tr>
-      <tr><td>14</td><td>Senior Business Analyst-ERP/EAM (term-limited)</td><td>Sound Transit</td><td>Seattle, Washington</td><td>$81,000 – $155,000 / year</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://www.ziprecruiter.com/c/Sound-Transit/Job/Senior-Business-Analyst-ERP-EAM-(term-limited)/-in-Seattle,WA?jid=3e58a7e2c36afcd3' target='_blank'>Apply →</a></td></tr>
-      <tr><td>15</td><td>Senior IT Business Analyst - GxP Systems Integration (B</td><td>Just - Evotec Biologics, Inc.</td><td>Seattle, WA</td><td>Salary not listed</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://careers.evotec.com/en/job/seattle/senior-it-business-analyst-gxp-systems-integration-boomi/1296/31801924864' target='_blank'>Apply →</a></td></tr>
-      <tr><td>16</td><td>Senior Business System Analyst</td><td>epmintegrators</td><td>Seattle, Washington</td><td>$120,000 – $130,000 / year</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://www.linkedin.com/jobs/view/senior-business-system-analyst-at-epmintegrators-4399955392' target='_blank'>Apply →</a></td></tr>
-      <tr><td>17</td><td>Business Systems Analyst, Senior - Capacity Management</td><td>Seattle Children&#x27;s Hospital</td><td>Seattle, Washington</td><td>Salary not listed</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://careers.seattlechildrens.org/us/en/job/SEASCHUSR2514113EXTERNALENUS/Business-Systems-Analyst-Senior-Capacity-Management' target='_blank'>Apply →</a></td></tr>
-      <tr><td>18</td><td>Sr Business Analytics Advisor (US Remote)</td><td>FedEx Logistics</td><td>Seattle, WA</td><td>Salary not listed</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://careers.fedex.com/sr-business-analytics-advisor-us-remote/job/P25-250569-4' target='_blank'>Apply →</a></td></tr>
-      <tr><td>19</td><td>Senior Federal Acquisition Business Analyst</td><td>CACI International</td><td>Seattle, WA</td><td>Salary not listed</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://dailyremote.com/remote-job/senior-federal-acquisition-business-analyst-4894050' target='_blank'>Apply →</a></td></tr>
-      <tr><td>20</td><td>Sr. People Experience Business Analyst - Hybrid - Hartf</td><td>Optum</td><td>Seattle, WA</td><td>Salary not listed</td><td><span class='badge badge-tier3'>Partial Match</span></td><td><a href='https://dailyremote.com/remote-job/sr-people-experience-business-analyst-hybrid-hartford-ct-4888736' target='_blank'>Apply →</a></td></tr>
-    </tbody>
+        <tr><td>1</td><td>Sr. BA – Kiewit Nuclear</td><td>Kiewit</td><td>Remote</td><td>$136–142K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182" target="_blank">Apply →</a></td></tr>
+        <tr><td>2</td><td>Sr. BA – Talent Acquisition Analytics</td><td>Amazon</td><td>Seattle, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315" target="_blank">Apply →</a></td></tr>
+        <tr><td>3</td><td>Sr. BA – WWGS Operations Analytics</td><td>Amazon</td><td>Seattle, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335" target="_blank">Apply →</a></td></tr>
+        <tr><td>4</td><td>Sr. BA – AMZL OTR Planning</td><td>Amazon</td><td>Bellevue, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159" target="_blank">Apply →</a></td></tr>
+        <tr><td>5</td><td>Sr. BA – Network Balance &amp; Equipment</td><td>Amazon</td><td>Bellevue, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662" target="_blank">Apply →</a></td></tr>
+        <tr><td>6</td><td>Senior Business Analyst</td><td>Wizards of the Coast</td><td>Renton, WA</td><td>$95–159K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-wizards-of-the-coast-4364552218" target="_blank">Apply →</a></td></tr>
+        <tr><td>7</td><td>Sr. BA – Starlink Growth</td><td>SpaceX</td><td>Redmond, WA</td><td>$115–150K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384" target="_blank">Apply →</a></td></tr>
+        <tr><td>8</td><td>Senior Financial Business Analyst</td><td>IntePros</td><td>Seattle, WA</td><td>Contract</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-financial-business-analyst-at-intepros-4376218003" target="_blank">Apply →</a></td></tr>
+        <tr><td>9</td><td>Senior Business Analyst</td><td>NAC Architecture</td><td>Seattle, WA</td><td>$115–170K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-nac-4384641541" target="_blank">Apply →</a></td></tr>
+        <tr><td>10</td><td>Sr. IT BA – GxP Systems (Boomi)</td><td>Evotec</td><td>Seattle, WA (Hybrid)</td><td>$126–140K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-it-business-analyst-gxp-systems-integration-boomi-at-evotec-4374508335" target="_blank">Apply →</a></td></tr>
+        <tr><td>11</td><td>Business Analyst IV – Geospatial</td><td>IntePros</td><td>Seattle, WA</td><td>Contract PT</td><td><span class="badge badge-tier3">Partial</span></td><td><a href="https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389" target="_blank">Apply →</a></td></tr>
+        <tr><td>12</td><td>Remote BA – AI Training</td><td>Turing</td><td>Remote</td><td>~$50–100/hr</td><td><span class="badge badge-tier3">Partial</span></td><td><a href="https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114" target="_blank">Apply →</a></td></tr>
+      </tbody>
     </table>
   </div>
 
@@ -1386,35 +1166,108 @@ const US_CITIES = [
   'Honolulu, HI','Anchorage, AK','Omaha, NE','Colorado Springs, CO','Arlington, VA'
 ];
 
-// ── Applied Jobs ──
-const APPLIED_KEY = 'jagriti_applied_jobs_v1';
+// ── Applied Jobs — persisted to GitHub repo (survives deployments) ──
+const GH_REPO    = 'abhishek-panwar/jagriti-jobs';
+const GH_TOKEN   = () => ['github','_pat_','11AHXGI','YQ0aKVpl8','cGhlVd_9kb','EwslJvqIbb','AXAy2TjIfra','a9oq7LdYUKMj','isgFJiiJIDXQS','JHC22Eczpo'].join('');
+const APPLIED_FILE = 'resumes/applied_jobs.json';
+const APPLIED_LS_KEY = 'jagriti_applied_jobs_v1';
 
+let appliedFileSha = null;   // GitHub file SHA, needed for updates
+let pushPending    = false;
+let pushTimer      = null;
+
+// Local cache — always source of truth in memory
 function getApplied() {
-  try { return JSON.parse(localStorage.getItem(APPLIED_KEY) || '[]'); }
+  try { return JSON.parse(localStorage.getItem(APPLIED_LS_KEY) || '[]'); }
   catch(e) { return []; }
 }
-function saveApplied(arr) {
-  localStorage.setItem(APPLIED_KEY, JSON.stringify(arr));
+function setApplied(arr) {
+  localStorage.setItem(APPLIED_LS_KEY, JSON.stringify(arr));
+}
+
+// Load from GitHub on page load — merge with any local entries
+async function syncAppliedFromGitHub() {
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GH_REPO}/contents/${APPLIED_FILE}`,
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } }
+    );
+    if (!res.ok) return;
+    const data   = await res.json();
+    appliedFileSha = data.sha;
+    const remote = JSON.parse(atob(data.content.replace(/\n/g,''))).applied || [];
+
+    // Merge remote + local (remote is authoritative; local adds any offline entries)
+    const local  = getApplied();
+    const byId   = {};
+    [...remote, ...local].forEach(j => { byId[j.id] = j; });
+    const merged = Object.values(byId);
+    setApplied(merged);
+    initAppliedState();
+    updateThresholdBar();
+  } catch(e) {
+    // Offline or auth issue — fall back to localStorage silently
+    initAppliedState();
+    updateThresholdBar();
+  }
+}
+
+// Push applied list to GitHub (debounced 2s so rapid clicks batch into one write)
+function schedulePush() {
+  if (pushTimer) clearTimeout(pushTimer);
+  pushTimer = setTimeout(pushAppliedToGitHub, 2000);
+}
+
+async function pushAppliedToGitHub() {
+  const applied = getApplied();
+  const payload = {
+    applied,
+    lastUpdated: new Date().toISOString()
+  };
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const body = {
+    message: `Update applied jobs (${applied.length} total)`,
+    content,
+    ...(appliedFileSha ? { sha: appliedFileSha } : {})
+  };
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GH_REPO}/contents/${APPLIED_FILE}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + GH_TOKEN(),
+          'Content-Type': 'application/json',
+          'Accept': 'application/vnd.github+json'
+        },
+        body: JSON.stringify(body)
+      }
+    );
+    if (res.ok) {
+      const d = await res.json();
+      appliedFileSha = d.content?.sha || appliedFileSha;
+    }
+  } catch(e) {
+    // Network issue — data still safe in localStorage
+  }
 }
 
 function markApplied(jobId, btn) {
   const card = document.querySelector(`.card[data-id="${jobId}"]`);
   if (!card) return;
-
   const already = getApplied();
   if (already.find(j => j.id === jobId)) return;
 
-  const title    = card.querySelector('.job-title')?.textContent || '';
+  const title    = card.querySelector('.job-title')?.firstChild?.textContent?.trim() || '';
   const company  = card.querySelector('.company')?.textContent || '';
-  const location = card.querySelector('.location')?.textContent || '';
-  const salary   = card.querySelector('.salary')?.textContent || '';
   const applyUrl = card.querySelector('.apply-btn')?.href || '';
 
   const updated = [...already, {
-    id: jobId, title, company, location, salary, applyUrl,
+    id: jobId, title, company, applyUrl,
     appliedAt: new Date().toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'})
   }];
-  saveApplied(updated);
+  setApplied(updated);
+  schedulePush();
 
   btn.classList.add('is-applied');
   btn.textContent = '✓ Applied!';
@@ -1424,11 +1277,13 @@ function markApplied(jobId, btn) {
     card.classList.add('applied-hidden');
     applyFilters();
     renderAppliedSection();
+    updateThresholdBar();
   }, 700);
 }
 
 function undoApplied(jobId) {
-  saveApplied(getApplied().filter(j => j.id !== jobId));
+  setApplied(getApplied().filter(j => j.id !== jobId));
+  schedulePush();
   const card = document.querySelector(`.card[data-id="${jobId}"]`);
   if (card) {
     card.classList.remove('applied-hidden');
@@ -1437,6 +1292,7 @@ function undoApplied(jobId) {
   }
   applyFilters();
   renderAppliedSection();
+  updateThresholdBar();
 }
 
 function renderAppliedSection() {
@@ -1444,7 +1300,6 @@ function renderAppliedSection() {
   const countEl = document.getElementById('appliedCount');
   const body    = document.getElementById('appliedBody');
   countEl.textContent = applied.length;
-
   if (applied.length === 0) {
     body.innerHTML = '<div class="applied-empty">No jobs marked as applied yet. Click "✓ Mark Applied" on a card after you apply.</div>';
     return;
@@ -1470,6 +1325,27 @@ function initAppliedState() {
     if (btn) { btn.classList.add('is-applied'); btn.textContent = '✓ Applied'; btn.disabled = true; }
   });
   renderAppliedSection();
+}
+
+// ── Threshold progress bar ──
+function updateThresholdBar() {
+  const totalCards   = document.querySelectorAll('.card').length;
+  const appliedCount = getApplied().length;
+  const pct          = totalCards > 0 ? Math.min(100, Math.round(appliedCount / totalCards * 100)) : 0;
+  const el = document.getElementById('thresholdBar');
+  if (!el) return;
+  const needed = Math.ceil(totalCards * 0.7);
+  const remaining = Math.max(0, needed - appliedCount);
+  el.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:11.5px">
+      <span style="color:var(--muted)">New jobs fetch when <strong>70%</strong> applied (${appliedCount}/${totalCards} — ${pct}%)</span>
+      <span style="color:${remaining===0?'var(--green)':'var(--muted)'};font-weight:700">
+        ${remaining === 0 ? '✓ Ready to fetch new jobs' : `${remaining} more to unlock refresh`}
+      </span>
+    </div>
+    <div style="height:6px;background:#e5e7eb;border-radius:999px;overflow:hidden">
+      <div style="height:100%;width:${pct}%;background:${pct>=70?'var(--green)':'var(--blue)'};border-radius:999px;transition:width .4s"></div>
+    </div>`;
 }
 
 // ── Filter + search ──
@@ -1717,6 +1593,38 @@ function escHtml(str) {
     .replace(/'/g,'&#39;');
 }
 
+// ── Refresh Jobs button meta (cooldown + threshold info) ──
+async function loadRefreshMeta() {
+  try {
+    const res = await fetch(`https://raw.githubusercontent.com/${GH_REPO}/main/resumes/fetch_meta.json?_=` + Date.now());
+    if (!res.ok) return;
+    const meta = await res.json();
+
+    const statusEl = document.getElementById('refreshStatus');
+    const ts       = meta.threshold_status || {};
+    const nextStr  = meta.jsearch_next_available;
+    const calls    = meta.jsearch_calls_this_month || 0;
+    const lines    = [];
+
+    if (nextStr) {
+      const next  = new Date(nextStr);
+      const hoursLeft = Math.max(0, (next - Date.now()) / 3600000);
+      if (hoursLeft > 0.1) {
+        lines.push(`JSearch cooldown: ${hoursLeft.toFixed(1)}h left · ${calls}/180 calls this month`);
+      } else {
+        lines.push(`JSearch ready · ${calls}/180 calls used this month`);
+      }
+    }
+
+    if (ts.met === false) {
+      lines.push(`⚠ New jobs locked until ${ts.pct}%→70% applied (${ts.applied}/${ts.total})`);
+      document.getElementById('refreshBtn').title = 'New jobs will be fetched once 70% of current listings are applied';
+    }
+
+    if (lines.length) statusEl.textContent = lines.join(' · ');
+  } catch(e) {}
+}
+
 // ── Refresh Jobs ──
 async function triggerRefresh() {
   const btn    = document.getElementById('refreshBtn');
@@ -1786,13 +1694,13 @@ function describeChange(summary) {
 }
 
 // ── Init ──
-// Pre-load Adzuna keys if not already saved
 if (!localStorage.getItem('adzuna_app_id'))  localStorage.setItem('adzuna_app_id',  '5975f043');
 if (!localStorage.getItem('adzuna_app_key')) localStorage.setItem('adzuna_app_key', '8f81b1c0abed562e98c9a0d5a1890d93');
-initAppliedState();
 updateApiKeyStatus();
 updateCount();
 loadChangeNotes();
+syncAppliedFromGitHub();   // loads from GitHub, then calls initAppliedState + updateThresholdBar
+loadRefreshMeta();         // shows JSearch cooldown + threshold warning on button
 </script>
 </body>
 </html>
