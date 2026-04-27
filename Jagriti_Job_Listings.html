@@ -2103,20 +2103,35 @@ async function searchCareerJobs() {
   resultsEl.innerHTML = '';
 
   try {
-    // Indeed RSS: searches "senior business analyst" posted at the given company
     const q = `"senior business analyst" "${companyRaw}"`;
     const indeedRss = 'https://www.indeed.com/rss?' + new URLSearchParams(
       Object.assign({ q, limit: '15', sort: 'relevance' }, cityRaw ? { l: cityRaw } : {})
     );
-    // CORS proxy needed because Indeed blocks direct browser requests
-    const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(indeedRss);
 
-    const r = await fetch(proxyUrl);
-    if (!r.ok) throw new Error(`proxy ${r.status}`);
-    const envelope = await r.json();
-    if (!envelope.contents) throw new Error('empty proxy response');
+    // Try multiple CORS proxies in order — use the first one that succeeds
+    async function fetchRss(targetUrl) {
+      const proxies = [
+        u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
+        u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+        u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
+      ];
+      for (const makeUrl of proxies) {
+        try {
+          const r = await fetch(makeUrl(targetUrl), { signal: AbortSignal.timeout(9000) });
+          if (!r.ok) continue;
+          const text = await r.text();
+          // allorigins /get returns a JSON envelope; unwrap it
+          if (text.trimStart().startsWith('{')) {
+            try { const j = JSON.parse(text); if (j.contents) return j.contents; } catch {}
+          }
+          if (text.includes('<item>') || text.includes('<rss')) return text;
+        } catch {}
+      }
+      throw new Error('all proxies failed — try the direct Indeed link below');
+    }
 
-    const xml   = new DOMParser().parseFromString(envelope.contents, 'text/xml');
+    const xmlText = await fetchRss(indeedRss);
+    const xml   = new DOMParser().parseFromString(xmlText, 'text/xml');
     const items = [...xml.querySelectorAll('item')];
 
     btn.disabled = false; btn.textContent = '🔍 Search';
