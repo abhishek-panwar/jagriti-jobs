@@ -1535,6 +1535,7 @@
       <!-- Status + results -->
       <div class="practice-status" id="recentStatus"></div>
       <div id="recentResults"></div>
+      <div id="recentPagination" style="display:none;margin-top:14px;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap"></div>
     </div>
   </div>
 
@@ -2068,6 +2069,9 @@ function setUserAdded(arr)   { localStorage.setItem(RECENT_USER_ADDED_KEY, JSON.
 function getPersistedJobs()  { try { return JSON.parse(localStorage.getItem(RECENT_RESULTS_KEY)   || '[]'); } catch { return []; } }
 function setPersistedJobs(a) { localStorage.setItem(RECENT_RESULTS_KEY, JSON.stringify(a)); }
 
+let recentPage = 0;
+const RECENT_PAGE_SIZE = 10;
+
 // Age label relative to today
 function ageLabel(isoDate) {
   if (!isoDate) return '';
@@ -2184,7 +2188,8 @@ async function scanRecentJobs() {
   cutoff.setHours(0, 0, 0, 0);
 
   const BA_RE_RECENT = /\b(senior|sr\.?)\s+(business analyst|ba\b)|business analyst\s*(iii|3)\b|ba[-\s]?(iii|3)\b/i;
-  const US_RE_RECENT = /\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\b|united states|USA|\bU\.S\.|remote/i;
+  // WA state (Seattle, Redmond, Bellevue, Kirkland, etc.) OR remote/anywhere
+  const LOC_RE_RECENT = /\bWA\b|washington state|seattle|redmond|bellevue|kirkland|tacoma|spokane|olympia|remote|anywhere/i;
 
   // Fetch one company — tries Greenhouse slugs then Lever slugs
   async function fetchCompany(company) {
@@ -2196,7 +2201,7 @@ async function scanRecentJobs() {
       if (!data) continue;
       const jobs = (data.jobs || [])
         .filter(j => BA_RE_RECENT.test(j.title))
-        .filter(j => US_RE_RECENT.test(j.location?.name || ''))
+        .filter(j => LOC_RE_RECENT.test(j.location?.name || ''))
         .filter(j => j.updated_at && new Date(j.updated_at) >= cutoff)
         .map(j => ({
           title:  j.title,
@@ -2216,7 +2221,7 @@ async function scanRecentJobs() {
       if (!data) continue;
       const jobs = data
         .filter(j => BA_RE_RECENT.test(j.text))
-        .filter(j => US_RE_RECENT.test(j.categories?.location || ''))
+        .filter(j => LOC_RE_RECENT.test(j.categories?.location || ''))
         .filter(j => j.createdAt && new Date(j.createdAt) >= cutoff)
         .map(j => ({
           title:  j.text,
@@ -2262,19 +2267,27 @@ async function scanRecentJobs() {
     ? `<strong>${merged.length}</strong> BA opening${merged.length!==1?'s':''} saved — ${newEntries.length} new from this scan (since ${cutoffStr})`
     : `No new BA openings found in the last 3 days (since ${cutoffStr})`;
 
-  renderPersistedJobs();
+  renderPersistedJobs(true);  // reset to page 1 after fresh scan
 }
 
-function renderPersistedJobs() {
-  const resultsEl   = document.getElementById('recentResults');
-  const statusEl    = document.getElementById('recentStatus');
+function renderPersistedJobs(resetPage) {
+  const resultsEl  = document.getElementById('recentResults');
+  const statusEl   = document.getElementById('recentStatus');
+  const pagEl      = document.getElementById('recentPagination');
   const appliedIds  = new Set(getPracticeApplied().map(j => j.id));
   const cancelledIds= new Set(getPracticeCancelled().map(j => j.id));
 
-  // Filter out applied/cancelled, keep the rest
   const jobs = getPersistedJobs().filter(j => !appliedIds.has(j.pid) && !cancelledIds.has(j.pid));
 
-  if (jobs.length === 0) { resultsEl.innerHTML = ''; return; }
+  if (jobs.length === 0) {
+    resultsEl.innerHTML = '';
+    pagEl.style.display = 'none';
+    return;
+  }
+
+  if (resetPage) recentPage = 0;
+  const totalPages = Math.ceil(jobs.length / RECENT_PAGE_SIZE);
+  if (recentPage >= totalPages) recentPage = totalPages - 1;
 
   // Restore status text if blank (e.g. on page load)
   if (!statusEl.textContent.trim()) {
@@ -2284,10 +2297,12 @@ function renderPersistedJobs() {
   const srcBg = src => src === 'Greenhouse' ? '#d1fae5' : '#fef3c7';
   const srcFg = src => src === 'Greenhouse' ? '#065f46' : '#92400e';
 
-  resultsEl.innerHTML = jobs.map(j => {
-    const pid        = j.pid;
-    const pApplied   = getPracticeApplied().find(x => x.id === pid);
-    const pCancelled = getPracticeCancelled().find(x => x.id === pid);
+  const pageJobs = jobs.slice(recentPage * RECENT_PAGE_SIZE, (recentPage + 1) * RECENT_PAGE_SIZE);
+
+  resultsEl.innerHTML = pageJobs.map(j => {
+    const pid          = j.pid;
+    const pApplied     = getPracticeApplied().find(x => x.id === pid);
+    const pCancelled   = getPracticeCancelled().find(x => x.id === pid);
     const appliedDis   = pCancelled ? 'disabled' : '';
     const cancelledDis = pApplied   ? 'disabled' : '';
     const age          = ageLabel(j.addedAt);
@@ -2321,6 +2336,26 @@ function renderPersistedJobs() {
       </div>
     </div>`;
   }).join('');
+
+  // Pagination controls
+  if (totalPages <= 1) {
+    pagEl.style.display = 'none';
+  } else {
+    pagEl.style.display = 'flex';
+    const start = recentPage * RECENT_PAGE_SIZE + 1;
+    const end   = Math.min((recentPage + 1) * RECENT_PAGE_SIZE, jobs.length);
+    pagEl.innerHTML = `
+      <button onclick="recentPageGo(${recentPage-1})" ${recentPage===0?'disabled':''} style="padding:5px 14px;border-radius:999px;border:1.5px solid var(--border);background:#fff;font-size:12px;font-weight:700;cursor:pointer;color:var(--blue)">← Prev</button>
+      <span style="font-size:12px;color:var(--muted);font-weight:600">Page ${recentPage+1} of ${totalPages} &nbsp;·&nbsp; ${start}–${end} of ${jobs.length}</span>
+      <button onclick="recentPageGo(${recentPage+1})" ${recentPage===totalPages-1?'disabled':''} style="padding:5px 14px;border-radius:999px;border:1.5px solid var(--border);background:#fff;font-size:12px;font-weight:700;cursor:pointer;color:var(--blue)">Next →</button>
+    `;
+  }
+}
+
+function recentPageGo(page) {
+  recentPage = page;
+  renderPersistedJobs(false);
+  document.getElementById('recentResults').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function removePersistedJob(pid) {
@@ -2386,32 +2421,31 @@ document.addEventListener('DOMContentLoaded', () => {
   scheduleAutoScans();         // set up midnight + noon PST auto-scans
 });
 
-// ── Auto-scan at midnight and noon PST ──
+// ── Auto-scan at 12 AM, 6 AM, 12 PM, 6 PM PST ──
 function scheduleAutoScans() {
+  // PST = UTC-8. Returns ms until the next occurrence of hourPST (0-23).
   function msUntilNext(hourPST) {
-    // PST = UTC-8, PDT = UTC-7; use UTC-8 conservative
-    const now    = new Date();
-    const utcH   = now.getUTCHours();
-    const utcM   = now.getUTCMinutes();
-    const utcS   = now.getUTCSeconds();
-    const targetUTC = hourPST + 8;           // PST offset
-    const nowMins   = utcH * 60 + utcM;
-    const tgtMins   = (targetUTC % 24) * 60;
+    const now       = new Date();
+    const targetUTC = (hourPST + 8) % 24;
+    const nowMins   = now.getUTCHours() * 60 + now.getUTCMinutes();
+    const tgtMins   = targetUTC * 60;
     let diff = tgtMins - nowMins;
     if (diff <= 0) diff += 24 * 60;
-    return (diff * 60 - utcS) * 1000;
+    return (diff * 60 - now.getUTCSeconds()) * 1000;
   }
 
+  // Each slot fires once at its PST hour, then repeats every 24h from that point.
   function armScan(hourPST) {
-    const delay = msUntilNext(hourPST);
     setTimeout(async () => {
       await scanRecentJobs();
-      setInterval(() => scanRecentJobs(), 24 * 60 * 60 * 1000); // repeat every 24h
-    }, delay);
+      setInterval(() => scanRecentJobs(), 24 * 60 * 60 * 1000);
+    }, msUntilNext(hourPST));
   }
 
-  armScan(0);    // midnight PST
-  armScan(12);   // noon PST
+  armScan(0);   // 12:00 AM PST
+  armScan(6);   //  6:00 AM PST
+  armScan(12);  // 12:00 PM PST
+  armScan(18);  //  6:00 PM PST
 }
 
 // ── Company Career Search ──
