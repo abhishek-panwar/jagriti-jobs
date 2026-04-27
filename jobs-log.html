@@ -187,8 +187,8 @@
   <div class="tabs" id="tabs">
     <button class="tab-btn" id="tabApplied"    onclick="switchTab('applied')">✅ Applied</button>
     <button class="tab-btn" id="tabCancelled"  onclick="switchTab('cancelled')">🚫 Cancelled</button>
-    <button class="tab-btn" id="tabPracticeA"  onclick="switchTab('practiceA')">✅ Practice Applied</button>
-    <button class="tab-btn" id="tabPracticeC"  onclick="switchTab('practiceC')">🚫 Practice Cancelled</button>
+    <button class="tab-btn" id="tabPracticeA"  onclick="switchTab('practiceA')">✅ Other Applied</button>
+    <button class="tab-btn" id="tabPracticeC"  onclick="switchTab('practiceC')">🚫 Other Cancelled</button>
   </div>
 
   <div class="log-controls">
@@ -268,8 +268,8 @@ const PRACTICE_CANCELLED_KEY    = 'jagriti_practice_cancelled_v1';
 const TAB_CONFIG = {
   applied:   { lsKey: APPLIED_LS_KEY,         dateKey: 'appliedAt',   bodyId: 'appliedBody',   emptyMsg: 'No applied jobs yet.',            undoFn: 'undoApplied'   },
   cancelled: { lsKey: CANCELLED_LS_KEY,        dateKey: 'cancelledAt', bodyId: 'cancelledBody', emptyMsg: 'No cancelled jobs yet.',          undoFn: 'undoCancelled' },
-  practiceA: { lsKey: PRACTICE_APPLIED_KEY,   dateKey: 'appliedAt',   bodyId: 'practiceABody', emptyMsg: 'No practice applied jobs yet.',   undoFn: 'undoPracticeA' },
-  practiceC: { lsKey: PRACTICE_CANCELLED_KEY, dateKey: 'cancelledAt', bodyId: 'practiceCBody', emptyMsg: 'No practice cancelled jobs yet.', undoFn: 'undoPracticeC' },
+  practiceA: { lsKey: PRACTICE_APPLIED_KEY,   dateKey: 'appliedAt',   bodyId: 'practiceABody', emptyMsg: 'No other applied jobs yet.',   undoFn: 'undoPracticeA' },
+  practiceC: { lsKey: PRACTICE_CANCELLED_KEY, dateKey: 'cancelledAt', bodyId: 'practiceCBody', emptyMsg: 'No other cancelled jobs yet.', undoFn: 'undoPracticeC' },
 };
 
 let currentTab = 'applied';
@@ -381,7 +381,7 @@ function undoRow(tab, id) {
 }
 
 function clearCurrent() {
-  const labels = { applied:'applied (Seattle)', cancelled:'cancelled (Seattle)', practiceA:'practice applied', practiceC:'practice cancelled' };
+  const labels = { applied:'applied (Seattle)', cancelled:'cancelled (Seattle)', practiceA:'other applied', practiceC:'other cancelled' };
   if (!confirm(`Clear all ${labels[currentTab]} jobs? This cannot be undone.`)) return;
   setData(currentTab, []);
   render();
