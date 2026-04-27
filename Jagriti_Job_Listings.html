@@ -820,6 +820,73 @@
   }
   .career-page-link:hover { background: #ede9fe; }
 
+  /* Recent openings section */
+  .recent-add-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .recent-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+    min-height: 0;
+  }
+  .recent-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px 4px 12px;
+    background: var(--purple-bg);
+    border: 1.5px solid var(--purple-border);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--purple);
+  }
+  .recent-chip-remove {
+    background: none;
+    border: none;
+    color: var(--purple);
+    cursor: pointer;
+    font-size: 13px;
+    padding: 0;
+    line-height: 1;
+    opacity: .7;
+  }
+  .recent-chip-remove:hover { opacity: 1; }
+  .recent-company-group {
+    margin-bottom: 18px;
+  }
+  .recent-company-header {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    padding: 7px 0 8px;
+    border-bottom: 1.5px solid var(--border);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .recent-company-header .rch-badge {
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #d1fae5;
+    color: #065f46;
+  }
+  .recent-company-header .rch-none {
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--muted);
+    font-style: italic;
+  }
+
   @media (max-width: 680px) {
     .grid, .practice-grid { grid-template-columns: 1fr; }
     .search-box { width: 100%; }
@@ -1430,6 +1497,46 @@
     </div>
   </div>
 
+  <!-- Recent Openings section -->
+  <div class="practice-section" id="recentSection" style="margin-top:14px">
+    <div class="practice-section-header" onclick="toggleRecentSection()">
+      <div>
+        <div>🆕 Recent BA Openings by Company</div>
+        <div class="subtitle">Add companies to watch — shows Business Analyst jobs posted in the last 3 days</div>
+      </div>
+      <span class="practice-toggle-icon open" id="recentToggleIcon">▼</span>
+    </div>
+    <div class="practice-body open" id="recentBody">
+      <div class="practice-intro">
+        Build your watchlist of companies. Click <strong>Scan</strong> to fetch BA openings posted in the last 3 days from each company's career site via Greenhouse/Lever.
+      </div>
+
+      <!-- Company add row -->
+      <div class="recent-add-row">
+        <div class="career-company-wrap">
+          <input class="city-input" type="text" id="recentCompanyInput"
+            placeholder="Add company (e.g. Airbnb, Stripe…)"
+            autocomplete="off"
+            oninput="onRecentCompanyInput()"
+            onkeydown="onRecentCompanyKeydown(event)"
+            onblur="hideRecentSuggestionsDelayed()"
+            style="border-color:var(--purple)"
+          >
+          <div class="city-suggestions" id="recentCompanySuggestions"></div>
+        </div>
+        <button class="practice-search-btn" onclick="addRecentCompany()" style="padding:9px 18px">+ Add</button>
+        <button class="practice-search-btn" id="recentScanBtn" onclick="scanRecentJobs()" style="background:#065f46;padding:9px 20px">⚡ Scan</button>
+      </div>
+
+      <!-- Watchlist chips -->
+      <div class="recent-chips" id="recentChips"></div>
+
+      <!-- Status + results -->
+      <div class="practice-status" id="recentStatus"></div>
+      <div id="recentResults"></div>
+    </div>
+  </div>
+
   </div><!-- /practice-main-col -->
 
   <!-- Practice right sidebar: Cancelled + Applied for practice jobs -->
@@ -1940,6 +2047,211 @@ function toggleCareerSection() {
   const open = body.classList.toggle('open');
   icon.classList.toggle('open', open);
 }
+
+function toggleRecentSection() {
+  const body = document.getElementById('recentBody');
+  const icon = document.getElementById('recentToggleIcon');
+  const open = body.classList.toggle('open');
+  icon.classList.toggle('open', open);
+}
+
+// ── Recent Openings — watchlist stored in localStorage ──
+const RECENT_WATCHLIST_KEY = 'jagriti_recent_watchlist_v1';
+
+function getWatchlist()    { try { return JSON.parse(localStorage.getItem(RECENT_WATCHLIST_KEY) || '[]'); } catch { return []; } }
+function setWatchlist(arr) { localStorage.setItem(RECENT_WATCHLIST_KEY, JSON.stringify(arr)); }
+
+let recentSuggIdx = -1;
+
+function onRecentCompanyInput() {
+  const q   = document.getElementById('recentCompanyInput').value.trim();
+  const box = document.getElementById('recentCompanySuggestions');
+  if (q.length < 1) { box.classList.remove('visible'); return; }
+  const matches = COMPANY_NAMES.filter(n => n.toLowerCase().includes(q.toLowerCase())).slice(0, 8);
+  if (!matches.length) { box.classList.remove('visible'); return; }
+  box.innerHTML = matches.map(n =>
+    `<div class="city-suggestion-item" onmousedown="selectRecentCompany('${escHtml(n)}')">${escHtml(n)}</div>`
+  ).join('');
+  box.classList.add('visible');
+  recentSuggIdx = -1;
+}
+
+function onRecentCompanyKeydown(e) {
+  const box   = document.getElementById('recentCompanySuggestions');
+  const items = box.querySelectorAll('.city-suggestion-item');
+  if (e.key === 'ArrowDown') { e.preventDefault(); recentSuggIdx = Math.min(recentSuggIdx+1, items.length-1); items.forEach((el,i) => el.classList.toggle('focused', i===recentSuggIdx)); if (items[recentSuggIdx]) document.getElementById('recentCompanyInput').value = items[recentSuggIdx].textContent; }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); recentSuggIdx = Math.max(recentSuggIdx-1,-1); items.forEach((el,i) => el.classList.toggle('focused', i===recentSuggIdx)); }
+  else if (e.key === 'Enter') { box.classList.remove('visible'); addRecentCompany(); }
+  else if (e.key === 'Escape') { box.classList.remove('visible'); }
+}
+
+function selectRecentCompany(name) {
+  document.getElementById('recentCompanyInput').value = name;
+  document.getElementById('recentCompanySuggestions').classList.remove('visible');
+}
+function hideRecentSuggestionsDelayed() { setTimeout(() => document.getElementById('recentCompanySuggestions').classList.remove('visible'), 200); }
+
+function addRecentCompany() {
+  const val  = document.getElementById('recentCompanyInput').value.trim();
+  if (!val) return;
+  const list = getWatchlist();
+  if (list.some(c => c.toLowerCase() === val.toLowerCase())) {
+    document.getElementById('recentCompanyInput').value = '';
+    return;
+  }
+  setWatchlist([...list, val]);
+  document.getElementById('recentCompanyInput').value = '';
+  renderWatchlistChips();
+}
+
+function removeRecentCompany(name) {
+  setWatchlist(getWatchlist().filter(c => c !== name));
+  renderWatchlistChips();
+}
+
+function renderWatchlistChips() {
+  const chips = document.getElementById('recentChips');
+  const list  = getWatchlist();
+  if (list.length === 0) { chips.innerHTML = '<span style="font-size:11.5px;color:var(--muted);font-style:italic">No companies added yet — type a name above and click Add.</span>'; return; }
+  chips.innerHTML = list.map(c => `
+    <div class="recent-chip">
+      ${escHtml(c)}
+      <button class="recent-chip-remove" onclick="removeRecentCompany('${escHtml(c)}')" title="Remove">×</button>
+    </div>`).join('');
+}
+
+async function scanRecentJobs() {
+  const list = getWatchlist();
+  if (list.length === 0) { document.getElementById('recentStatus').textContent = 'Add at least one company first.'; return; }
+
+  const btn       = document.getElementById('recentScanBtn');
+  const statusEl  = document.getElementById('recentStatus');
+  const resultsEl = document.getElementById('recentResults');
+
+  btn.disabled = true; btn.textContent = '⏳ Scanning…';
+  statusEl.textContent = `Scanning ${list.length} company${list.length!==1?'ies':'y'}…`;
+  resultsEl.innerHTML = '';
+
+  // 3-day cutoff
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - 3);
+  cutoff.setHours(0, 0, 0, 0);
+
+  const BA_RE_RECENT = /\b(senior|sr\.?)\s+(business analyst|ba\b)|business analyst\s*(iii|3)\b|ba[-\s]?(iii|3)\b/i;
+  const US_RE_RECENT = /\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\b|united states|USA|\bU\.S\.|remote/i;
+
+  // Fetch one company — tries Greenhouse slugs then Lever slugs
+  async function fetchCompany(company) {
+    const slugs = companyToSlugs(company);
+
+    // Try Greenhouse
+    for (const slug of slugs) {
+      const data = await probeGreenhouse(slug);
+      if (!data) continue;
+      const jobs = (data.jobs || [])
+        .filter(j => BA_RE_RECENT.test(j.title))
+        .filter(j => US_RE_RECENT.test(j.location?.name || ''))
+        .filter(j => j.updated_at && new Date(j.updated_at) >= cutoff)
+        .map(j => ({
+          title:  j.title,
+          company,
+          loc:    j.location?.name || 'USA',
+          url:    j.absolute_url || '#',
+          desc:   (j.content||'').replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim().substring(0,220),
+          listed: j.updated_at ? j.updated_at.substring(0,10) : '',
+          source: 'Greenhouse',
+        }));
+      return { company, jobs, found: true };
+    }
+
+    // Try Lever
+    for (const slug of slugs) {
+      const data = await probeLever(slug);
+      if (!data) continue;
+      const jobs = data
+        .filter(j => BA_RE_RECENT.test(j.text))
+        .filter(j => US_RE_RECENT.test(j.categories?.location || ''))
+        .filter(j => j.createdAt && new Date(j.createdAt) >= cutoff)
+        .map(j => ({
+          title:  j.text,
+          company,
+          loc:    j.categories?.location || 'USA',
+          url:    j.hostedUrl || '#',
+          desc:   (j.descriptionPlain||'').replace(/\s+/g,' ').trim().substring(0,220),
+          listed: j.createdAt ? new Date(j.createdAt).toISOString().substring(0,10) : '',
+          source: 'Lever',
+        }));
+      return { company, jobs, found: true };
+    }
+
+    return { company, jobs: [], found: false };
+  }
+
+  // Run all companies in parallel
+  const allResults = await Promise.all(list.map(fetchCompany));
+
+  btn.disabled = false; btn.textContent = '⚡ Scan';
+
+  const totalJobs = allResults.reduce((s, r) => s + r.jobs.length, 0);
+  const cutoffStr = cutoff.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+  statusEl.innerHTML = totalJobs > 0
+    ? `Found <strong>${totalJobs}</strong> BA opening${totalJobs!==1?'s':''} since ${cutoffStr} across ${list.length} compan${list.length!==1?'ies':'y'}`
+    : `No new BA openings in the last 3 days across your watchlist (since ${cutoffStr})`;
+
+  resultsEl.innerHTML = allResults.map(({ company, jobs, found }) => {
+    const srcBg = (src) => src === 'Greenhouse' ? '#d1fae5' : '#fef3c7';
+    const srcFg = (src) => src === 'Greenhouse' ? '#065f46' : '#92400e';
+
+    const header = `<div class="recent-company-header">
+      ${escHtml(company)}
+      ${jobs.length > 0
+        ? `<span class="rch-badge">${jobs.length} new</span>`
+        : found
+          ? `<span class="rch-none">no BA openings in last 3 days</span>`
+          : `<span class="rch-none">not on Greenhouse/Lever</span>`}
+    </div>`;
+
+    if (jobs.length === 0) return `<div class="recent-company-group">${header}</div>`;
+
+    const cards = jobs.map(j => {
+      const pid        = 'r_' + slugifyPractice(j.title + '_' + j.company);
+      const pApplied   = getPracticeApplied().find(x => x.id === pid);
+      const pCancelled = getPracticeCancelled().find(x => x.id === pid);
+      const appliedDis   = pCancelled ? 'disabled' : '';
+      const cancelledDis = pApplied   ? 'disabled' : '';
+      return `
+      <div class="career-job-card" data-pid="${escHtml(pid)}">
+        <div class="career-job-top">
+          <div>
+            <div class="career-job-title">${escHtml(j.title)}</div>
+            <div class="career-job-company">${escHtml(j.company)}
+              <span style="font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;background:${srcBg(j.source)};color:${srcFg(j.source)};margin-left:5px">${j.source}</span>
+            </div>
+          </div>
+          ${j.listed ? `<span style="font-size:10.5px;color:#6b7280;flex-shrink:0">${escHtml(j.listed)}</span>` : ''}
+        </div>
+        <div class="career-job-loc">📍 ${escHtml(j.loc)}</div>
+        ${j.desc ? `<div class="career-job-desc">${escHtml(j.desc)}${j.desc.length>=220?'…':''}</div>` : ''}
+        <div class="career-job-actions">
+          <a class="apply-btn" href="${escHtml(j.url)}" target="_blank" style="font-size:12px;padding:6px 14px">Apply →</a>
+          <button class="applied-btn ${pApplied?'is-applied':''}" ${appliedDis} style="font-size:11.5px;padding:5px 12px"
+            onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
+            ${pApplied?'✓ Applied!':'✓ Mark Applied'}
+          </button>
+          <button class="cancel-btn ${pCancelled?'is-cancelled':''}" ${cancelledDis} style="font-size:11.5px;padding:5px 12px"
+            onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
+            ${pCancelled?'✕ Cancelled':'✕ Cancel'}
+          </button>
+        </div>
+      </div>`;
+    }).join('');
+
+    return `<div class="recent-company-group">${header}${cards}</div>`;
+  }).join('')
+}
+
+// Init watchlist chips on load
+document.addEventListener('DOMContentLoaded', renderWatchlistChips);
 
 // ── Company Career Search ──
 
