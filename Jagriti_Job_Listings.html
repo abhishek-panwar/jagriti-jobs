@@ -2087,7 +2087,7 @@ async function searchCareerJobs() {
 
   if (!companyRaw) { statusEl.textContent = 'Please enter a company name.'; return; }
 
-  // Show career page link
+  // Show career page link immediately
   const careerLink = document.getElementById('careerPageLink');
   const pageUrl = CAREER_PAGES[companyRaw.toLowerCase()];
   if (pageUrl) {
@@ -2099,136 +2099,84 @@ async function searchCareerJobs() {
   }
 
   btn.disabled = true; btn.textContent = '⏳ Searching...';
-  statusEl.innerHTML = `Searching <strong>${escHtml(companyRaw)}</strong> listings${cityRaw ? ' in ' + escHtml(cityRaw) : ' across USA'}…`;
+  statusEl.innerHTML = `Searching Indeed for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''}…`;
   resultsEl.innerHTML = '';
 
-  // Build query: "Senior Business Analyst" at Company [City]
-  const location  = cityRaw || 'USA';
-  const jsQuery   = `"Senior Business Analyst" OR "Business Analyst" ${companyRaw} ${cityRaw || 'USA'}`;
-  const jobs      = [];
-
-  // ── Source 1: JSearch (RapidAPI) ──
   try {
-    const r = await fetch(
-      'https://jsearch.p.rapidapi.com/search?' + new URLSearchParams({
-        query: jsQuery, page: '1', num_pages: '2', date_posted: 'month'
-      }),
-      { headers: { 'X-RapidAPI-Key': JSEARCH_KEY(), 'X-RapidAPI-Host': 'jsearch.p.rapidapi.com' } }
+    // Indeed RSS: searches "senior business analyst" posted at the given company
+    const q = `"senior business analyst" "${companyRaw}"`;
+    const indeedRss = 'https://www.indeed.com/rss?' + new URLSearchParams(
+      Object.assign({ q, limit: '15', sort: 'relevance' }, cityRaw ? { l: cityRaw } : {})
     );
-    if (r.ok) {
-      const data = await r.json();
-      // Keep any result where the employer name shares at least one word with what the user typed
-      const companyWords = companyRaw.toLowerCase().split(/\s+/);
-      for (const j of (data.data || [])) {
-        const emp = (j.employer_name || '').toLowerCase();
-        const match = companyWords.some(w => w.length > 2 && emp.includes(w));
-        if (!match) continue;
-        const city  = j.job_city  || '';
-        const state = j.job_state || '';
-        const loc   = (city + (state ? ', ' + state : '')).trim() || 'USA';
-        jobs.push({
-          title:   j.job_title || '',
-          company: j.employer_name || companyRaw,
-          loc,
-          url:     j.job_apply_link || j.job_google_link || '#',
-          desc:    (j.job_description || '').replace(/\s+/g,' ').substring(0, 220),
-          salary:  j.job_min_salary && j.job_max_salary
-                     ? `$${Math.round(j.job_min_salary/1000)}K – $${Math.round(j.job_max_salary/1000)}K`
-                     : '',
-          source:  j.job_publisher || 'JSearch',
-        });
-      }
+    // CORS proxy needed because Indeed blocks direct browser requests
+    const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(indeedRss);
+
+    const r = await fetch(proxyUrl);
+    if (!r.ok) throw new Error(`proxy ${r.status}`);
+    const envelope = await r.json();
+    if (!envelope.contents) throw new Error('empty proxy response');
+
+    const xml   = new DOMParser().parseFromString(envelope.contents, 'text/xml');
+    const items = [...xml.querySelectorAll('item')];
+
+    btn.disabled = false; btn.textContent = '🔍 Search';
+
+    if (items.length === 0) {
+      statusEl.innerHTML = `No Indeed results for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — try leaving city blank.`;
+      return;
     }
-  } catch(e) {}
 
-  // ── Source 2: Adzuna ──
-  try {
-    const appId  = localStorage.getItem('adzuna_app_id')  || '5975f043';
-    const appKey = localStorage.getItem('adzuna_app_key') || '8f81b1c0abed562e98c9a0d5a1890d93';
-    const what   = `senior business analyst ${companyRaw}`;
-    const where  = cityRaw || '';
-    const r = await fetch(
-      `https://api.adzuna.com/v1/api/jobs/us/search/1?` + new URLSearchParams({
-        app_id: appId, app_key: appKey,
-        what, ...(where ? { where, distance: '30' } : {}),
-        results_per_page: '15', sort_by: 'relevance',
-      })
-    );
-    if (r.ok) {
-      const data = await r.json();
-      const companyWords = companyRaw.toLowerCase().split(/\s+/);
-      for (const j of (data.results || [])) {
-        const co = (j.company?.display_name || '').toLowerCase();
-        const match = companyWords.some(w => w.length > 2 && co.includes(w));
-        if (!match) continue;
-        const mn = j.salary_min, mx = j.salary_max;
-        jobs.push({
-          title:   j.title || '',
-          company: j.company?.display_name || companyRaw,
-          loc:     j.location?.display_name || (cityRaw || 'USA'),
-          url:     j.redirect_url || '#',
-          desc:    (j.description || '').replace(/<[^>]*>/g,'').replace(/\s+/g,' ').substring(0, 220),
-          salary:  (mn && mx) ? `$${Math.round(mn/1000)}K – $${Math.round(mx/1000)}K` : '',
-          source:  'Adzuna',
-        });
-      }
-    }
-  } catch(e) {}
+    const jobs = items.map(item => {
+      // Indeed RSS title format: "Job Title - Company Name"
+      const titleFull = item.querySelector('title')?.textContent?.trim() || '';
+      const dash    = titleFull.lastIndexOf(' - ');
+      const title   = dash > -1 ? titleFull.substring(0, dash).trim() : titleFull;
+      const company = dash > -1 ? titleFull.substring(dash + 3).trim() : companyRaw;
+      // <guid> holds the canonical job URL in Indeed RSS
+      const url  = item.querySelector('guid')?.textContent?.trim() || '#';
+      const desc = (item.querySelector('description')?.textContent || '')
+                     .replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+      return { title, company, loc: cityRaw || 'USA', url, desc: desc.substring(0, 220) };
+    });
 
-  btn.disabled = false; btn.textContent = '🔍 Search';
+    statusEl.innerHTML = `Found <strong>${jobs.length}</strong> listing${jobs.length !== 1 ? 's' : ''} at <strong>${escHtml(companyRaw)}</strong> on Indeed${cityRaw ? ' in ' + escHtml(cityRaw) : ''}`;
 
-  // Deduplicate by title+company
-  const seen = new Set();
-  const unique = jobs.filter(j => {
-    const k = (j.title + j.company).toLowerCase().replace(/\s/g,'');
-    if (seen.has(k)) return false;
-    seen.add(k); return true;
-  });
-
-  if (unique.length === 0) {
-    statusEl.innerHTML = `No listings found for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — try a broader city or leave city blank.`;
-    return;
-  }
-
-  statusEl.innerHTML = `Found <strong>${unique.length}</strong> listing${unique.length!==1?'s':''} at <strong>${escHtml(companyRaw)}</strong>${cityRaw?' in '+escHtml(cityRaw):''}`;
-
-  resultsEl.innerHTML = unique.map(j => {
-    const pid  = 'c_' + slugifyPractice(j.title + '_' + j.company);
-    const pApplied   = getPracticeApplied().find(x => x.id === pid);
-    const pCancelled = getPracticeCancelled().find(x => x.id === pid);
-    // Disable OPPOSITE button; active button stays enabled for undo
-    const appliedDis   = pCancelled ? 'disabled' : '';
-    const cancelledDis = pApplied   ? 'disabled' : '';
-    const srcBadge = { JSearch:'#1a56a4', Adzuna:'#1a56a4', LinkedIn:'#0a66c2', Indeed:'#2d2d2d', Glassdoor:'#0caa41' };
-    const srcColor = srcBadge[j.source] || '#6b7280';
-    return `
-    <div class="career-job-card" data-pid="${escHtml(pid)}">
-      <div class="career-job-top">
-        <div>
-          <div class="career-job-title">${escHtml(j.title)}</div>
-          <div class="career-job-company">${escHtml(j.company)}
-            <span style="font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;background:#e8f0fb;color:${srcColor};margin-left:5px">${escHtml(j.source)}</span>
+    resultsEl.innerHTML = jobs.map(j => {
+      const pid        = 'c_' + slugifyPractice(j.title + '_' + j.company);
+      const pApplied   = getPracticeApplied().find(x => x.id === pid);
+      const pCancelled = getPracticeCancelled().find(x => x.id === pid);
+      const appliedDis   = pCancelled ? 'disabled' : '';
+      const cancelledDis = pApplied   ? 'disabled' : '';
+      return `
+      <div class="career-job-card" data-pid="${escHtml(pid)}">
+        <div class="career-job-top">
+          <div>
+            <div class="career-job-title">${escHtml(j.title)}</div>
+            <div class="career-job-company">${escHtml(j.company)}
+              <span style="font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;background:#f3f4f6;color:#2d2d2d;margin-left:5px">Indeed</span>
+            </div>
           </div>
         </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0">
-          ${j.salary ? `<span style="font-size:11.5px;font-weight:700;color:#065f46">${escHtml(j.salary)}</span>` : ''}
+        <div class="career-job-loc">📍 ${escHtml(j.loc)}</div>
+        ${j.desc ? `<div class="career-job-desc">${escHtml(j.desc)}${j.desc.length >= 220 ? '…' : ''}</div>` : ''}
+        <div class="career-job-actions">
+          <a class="apply-btn" href="${escHtml(j.url)}" target="_blank" style="font-size:12px;padding:6px 14px">View on Indeed →</a>
+          <button class="applied-btn ${pApplied ? 'is-applied' : ''}" ${appliedDis} style="font-size:11.5px;padding:5px 12px"
+            onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
+            ${pApplied ? '✓ Applied!' : '✓ Mark Applied'}
+          </button>
+          <button class="cancel-btn ${pCancelled ? 'is-cancelled' : ''}" ${cancelledDis} style="font-size:11.5px;padding:5px 12px"
+            onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
+            ${pCancelled ? '✕ Cancelled' : '✕ Cancel'}
+          </button>
         </div>
-      </div>
-      <div class="career-job-loc">📍 ${escHtml(j.loc)}</div>
-      ${j.desc ? `<div class="career-job-desc">${escHtml(j.desc)}${j.desc.length===220?'…':''}</div>` : ''}
-      <div class="career-job-actions">
-        <a class="apply-btn" href="${escHtml(j.url)}" target="_blank" style="font-size:12px;padding:6px 14px">Apply →</a>
-        <button class="applied-btn ${pApplied?'is-applied':''}" ${appliedDis} style="font-size:11.5px;padding:5px 12px"
-          onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
-          ${pApplied ? '✓ Applied!' : '✓ Mark Applied'}
-        </button>
-        <button class="cancel-btn ${pCancelled?'is-cancelled':''}" ${cancelledDis} style="font-size:11.5px;padding:5px 12px"
-          onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
-          ${pCancelled ? '✕ Cancelled' : '✕ Cancel'}
-        </button>
-      </div>
-    </div>`;
-  }).join('');
+      </div>`;
+    }).join('');
+
+  } catch(e) {
+    btn.disabled = false; btn.textContent = '🔍 Search';
+    statusEl.innerHTML = `Search failed (${escHtml(e.message)}) — <a href="https://www.indeed.com/jobs?q=senior+business+analyst+%22${encodeURIComponent(companyRaw)}%22${cityRaw ? '&l=' + encodeURIComponent(cityRaw) : ''}" target="_blank" style="color:var(--purple)">search on Indeed directly →</a>`;
+  }
 }
 
 // ── City autocomplete ──
