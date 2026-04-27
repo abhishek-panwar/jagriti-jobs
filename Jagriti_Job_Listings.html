@@ -669,6 +669,95 @@
   }
   .practice-fallback a { color: var(--purple); font-weight: 600; }
 
+  /* ── Company Career Search ── */
+  .career-search-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .career-company-wrap {
+    position: relative;
+    flex: 1.4;
+    min-width: 200px;
+    max-width: 360px;
+  }
+  .career-city-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 160px;
+    max-width: 280px;
+  }
+  .career-status {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 4px 0 10px;
+    min-height: 18px;
+  }
+  .career-results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .career-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--purple);
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .career-card-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: #f9fafb;
+    border: 1px solid var(--border);
+  }
+  .career-card-logo-fallback {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--purple-bg);
+    border: 1px solid var(--purple-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .career-card-info { flex: 1; min-width: 180px; }
+  .career-card-name { font-weight: 700; font-size: 13.5px; color: var(--accent); }
+  .career-card-desc { font-size: 11.5px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+  .career-card-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .career-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    background: var(--purple);
+    color: #fff;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background .15s;
+  }
+  .career-link-btn:hover { background: #6d28d9; }
+  .career-link-btn.secondary {
+    background: #fff;
+    color: var(--purple);
+    border: 1.5px solid var(--purple);
+  }
+  .career-link-btn.secondary:hover { background: var(--purple-bg); }
+
   @media (max-width: 680px) {
     .grid, .practice-grid { grid-template-columns: 1fr; }
     .search-box { width: 100%; }
@@ -1169,9 +1258,9 @@
         <div>🎯 Non Seattle Interview Practice Jobs</div>
         <div class="subtitle">Search Business Analyst jobs in any city — for interview prep only, won't appear above</div>
       </div>
-      <span class="practice-toggle-icon" id="practiceToggleIcon">▼</span>
+      <span class="practice-toggle-icon open" id="practiceToggleIcon">▼</span>
     </div>
-    <div class="practice-body" id="practiceBody">
+    <div class="practice-body open" id="practiceBody">
       <div class="practice-intro">
         These jobs are <strong>for interview practice only</strong> — they won't appear in Jagriti's main Seattle listings.
         Search any US city to find live Business Analyst postings. Use them to sharpen your interview answers, research companies, and build confidence.
@@ -1224,6 +1313,58 @@
       </div>
     </div>
   </div>
+
+  <!-- Company Career Search section -->
+  <div class="practice-section" id="careerSection" style="margin-top:14px">
+    <div class="practice-section-header" onclick="toggleCareerSection()">
+      <div>
+        <div>🏢 Company Career Page Search</div>
+        <div class="subtitle">Search Sr. Business Analyst / BA-3 roles directly on company career sites</div>
+      </div>
+      <span class="practice-toggle-icon open" id="careerToggleIcon">▼</span>
+    </div>
+    <div class="practice-body open" id="careerBody">
+      <div class="practice-intro">
+        Type a company name to get <strong>direct links to their career portal</strong> filtered for Senior Business Analyst / Business Analyst III roles.
+        Optionally add a city to narrow results. Results open on the company's own site — no scraping, always fresh.
+      </div>
+
+      <div class="career-search-row">
+        <div class="career-company-wrap">
+          <input
+            class="city-input"
+            type="text"
+            id="careerCompanyInput"
+            placeholder="e.g. Google, Microsoft, Salesforce..."
+            autocomplete="off"
+            oninput="onCareerCompanyInput()"
+            onkeydown="onCareerCompanyKeydown(event)"
+            onblur="hideCareerSuggestionsDelayed()"
+            style="border-color:var(--purple)"
+          >
+          <div class="city-suggestions" id="careerCompanySuggestions"></div>
+        </div>
+        <div class="career-city-wrap">
+          <input
+            class="city-input"
+            type="text"
+            id="careerCityInput"
+            placeholder="City (optional — USA by default)"
+            autocomplete="off"
+            oninput="onCareerCityInput()"
+            onkeydown="onCareerCityKeydown(event)"
+            onblur="hideCareerCitySuggestionsDelayed()"
+          >
+          <div class="city-suggestions" id="careerCitySuggestions"></div>
+        </div>
+        <button class="practice-search-btn" id="careerSearchBtn" onclick="searchCareerJobs()">🔍 Search</button>
+      </div>
+
+      <div class="career-status" id="careerStatus"></div>
+      <div class="career-results" id="careerResults"></div>
+    </div>
+  </div>
+
   </div><!-- /practice-main-col -->
 
   <!-- Practice right sidebar: Cancelled + Applied for practice jobs -->
@@ -1763,6 +1904,262 @@ function togglePracticeSection() {
   const icon = document.getElementById('practiceToggleIcon');
   const open = body.classList.toggle('open');
   icon.classList.toggle('open', open);
+}
+
+function toggleCareerSection() {
+  const body = document.getElementById('careerBody');
+  const icon = document.getElementById('careerToggleIcon');
+  const open = body.classList.toggle('open');
+  icon.classList.toggle('open', open);
+}
+
+// ── Company Career Search ──
+
+// Known companies: { name, domain, logoUrl, urlFn(query, city) -> {primary, secondary?} }
+const KNOWN_COMPANIES = [
+  { name:'Google',        domain:'google.com',        emoji:'🔵',
+    url: (q,c) => ({ primary: `https://www.google.com/about/careers/applications/jobs/results/?q=${q}${c?'&location='+c:''}`, label:'Google Careers' }) },
+  { name:'Microsoft',     domain:'microsoft.com',     emoji:'🪟',
+    url: (q,c) => ({ primary: `https://jobs.careers.microsoft.com/global/en/search?q=${q}${c?'&lc='+c:''}`, label:'Microsoft Jobs' }) },
+  { name:'Amazon',        domain:'amazon.com',        emoji:'🟠',
+    url: (q,c) => ({ primary: `https://www.amazon.jobs/en/search?base_query=${q}${c?'&loc_query='+c:''}`, label:'Amazon Jobs' }) },
+  { name:'Meta',          domain:'meta.com',          emoji:'🔷',
+    url: (q,c) => ({ primary: `https://www.metacareers.com/jobs?q=${q}${c?'&offices='+c:''}`, label:'Meta Careers' }) },
+  { name:'Apple',         domain:'apple.com',         emoji:'🍎',
+    url: (q,c) => ({ primary: `https://jobs.apple.com/en-us/search?search=${q}${c?'&location='+c:''}`, label:'Apple Jobs' }) },
+  { name:'Salesforce',    domain:'salesforce.com',    emoji:'☁️',
+    url: (q,c) => ({ primary: `https://salesforce.wd12.myworkdayjobs.com/en-US/External_Career_Site?q=${q}${c?'&locationCountry=USA&locationRegionStateProvince='+c:''}`, label:'Salesforce Careers' }) },
+  { name:'Deloitte',      domain:'deloitte.com',      emoji:'🟢',
+    url: (q,c) => ({ primary: `https://apply.deloitte.com/careers/SearchJobs/${encodeURIComponent(q)}?3_56_3=${c||''}`, label:'Deloitte Careers' }) },
+  { name:'Accenture',     domain:'accenture.com',     emoji:'🟣',
+    url: (q,c) => ({ primary: `https://www.accenture.com/us-en/careers/jobsearch?jk=${q}${c?'&jl='+c:''}`, label:'Accenture Jobs' }) },
+  { name:'McKinsey',      domain:'mckinsey.com',      emoji:'⚫',
+    url: (q,c) => ({ primary: `https://www.mckinsey.com/careers/search-jobs#q=${q}${c?'&l='+c:''}`, label:'McKinsey Careers' }) },
+  { name:'IBM',           domain:'ibm.com',           emoji:'💙',
+    url: (q,c) => ({ primary: `https://www.ibm.com/employment/us/#jobs?k=${q}${c?'&l='+c:''}`, label:'IBM Jobs' }) },
+  { name:'Oracle',        domain:'oracle.com',        emoji:'🔴',
+    url: (q,c) => ({ primary: `https://careers.oracle.com/jobs/#en/sites/jobsearch/jobs?q=${q}${c?'&location='+c:''}`, label:'Oracle Careers' }) },
+  { name:'SAP',           domain:'sap.com',           emoji:'🟦',
+    url: (q,c) => ({ primary: `https://jobs.sap.com/search/?q=${q}${c?'&locationsearch='+c:''}`, label:'SAP Jobs' }) },
+  { name:'Workday',       domain:'workday.com',       emoji:'🟡',
+    url: (q,c) => ({ primary: `https://workday.wd5.myworkdayjobs.com/en-US/Workday?q=${q}${c?'&locationCountry=USA':''}`, label:'Workday Careers' }) },
+  { name:'ServiceNow',    domain:'servicenow.com',    emoji:'🟩',
+    url: (q,c) => ({ primary: `https://careers.servicenow.com/jobs?q=${q}${c?'&location='+c:''}`, label:'ServiceNow Jobs' }) },
+  { name:'Uber',          domain:'uber.com',          emoji:'⬛',
+    url: (q,c) => ({ primary: `https://www.uber.com/us/en/careers/list/?query=${q}${c?'&location='+c:''}`, label:'Uber Careers' }) },
+  { name:'Airbnb',        domain:'airbnb.com',        emoji:'🌸',
+    url: (q,c) => ({ primary: `https://careers.airbnb.com/positions/?search=${q}${c?'&location='+c:''}`, label:'Airbnb Careers' }) },
+  { name:'Netflix',       domain:'netflix.com',       emoji:'🔴',
+    url: (q,c) => ({ primary: `https://jobs.netflix.com/search?q=${q}${c?'&location='+c:''}`, label:'Netflix Jobs' }) },
+  { name:'Stripe',        domain:'stripe.com',        emoji:'🟦',
+    url: (q,c) => ({ primary: `https://stripe.com/jobs/search?query=${q}`, label:'Stripe Jobs' }) },
+  { name:'Twitter / X',   domain:'x.com',             emoji:'✖️',
+    url: (q,c) => ({ primary: `https://twitter.com/jobs`, label:'X Careers' }) },
+  { name:'LinkedIn',      domain:'linkedin.com',      emoji:'🔵',
+    url: (q,c) => ({ primary: `https://www.linkedin.com/company/linkedin/jobs/`, label:'LinkedIn Careers' }) },
+  { name:'Adobe',         domain:'adobe.com',         emoji:'🔴',
+    url: (q,c) => ({ primary: `https://careers.adobe.com/us/en/search-results?keywords=${q}${c?'&location='+c:''}`, label:'Adobe Careers' }) },
+  { name:'Intuit',        domain:'intuit.com',        emoji:'🟢',
+    url: (q,c) => ({ primary: `https://jobs.intuit.com/search-jobs?keyword=${q}${c?'&location='+c:''}`, label:'Intuit Jobs' }) },
+  { name:'Cisco',         domain:'cisco.com',         emoji:'🔵',
+    url: (q,c) => ({ primary: `https://jobs.cisco.com/jobs/SearchJobs/${encodeURIComponent(q)}?3_56_3=${c||''}`, label:'Cisco Jobs' }) },
+  { name:'Capital One',   domain:'capitalone.com',    emoji:'🔴',
+    url: (q,c) => ({ primary: `https://www.capitalonecareers.com/search-jobs?keyword=${q}${c?'&location='+c:''}`, label:'Capital One Careers' }) },
+  { name:'JPMorgan Chase',domain:'jpmorganchase.com', emoji:'🔵',
+    url: (q,c) => ({ primary: `https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions?keyword=${q}${c?'&location='+c:''}`, label:'JPMorgan Careers' }) },
+  { name:'Bank of America',domain:'bankofamerica.com',emoji:'🔴',
+    url: (q,c) => ({ primary: `https://careers.bankofamerica.com/en-us/search-jobs?keyword=${q}${c?'&location='+c:''}`, label:'BofA Careers' }) },
+  { name:'Goldman Sachs', domain:'goldmansachs.com',  emoji:'🔵',
+    url: (q,c) => ({ primary: `https://higher.gs.com/roles?q=${q}${c?'&l='+c:''}`, label:'Goldman Sachs Jobs' }) },
+  { name:'Walmart',       domain:'walmart.com',       emoji:'🔵',
+    url: (q,c) => ({ primary: `https://careers.walmart.com/results?q=${q}${c?'&location='+c:''}`, label:'Walmart Careers' }) },
+  { name:'Target',        domain:'target.com',        emoji:'🔴',
+    url: (q,c) => ({ primary: `https://jobs.target.com/search-jobs?keyword=${q}${c?'&location='+c:''}`, label:'Target Jobs' }) },
+  { name:'Boeing',        domain:'boeing.com',        emoji:'🔵',
+    url: (q,c) => ({ primary: `https://jobs.boeing.com/search-jobs?keyword=${q}${c?'&location='+c:''}`, label:'Boeing Careers' }) },
+  { name:'Expedia',       domain:'expediagroup.com',  emoji:'🟡',
+    url: (q,c) => ({ primary: `https://expediagroup.com/careers/open-jobs/?q=${q}${c?'&location='+c:''}`, label:'Expedia Careers' }) },
+  { name:'T-Mobile',      domain:'t-mobile.com',      emoji:'🩷',
+    url: (q,c) => ({ primary: `https://careers.t-mobile.com/en/careers/jobs?keywords=${q}${c?'&location='+c:''}`, label:'T-Mobile Jobs' }) },
+  { name:'Starbucks',     domain:'starbucks.com',     emoji:'🟢',
+    url: (q,c) => ({ primary: `https://www.starbucks.com/careers/find-a-job/?q=${q}${c?'&location='+c:''}`, label:'Starbucks Careers' }) },
+  { name:'Nike',          domain:'nike.com',          emoji:'⚫',
+    url: (q,c) => ({ primary: `https://jobs.nike.com/job-search-results/?keyword=${q}${c?'&location='+c:''}`, label:'Nike Jobs' }) },
+  { name:'Snowflake',     domain:'snowflake.com',     emoji:'❄️',
+    url: (q,c) => ({ primary: `https://careers.snowflake.com/jobs?q=${q}${c?'&location='+c:''}`, label:'Snowflake Careers' }) },
+  { name:'Databricks',    domain:'databricks.com',    emoji:'🟧',
+    url: (q,c) => ({ primary: `https://www.databricks.com/company/careers/open-positions?department=all&location=${c||'Remote'}&search=${q}`, label:'Databricks Careers' }) },
+  { name:'Atlassian',     domain:'atlassian.com',     emoji:'🔵',
+    url: (q,c) => ({ primary: `https://www.atlassian.com/company/careers/all-jobs?search=${q}${c?'&location='+c:''}`, label:'Atlassian Jobs' }) },
+  { name:'Zendesk',       domain:'zendesk.com',       emoji:'🟢',
+    url: (q,c) => ({ primary: `https://jobs.zendesk.com/us/en/search-results?keywords=${q}${c?'&location='+c:''}`, label:'Zendesk Jobs' }) },
+  { name:'HubSpot',       domain:'hubspot.com',       emoji:'🟠',
+    url: (q,c) => ({ primary: `https://www.hubspot.com/careers/jobs?hubs_content=jobs&search=${q}`, label:'HubSpot Careers' }) },
+  { name:'Splunk',        domain:'splunk.com',        emoji:'🟢',
+    url: (q,c) => ({ primary: `https://www.splunk.com/en_us/careers/search-jobs.html?search=${q}${c?'&location='+c:''}`, label:'Splunk Careers' }) },
+  { name:'Twilio',        domain:'twilio.com',        emoji:'🔴',
+    url: (q,c) => ({ primary: `https://ahoy.twilio.com/jobs?q=${q}`, label:'Twilio Jobs' }) },
+  { name:'Palo Alto Networks',domain:'paloaltonetworks.com',emoji:'🟧',
+    url: (q,c) => ({ primary: `https://jobs.paloaltonetworks.com/en/jobs?q=${q}${c?'&location='+c:''}`, label:'Palo Alto Careers' }) },
+  { name:'LSEG / Refinitiv',domain:'lseg.com',        emoji:'🔵',
+    url: (q,c) => ({ primary: `https://lseg.com/en/careers/open-roles?q=${q}${c?'&location='+c:''}`, label:'LSEG Careers' }) },
+  { name:'Aon',           domain:'aon.com',           emoji:'🔴',
+    url: (q,c) => ({ primary: `https://jobs.aon.com/jobs?q=${q}${c?'&location='+c:''}`, label:'Aon Careers' }) },
+  { name:'Informatica',   domain:'informatica.com',   emoji:'🟠',
+    url: (q,c) => ({ primary: `https://www.informatica.com/company/careers.html`, label:'Informatica Careers' }) },
+  { name:'Tableau',       domain:'tableau.com',       emoji:'🔵',
+    url: (q,c) => ({ primary: `https://www.salesforce.com/company/careers/`, label:'Salesforce/Tableau Careers' }) },
+  { name:'Kiewit',        domain:'kiewit.com',        emoji:'🟡',
+    url: (q,c) => ({ primary: `https://jobs.kiewit.com/search-jobs?keyword=${q}${c?'&location='+c:''}`, label:'Kiewit Jobs' }) },
+  { name:'SpaceX',        domain:'spacex.com',        emoji:'⬛',
+    url: (q,c) => ({ primary: `https://www.spacex.com/careers/jobs#${q}`, label:'SpaceX Careers' }) },
+  { name:'Wizards of the Coast',domain:'wizards.com', emoji:'🟣',
+    url: (q,c) => ({ primary: `https://jobs.hasbro.com/search-jobs?keyword=${q}${c?'&location='+c:''}`, label:'Hasbro/WotC Jobs' }) },
+];
+
+const COMPANY_NAMES = KNOWN_COMPANIES.map(c => c.name);
+
+let careerSuggIdx = -1;
+let careerCitySuggIdx = -1;
+
+function onCareerCompanyInput() {
+  const q   = document.getElementById('careerCompanyInput').value.trim();
+  const box = document.getElementById('careerCompanySuggestions');
+  if (q.length < 1) { box.classList.remove('visible'); return; }
+  const matches = COMPANY_NAMES.filter(n => n.toLowerCase().includes(q.toLowerCase())).slice(0, 8);
+  if (!matches.length) { box.classList.remove('visible'); return; }
+  box.innerHTML = matches.map(n =>
+    `<div class="city-suggestion-item" onmousedown="selectCareerCompany('${escHtml(n)}')">${escHtml(n)}</div>`
+  ).join('');
+  box.classList.add('visible');
+  careerSuggIdx = -1;
+}
+
+function onCareerCompanyKeydown(e) {
+  const box   = document.getElementById('careerCompanySuggestions');
+  const items = box.querySelectorAll('.city-suggestion-item');
+  if (e.key === 'ArrowDown') { e.preventDefault(); careerSuggIdx = Math.min(careerSuggIdx+1, items.length-1); items.forEach((el,i) => el.classList.toggle('focused', i===careerSuggIdx)); if (items[careerSuggIdx]) document.getElementById('careerCompanyInput').value = items[careerSuggIdx].textContent; }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); careerSuggIdx = Math.max(careerSuggIdx-1,-1); items.forEach((el,i) => el.classList.toggle('focused', i===careerSuggIdx)); }
+  else if (e.key === 'Enter') { box.classList.remove('visible'); searchCareerJobs(); }
+  else if (e.key === 'Escape') { box.classList.remove('visible'); }
+}
+
+function selectCareerCompany(name) {
+  document.getElementById('careerCompanyInput').value = name;
+  document.getElementById('careerCompanySuggestions').classList.remove('visible');
+}
+function hideCareerSuggestionsDelayed() { setTimeout(() => document.getElementById('careerCompanySuggestions').classList.remove('visible'), 200); }
+
+function onCareerCityInput() {
+  const q   = document.getElementById('careerCityInput').value.trim();
+  const box = document.getElementById('careerCitySuggestions');
+  if (q.length < 1) { box.classList.remove('visible'); return; }
+  const matches = US_CITIES.filter(c => c.toLowerCase().includes(q.toLowerCase())).slice(0, 8);
+  if (!matches.length) { box.classList.remove('visible'); return; }
+  box.innerHTML = matches.map(c =>
+    `<div class="city-suggestion-item" onmousedown="selectCareerCity('${escHtml(c)}')">${escHtml(c)}</div>`
+  ).join('');
+  box.classList.add('visible');
+  careerCitySuggIdx = -1;
+}
+
+function onCareerCityKeydown(e) {
+  const box   = document.getElementById('careerCitySuggestions');
+  const items = box.querySelectorAll('.city-suggestion-item');
+  if (e.key === 'ArrowDown') { e.preventDefault(); careerCitySuggIdx = Math.min(careerCitySuggIdx+1, items.length-1); items.forEach((el,i) => el.classList.toggle('focused', i===careerCitySuggIdx)); if (items[careerCitySuggIdx]) document.getElementById('careerCityInput').value = items[careerCitySuggIdx].textContent; }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); careerCitySuggIdx = Math.max(careerCitySuggIdx-1,-1); items.forEach((el,i) => el.classList.toggle('focused', i===careerCitySuggIdx)); }
+  else if (e.key === 'Enter') { box.classList.remove('visible'); searchCareerJobs(); }
+  else if (e.key === 'Escape') { box.classList.remove('visible'); }
+}
+
+function selectCareerCity(city) {
+  document.getElementById('careerCityInput').value = city;
+  document.getElementById('careerCitySuggestions').classList.remove('visible');
+}
+function hideCareerCitySuggestionsDelayed() { setTimeout(() => document.getElementById('careerCitySuggestions').classList.remove('visible'), 200); }
+
+function searchCareerJobs() {
+  const companyRaw = document.getElementById('careerCompanyInput').value.trim();
+  const cityRaw    = document.getElementById('careerCityInput').value.trim();
+  const statusEl   = document.getElementById('careerStatus');
+  const resultsEl  = document.getElementById('careerResults');
+
+  if (!companyRaw) {
+    statusEl.textContent = 'Please enter a company name.';
+    return;
+  }
+
+  const role     = 'Senior Business Analyst';
+  const roleEnc  = encodeURIComponent(role);
+  const cityEnc  = cityRaw ? encodeURIComponent(cityRaw) : '';
+  const cityDisp = cityRaw || 'USA (all locations)';
+
+  // Try to match known company
+  const match = KNOWN_COMPANIES.find(c =>
+    c.name.toLowerCase().includes(companyRaw.toLowerCase()) ||
+    companyRaw.toLowerCase().includes(c.name.toLowerCase().split(' ')[0])
+  );
+
+  resultsEl.innerHTML = '';
+
+  if (match) {
+    const { primary, label } = match.url(roleEnc, cityEnc);
+    // Google site search as secondary fallback
+    const googleSearch = `https://www.google.com/search?q=site:${match.domain}+%22senior+business+analyst%22${cityRaw?'+%22'+encodeURIComponent(cityRaw)+'%22':''}`;
+    // LinkedIn direct search for this company
+    const linkedinUrl = `https://www.linkedin.com/jobs/search/?keywords=${roleEnc}&f_C=&company=${encodeURIComponent(match.name)}${cityRaw?'&location='+cityEnc:''}`;
+
+    statusEl.innerHTML = `Showing career links for <strong>${escHtml(match.name)}</strong> — ${escHtml(cityDisp)}`;
+
+    resultsEl.innerHTML = `
+      <div class="career-card">
+        <div class="career-card-logo-fallback">${match.emoji}</div>
+        <div class="career-card-info">
+          <div class="career-card-name">${escHtml(match.name)}</div>
+          <div class="career-card-desc">Sr. Business Analyst / BA-3 roles · ${escHtml(cityDisp)}</div>
+        </div>
+        <div class="career-card-actions">
+          <a class="career-link-btn" href="${escHtml(primary)}" target="_blank">🏢 ${escHtml(label)} →</a>
+          <a class="career-link-btn secondary" href="${escHtml(linkedinUrl)}" target="_blank">LinkedIn →</a>
+          <a class="career-link-btn secondary" href="${escHtml(googleSearch)}" target="_blank">Google search →</a>
+        </div>
+      </div>
+      <div class="career-card">
+        <div class="career-card-logo-fallback">🔍</div>
+        <div class="career-card-info">
+          <div class="career-card-name">More sources</div>
+          <div class="career-card-desc">Search ${escHtml(match.name)} BA roles on other platforms</div>
+        </div>
+        <div class="career-card-actions">
+          <a class="career-link-btn secondary" href="https://www.indeed.com/jobs?q=${roleEnc}&sc.keyword=${encodeURIComponent(match.name)}${cityRaw?'&l='+cityEnc:''}" target="_blank">Indeed →</a>
+          <a class="career-link-btn secondary" href="https://www.glassdoor.com/Job/jobs.htm?sc.keyword=${roleEnc}+${encodeURIComponent(match.name)}${cityRaw?'&locT=C&locKeyword='+cityEnc:''}" target="_blank">Glassdoor →</a>
+          <a class="career-link-btn secondary" href="https://www.ziprecruiter.com/jobs-search?search=${roleEnc}+${encodeURIComponent(match.name)}${cityRaw?'&location='+cityEnc:''}" target="_blank">ZipRecruiter →</a>
+        </div>
+      </div>`;
+  } else {
+    // Unknown company — build generic links
+    const googleCareer  = `https://www.google.com/search?q=${encodeURIComponent(companyRaw)}+careers+%22senior+business+analyst%22${cityRaw?'+%22'+encodeURIComponent(cityRaw)+'%22':''}`;
+    const linkedinUrl   = `https://www.linkedin.com/jobs/search/?keywords=${roleEnc}&company=${encodeURIComponent(companyRaw)}${cityRaw?'&location='+cityEnc:''}`;
+    const indeedUrl     = `https://www.indeed.com/jobs?q=${roleEnc}+${encodeURIComponent(companyRaw)}${cityRaw?'&l='+cityEnc:''}`;
+    const glassdoorUrl  = `https://www.glassdoor.com/Job/jobs.htm?sc.keyword=${roleEnc}+${encodeURIComponent(companyRaw)}${cityRaw?'&locT=C&locKeyword='+cityEnc:''}`;
+
+    statusEl.innerHTML = `No direct career portal configured for <strong>${escHtml(companyRaw)}</strong> — showing best search links`;
+
+    resultsEl.innerHTML = `
+      <div class="career-card">
+        <div class="career-card-logo-fallback">🏢</div>
+        <div class="career-card-info">
+          <div class="career-card-name">${escHtml(companyRaw)}</div>
+          <div class="career-card-desc">Sr. Business Analyst roles · ${escHtml(cityDisp)}</div>
+        </div>
+        <div class="career-card-actions">
+          <a class="career-link-btn" href="${escHtml(googleCareer)}" target="_blank">🔍 Google Career Search →</a>
+          <a class="career-link-btn secondary" href="${escHtml(linkedinUrl)}" target="_blank">LinkedIn →</a>
+          <a class="career-link-btn secondary" href="${escHtml(indeedUrl)}" target="_blank">Indeed →</a>
+          <a class="career-link-btn secondary" href="${escHtml(glassdoorUrl)}" target="_blank">Glassdoor →</a>
+        </div>
+      </div>`;
+  }
 }
 
 // ── City autocomplete ──
