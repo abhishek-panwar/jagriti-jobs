@@ -8,13 +8,6 @@
       "appliedAt": "Apr 26, 2026"
     },
     {
-      "id": "amazon_wwgs",
-      "title": "Sr. Business Analyst – WWGS Operations Analytics",
-      "company": "Amazon",
-      "applyUrl": "https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335",
-      "appliedAt": "Apr 26, 2026"
-    },
-    {
       "id": "amazon_nbeo",
       "title": "Senior Business Analyst – Network Balance & Equipment Optimization",
       "company": "Amazon",
@@ -48,7 +41,14 @@
       "company": "Amazon",
       "applyUrl": "https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159",
       "appliedAt": "Apr 26, 2026"
+    },
+    {
+      "id": "amazon_wwgs",
+      "title": "Sr. Business Analyst – WWGS Operations Analytics",
+      "company": "Amazon",
+      "applyUrl": "https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335",
+      "appliedAt": "Apr 26, 2026"
     }
   ],
-  "lastUpdated": "2026-04-27T04:30:34.521Z"
+  "lastUpdated": "2026-04-27T04:30:49.799Z"
 }
