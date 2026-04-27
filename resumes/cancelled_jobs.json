@@ -13,7 +13,21 @@
       "company": "Turing",
       "applyUrl": "https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114",
       "cancelledAt": "Apr 26, 2026"
+    },
+    {
+      "id": "amazon_nbeo",
+      "title": "Senior Business Analyst – Network Balance & Equipment Optimization",
+      "company": "Amazon",
+      "applyUrl": "https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662",
+      "cancelledAt": "Apr 26, 2026"
+    },
+    {
+      "id": "wizards",
+      "title": "Senior Business Analyst",
+      "company": "Wizards of the Coast",
+      "applyUrl": "https://www.linkedin.com/jobs/view/senior-business-analyst-at-wizards-of-the-coast-4364552218",
+      "cancelledAt": "Apr 26, 2026"
     }
   ],
-  "lastUpdated": "2026-04-27T04:37:03.807Z"
+  "lastUpdated": "2026-04-27T04:37:10.434Z"
 }
