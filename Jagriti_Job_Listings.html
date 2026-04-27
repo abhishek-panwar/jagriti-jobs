@@ -254,14 +254,6 @@
   .download-btn:hover { background: var(--blue); color: #fff; }
 
   /* ── Summary table ── */
-  .summary-wrap {
-    max-width: 960px;
-    margin: 24px auto 0;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.07);
-    overflow: hidden;
-  }
   .summary-title {
     padding: 12px 20px;
     background: var(--accent);
@@ -277,66 +269,99 @@
   td a { color: var(--blue); text-decoration: none; font-weight: 600; }
   td a:hover { text-decoration: underline; }
 
-  /* ── Applied Jobs section ── */
-  .applied-section {
+  /* ── Bottom two-column layout (table + applied sidebar) ── */
+  .bottom-layout {
     max-width: 960px;
-    margin: 16px auto 0;
+    margin: 24px auto 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .summary-wrap {
+    flex: 1;
+    min-width: 0;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,.07);
     overflow: hidden;
   }
-  .applied-section-header {
-    padding: 12px 20px;
+
+  /* ── Applied Jobs sidebar ── */
+  .applied-sidebar {
+    width: 272px;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    overflow: hidden;
+    position: sticky;
+    top: 16px;
+  }
+  .applied-sidebar-header {
+    padding: 12px 16px;
     background: #065f46;
     color: #fff;
     font-weight: 700;
     font-size: 13px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-    user-select: none;
+    gap: 6px;
   }
-  .applied-section-header:hover { background: #047857; }
-  .applied-toggle-icon { font-size: 14px; transition: transform .2s; }
-  .applied-toggle-icon.open { transform: rotate(180deg); }
-  .applied-section-body { display: none; }
-  .applied-section-body.open { display: block; }
+  .applied-count {
+    background: rgba(255,255,255,0.25);
+    border-radius: 999px;
+    padding: 1px 8px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .applied-body {
+    max-height: 420px;
+    overflow-y: auto;
+  }
   .applied-empty {
-    padding: 16px 20px;
+    padding: 14px 16px;
     font-size: 12px;
     color: var(--muted);
     font-style: italic;
+    line-height: 1.5;
   }
   .applied-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 20px;
+    padding: 10px 16px;
     border-bottom: 1px solid var(--border);
-    font-size: 12px;
-    flex-wrap: wrap;
   }
   .applied-row:last-child { border-bottom: none; }
-  .applied-checkmark { color: var(--green); font-size: 14px; flex-shrink: 0; }
-  .applied-row-title { font-weight: 700; color: var(--accent); flex: 1; min-width: 160px; }
-  .applied-row-company { color: var(--muted); min-width: 100px; }
-  .applied-row-date { color: var(--muted); font-size: 11px; min-width: 80px; }
-  .applied-row-link { color: var(--blue); font-size: 11px; text-decoration: none; font-weight: 600; }
+  .applied-row-title {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 12px;
+    line-height: 1.35;
+    margin-bottom: 2px;
+  }
+  .applied-row-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .applied-row-link { color: var(--blue); text-decoration: none; font-weight: 600; }
   .applied-row-link:hover { text-decoration: underline; }
+  .applied-row-footer { display: flex; justify-content: space-between; align-items: center; }
+  .applied-row-date { font-size: 10.5px; color: var(--muted); }
   .applied-row-undo {
-    padding: 3px 10px;
+    padding: 2px 9px;
     border: 1.5px solid #d1d5db;
     border-radius: 999px;
     background: #fff;
-    font-size: 11px;
+    font-size: 10.5px;
     color: var(--muted);
     cursor: pointer;
     transition: all .15s;
-    margin-left: auto;
   }
   .applied-row-undo:hover { border-color: var(--red); color: var(--red); background: var(--red-bg); }
+
+  @media (max-width: 780px) {
+    .bottom-layout { flex-direction: column; }
+    .applied-sidebar { width: 100%; position: static; }
+  }
 
   /* ── Practice Jobs section ── */
   .practice-section {
@@ -954,47 +979,51 @@
 
 </div>
 
-<!-- Summary table -->
-<div class="summary-wrap">
-  <div class="summary-title">Quick Reference — All 12 Listings</div>
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Role</th>
-        <th>Company</th>
-        <th>Location</th>
-        <th>Salary</th>
-        <th>Match</th>
-        <th>Apply</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>Sr. BA – Kiewit Nuclear</td><td>Kiewit</td><td>Remote</td><td>$136–142K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182" target="_blank">Apply →</a></td></tr>
-      <tr><td>2</td><td>Sr. BA – Talent Acquisition Analytics</td><td>Amazon</td><td>Seattle, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315" target="_blank">Apply →</a></td></tr>
-      <tr><td>3</td><td>Sr. BA – WWGS Operations Analytics</td><td>Amazon</td><td>Seattle, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335" target="_blank">Apply →</a></td></tr>
-      <tr><td>4</td><td>Sr. BA – AMZL OTR Planning</td><td>Amazon</td><td>Bellevue, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159" target="_blank">Apply →</a></td></tr>
-      <tr><td>5</td><td>Sr. BA – Network Balance &amp; Equipment</td><td>Amazon</td><td>Bellevue, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662" target="_blank">Apply →</a></td></tr>
-      <tr><td>6</td><td>Senior Business Analyst</td><td>Wizards of the Coast</td><td>Renton, WA</td><td>$95–159K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-wizards-of-the-coast-4364552218" target="_blank">Apply →</a></td></tr>
-      <tr><td>7</td><td>Sr. BA – Starlink Growth</td><td>SpaceX</td><td>Redmond, WA</td><td>$115–150K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384" target="_blank">Apply →</a></td></tr>
-      <tr><td>8</td><td>Senior Financial Business Analyst</td><td>IntePros</td><td>Seattle, WA</td><td>Contract</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-financial-business-analyst-at-intepros-4376218003" target="_blank">Apply →</a></td></tr>
-      <tr><td>9</td><td>Senior Business Analyst</td><td>NAC Architecture</td><td>Seattle, WA</td><td>$115–170K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-nac-4384641541" target="_blank">Apply →</a></td></tr>
-      <tr><td>10</td><td>Sr. IT BA – GxP Systems (Boomi)</td><td>Evotec</td><td>Seattle, WA (Hybrid)</td><td>$126–140K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-it-business-analyst-gxp-systems-integration-boomi-at-evotec-4374508335" target="_blank">Apply →</a></td></tr>
-      <tr><td>11</td><td>Business Analyst IV – Geospatial</td><td>IntePros</td><td>Seattle, WA</td><td>Contract PT</td><td><span class="badge badge-tier3">Partial</span></td><td><a href="https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389" target="_blank">Apply →</a></td></tr>
-      <tr><td>12</td><td>Remote BA – AI Training</td><td>Turing</td><td>Remote</td><td>~$50–100/hr</td><td><span class="badge badge-tier3">Partial</span></td><td><a href="https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114" target="_blank">Apply →</a></td></tr>
-    </tbody>
-  </table>
-</div>
+<!-- Bottom: summary table + applied sidebar side by side -->
+<div class="bottom-layout">
 
-<!-- Applied Jobs section -->
-<div class="applied-section" id="appliedSection">
-  <div class="applied-section-header" id="appliedHeader" onclick="toggleAppliedSection()">
-    <span>✅ Applied Jobs<span class="applied-count" id="appliedCount"></span></span>
-    <span class="applied-toggle-icon" id="appliedToggleIcon">▼</span>
+  <!-- Summary table -->
+  <div class="summary-wrap">
+    <div class="summary-title">Quick Reference — All 12 Listings</div>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Role</th>
+          <th>Company</th>
+          <th>Location</th>
+          <th>Salary</th>
+          <th>Match</th>
+          <th>Apply</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Sr. BA – Kiewit Nuclear</td><td>Kiewit</td><td>Remote</td><td>$136–142K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182" target="_blank">Apply →</a></td></tr>
+        <tr><td>2</td><td>Sr. BA – Talent Acquisition Analytics</td><td>Amazon</td><td>Seattle, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315" target="_blank">Apply →</a></td></tr>
+        <tr><td>3</td><td>Sr. BA – WWGS Operations Analytics</td><td>Amazon</td><td>Seattle, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335" target="_blank">Apply →</a></td></tr>
+        <tr><td>4</td><td>Sr. BA – AMZL OTR Planning</td><td>Amazon</td><td>Bellevue, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159" target="_blank">Apply →</a></td></tr>
+        <tr><td>5</td><td>Sr. BA – Network Balance &amp; Equipment</td><td>Amazon</td><td>Bellevue, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662" target="_blank">Apply →</a></td></tr>
+        <tr><td>6</td><td>Senior Business Analyst</td><td>Wizards of the Coast</td><td>Renton, WA</td><td>$95–159K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-wizards-of-the-coast-4364552218" target="_blank">Apply →</a></td></tr>
+        <tr><td>7</td><td>Sr. BA – Starlink Growth</td><td>SpaceX</td><td>Redmond, WA</td><td>$115–150K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384" target="_blank">Apply →</a></td></tr>
+        <tr><td>8</td><td>Senior Financial Business Analyst</td><td>IntePros</td><td>Seattle, WA</td><td>Contract</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-financial-business-analyst-at-intepros-4376218003" target="_blank">Apply →</a></td></tr>
+        <tr><td>9</td><td>Senior Business Analyst</td><td>NAC Architecture</td><td>Seattle, WA</td><td>$115–170K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-nac-4384641541" target="_blank">Apply →</a></td></tr>
+        <tr><td>10</td><td>Sr. IT BA – GxP Systems (Boomi)</td><td>Evotec</td><td>Seattle, WA (Hybrid)</td><td>$126–140K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-it-business-analyst-gxp-systems-integration-boomi-at-evotec-4374508335" target="_blank">Apply →</a></td></tr>
+        <tr><td>11</td><td>Business Analyst IV – Geospatial</td><td>IntePros</td><td>Seattle, WA</td><td>Contract PT</td><td><span class="badge badge-tier3">Partial</span></td><td><a href="https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389" target="_blank">Apply →</a></td></tr>
+        <tr><td>12</td><td>Remote BA – AI Training</td><td>Turing</td><td>Remote</td><td>~$50–100/hr</td><td><span class="badge badge-tier3">Partial</span></td><td><a href="https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114" target="_blank">Apply →</a></td></tr>
+      </tbody>
+    </table>
   </div>
-  <div class="applied-section-body" id="appliedBody">
-    <div class="applied-empty">No jobs marked as applied yet. Click "✓ Mark Applied" on a job card after you apply.</div>
+
+  <!-- Applied Jobs sidebar (right) -->
+  <div class="applied-sidebar" id="appliedSection">
+    <div class="applied-sidebar-header">
+      ✅ Applied Jobs <span class="applied-count" id="appliedCount">0</span>
+    </div>
+    <div class="applied-body" id="appliedBody">
+      <div class="applied-empty">No jobs marked as applied yet. Click "✓ Mark Applied" on a card after you apply.</div>
+    </div>
   </div>
+
 </div>
 
 <!-- Practice Jobs section -->
@@ -1159,29 +1188,22 @@ function renderAppliedSection() {
   const applied = getApplied();
   const countEl = document.getElementById('appliedCount');
   const body    = document.getElementById('appliedBody');
-  countEl.textContent = applied.length > 0 ? ` (${applied.length})` : '';
+  countEl.textContent = applied.length;
 
   if (applied.length === 0) {
-    body.innerHTML = '<div class="applied-empty">No jobs marked as applied yet. Click "✓ Mark Applied" on a job card after you apply.</div>';
+    body.innerHTML = '<div class="applied-empty">No jobs marked as applied yet. Click "✓ Mark Applied" on a card after you apply.</div>';
     return;
   }
   body.innerHTML = applied.map(job => `
     <div class="applied-row">
-      <span class="applied-checkmark">✅</span>
-      <span class="applied-row-title">${escHtml(job.title)}</span>
-      <span class="applied-row-company">${escHtml(job.company)}</span>
-      <span class="applied-row-date">${escHtml(job.appliedAt)}</span>
-      ${job.applyUrl ? `<a class="applied-row-link" href="${escHtml(job.applyUrl)}" target="_blank">View listing →</a>` : ''}
-      <button class="applied-row-undo" onclick="undoApplied('${escHtml(job.id)}')">Undo</button>
+      <div class="applied-row-title">✅ ${escHtml(job.title)}</div>
+      <div class="applied-row-meta">${escHtml(job.company)}${job.applyUrl ? ` &nbsp;·&nbsp; <a class="applied-row-link" href="${escHtml(job.applyUrl)}" target="_blank">View →</a>` : ''}</div>
+      <div class="applied-row-footer">
+        <span class="applied-row-date">${escHtml(job.appliedAt)}</span>
+        <button class="applied-row-undo" onclick="undoApplied('${escHtml(job.id)}')">Undo</button>
+      </div>
     </div>
   `).join('');
-}
-
-function toggleAppliedSection() {
-  const body = document.getElementById('appliedBody');
-  const icon = document.getElementById('appliedToggleIcon');
-  const open = body.classList.toggle('open');
-  icon.classList.toggle('open', open);
 }
 
 function initAppliedState() {
