@@ -446,7 +446,7 @@
   .card.cancelled-hidden { display: none; }
 
   @media (max-width: 1024px) {
-    .page-layout, .bottom-layout { flex-direction: column; }
+    .page-layout, .bottom-layout, .practice-layout { flex-direction: column; }
     .right-sidebar, .bottom-sidebar-spacer { width: 100%; position: static; }
     .grid { grid-template-columns: 1fr 1fr; }
   }
@@ -454,10 +454,22 @@
     .grid { grid-template-columns: 1fr; }
   }
 
+  /* ── Practice layout: section + sidebar ── */
+  .practice-layout {
+    max-width: 1280px;
+    margin: 24px auto 0;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .practice-main-col {
+    flex: 1;
+    min-width: 0;
+  }
+
   /* ── Practice Jobs section ── */
   .practice-section {
-    max-width: 960px;
-    margin: 16px auto 0;
+    margin: 0;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,.07);
@@ -1146,6 +1158,117 @@
 
 </div><!-- /page-layout -->
 
+<!-- Practice Jobs + its own right sidebar -->
+<div class="practice-layout" id="practiceLayout">
+
+  <div class="practice-main-col">
+  <!-- Practice Jobs section -->
+  <div class="practice-section" id="practiceSection">
+    <div class="practice-section-header" onclick="togglePracticeSection()">
+      <div>
+        <div>🎯 Non Seattle Interview Practice Jobs</div>
+        <div class="subtitle">Search Business Analyst jobs in any city — for interview prep only, won't appear above</div>
+      </div>
+      <span class="practice-toggle-icon" id="practiceToggleIcon">▼</span>
+    </div>
+    <div class="practice-body" id="practiceBody">
+      <div class="practice-intro">
+        These jobs are <strong>for interview practice only</strong> — they won't appear in Jagriti's main Seattle listings.
+        Search any US city to find live Business Analyst postings. Use them to sharpen your interview answers, research companies, and build confidence.
+      </div>
+
+      <div class="practice-search-row">
+        <div class="city-input-wrap">
+          <input
+            class="city-input"
+            type="text"
+            id="cityInput"
+            placeholder="e.g. Rochester, Chicago, Austin..."
+            autocomplete="off"
+            oninput="onCityInput()"
+            onkeydown="onCityKeydown(event)"
+            onblur="hideSuggestionsDelayed()"
+          >
+          <div class="city-suggestions" id="citySuggestions"></div>
+        </div>
+        <button class="practice-search-btn" id="practiceSearchBtn" onclick="searchPracticeJobs()">🔍 Search</button>
+      </div>
+
+      <button class="api-setup-toggle" onclick="toggleApiSetup()">⚙ Configure Adzuna API Keys (needed for live results)</button>
+      <div class="api-setup-box" id="apiSetupBox">
+        <p>
+          Get free API keys at <a href="https://developer.adzuna.com" target="_blank" style="color:var(--purple);font-weight:600">developer.adzuna.com</a> — takes 2 minutes.
+          Keys are saved in your browser only and never sent anywhere else.
+        </p>
+        <div class="api-setup-row">
+          <div class="api-setup-field">
+            <label>App ID</label>
+            <input type="text" id="apiAppId" placeholder="e.g. a1b2c3d4">
+          </div>
+          <div class="api-setup-field">
+            <label>App Key</label>
+            <input type="text" id="apiAppKey" placeholder="e.g. abc123xyz...">
+          </div>
+          <button class="api-save-btn" onclick="saveApiKeys()">Save Keys</button>
+        </div>
+        <span class="api-key-status" id="apiKeyStatus"></span>
+      </div>
+
+      <div class="practice-status" id="practiceStatus"></div>
+      <div class="practice-grid" id="practiceGrid"></div>
+      <div class="practice-fallback" id="practiceFallback" style="display:none">
+        No Adzuna keys configured? Search directly on:
+        &nbsp;<a href="#" id="linkedinLink" target="_blank">LinkedIn →</a>
+        &nbsp;&nbsp;<a href="#" id="indeedLink" target="_blank">Indeed →</a>
+        &nbsp;&nbsp;<a href="#" id="glassdoorLink" target="_blank">Glassdoor →</a>
+      </div>
+    </div>
+  </div>
+  </div><!-- /practice-main-col -->
+
+  <!-- Practice right sidebar: Cancelled + Applied for practice jobs -->
+  <div class="right-sidebar" id="practiceSidebar">
+
+    <!-- Practice Cancelled panel -->
+    <div class="side-panel" id="practiceCancelledSection">
+      <div class="side-panel-header cancelled-hdr" onclick="togglePanel('practiceC')">
+        <div class="side-panel-header-left">
+          🚫 Practice Cancelled <span class="side-panel-count" id="practiceCancelledCount">0</span>
+        </div>
+        <span class="side-panel-chevron open" id="practiceCChevron">▼</span>
+      </div>
+      <div class="side-panel-body open" id="practiceCBody">
+        <div class="side-panel-scroll" id="practiceCScroll">
+          <div class="side-empty">No practice jobs cancelled yet.</div>
+        </div>
+        <div class="side-panel-footer">
+          <a class="side-see-all" href="jobs-log.html?tab=practiceC" target="_blank">See all →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Practice Applied panel -->
+    <div class="side-panel" id="practiceAppliedSection">
+      <div class="side-panel-header applied-hdr" onclick="togglePanel('practiceA')">
+        <div class="side-panel-header-left">
+          ✅ Practice Applied <span class="side-panel-count" id="practiceAppliedCount">0</span>
+        </div>
+        <span class="side-panel-chevron open" id="practiceAChevron">▼</span>
+      </div>
+      <div class="side-panel-body open" id="practiceABody">
+        <div class="side-panel-scroll" id="practiceAScroll">
+          <div class="side-empty">No practice jobs marked applied yet.</div>
+        </div>
+        <div class="side-panel-footer">
+          <a class="side-see-all" href="jobs-log.html?tab=practiceA" target="_blank">See all →</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /practiceSidebar -->
+
+</div><!-- /practice-layout -->
+
 <!-- Bottom: summary table + spacer for alignment -->
 <div class="bottom-layout">
 
@@ -1184,69 +1307,6 @@
   <!-- Spacer to align with right sidebar -->
   <div class="bottom-sidebar-spacer"></div>
 
-</div>
-
-<!-- Practice Jobs section -->
-<div class="practice-section" id="practiceSection">
-  <div class="practice-section-header" onclick="togglePracticeSection()">
-    <div>
-      <div>🎯 Non Seattle Interview Practice Jobs</div>
-      <div class="subtitle">Search Business Analyst jobs in any city — for interview prep only, won't appear above</div>
-    </div>
-    <span class="practice-toggle-icon" id="practiceToggleIcon">▼</span>
-  </div>
-  <div class="practice-body" id="practiceBody">
-    <div class="practice-intro">
-      These jobs are <strong>for interview practice only</strong> — they won't appear in Jagriti's main Seattle listings.
-      Search any US city to find live Business Analyst postings. Use them to sharpen your interview answers, research companies, and build confidence.
-    </div>
-
-    <div class="practice-search-row">
-      <div class="city-input-wrap">
-        <input
-          class="city-input"
-          type="text"
-          id="cityInput"
-          placeholder="e.g. Rochester, Chicago, Austin..."
-          autocomplete="off"
-          oninput="onCityInput()"
-          onkeydown="onCityKeydown(event)"
-          onblur="hideSuggestionsDelayed()"
-        >
-        <div class="city-suggestions" id="citySuggestions"></div>
-      </div>
-      <button class="practice-search-btn" id="practiceSearchBtn" onclick="searchPracticeJobs()">🔍 Search</button>
-    </div>
-
-    <button class="api-setup-toggle" onclick="toggleApiSetup()">⚙ Configure Adzuna API Keys (needed for live results)</button>
-    <div class="api-setup-box" id="apiSetupBox">
-      <p>
-        Get free API keys at <a href="https://developer.adzuna.com" target="_blank" style="color:var(--purple);font-weight:600">developer.adzuna.com</a> — takes 2 minutes.
-        Keys are saved in your browser only and never sent anywhere else.
-      </p>
-      <div class="api-setup-row">
-        <div class="api-setup-field">
-          <label>App ID</label>
-          <input type="text" id="apiAppId" placeholder="e.g. a1b2c3d4">
-        </div>
-        <div class="api-setup-field">
-          <label>App Key</label>
-          <input type="text" id="apiAppKey" placeholder="e.g. abc123xyz...">
-        </div>
-        <button class="api-save-btn" onclick="saveApiKeys()">Save Keys</button>
-      </div>
-      <span class="api-key-status" id="apiKeyStatus"></span>
-    </div>
-
-    <div class="practice-status" id="practiceStatus"></div>
-    <div class="practice-grid" id="practiceGrid"></div>
-    <div class="practice-fallback" id="practiceFallback" style="display:none">
-      No Adzuna keys configured? Search directly on:
-      &nbsp;<a href="#" id="linkedinLink" target="_blank">LinkedIn →</a>
-      &nbsp;&nbsp;<a href="#" id="indeedLink" target="_blank">Indeed →</a>
-      &nbsp;&nbsp;<a href="#" id="glassdoorLink" target="_blank">Glassdoor →</a>
-    </div>
-  </div>
 </div>
 
 <script>
@@ -1592,16 +1652,22 @@ function initCancelledState() {
 }
 
 function togglePanel(which) {
-  const bodyId   = which === 'cancelled' ? 'cancelledBody'   : 'appliedBody';
-  const chevId   = which === 'cancelled' ? 'cancelledChevron': 'appliedChevron';
-  const body     = document.getElementById(bodyId);
-  const chev     = document.getElementById(chevId);
+  const map = {
+    'cancelled': ['cancelledBody',  'cancelledChevron'],
+    'applied':   ['appliedBody',    'appliedChevron'],
+    'practiceC': ['practiceCBody',  'practiceCChevron'],
+    'practiceA': ['practiceABody',  'practiceAChevron'],
+  };
+  const [bodyId, chevId] = map[which] || [];
+  if (!bodyId) return;
+  const body = document.getElementById(bodyId);
+  const chev = document.getElementById(chevId);
   if (!body) return;
   const open = body.classList.toggle('open');
   if (chev) chev.classList.toggle('open', open);
 }
 
-// ── Threshold progress bar (informational only — no button lock) ──
+// ── Threshold progress bar + Refresh button lock (unlocks at ≤1 pending) ──
 function updateThresholdBar() {
   const allCards     = document.querySelectorAll('.card');
   const totalCards   = allCards.length;
@@ -1611,21 +1677,31 @@ function updateThresholdBar() {
     const id = c.dataset.id;
     return appliedIds.has(id) || cancelledIds.has(id);
   }).length;
+  const pendingCount = totalCards - resolvedCount;
   const pct = totalCards > 0 ? Math.min(100, Math.round(resolvedCount / totalCards * 100)) : 0;
 
   const el = document.getElementById('thresholdBar');
-  if (!el) return;
-  const pendingCount = totalCards - resolvedCount;
-  el.innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:11.5px">
-      <span style="color:var(--muted)">Progress: <strong>${resolvedCount}/${totalCards}</strong> resolved (applied + cancelled)</span>
-      <span style="color:${pct===100?'var(--green)':'var(--muted)'};font-weight:700">
-        ${pct === 100 ? '✓ All done — ready for fresh listings' : `${pendingCount} remaining`}
-      </span>
-    </div>
-    <div style="height:6px;background:#e5e7eb;border-radius:999px;overflow:hidden">
-      <div style="height:100%;width:${pct}%;background:${pct>=70?'var(--green)':'var(--blue)'};border-radius:999px;transition:width .4s"></div>
-    </div>`;
+  if (el) {
+    el.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:11.5px">
+        <span style="color:var(--muted)">Progress: <strong>${resolvedCount}/${totalCards}</strong> resolved (applied + cancelled)</span>
+        <span style="color:${pendingCount<=1?'var(--green)':'var(--muted)'};font-weight:700">
+          ${pendingCount === 0 ? '✓ All done — ready for fresh listings' : pendingCount === 1 ? '🔓 Refresh unlocked!' : `${pendingCount} remaining — resolve all but 1 to refresh`}
+        </span>
+      </div>
+      <div style="height:6px;background:#e5e7eb;border-radius:999px;overflow:hidden">
+        <div style="height:100%;width:${pct}%;background:${pendingCount<=1?'var(--green)':'var(--blue)'};border-radius:999px;transition:width .4s"></div>
+      </div>`;
+  }
+
+  const btn = document.getElementById('refreshBtn');
+  if (btn && !btn.dataset.triggered) {
+    const unlocked = pendingCount <= 1;
+    btn.disabled = !unlocked;
+    btn.title = unlocked
+      ? 'Fetch fresh job listings'
+      : `Refresh unlocks when only 1 job remains (${pendingCount} pending)`;
+  }
 }
 
 // ── Filter + search ──
@@ -1842,19 +1918,33 @@ async function searchPracticeJobs() {
         ? `<div class="salary">$${fmtK(job.salary_min)} – $${fmtK(job.salary_max)}</div>`
         : (job.salary_min ? `<div class="salary">From $${fmtK(job.salary_min)}</div>` : '');
       const desc = (job.description || '').replace(/<[^>]*>/g,'').substring(0, 180);
+      const pid  = 'p_' + slugifyPractice(job.title + '_' + (job.company?.display_name || ''));
+      const pTitle = job.title;
+      const pCompany = job.company?.display_name || 'Company not listed';
+      const pUrl  = job.redirect_url || '#';
+      const pApplied   = getPracticeApplied().find(j => j.id === pid);
+      const pCancelled = getPracticeCancelled().find(j => j.id === pid);
+      const appliedCls   = pApplied   ? 'applied-btn is-applied'   : 'applied-btn';
+      const cancelledCls = pCancelled ? 'cancel-btn is-cancelled'  : 'cancel-btn';
+      const appliedTxt   = pApplied   ? '✓ Applied!'    : '✓ Mark Applied';
+      const cancelledTxt = pCancelled ? '✕ Cancelled'   : '✕ Cancel';
       return `
-        <div class="practice-card">
+        <div class="practice-card" data-pid="${escHtml(pid)}">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
             <div>
-              <div class="job-title">${escHtml(job.title)}</div>
-              <div class="company">${escHtml(job.company?.display_name || 'Company not listed')}</div>
+              <div class="job-title">${escHtml(pTitle)}</div>
+              <div class="company">${escHtml(pCompany)}</div>
             </div>
             <span class="badge badge-practice" style="flex-shrink:0">Practice</span>
           </div>
           <div class="location">📍 ${escHtml(job.location?.display_name || city)}</div>
           ${salaryPart}
           <div class="practice-desc">${escHtml(desc)}${desc.length === 180 ? '…' : ''}</div>
-          <a class="practice-view-btn" href="${escHtml(job.redirect_url || '#')}" target="_blank">View Job →</a>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;align-items:center">
+            <a class="practice-view-btn" href="${escHtml(pUrl)}" target="_blank">View Job →</a>
+            <button class="${appliedCls}" ${pApplied?'disabled':''} onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(pTitle)}','${escHtml(pCompany)}','${escHtml(pUrl)}',this)">${appliedTxt}</button>
+            <button class="${cancelledCls}" ${pCancelled?'disabled':''} onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(pTitle)}','${escHtml(pCompany)}','${escHtml(pUrl)}',this)">${cancelledTxt}</button>
+          </div>
         </div>`;
     }).join('');
 
@@ -1878,6 +1968,110 @@ function escHtml(str) {
     .replace(/>/g,'&gt;')
     .replace(/"/g,'&quot;')
     .replace(/'/g,'&#39;');
+}
+
+// ── Practice Jobs — Applied + Cancelled (localStorage only, no GitHub push) ──
+const PRACTICE_APPLIED_KEY   = 'jagriti_practice_applied_v1';
+const PRACTICE_CANCELLED_KEY = 'jagriti_practice_cancelled_v1';
+
+function getPracticeApplied()   { try { return JSON.parse(localStorage.getItem(PRACTICE_APPLIED_KEY)   || '[]'); } catch(e) { return []; } }
+function getPracticeCancelled() { try { return JSON.parse(localStorage.getItem(PRACTICE_CANCELLED_KEY) || '[]'); } catch(e) { return []; } }
+function setPracticeApplied(arr)   { localStorage.setItem(PRACTICE_APPLIED_KEY,   JSON.stringify(arr)); }
+function setPracticeCancelled(arr) { localStorage.setItem(PRACTICE_CANCELLED_KEY, JSON.stringify(arr)); }
+
+function slugifyPractice(s) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'').substring(0,40);
+}
+
+function markPracticeApplied(pid, title, company, url, btn) {
+  const already = getPracticeApplied();
+  if (already.find(j => j.id === pid)) return;
+  setPracticeApplied([...already, {
+    id: pid, title, company, applyUrl: url,
+    appliedAt: new Date().toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'})
+  }]);
+  btn.classList.add('is-applied');
+  btn.textContent = '✓ Applied!';
+  btn.disabled = true;
+  renderPracticeApplied();
+}
+
+function markPracticeCancelled(pid, title, company, url, btn) {
+  const already = getPracticeCancelled();
+  if (already.find(j => j.id === pid)) return;
+  setPracticeCancelled([...already, {
+    id: pid, title, company, applyUrl: url,
+    cancelledAt: new Date().toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'})
+  }]);
+  btn.classList.add('is-cancelled');
+  btn.textContent = '✕ Cancelled';
+  btn.disabled = true;
+  renderPracticeCancelled();
+}
+
+function undoPracticeApplied(pid) {
+  setPracticeApplied(getPracticeApplied().filter(j => j.id !== pid));
+  renderPracticeApplied();
+  // Re-enable button on card if visible
+  const card = document.querySelector(`.practice-card[data-pid="${pid}"]`);
+  if (card) {
+    const btn = card.querySelector('.applied-btn');
+    if (btn) { btn.classList.remove('is-applied'); btn.textContent = '✓ Mark Applied'; btn.disabled = false; }
+  }
+}
+
+function undoPracticeCancelled(pid) {
+  setPracticeCancelled(getPracticeCancelled().filter(j => j.id !== pid));
+  renderPracticeCancelled();
+  const card = document.querySelector(`.practice-card[data-pid="${pid}"]`);
+  if (card) {
+    const btn = card.querySelector('.cancel-btn');
+    if (btn) { btn.classList.remove('is-cancelled'); btn.textContent = '✕ Cancel'; btn.disabled = false; }
+  }
+}
+
+function renderPracticeApplied() {
+  const list    = getPracticeApplied();
+  const countEl = document.getElementById('practiceAppliedCount');
+  const scroll  = document.getElementById('practiceAScroll');
+  if (countEl) countEl.textContent = list.length;
+  if (!scroll) return;
+  if (list.length === 0) {
+    scroll.innerHTML = '<div class="side-empty">No practice jobs marked applied yet.</div>';
+    return;
+  }
+  scroll.innerHTML = list.map(j => `
+    <div class="side-row">
+      <div class="side-row-title">✅ ${escHtml(j.title)}</div>
+      <div class="side-row-meta">${escHtml(j.company)}${j.applyUrl ? ` &nbsp;·&nbsp; <a class="side-row-link" href="${escHtml(j.applyUrl)}" target="_blank">View →</a>` : ''}</div>
+      <div class="side-row-footer">
+        <span class="side-row-date">${escHtml(j.appliedAt)}</span>
+        <button class="side-row-undo" onclick="undoPracticeApplied('${escHtml(j.id)}')">Undo</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderPracticeCancelled() {
+  const list    = getPracticeCancelled();
+  const countEl = document.getElementById('practiceCancelledCount');
+  const scroll  = document.getElementById('practiceCScroll');
+  if (countEl) countEl.textContent = list.length;
+  if (!scroll) return;
+  if (list.length === 0) {
+    scroll.innerHTML = '<div class="side-empty">No practice jobs cancelled yet.</div>';
+    return;
+  }
+  scroll.innerHTML = list.map(j => `
+    <div class="side-row">
+      <div class="side-row-title">🚫 ${escHtml(j.title)}</div>
+      <div class="side-row-meta">${escHtml(j.company)}${j.applyUrl ? ` &nbsp;·&nbsp; <a class="side-row-link" href="${escHtml(j.applyUrl)}" target="_blank">View →</a>` : ''}</div>
+      <div class="side-row-footer">
+        <span class="side-row-date">${escHtml(j.cancelledAt)}</span>
+        <button class="side-row-undo" onclick="undoPracticeCancelled('${escHtml(j.id)}')">Undo</button>
+      </div>
+    </div>
+  `).join('');
 }
 
 // ── Refresh Jobs button meta (cooldown + threshold info) ──
@@ -2033,6 +2227,8 @@ renderPostingAges();
 loadChangeNotes();
 syncAppliedFromGitHub();    // loads from GitHub, then calls initAppliedState + updateThresholdBar
 syncCancelledFromGitHub();  // loads cancelled from GitHub, then calls initCancelledState
+renderPracticeApplied();    // populate practice sidebar from localStorage
+renderPracticeCancelled();
 loadRefreshMeta();          // shows JSearch cooldown + threshold warning on button
 </script>
 </body>
