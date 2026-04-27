@@ -8,10 +8,10 @@ Deduplicates, scores by Jagriti's skill keywords, and updates the HTML.
 """
 import os, re, json, requests, datetime, html as html_lib
 
-# ── API keys ──
-ADZUNA_APP_ID  = os.environ.get("ADZUNA_APP_ID",  "5975f043")
-ADZUNA_APP_KEY = os.environ.get("ADZUNA_APP_KEY", "8f81b1c0abed562e98c9a0d5a1890d93")
-JSEARCH_KEY    = os.environ.get("JSEARCH_KEY",    "58cd19e2f7msh91cf447019c17c1p1c8ca5jsnc4d911a8d7c9")
+# ── API keys — use env var if set and non-empty, otherwise fall back to embedded ──
+ADZUNA_APP_ID  = os.environ.get("ADZUNA_APP_ID")  or "5975f043"
+ADZUNA_APP_KEY = os.environ.get("ADZUNA_APP_KEY") or "8f81b1c0abed562e98c9a0d5a1890d93"
+JSEARCH_KEY    = os.environ.get("JSEARCH_KEY")    or "58cd19e2f7msh91cf447019c17c1p1c8ca5jsnc4d911a8d7c9"
 JSEARCH_HOST   = "jsearch.p.rapidapi.com"
 
 TODAY = datetime.date.today().strftime("%B %Y")
@@ -49,15 +49,18 @@ def fetch_jsearch(query, location, num_results=10):
         )
         r.raise_for_status()
         for j in r.json().get("data", [])[:num_results]:
+            city  = j.get("job_city") or ""
+            state = j.get("job_state") or ""
+            loc   = (city + ", " + state).strip(", ") or "Seattle, WA"
             jobs.append(normalise(
-                title       = j.get("job_title", ""),
-                company     = j.get("employer_name", ""),
-                location    = j.get("job_city", "") + (", " + j.get("job_state", "") if j.get("job_state") else ""),
-                url         = j.get("job_apply_link") or j.get("job_google_link", "#"),
-                description = j.get("job_description", "")[:600],
+                title       = j.get("job_title") or "",
+                company     = j.get("employer_name") or "",
+                location    = loc,
+                url         = j.get("job_apply_link") or j.get("job_google_link") or "#",
+                description = (j.get("job_description") or "")[:600],
                 salary_min  = j.get("job_min_salary"),
                 salary_max  = j.get("job_max_salary"),
-                source      = j.get("job_publisher", "JSearch")
+                source      = j.get("job_publisher") or "JSearch"
             ))
         print(f"  JSearch: {len(jobs)} jobs")
     except Exception as e:
