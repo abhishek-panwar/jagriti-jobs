@@ -212,6 +212,8 @@ def replace_summary_in_docx(docx_path, new_summary):
     doc.save(docx_path)
 
 if __name__ == "__main__":
+    import json
+
     if not os.path.exists(SRC_DOCX):
         print(f"Base DOCX not found: {SRC_DOCX}")
         exit(1)
@@ -219,7 +221,7 @@ if __name__ == "__main__":
     jobs = extract_jobs_from_html()
     if not jobs:
         print("No jobs found in HTML — generating 12 generic resumes.")
-        jobs = [(f"Senior Business Analyst", "Company") for _ in range(12)]
+        jobs = [("Senior Business Analyst", "Company") for _ in range(12)]
 
     names = [
         "resume_job_01","resume_job_02","resume_job_03","resume_job_04",
@@ -227,15 +229,29 @@ if __name__ == "__main__":
         "resume_job_09","resume_job_10","resume_job_11","resume_job_12",
     ]
 
+    changes = {}
+
     for i, (title, company) in enumerate(jobs[:12]):
         name     = names[i]
         tmp_docx = os.path.join(OUT_DIR, name + ".docx")
         pdf_path = os.path.join(OUT_DIR, name + ".pdf")
         shutil.copy2(SRC_DOCX, tmp_docx)
-        summary = make_summary(title, company)
-        replace_summary_in_docx(tmp_docx, summary)
+        new_summary = make_summary(title, company)
+        replace_summary_in_docx(tmp_docx, new_summary)
         build_pdf(tmp_docx, pdf_path)
         os.remove(tmp_docx)
-        print(f"  ✓ {name}.pdf  ({title[:50]})")
 
-    print("All resumes generated.")
+        changed = new_summary.strip() != BASE_SUMMARY.strip()
+        changes[name] = {
+            "title":        re.sub(r'<[^>]+>', '', title).strip(),
+            "company":      re.sub(r'<[^>]+>', '', company).strip(),
+            "changed":      changed,
+            "base_summary": BASE_SUMMARY,
+            "new_summary":  new_summary,
+        }
+        status = "updated" if changed else "unchanged"
+        print(f"  ✓ {name}.pdf  [{status}]  ({title[:50]})")
+
+    with open(os.path.join(OUT_DIR, "changes.json"), "w") as f:
+        json.dump(changes, f, indent=2)
+    print("All resumes generated. Changes written to resumes/changes.json.")
