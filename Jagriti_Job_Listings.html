@@ -2106,12 +2106,12 @@ async function searchCareerJobs() {
     const appId  = localStorage.getItem('adzuna_app_id')  || '5975f043';
     const appKey = localStorage.getItem('adzuna_app_key') || '8f81b1c0abed562e98c9a0d5a1890d93';
 
-    // Use Adzuna's dedicated `company` parameter to filter by employer
+    // Fetch broadly then filter strictly by company name client-side
+    // Adzuna's `company` param is not a strict filter, so we do it ourselves
     const params = {
       app_id: appId, app_key: appKey,
       what: 'senior business analyst',
-      company: companyRaw,
-      results_per_page: '20',
+      results_per_page: '50',
       sort_by: 'relevance'
     };
     if (cityRaw) { params.where = cityRaw; params.distance = '30'; }
@@ -2119,12 +2119,27 @@ async function searchCareerJobs() {
     const r = await fetch('https://api.adzuna.com/v1/api/jobs/us/search/1?' + new URLSearchParams(params));
     if (!r.ok) throw new Error(`Adzuna returned ${r.status}`);
     const data = await r.json();
-    const results = data.results || [];
+
+    // Strict client-side company filter: every word in the search (>2 chars) must appear in employer name
+    const companyWords = companyRaw.toLowerCase().split(/\s+/).filter(w => w.length > 2);
+    const results = (data.results || []).filter(j => {
+      const co = (j.company?.display_name || '').toLowerCase();
+      return companyWords.every(w => co.includes(w));
+    });
 
     btn.disabled = false; btn.textContent = '🔍 Search';
 
+    // No company matches — fall back to direct search links
     if (results.length === 0) {
-      statusEl.innerHTML = `No listings found for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — try leaving city blank or check the spelling.`;
+      const q  = encodeURIComponent(`"senior business analyst" "${companyRaw}"`);
+      const l  = cityRaw ? encodeURIComponent(cityRaw) : '';
+      const indeedUrl    = `https://www.indeed.com/jobs?q=${q}${l ? '&l=' + l : ''}`;
+      const linkedinUrl  = `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent('senior business analyst ' + companyRaw)}${l ? '&location=' + l : ''}`;
+      const glassdoorUrl = `https://www.glassdoor.com/Job/jobs.htm?sc.keyword=${encodeURIComponent('senior business analyst ' + companyRaw)}${l ? '&locKeyword=' + l : ''}`;
+      statusEl.innerHTML = `No Adzuna listings found for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — search directly:
+        &nbsp;<a href="${indeedUrl}" target="_blank" style="color:var(--purple);font-weight:700">Indeed →</a>
+        &nbsp;<a href="${linkedinUrl}" target="_blank" style="color:var(--purple);font-weight:700">LinkedIn →</a>
+        &nbsp;<a href="${glassdoorUrl}" target="_blank" style="color:var(--purple);font-weight:700">Glassdoor →</a>`;
       return;
     }
 
