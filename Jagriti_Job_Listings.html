@@ -2056,10 +2056,13 @@ function toggleRecentSection() {
 }
 
 // ── Recent Openings — watchlist stored in localStorage ──
-const RECENT_WATCHLIST_KEY = 'jagriti_recent_watchlist_v1';
+const RECENT_WATCHLIST_KEY      = 'jagriti_recent_watchlist_v1';
+const RECENT_USER_ADDED_KEY     = 'jagriti_recent_user_added_v1';
 
-function getWatchlist()    { try { return JSON.parse(localStorage.getItem(RECENT_WATCHLIST_KEY) || '[]'); } catch { return []; } }
-function setWatchlist(arr) { localStorage.setItem(RECENT_WATCHLIST_KEY, JSON.stringify(arr)); }
+function getWatchlist()       { try { return JSON.parse(localStorage.getItem(RECENT_WATCHLIST_KEY)  || '[]'); } catch { return []; } }
+function setWatchlist(arr)    { localStorage.setItem(RECENT_WATCHLIST_KEY,  JSON.stringify(arr)); }
+function getUserAdded()       { try { return JSON.parse(localStorage.getItem(RECENT_USER_ADDED_KEY) || '[]'); } catch { return []; } }
+function setUserAdded(arr)    { localStorage.setItem(RECENT_USER_ADDED_KEY, JSON.stringify(arr)); }
 
 let recentSuggIdx = -1;
 
@@ -2095,25 +2098,35 @@ function addRecentCompany() {
   const val  = document.getElementById('recentCompanyInput').value.trim();
   if (!val) return;
   const list = getWatchlist();
-  if (list.some(c => c.toLowerCase() === val.toLowerCase())) {
-    document.getElementById('recentCompanyInput').value = '';
-    return;
+  // Add to full watchlist (used for scanning) if not already present
+  if (!list.some(c => c.toLowerCase() === val.toLowerCase())) {
+    setWatchlist([...list, val]);
   }
-  setWatchlist([...list, val]);
+  // Track user-added separately (shown as chips)
+  const ua = getUserAdded();
+  if (!ua.some(c => c.toLowerCase() === val.toLowerCase())) {
+    setUserAdded([...ua, val]);
+  }
   document.getElementById('recentCompanyInput').value = '';
   renderWatchlistChips();
 }
 
 function removeRecentCompany(name) {
+  // Remove from both lists
   setWatchlist(getWatchlist().filter(c => c !== name));
+  setUserAdded(getUserAdded().filter(c => c !== name));
   renderWatchlistChips();
 }
 
 function renderWatchlistChips() {
-  const chips = document.getElementById('recentChips');
-  const list  = getWatchlist();
-  if (list.length === 0) { chips.innerHTML = '<span style="font-size:11.5px;color:var(--muted);font-style:italic">No companies added yet — type a name above and click Add.</span>'; return; }
-  chips.innerHTML = list.map(c => `
+  const chips     = document.getElementById('recentChips');
+  const userAdded = getUserAdded();
+  // Only show chips for companies the user explicitly added
+  if (userAdded.length === 0) {
+    chips.innerHTML = '<span style="font-size:11.5px;color:var(--muted);font-style:italic">Your extra companies will appear here as chips.</span>';
+    return;
+  }
+  chips.innerHTML = userAdded.map(c => `
     <div class="recent-chip">
       ${escHtml(c)}
       <button class="recent-chip-remove" onclick="removeRecentCompany('${escHtml(c)}')" title="Remove">×</button>
@@ -2192,62 +2205,52 @@ async function scanRecentJobs() {
 
   btn.disabled = false; btn.textContent = '⚡ Scan';
 
-  const totalJobs = allResults.reduce((s, r) => s + r.jobs.length, 0);
+  // Flatten all jobs, sort by date descending
+  const allJobs = allResults.flatMap(r => r.jobs);
+  allJobs.sort((a, b) => (b.listed || '').localeCompare(a.listed || ''));
+
   const cutoffStr = cutoff.toLocaleDateString('en-US', {month:'short', day:'numeric'});
-  statusEl.innerHTML = totalJobs > 0
-    ? `Found <strong>${totalJobs}</strong> BA opening${totalJobs!==1?'s':''} since ${cutoffStr} across ${list.length} compan${list.length!==1?'ies':'y'}`
-    : `No new BA openings in the last 3 days across your watchlist (since ${cutoffStr})`;
+  statusEl.innerHTML = allJobs.length > 0
+    ? `Found <strong>${allJobs.length}</strong> BA opening${allJobs.length!==1?'s':''} in the last 3 days (since ${cutoffStr})`
+    : `No new BA openings in the last 3 days across ${list.length} companies (since ${cutoffStr})`;
 
-  resultsEl.innerHTML = allResults.map(({ company, jobs, found }) => {
-    const srcBg = (src) => src === 'Greenhouse' ? '#d1fae5' : '#fef3c7';
-    const srcFg = (src) => src === 'Greenhouse' ? '#065f46' : '#92400e';
+  if (allJobs.length === 0) { resultsEl.innerHTML = ''; return; }
 
-    const header = `<div class="recent-company-header">
-      ${escHtml(company)}
-      ${jobs.length > 0
-        ? `<span class="rch-badge">${jobs.length} new</span>`
-        : found
-          ? `<span class="rch-none">no BA openings in last 3 days</span>`
-          : `<span class="rch-none">not on Greenhouse/Lever</span>`}
-    </div>`;
+  const srcBg = src => src === 'Greenhouse' ? '#d1fae5' : '#fef3c7';
+  const srcFg = src => src === 'Greenhouse' ? '#065f46' : '#92400e';
 
-    if (jobs.length === 0) return `<div class="recent-company-group">${header}</div>`;
-
-    const cards = jobs.map(j => {
-      const pid        = 'r_' + slugifyPractice(j.title + '_' + j.company);
-      const pApplied   = getPracticeApplied().find(x => x.id === pid);
-      const pCancelled = getPracticeCancelled().find(x => x.id === pid);
-      const appliedDis   = pCancelled ? 'disabled' : '';
-      const cancelledDis = pApplied   ? 'disabled' : '';
-      return `
-      <div class="career-job-card" data-pid="${escHtml(pid)}">
-        <div class="career-job-top">
-          <div>
-            <div class="career-job-title">${escHtml(j.title)}</div>
-            <div class="career-job-company">${escHtml(j.company)}
-              <span style="font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;background:${srcBg(j.source)};color:${srcFg(j.source)};margin-left:5px">${j.source}</span>
-            </div>
+  resultsEl.innerHTML = allJobs.map(j => {
+    const pid        = 'r_' + slugifyPractice(j.title + '_' + j.company);
+    const pApplied   = getPracticeApplied().find(x => x.id === pid);
+    const pCancelled = getPracticeCancelled().find(x => x.id === pid);
+    const appliedDis   = pCancelled ? 'disabled' : '';
+    const cancelledDis = pApplied   ? 'disabled' : '';
+    return `
+    <div class="career-job-card" data-pid="${escHtml(pid)}">
+      <div class="career-job-top">
+        <div>
+          <div class="career-job-title">${escHtml(j.title)}</div>
+          <div class="career-job-company">${escHtml(j.company)}
+            <span style="font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;background:${srcBg(j.source)};color:${srcFg(j.source)};margin-left:5px">${j.source}</span>
           </div>
-          ${j.listed ? `<span style="font-size:10.5px;color:#6b7280;flex-shrink:0">${escHtml(j.listed)}</span>` : ''}
         </div>
-        <div class="career-job-loc">📍 ${escHtml(j.loc)}</div>
-        ${j.desc ? `<div class="career-job-desc">${escHtml(j.desc)}${j.desc.length>=220?'…':''}</div>` : ''}
-        <div class="career-job-actions">
-          <a class="apply-btn" href="${escHtml(j.url)}" target="_blank" style="font-size:12px;padding:6px 14px">Apply →</a>
-          <button class="applied-btn ${pApplied?'is-applied':''}" ${appliedDis} style="font-size:11.5px;padding:5px 12px"
-            onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
-            ${pApplied?'✓ Applied!':'✓ Mark Applied'}
-          </button>
-          <button class="cancel-btn ${pCancelled?'is-cancelled':''}" ${cancelledDis} style="font-size:11.5px;padding:5px 12px"
-            onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
-            ${pCancelled?'✕ Cancelled':'✕ Cancel'}
-          </button>
-        </div>
-      </div>`;
-    }).join('');
-
-    return `<div class="recent-company-group">${header}${cards}</div>`;
-  }).join('')
+        ${j.listed ? `<span style="font-size:10.5px;color:#6b7280;flex-shrink:0">${escHtml(j.listed)}</span>` : ''}
+      </div>
+      <div class="career-job-loc">📍 ${escHtml(j.loc)}</div>
+      ${j.desc ? `<div class="career-job-desc">${escHtml(j.desc)}${j.desc.length>=220?'…':''}</div>` : ''}
+      <div class="career-job-actions">
+        <a class="apply-btn" href="${escHtml(j.url)}" target="_blank" style="font-size:12px;padding:6px 14px">Apply →</a>
+        <button class="applied-btn ${pApplied?'is-applied':''}" ${appliedDis} style="font-size:11.5px;padding:5px 12px"
+          onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
+          ${pApplied?'✓ Applied!':'✓ Mark Applied'}
+        </button>
+        <button class="cancel-btn ${pCancelled?'is-cancelled':''}" ${cancelledDis} style="font-size:11.5px;padding:5px 12px"
+          onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
+          ${pCancelled?'✕ Cancelled':'✕ Cancel'}
+        </button>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 // Companies confirmed on Greenhouse or Lever — pre-seeded into the watchlist
@@ -2298,12 +2301,10 @@ const GREENHOUSE_COMPANIES = [
   'Twitch','Discord','Roblox','Unity','Niantic',
 ];
 
-// Init watchlist chips on load — pre-seed with all known companies on first visit
+// Init on load — seed background watchlist silently on first visit, never show as chips
 document.addEventListener('DOMContentLoaded', () => {
   if (getWatchlist().length === 0) {
-    // Deduplicate and seed
-    const unique = [...new Set(GREENHOUSE_COMPANIES)];
-    setWatchlist(unique);
+    setWatchlist([...new Set(GREENHOUSE_COMPANIES)]);
   }
   renderWatchlistChips();
 });
