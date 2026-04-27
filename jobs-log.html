@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobs Log — Applied &amp; Cancelled</title>
+<style>
+  :root {
+    --blue: #1a56a4; --blue-light: #e8f0fb; --accent: #0f3d78;
+    --green: #065f46; --green-bg: #d1fae5;
+    --red: #991b1b;   --red-bg: #fee2e2;
+    --text: #1f2937;  --muted: #6b7280; --border: #e5e7eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13.5px;
+    background: #f0f4f8;
+    color: var(--text);
+    padding: 24px 20px 60px;
+  }
+
+  .page-header {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    border-radius: 10px;
+    padding: 20px 24px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .page-header h1 { font-size: 18px; font-weight: 700; }
+  .page-header p  { font-size: 12px; opacity: .85; margin-top: 3px; }
+  .back-link {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .back-link:hover { color: #fff; text-decoration: underline; }
+
+  .container { max-width: 900px; margin: 0 auto; }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+    border-bottom: 2px solid var(--border);
+  }
+  .tab-btn {
+    padding: 10px 22px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    background: none;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color .15s, border-color .15s;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active-applied  { color: var(--green); border-bottom-color: var(--green); }
+  .tab-btn.active-cancelled { color: var(--red);   border-bottom-color: var(--red); }
+
+  /* Controls */
+  .log-controls {
+    background: #fff;
+    border-radius: 0 0 10px 10px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .log-search {
+    flex: 1;
+    min-width: 200px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    font-size: 12.5px;
+    outline: none;
+    background: #f9fafb;
+  }
+  .log-search:focus { border-color: var(--blue); background: #fff; }
+  .log-count { font-size: 12px; color: var(--muted); font-weight: 600; margin-left: auto; }
+  .clear-btn {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    font-size: 12px;
+    color: var(--muted);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all .15s;
+  }
+  .clear-btn:hover { border-color: var(--red); color: var(--red); background: var(--red-bg); }
+
+  /* Log table */
+  .log-table-wrap {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    overflow: hidden;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 11.5px;
+    padding: 9px 16px;
+    text-align: left;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  th:hover { background: #d4e4f7; }
+  th .sort-icon { opacity: .4; margin-left: 4px; font-size: 10px; }
+  th.sorted .sort-icon { opacity: 1; }
+
+  td { font-size: 12.5px; padding: 10px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f9fafb; }
+
+  .td-title { font-weight: 700; color: var(--accent); }
+  .td-company { color: var(--muted); }
+  .td-date { color: var(--muted); white-space: nowrap; }
+  .view-link { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 12px; }
+  .view-link:hover { text-decoration: underline; }
+  .undo-btn {
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    font-size: 11px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .undo-btn:hover { border-color: var(--red); color: var(--red); background: var(--red-bg); }
+
+  .status-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .badge-applied   { background: var(--green-bg); color: var(--green); }
+  .badge-cancelled { background: var(--red-bg);   color: var(--red); }
+
+  .empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--muted);
+    font-style: italic;
+    font-size: 13px;
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div>
+    <h1>Jobs Log</h1>
+    <p>Full history of applied &amp; cancelled job listings</p>
+  </div>
+  <a class="back-link" href="Jagriti_Job_Listings.html">← Back to listings</a>
+</div>
+
+<div class="container">
+
+  <div class="tabs" id="tabs">
+    <button class="tab-btn" id="tabApplied"    onclick="switchTab('applied')">✅ Applied</button>
+    <button class="tab-btn" id="tabCancelled"  onclick="switchTab('cancelled')">🚫 Cancelled</button>
+  </div>
+
+  <div class="log-controls">
+    <input class="log-search" type="text" id="searchInput" placeholder="Search by title or company..." oninput="onSearch()">
+    <span class="log-count" id="logCount"></span>
+    <button class="clear-btn" id="clearBtn" onclick="clearCurrent()">Clear all</button>
+  </div>
+
+  <!-- Applied tab -->
+  <div class="tab-panel" id="panelApplied">
+    <div class="log-table-wrap">
+      <table id="appliedTable">
+        <thead>
+          <tr>
+            <th onclick="sortTable('applied','title')">Role <span class="sort-icon" id="sort-applied-title">↕</span></th>
+            <th onclick="sortTable('applied','company')">Company <span class="sort-icon" id="sort-applied-company">↕</span></th>
+            <th onclick="sortTable('applied','appliedAt')">Applied <span class="sort-icon" id="sort-applied-appliedAt">↕</span></th>
+            <th>Link</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="appliedBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Cancelled tab -->
+  <div class="tab-panel" id="panelCancelled">
+    <div class="log-table-wrap">
+      <table id="cancelledTable">
+        <thead>
+          <tr>
+            <th onclick="sortTable('cancelled','title')">Role <span class="sort-icon" id="sort-cancelled-title">↕</span></th>
+            <th onclick="sortTable('cancelled','company')">Company <span class="sort-icon" id="sort-cancelled-company">↕</span></th>
+            <th onclick="sortTable('cancelled','cancelledAt')">Cancelled <span class="sort-icon" id="sort-cancelled-cancelledAt">↕</span></th>
+            <th>Link</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="cancelledBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const APPLIED_LS_KEY   = 'jagriti_applied_jobs_v1';
+const CANCELLED_LS_KEY = 'jagriti_cancelled_jobs_v1';
+
+let currentTab   = 'applied';
+let searchTerm   = '';
+let sortState    = { applied: { col: 'appliedAt', dir: -1 }, cancelled: { col: 'cancelledAt', dir: -1 } };
+
+function getApplied()   { try { return JSON.parse(localStorage.getItem(APPLIED_LS_KEY)   || '[]'); } catch(e) { return []; } }
+function getCancelled() { try { return JSON.parse(localStorage.getItem(CANCELLED_LS_KEY) || '[]'); } catch(e) { return []; } }
+function setApplied(arr)   { localStorage.setItem(APPLIED_LS_KEY,   JSON.stringify(arr)); }
+function setCancelled(arr) { localStorage.setItem(CANCELLED_LS_KEY, JSON.stringify(arr)); }
+
+function escHtml(s) {
+  return String(s||'')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.getElementById('panelApplied').classList.toggle('active',   tab === 'applied');
+  document.getElementById('panelCancelled').classList.toggle('active', tab === 'cancelled');
+
+  const ta = document.getElementById('tabApplied');
+  const tc = document.getElementById('tabCancelled');
+  ta.className = 'tab-btn' + (tab === 'applied'    ? ' active-applied'    : '');
+  tc.className = 'tab-btn' + (tab === 'cancelled'  ? ' active-cancelled'  : '');
+
+  document.getElementById('searchInput').value = '';
+  searchTerm = '';
+  render();
+}
+
+function onSearch() {
+  searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+  render();
+}
+
+function sortTable(tab, col) {
+  if (sortState[tab].col === col) {
+    sortState[tab].dir *= -1;
+  } else {
+    sortState[tab].col = col;
+    sortState[tab].dir = 1;
+  }
+  render();
+}
+
+function render() {
+  const tab      = currentTab;
+  const data     = tab === 'applied' ? getApplied() : getCancelled();
+  const dateKey  = tab === 'applied' ? 'appliedAt' : 'cancelledAt';
+  const bodyId   = tab === 'applied' ? 'appliedBody' : 'cancelledBody';
+  const { col, dir } = sortState[tab];
+
+  let filtered = data.filter(j =>
+    !searchTerm ||
+    (j.title   || '').toLowerCase().includes(searchTerm) ||
+    (j.company || '').toLowerCase().includes(searchTerm)
+  );
+
+  filtered.sort((a, b) => {
+    const av = (a[col] || '').toString().toLowerCase();
+    const bv = (b[col] || '').toString().toLowerCase();
+    return av < bv ? -dir : av > bv ? dir : 0;
+  });
+
+  // Update sort icons
+  ['title','company', dateKey].forEach(c => {
+    const el = document.getElementById(`sort-${tab}-${c}`);
+    if (!el) return;
+    const th = el.parentElement;
+    if (sortState[tab].col === c) {
+      el.textContent = sortState[tab].dir === 1 ? '↑' : '↓';
+      th.classList.add('sorted');
+    } else {
+      el.textContent = '↕';
+      th.classList.remove('sorted');
+    }
+  });
+
+  const tbody = document.getElementById(bodyId);
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state">${
+      searchTerm ? `No results for "${escHtml(searchTerm)}"` :
+      tab === 'applied' ? 'No applied jobs yet.' : 'No cancelled jobs yet.'
+    }</div></td></tr>`;
+  } else {
+    const undoFn = tab === 'applied' ? 'undoApplied' : 'undoCancelled';
+    tbody.innerHTML = filtered.map(j => `
+      <tr>
+        <td><div class="td-title">${escHtml(j.title)}</div></td>
+        <td class="td-company">${escHtml(j.company)}</td>
+        <td class="td-date">${escHtml(j[dateKey] || '—')}</td>
+        <td>${j.applyUrl ? `<a class="view-link" href="${escHtml(j.applyUrl)}" target="_blank">View →</a>` : '—'}</td>
+        <td><button class="undo-btn" onclick="${undoFn}('${escHtml(j.id)}')">Undo</button></td>
+      </tr>
+    `).join('');
+  }
+
+  document.getElementById('logCount').textContent =
+    filtered.length === data.length
+      ? `${data.length} total`
+      : `${filtered.length} of ${data.length}`;
+}
+
+function undoApplied(jobId) {
+  setApplied(getApplied().filter(j => j.id !== jobId));
+  render();
+}
+
+function undoCancelled(jobId) {
+  setCancelled(getCancelled().filter(j => j.id !== jobId));
+  render();
+}
+
+function clearCurrent() {
+  const label = currentTab === 'applied' ? 'applied' : 'cancelled';
+  if (!confirm(`Clear all ${label} jobs from history? This cannot be undone.`)) return;
+  if (currentTab === 'applied') setApplied([]);
+  else setCancelled([]);
+  render();
+}
+
+// ── Init — read ?tab= from URL ──
+const urlTab = new URLSearchParams(location.search).get('tab');
+switchTab(urlTab === 'cancelled' ? 'cancelled' : 'applied');
+</script>
+</body>
+</html>
