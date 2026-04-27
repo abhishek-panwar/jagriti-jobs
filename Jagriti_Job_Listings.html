@@ -780,6 +780,22 @@
   .career-job-loc     { font-size: 11.5px; color: var(--muted); }
   .career-job-desc    { font-size: 11.5px; color: #374151; line-height: 1.5; }
   .career-job-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 2px; }
+  .career-page-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 9px 16px;
+    background: var(--purple-bg);
+    border: 1.5px solid var(--purple-border);
+    color: var(--purple);
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .15s;
+  }
+  .career-page-link:hover { background: #ede9fe; }
 
   @media (max-width: 680px) {
     .grid, .practice-grid { grid-template-columns: 1fr; }
@@ -1381,6 +1397,7 @@
           <div class="city-suggestions" id="careerCitySuggestions"></div>
         </div>
         <button class="practice-search-btn" id="careerSearchBtn" onclick="searchCareerJobs()">🔍 Search</button>
+        <a class="career-page-link" id="careerPageLink" href="#" target="_blank" style="display:none"></a>
       </div>
 
       <div class="career-status" id="careerStatus"></div>
@@ -1393,17 +1410,17 @@
   <!-- Practice right sidebar: Cancelled + Applied for practice jobs -->
   <div class="right-sidebar" id="practiceSidebar">
 
-    <!-- Practice Cancelled panel -->
+    <!-- Other Cancelled panel -->
     <div class="side-panel" id="practiceCancelledSection">
       <div class="side-panel-header cancelled-hdr" onclick="togglePanel('practiceC')">
         <div class="side-panel-header-left">
-          🚫 Practice Cancelled <span class="side-panel-count" id="practiceCancelledCount">0</span>
+          🚫 Other Cancelled <span class="side-panel-count" id="practiceCancelledCount">0</span>
         </div>
         <span class="side-panel-chevron open" id="practiceCChevron">▼</span>
       </div>
       <div class="side-panel-body open" id="practiceCBody">
         <div class="side-panel-scroll" id="practiceCScroll">
-          <div class="side-empty">No practice jobs cancelled yet.</div>
+          <div class="side-empty">No jobs cancelled yet.</div>
         </div>
         <div class="side-panel-footer">
           <a class="side-see-all" href="jobs-log.html?tab=practiceC" target="_blank">See all →</a>
@@ -1411,17 +1428,17 @@
       </div>
     </div>
 
-    <!-- Practice Applied panel -->
+    <!-- Other Applied panel -->
     <div class="side-panel" id="practiceAppliedSection">
       <div class="side-panel-header applied-hdr" onclick="togglePanel('practiceA')">
         <div class="side-panel-header-left">
-          ✅ Practice Applied <span class="side-panel-count" id="practiceAppliedCount">0</span>
+          ✅ Other Applied <span class="side-panel-count" id="practiceAppliedCount">0</span>
         </div>
         <span class="side-panel-chevron open" id="practiceAChevron">▼</span>
       </div>
       <div class="side-panel-body open" id="practiceABody">
         <div class="side-panel-scroll" id="practiceAScroll">
-          <div class="side-empty">No practice jobs marked applied yet.</div>
+          <div class="side-empty">No jobs marked applied yet.</div>
         </div>
         <div class="side-panel-footer">
           <a class="side-see-all" href="jobs-log.html?tab=practiceA" target="_blank">See all →</a>
@@ -1434,44 +1451,6 @@
 </div><!-- /practice-layout -->
 
 <!-- Bottom: summary table + spacer for alignment -->
-<div class="bottom-layout">
-
-  <!-- Summary table (left, aligned under main-col) -->
-  <div class="summary-wrap">
-    <div class="summary-title">Quick Reference — All 12 Listings</div>
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Role</th>
-          <th>Company</th>
-          <th>Location</th>
-          <th>Salary</th>
-          <th>Match</th>
-          <th>Apply</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>Sr. BA – Kiewit Nuclear</td><td>Kiewit</td><td>Remote</td><td>$136–142K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182" target="_blank">Apply →</a></td></tr>
-        <tr><td>2</td><td>Sr. BA – Talent Acquisition Analytics</td><td>Amazon</td><td>Seattle, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315" target="_blank">Apply →</a></td></tr>
-        <tr><td>3</td><td>Sr. BA – WWGS Operations Analytics</td><td>Amazon</td><td>Seattle, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335" target="_blank">Apply →</a></td></tr>
-        <tr><td>4</td><td>Sr. BA – AMZL OTR Planning</td><td>Amazon</td><td>Bellevue, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159" target="_blank">Apply →</a></td></tr>
-        <tr><td>5</td><td>Sr. BA – Network Balance &amp; Equipment</td><td>Amazon</td><td>Bellevue, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662" target="_blank">Apply →</a></td></tr>
-        <tr><td>6</td><td>Senior Business Analyst</td><td>Wizards of the Coast</td><td>Renton, WA</td><td>$95–159K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-wizards-of-the-coast-4364552218" target="_blank">Apply →</a></td></tr>
-        <tr><td>7</td><td>Sr. BA – Starlink Growth</td><td>SpaceX</td><td>Redmond, WA</td><td>$115–150K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384" target="_blank">Apply →</a></td></tr>
-        <tr><td>8</td><td>Senior Financial Business Analyst</td><td>IntePros</td><td>Seattle, WA</td><td>Contract</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-financial-business-analyst-at-intepros-4376218003" target="_blank">Apply →</a></td></tr>
-        <tr><td>9</td><td>Senior Business Analyst</td><td>NAC Architecture</td><td>Seattle, WA</td><td>$115–170K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-nac-4384641541" target="_blank">Apply →</a></td></tr>
-        <tr><td>10</td><td>Sr. IT BA – GxP Systems (Boomi)</td><td>Evotec</td><td>Seattle, WA (Hybrid)</td><td>$126–140K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-it-business-analyst-gxp-systems-integration-boomi-at-evotec-4374508335" target="_blank">Apply →</a></td></tr>
-        <tr><td>11</td><td>Business Analyst IV – Geospatial</td><td>IntePros</td><td>Seattle, WA</td><td>Contract PT</td><td><span class="badge badge-tier3">Partial</span></td><td><a href="https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389" target="_blank">Apply →</a></td></tr>
-        <tr><td>12</td><td>Remote BA – AI Training</td><td>Turing</td><td>Remote</td><td>~$50–100/hr</td><td><span class="badge badge-tier3">Partial</span></td><td><a href="https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114" target="_blank">Apply →</a></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Spacer to align with right sidebar -->
-  <div class="bottom-sidebar-spacer"></div>
-
-</div>
 
 <script>
 // ── US Cities list for autocomplete ──
@@ -1962,6 +1941,59 @@ const KNOWN_COMPANIES = [
 
 const COMPANY_NAMES = KNOWN_COMPANIES.map(c => c.name);
 
+const CAREER_PAGES = {
+  'google':               'https://careers.google.com',
+  'microsoft':            'https://careers.microsoft.com',
+  'amazon':               'https://www.amazon.jobs',
+  'meta':                 'https://www.metacareers.com',
+  'apple':                'https://jobs.apple.com',
+  'salesforce':           'https://careers.salesforce.com',
+  'deloitte':             'https://www2.deloitte.com/us/en/careers.html',
+  'accenture':            'https://www.accenture.com/us-en/careers',
+  'mckinsey':             'https://www.mckinsey.com/careers',
+  'ibm':                  'https://www.ibm.com/employment',
+  'oracle':               'https://careers.oracle.com',
+  'sap':                  'https://jobs.sap.com',
+  'workday':              'https://www.workday.com/en-us/company/careers.html',
+  'servicenow':           'https://careers.servicenow.com',
+  'uber':                 'https://www.uber.com/us/en/careers',
+  'airbnb':               'https://careers.airbnb.com',
+  'netflix':              'https://jobs.netflix.com',
+  'stripe':               'https://stripe.com/jobs',
+  'twitter / x':          'https://careers.x.com',
+  'linkedin':             'https://careers.linkedin.com',
+  'adobe':                'https://careers.adobe.com',
+  'intuit':               'https://careers.intuit.com',
+  'cisco':                'https://jobs.cisco.com',
+  'capital one':          'https://www.capitalonecareers.com',
+  'jpmorgan chase':       'https://careers.jpmorgan.com',
+  'bank of america':      'https://careers.bankofamerica.com',
+  'goldman sachs':        'https://www.goldmansachs.com/careers',
+  'walmart':              'https://careers.walmart.com',
+  'target':               'https://jobs.target.com',
+  'boeing':               'https://jobs.boeing.com',
+  'expedia':              'https://lifeatexpediagroup.com',
+  't-mobile':             'https://careers.t-mobile.com',
+  'starbucks':            'https://www.starbucks.com/careers',
+  'nike':                 'https://jobs.nike.com',
+  'snowflake':            'https://careers.snowflake.com',
+  'databricks':           'https://www.databricks.com/company/careers',
+  'atlassian':            'https://www.atlassian.com/company/careers',
+  'zendesk':              'https://jobs.zendesk.com',
+  'hubspot':              'https://www.hubspot.com/careers',
+  'splunk':               'https://www.splunk.com/en_us/careers.html',
+  'twilio':               'https://careers.twilio.com',
+  'palo alto networks':   'https://jobs.paloaltonetworks.com',
+  'lseg':                 'https://careers.lseg.com',
+  'refinitiv':            'https://careers.lseg.com',
+  'aon':                  'https://jobs.aon.com',
+  'informatica':          'https://www.informatica.com/about-us/careers.html',
+  'tableau':              'https://careers.tableau.com',
+  'kiewit':               'https://careers.kiewit.com',
+  'spacex':               'https://www.spacex.com/careers',
+  'wizards of the coast':  'https://company.wizards.com/en/careers',
+};
+
 let careerSuggIdx = -1;
 let careerCitySuggIdx = -1;
 
@@ -2029,6 +2061,17 @@ async function searchCareerJobs() {
   const btn        = document.getElementById('careerSearchBtn');
 
   if (!companyRaw) { statusEl.textContent = 'Please enter a company name.'; return; }
+
+  // Show career page link
+  const careerLink = document.getElementById('careerPageLink');
+  const pageUrl = CAREER_PAGES[companyRaw.toLowerCase()];
+  if (pageUrl) {
+    careerLink.href = pageUrl;
+    careerLink.textContent = `${companyRaw} Career Page →`;
+    careerLink.style.display = 'inline-flex';
+  } else {
+    careerLink.style.display = 'none';
+  }
 
   btn.disabled = true; btn.textContent = '⏳ Searching...';
   statusEl.innerHTML = `Searching <strong>${escHtml(companyRaw)}</strong> listings${cityRaw ? ' in ' + escHtml(cityRaw) : ' across USA'}…`;
@@ -2373,51 +2416,83 @@ function slugifyPractice(s) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'').substring(0,40);
 }
 
+// Finds both buttons on any card type (practice-card or career-job-card)
+function _findPracticeButtons(pid) {
+  const card = document.querySelector(`[data-pid="${pid}"]`);
+  if (!card) return { appliedBtn: null, cancelBtn: null };
+  return { appliedBtn: card.querySelector('.applied-btn'), cancelBtn: card.querySelector('.cancel-btn') };
+}
+
+function _resetPracticeButtons(pid) {
+  const { appliedBtn, cancelBtn } = _findPracticeButtons(pid);
+  if (appliedBtn) { appliedBtn.classList.remove('is-applied'); appliedBtn.textContent = '✓ Mark Applied'; appliedBtn.disabled = false; }
+  if (cancelBtn)  { cancelBtn.classList.remove('is-cancelled'); cancelBtn.textContent = '✕ Cancel'; cancelBtn.disabled = false; }
+}
+
 function markPracticeApplied(pid, title, company, url, btn) {
-  const already = getPracticeApplied();
-  if (already.find(j => j.id === pid)) return;
-  setPracticeApplied([...already, {
+  // Toggle: if already applied, undo
+  if (getPracticeApplied().find(j => j.id === pid)) {
+    setPracticeApplied(getPracticeApplied().filter(j => j.id !== pid));
+    _resetPracticeButtons(pid);
+    renderPracticeApplied();
+    return;
+  }
+  // Remove from cancelled if was cancelled
+  if (getPracticeCancelled().find(j => j.id === pid)) {
+    setPracticeCancelled(getPracticeCancelled().filter(j => j.id !== pid));
+    renderPracticeCancelled();
+    const { cancelBtn } = _findPracticeButtons(pid);
+    if (cancelBtn) { cancelBtn.classList.remove('is-cancelled'); cancelBtn.textContent = '✕ Cancel'; cancelBtn.disabled = false; }
+  }
+  setPracticeApplied([...getPracticeApplied(), {
     id: pid, title, company, applyUrl: url,
     appliedAt: new Date().toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'})
   }]);
   btn.classList.add('is-applied');
   btn.textContent = '✓ Applied!';
-  btn.disabled = true;
+  // Disable cancel while applied
+  const { cancelBtn } = _findPracticeButtons(pid);
+  if (cancelBtn) { cancelBtn.disabled = true; }
   renderPracticeApplied();
 }
 
 function markPracticeCancelled(pid, title, company, url, btn) {
-  const already = getPracticeCancelled();
-  if (already.find(j => j.id === pid)) return;
-  setPracticeCancelled([...already, {
+  // Toggle: if already cancelled, undo
+  if (getPracticeCancelled().find(j => j.id === pid)) {
+    setPracticeCancelled(getPracticeCancelled().filter(j => j.id !== pid));
+    _resetPracticeButtons(pid);
+    renderPracticeCancelled();
+    return;
+  }
+  // Remove from applied if was applied
+  if (getPracticeApplied().find(j => j.id === pid)) {
+    setPracticeApplied(getPracticeApplied().filter(j => j.id !== pid));
+    renderPracticeApplied();
+    const { appliedBtn } = _findPracticeButtons(pid);
+    if (appliedBtn) { appliedBtn.classList.remove('is-applied'); appliedBtn.textContent = '✓ Mark Applied'; appliedBtn.disabled = false; }
+  }
+  setPracticeCancelled([...getPracticeCancelled(), {
     id: pid, title, company, applyUrl: url,
     cancelledAt: new Date().toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'})
   }]);
   btn.classList.add('is-cancelled');
   btn.textContent = '✕ Cancelled';
-  btn.disabled = true;
+  // Disable apply while cancelled
+  const { appliedBtn } = _findPracticeButtons(pid);
+  if (appliedBtn) { appliedBtn.disabled = true; }
   renderPracticeCancelled();
 }
 
 function undoPracticeApplied(pid) {
   setPracticeApplied(getPracticeApplied().filter(j => j.id !== pid));
   renderPracticeApplied();
-  // Re-enable button on card if visible
-  const card = document.querySelector(`.practice-card[data-pid="${pid}"]`);
-  if (card) {
-    const btn = card.querySelector('.applied-btn');
-    if (btn) { btn.classList.remove('is-applied'); btn.textContent = '✓ Mark Applied'; btn.disabled = false; }
-  }
+  _resetPracticeButtons(pid);
 }
 
 function undoPracticeCancelled(pid) {
   setPracticeCancelled(getPracticeCancelled().filter(j => j.id !== pid));
   renderPracticeCancelled();
-  const card = document.querySelector(`.practice-card[data-pid="${pid}"]`);
-  if (card) {
-    const btn = card.querySelector('.cancel-btn');
-    if (btn) { btn.classList.remove('is-cancelled'); btn.textContent = '✕ Cancel'; btn.disabled = false; }
-  }
+  _resetPracticeButtons(pid);
 }
 
 function renderPracticeApplied() {
