@@ -2136,7 +2136,12 @@ async function searchCareerJobs() {
   statusEl.innerHTML = `Searching for <strong>${escHtml(companyRaw)}</strong> listings${cityRaw ? ' in ' + escHtml(cityRaw) : ''}…`;
   resultsEl.innerHTML = '';
 
-  const BA_RE   = /business analyst|BA[-\s]?[23III]?|sr\.?\s*ba\b/i;
+  // Title must be Sr/Senior BA or BA 3/III
+  const BA_RE = /\b(senior|sr\.?)\s+(business analyst|ba\b)|business analyst\s*(iii|3)\b|ba[-\s]?(iii|3)\b/i;
+
+  // US location check — matches state abbreviations, "United States", "US", or "Remote"
+  const US_RE = /\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\b|united states|USA|\bU\.S\.|remote/i;
+
   const cityLow = cityRaw.toLowerCase();
 
   // ── Helper: render job cards ──
@@ -2201,7 +2206,11 @@ async function searchCareerJobs() {
 
     if (ghData) {
       let jobs = (ghData.jobs || []).filter(j => BA_RE.test(j.title));
-      if (cityRaw) jobs = jobs.filter(j => (j.location?.name||'').toLowerCase().includes(cityLow));
+      if (cityRaw) {
+        jobs = jobs.filter(j => (j.location?.name||'').toLowerCase().includes(cityLow));
+      } else {
+        jobs = jobs.filter(j => US_RE.test(j.location?.name||''));
+      }
       btn.disabled = false; btn.textContent = '🔍 Search';
       if (jobs.length === 0) {
         showFallbackLinks(`No BA openings at <strong>${escHtml(companyRaw)}</strong>${cityRaw?' in '+escHtml(cityRaw):''} right now — search on:`);
@@ -2228,7 +2237,11 @@ async function searchCareerJobs() {
 
     if (lvData) {
       let jobs = lvData.filter(j => BA_RE.test(j.text));
-      if (cityRaw) jobs = jobs.filter(j => (j.categories?.location||'').toLowerCase().includes(cityLow));
+      if (cityRaw) {
+        jobs = jobs.filter(j => (j.categories?.location||'').toLowerCase().includes(cityLow));
+      } else {
+        jobs = jobs.filter(j => US_RE.test(j.categories?.location||''));
+      }
       btn.disabled = false; btn.textContent = '🔍 Search';
       if (jobs.length === 0) {
         showFallbackLinks(`No BA openings at <strong>${escHtml(companyRaw)}</strong>${cityRaw?' in '+escHtml(cityRaw):''} right now — search on:`);
