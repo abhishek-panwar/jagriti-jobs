@@ -187,6 +187,8 @@
   <div class="tabs" id="tabs">
     <button class="tab-btn" id="tabApplied"    onclick="switchTab('applied')">✅ Applied</button>
     <button class="tab-btn" id="tabCancelled"  onclick="switchTab('cancelled')">🚫 Cancelled</button>
+    <button class="tab-btn" id="tabPracticeA"  onclick="switchTab('practiceA')">✅ Practice Applied</button>
+    <button class="tab-btn" id="tabPracticeC"  onclick="switchTab('practiceC')">🚫 Practice Cancelled</button>
   </div>
 
   <div class="log-controls">
@@ -198,16 +200,13 @@
   <!-- Applied tab -->
   <div class="tab-panel" id="panelApplied">
     <div class="log-table-wrap">
-      <table id="appliedTable">
-        <thead>
-          <tr>
-            <th onclick="sortTable('applied','title')">Role <span class="sort-icon" id="sort-applied-title">↕</span></th>
-            <th onclick="sortTable('applied','company')">Company <span class="sort-icon" id="sort-applied-company">↕</span></th>
-            <th onclick="sortTable('applied','appliedAt')">Applied <span class="sort-icon" id="sort-applied-appliedAt">↕</span></th>
-            <th>Link</th>
-            <th>Action</th>
-          </tr>
-        </thead>
+      <table>
+        <thead><tr>
+          <th onclick="sortTable('applied','title')">Role <span class="sort-icon" id="sort-applied-title">↕</span></th>
+          <th onclick="sortTable('applied','company')">Company <span class="sort-icon" id="sort-applied-company">↕</span></th>
+          <th onclick="sortTable('applied','appliedAt')">Applied <span class="sort-icon" id="sort-applied-appliedAt">↕</span></th>
+          <th>Link</th><th>Action</th>
+        </tr></thead>
         <tbody id="appliedBody"></tbody>
       </table>
     </div>
@@ -216,17 +215,44 @@
   <!-- Cancelled tab -->
   <div class="tab-panel" id="panelCancelled">
     <div class="log-table-wrap">
-      <table id="cancelledTable">
-        <thead>
-          <tr>
-            <th onclick="sortTable('cancelled','title')">Role <span class="sort-icon" id="sort-cancelled-title">↕</span></th>
-            <th onclick="sortTable('cancelled','company')">Company <span class="sort-icon" id="sort-cancelled-company">↕</span></th>
-            <th onclick="sortTable('cancelled','cancelledAt')">Cancelled <span class="sort-icon" id="sort-cancelled-cancelledAt">↕</span></th>
-            <th>Link</th>
-            <th>Action</th>
-          </tr>
-        </thead>
+      <table>
+        <thead><tr>
+          <th onclick="sortTable('cancelled','title')">Role <span class="sort-icon" id="sort-cancelled-title">↕</span></th>
+          <th onclick="sortTable('cancelled','company')">Company <span class="sort-icon" id="sort-cancelled-company">↕</span></th>
+          <th onclick="sortTable('cancelled','cancelledAt')">Cancelled <span class="sort-icon" id="sort-cancelled-cancelledAt">↕</span></th>
+          <th>Link</th><th>Action</th>
+        </tr></thead>
         <tbody id="cancelledBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Practice Applied tab -->
+  <div class="tab-panel" id="panelPracticeA">
+    <div class="log-table-wrap">
+      <table>
+        <thead><tr>
+          <th onclick="sortTable('practiceA','title')">Role <span class="sort-icon" id="sort-practiceA-title">↕</span></th>
+          <th onclick="sortTable('practiceA','company')">Company <span class="sort-icon" id="sort-practiceA-company">↕</span></th>
+          <th onclick="sortTable('practiceA','appliedAt')">Applied <span class="sort-icon" id="sort-practiceA-appliedAt">↕</span></th>
+          <th>Link</th><th>Action</th>
+        </tr></thead>
+        <tbody id="practiceABody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Practice Cancelled tab -->
+  <div class="tab-panel" id="panelPracticeC">
+    <div class="log-table-wrap">
+      <table>
+        <thead><tr>
+          <th onclick="sortTable('practiceC','title')">Role <span class="sort-icon" id="sort-practiceC-title">↕</span></th>
+          <th onclick="sortTable('practiceC','company')">Company <span class="sort-icon" id="sort-practiceC-company">↕</span></th>
+          <th onclick="sortTable('practiceC','cancelledAt')">Cancelled <span class="sort-icon" id="sort-practiceC-cancelledAt">↕</span></th>
+          <th>Link</th><th>Action</th>
+        </tr></thead>
+        <tbody id="practiceCBody"></tbody>
       </table>
     </div>
   </div>
@@ -234,17 +260,33 @@
 </div>
 
 <script>
-const APPLIED_LS_KEY   = 'jagriti_applied_jobs_v1';
-const CANCELLED_LS_KEY = 'jagriti_cancelled_jobs_v1';
+const APPLIED_LS_KEY            = 'jagriti_applied_jobs_v1';
+const CANCELLED_LS_KEY          = 'jagriti_cancelled_jobs_v1';
+const PRACTICE_APPLIED_KEY      = 'jagriti_practice_applied_v1';
+const PRACTICE_CANCELLED_KEY    = 'jagriti_practice_cancelled_v1';
 
-let currentTab   = 'applied';
-let searchTerm   = '';
-let sortState    = { applied: { col: 'appliedAt', dir: -1 }, cancelled: { col: 'cancelledAt', dir: -1 } };
+const TAB_CONFIG = {
+  applied:   { lsKey: APPLIED_LS_KEY,         dateKey: 'appliedAt',   bodyId: 'appliedBody',   emptyMsg: 'No applied jobs yet.',            undoFn: 'undoApplied'   },
+  cancelled: { lsKey: CANCELLED_LS_KEY,        dateKey: 'cancelledAt', bodyId: 'cancelledBody', emptyMsg: 'No cancelled jobs yet.',          undoFn: 'undoCancelled' },
+  practiceA: { lsKey: PRACTICE_APPLIED_KEY,   dateKey: 'appliedAt',   bodyId: 'practiceABody', emptyMsg: 'No practice applied jobs yet.',   undoFn: 'undoPracticeA' },
+  practiceC: { lsKey: PRACTICE_CANCELLED_KEY, dateKey: 'cancelledAt', bodyId: 'practiceCBody', emptyMsg: 'No practice cancelled jobs yet.', undoFn: 'undoPracticeC' },
+};
 
-function getApplied()   { try { return JSON.parse(localStorage.getItem(APPLIED_LS_KEY)   || '[]'); } catch(e) { return []; } }
-function getCancelled() { try { return JSON.parse(localStorage.getItem(CANCELLED_LS_KEY) || '[]'); } catch(e) { return []; } }
-function setApplied(arr)   { localStorage.setItem(APPLIED_LS_KEY,   JSON.stringify(arr)); }
-function setCancelled(arr) { localStorage.setItem(CANCELLED_LS_KEY, JSON.stringify(arr)); }
+let currentTab = 'applied';
+let searchTerm = '';
+let sortState  = {
+  applied:   { col: 'appliedAt',   dir: -1 },
+  cancelled: { col: 'cancelledAt', dir: -1 },
+  practiceA: { col: 'appliedAt',   dir: -1 },
+  practiceC: { col: 'cancelledAt', dir: -1 },
+};
+
+function getData(tab) {
+  try { return JSON.parse(localStorage.getItem(TAB_CONFIG[tab].lsKey) || '[]'); } catch(e) { return []; }
+}
+function setData(tab, arr) {
+  localStorage.setItem(TAB_CONFIG[tab].lsKey, JSON.stringify(arr));
+}
 
 function escHtml(s) {
   return String(s||'')
@@ -252,16 +294,18 @@ function escHtml(s) {
     .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 
+const ALL_TABS = ['applied','cancelled','practiceA','practiceC'];
+const PANEL_IDS = { applied:'panelApplied', cancelled:'panelCancelled', practiceA:'panelPracticeA', practiceC:'panelPracticeC' };
+const BTN_IDS   = { applied:'tabApplied',  cancelled:'tabCancelled',  practiceA:'tabPracticeA',  practiceC:'tabPracticeC' };
+const ACTIVE_CLS = { applied:'active-applied', cancelled:'active-cancelled', practiceA:'active-applied', practiceC:'active-cancelled' };
+
 function switchTab(tab) {
   currentTab = tab;
-  document.getElementById('panelApplied').classList.toggle('active',   tab === 'applied');
-  document.getElementById('panelCancelled').classList.toggle('active', tab === 'cancelled');
-
-  const ta = document.getElementById('tabApplied');
-  const tc = document.getElementById('tabCancelled');
-  ta.className = 'tab-btn' + (tab === 'applied'    ? ' active-applied'    : '');
-  tc.className = 'tab-btn' + (tab === 'cancelled'  ? ' active-cancelled'  : '');
-
+  ALL_TABS.forEach(t => {
+    document.getElementById(PANEL_IDS[t]).classList.toggle('active', t === tab);
+    const btn = document.getElementById(BTN_IDS[t]);
+    btn.className = 'tab-btn' + (t === tab ? ' ' + ACTIVE_CLS[t] : '');
+  });
   document.getElementById('searchInput').value = '';
   searchTerm = '';
   render();
@@ -273,20 +317,15 @@ function onSearch() {
 }
 
 function sortTable(tab, col) {
-  if (sortState[tab].col === col) {
-    sortState[tab].dir *= -1;
-  } else {
-    sortState[tab].col = col;
-    sortState[tab].dir = 1;
-  }
+  if (sortState[tab].col === col) sortState[tab].dir *= -1;
+  else { sortState[tab].col = col; sortState[tab].dir = 1; }
   render();
 }
 
 function render() {
-  const tab      = currentTab;
-  const data     = tab === 'applied' ? getApplied() : getCancelled();
-  const dateKey  = tab === 'applied' ? 'appliedAt' : 'cancelledAt';
-  const bodyId   = tab === 'applied' ? 'appliedBody' : 'cancelledBody';
+  const tab     = currentTab;
+  const cfg     = TAB_CONFIG[tab];
+  const data    = getData(tab);
   const { col, dir } = sortState[tab];
 
   let filtered = data.filter(j =>
@@ -301,8 +340,8 @@ function render() {
     return av < bv ? -dir : av > bv ? dir : 0;
   });
 
-  // Update sort icons
-  ['title','company', dateKey].forEach(c => {
+  // Update sort icons for this tab
+  [cfg.dateKey, 'title', 'company'].forEach(c => {
     const el = document.getElementById(`sort-${tab}-${c}`);
     if (!el) return;
     const th = el.parentElement;
@@ -315,52 +354,43 @@ function render() {
     }
   });
 
-  const tbody = document.getElementById(bodyId);
+  const tbody = document.getElementById(cfg.bodyId);
   if (filtered.length === 0) {
     tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state">${
-      searchTerm ? `No results for "${escHtml(searchTerm)}"` :
-      tab === 'applied' ? 'No applied jobs yet.' : 'No cancelled jobs yet.'
+      searchTerm ? `No results for "${escHtml(searchTerm)}"` : cfg.emptyMsg
     }</div></td></tr>`;
   } else {
-    const undoFn = tab === 'applied' ? 'undoApplied' : 'undoCancelled';
     tbody.innerHTML = filtered.map(j => `
       <tr>
         <td><div class="td-title">${escHtml(j.title)}</div></td>
         <td class="td-company">${escHtml(j.company)}</td>
-        <td class="td-date">${escHtml(j[dateKey] || '—')}</td>
+        <td class="td-date">${escHtml(j[cfg.dateKey] || '—')}</td>
         <td>${j.applyUrl ? `<a class="view-link" href="${escHtml(j.applyUrl)}" target="_blank">View →</a>` : '—'}</td>
-        <td><button class="undo-btn" onclick="${undoFn}('${escHtml(j.id)}')">Undo</button></td>
+        <td><button class="undo-btn" onclick="undoRow('${tab}','${escHtml(j.id)}')">Undo</button></td>
       </tr>
     `).join('');
   }
 
   document.getElementById('logCount').textContent =
-    filtered.length === data.length
-      ? `${data.length} total`
-      : `${filtered.length} of ${data.length}`;
+    filtered.length === data.length ? `${data.length} total` : `${filtered.length} of ${data.length}`;
 }
 
-function undoApplied(jobId) {
-  setApplied(getApplied().filter(j => j.id !== jobId));
-  render();
-}
-
-function undoCancelled(jobId) {
-  setCancelled(getCancelled().filter(j => j.id !== jobId));
+function undoRow(tab, id) {
+  setData(tab, getData(tab).filter(j => j.id !== id));
   render();
 }
 
 function clearCurrent() {
-  const label = currentTab === 'applied' ? 'applied' : 'cancelled';
-  if (!confirm(`Clear all ${label} jobs from history? This cannot be undone.`)) return;
-  if (currentTab === 'applied') setApplied([]);
-  else setCancelled([]);
+  const labels = { applied:'applied (Seattle)', cancelled:'cancelled (Seattle)', practiceA:'practice applied', practiceC:'practice cancelled' };
+  if (!confirm(`Clear all ${labels[currentTab]} jobs? This cannot be undone.`)) return;
+  setData(currentTab, []);
   render();
 }
 
 // ── Init — read ?tab= from URL ──
 const urlTab = new URLSearchParams(location.search).get('tab');
-switchTab(urlTab === 'cancelled' ? 'cancelled' : 'applied');
+const validTabs = ['applied','cancelled','practiceA','practiceC'];
+switchTab(validTabs.includes(urlTab) ? urlTab : 'applied');
 </script>
 </body>
 </html>
