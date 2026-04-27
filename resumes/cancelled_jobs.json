@@ -1,13 +1,6 @@
 {
   "cancelled": [
     {
-      "id": "nac",
-      "title": "Senior Business Analyst",
-      "company": "NAC Architecture",
-      "applyUrl": "https://www.linkedin.com/jobs/view/senior-business-analyst-at-nac-4384641541",
-      "cancelledAt": "Apr 26, 2026"
-    },
-    {
       "id": "wizards",
       "title": "Senior Business Analyst",
       "company": "Wizards of the Coast",
@@ -16,32 +9,32 @@
     },
     {
       "id": "intepros_geo",
-      "title": "Business Analyst IV – Geospatial",
+      "title": "Business Analyst IV â Geospatial",
       "company": "IntePros (contract placement)",
       "applyUrl": "https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389",
       "cancelledAt": "Apr 26, 2026"
     },
     {
       "id": "turing",
-      "title": "Remote Business Analyst â AI Training (57510)",
+      "title": "Remote Business Analyst Ã¢ÂÂ AI Training (57510)",
       "company": "Turing",
       "applyUrl": "https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114",
       "cancelledAt": "Apr 26, 2026"
     },
     {
       "id": "amazon_otr",
-      "title": "Sr. Business Analyst – AMZL OTR Planning",
+      "title": "Sr. Business Analyst â AMZL OTR Planning",
       "company": "Amazon",
       "applyUrl": "https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159",
       "cancelledAt": "Apr 26, 2026"
     },
     {
       "id": "kiewit",
-      "title": "Sr. Business Analyst – Kiewit Nuclear Solutions",
+      "title": "Sr. Business Analyst â Kiewit Nuclear Solutions",
       "company": "Kiewit",
       "applyUrl": "https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182",
       "cancelledAt": "Apr 26, 2026"
     }
   ],
-  "lastUpdated": "2026-04-27T05:16:43.829Z"
+  "lastUpdated": "2026-04-27T07:29:38.795Z"
 }
