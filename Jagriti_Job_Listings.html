@@ -1515,7 +1515,7 @@
       <div class="recent-add-row">
         <div class="career-company-wrap">
           <input class="city-input" type="text" id="recentCompanyInput"
-            placeholder="Add company (e.g. Airbnb, Stripe…)"
+            placeholder="Add new company name (e.g. Airbnb, Stripe, HubSpot…)"
             autocomplete="off"
             oninput="onRecentCompanyInput()"
             onkeydown="onRecentCompanyKeydown(event)"
@@ -2250,8 +2250,63 @@ async function scanRecentJobs() {
   }).join('')
 }
 
-// Init watchlist chips on load
-document.addEventListener('DOMContentLoaded', renderWatchlistChips);
+// Companies confirmed on Greenhouse or Lever — pre-seeded into the watchlist
+const GREENHOUSE_COMPANIES = [
+  'Airbnb','Stripe','Snowflake','Databricks','Twilio','HubSpot','Zendesk',
+  'Palo Alto Networks','Atlassian','Splunk','Uber','Aon','Cloudflare','Figma',
+  'Dropbox','Asana','Robinhood','Brex','Plaid','Checkr','Gusto','Rippling',
+  'Carta','Lattice','Notion','Coda','Scale AI','Weights & Biases','Retool',
+  'Amplitude','Mixpanel','Segment','Heap','Loom','Miro','Canva','Intercom',
+  'Zendesk','Greenhouse','Lever','Gem','Ashby','Workable','SmartRecruiters',
+  'ServiceTitan','Procore','Veeva Systems','Medidata','Palantir','C3.ai',
+  'UiPath','Automation Anywhere','MuleSoft','Informatica','Talend','Fivetran',
+  'dbt Labs','Monte Carlo','Collibra','Alation','Atlan','DataStax','Cockroach Labs',
+  'SingleStore','Yellowbrick','Starburst','Imply','Rill Data','Preset','Superset',
+  'Mode Analytics','Sigma Computing','ThoughtSpot','Looker','Periscope Data',
+  'Capital One','American Express','Visa','Mastercard','PayPal','Square','Affirm',
+  'Klarna','Chime','Current','Dave','Varo','Monzo','Revolut','Nerd Wallet',
+  'Credit Karma','LendingClub','SoFi','Blend','Better','Opendoor','Compass',
+  'Redfin','Zillow','CoStar','CBRE','JLL','Cushman & Wakefield',
+  'Deloitte','KPMG','PwC','EY','Accenture','McKinsey','BCG','Bain',
+  'Oliver Wyman','Booz Allen Hamilton','Leidos','SAIC','ManTech','ICF',
+  'Salesforce','Workday','ServiceNow','Oracle','SAP','Microsoft','Google',
+  'Amazon','Meta','Apple','IBM','Cisco','Adobe','Intuit','Autodesk',
+  'Zenefits','BambooHR','Namely','Paylocity','Paychex','ADP','Ceridian',
+  'Cornerstone OnDemand','Saba','SumTotal','Absorb LMS','Docebo',
+  'Qualtrics','Medallia','Sprinklr','Khoros','Hootsuite','Sprout Social',
+  'HubSpot','Marketo','Pardot','Eloqua','Iterable','Klaviyo','Braze',
+  'Optimizely','VWO','AB Tasty','Contentsquare','FullStory','LogRocket',
+  'New Relic','Datadog','Dynatrace','AppDynamics','Sumo Logic','Splunk',
+  'PagerDuty','VictorOps','OpsGenie','xMatters','BigPanda','Moogsoft',
+  'Expedia','Booking.com','Airbnb','VRBO','TripAdvisor','Hopper','Kayak',
+  'Lyft','DoorDash','Instacart','Gopuff','Grubhub','Postmates','Shipt',
+  'Stitch Fix','Rent the Runway','Poshmark','ThredUp','The RealReal',
+  'Peloton','Mirror','Whoop','Oura','Fitbit','Garmin','Polar',
+  'Oscar Health','Clover Health','Bright Health','Devoted Health','Alignment Health',
+  'Veracyte','Tempus','Flatiron Health','Definitive Healthcare','Health Catalyst',
+  'Epic Systems','Cerner','Allscripts','athenahealth','eClinicalWorks',
+  'Boeing','Lockheed Martin','Raytheon','Northrop Grumman','General Dynamics',
+  'SpaceX','Blue Origin','Rocket Lab','Planet Labs','Maxar',
+  'T-Mobile','Verizon','AT&T','Comcast','Charter','Dish',
+  'Nike','Adidas','Under Armour','Lululemon','Columbia Sportswear',
+  'Starbucks','Chipotle','Shake Shack','Sweetgreen','Panera',
+  'Target','Walmart','Costco','Kroger','Albertsons',
+  'Kiewit','Bechtel','Turner Construction','Jacobs','AECOM',
+  'LSEG','Refinitiv','Bloomberg','FactSet','Morningstar','S&P Global',
+  'Experian','Equifax','TransUnion','Dun & Bradstreet','Verisk',
+  'Wizards of the Coast','Electronic Arts','Activision','Riot Games','Epic Games',
+  'Twitch','Discord','Roblox','Unity','Niantic',
+];
+
+// Init watchlist chips on load — pre-seed with all known companies on first visit
+document.addEventListener('DOMContentLoaded', () => {
+  if (getWatchlist().length === 0) {
+    // Deduplicate and seed
+    const unique = [...new Set(GREENHOUSE_COMPANIES)];
+    setWatchlist(unique);
+  }
+  renderWatchlistChips();
+});
 
 // ── Company Career Search ──
 
