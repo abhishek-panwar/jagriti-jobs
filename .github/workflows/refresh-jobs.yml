@@ -5,6 +5,9 @@ on:
     types: [refresh-jobs]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
