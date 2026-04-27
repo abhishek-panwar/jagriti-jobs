@@ -1527,6 +1527,7 @@
         <button class="practice-search-btn" onclick="addRecentCompany()" style="padding:9px 18px">+ Add</button>
         <button class="practice-search-btn" id="recentScanBtn" onclick="scanRecentJobs()" style="background:#065f46;padding:9px 20px">⚡ Scan</button>
       </div>
+      <span id="recentAddNote" style="font-size:11.5px;font-style:italic;margin-top:-4px;display:block"></span>
 
       <!-- Watchlist chips -->
       <div class="recent-chips" id="recentChips"></div>
@@ -2056,13 +2057,38 @@ function toggleRecentSection() {
 }
 
 // ── Recent Openings — watchlist stored in localStorage ──
-const RECENT_WATCHLIST_KEY      = 'jagriti_recent_watchlist_v1';
-const RECENT_USER_ADDED_KEY     = 'jagriti_recent_user_added_v1';
+const RECENT_WATCHLIST_KEY   = 'jagriti_recent_watchlist_v1';
+const RECENT_USER_ADDED_KEY  = 'jagriti_recent_user_added_v1';
+const RECENT_RESULTS_KEY     = 'jagriti_recent_results_v1';   // persisted scan results
 
-function getWatchlist()       { try { return JSON.parse(localStorage.getItem(RECENT_WATCHLIST_KEY)  || '[]'); } catch { return []; } }
-function setWatchlist(arr)    { localStorage.setItem(RECENT_WATCHLIST_KEY,  JSON.stringify(arr)); }
-function getUserAdded()       { try { return JSON.parse(localStorage.getItem(RECENT_USER_ADDED_KEY) || '[]'); } catch { return []; } }
-function setUserAdded(arr)    { localStorage.setItem(RECENT_USER_ADDED_KEY, JSON.stringify(arr)); }
+function getWatchlist()      { try { return JSON.parse(localStorage.getItem(RECENT_WATCHLIST_KEY)  || '[]'); } catch { return []; } }
+function setWatchlist(arr)   { localStorage.setItem(RECENT_WATCHLIST_KEY,  JSON.stringify(arr)); }
+function getUserAdded()      { try { return JSON.parse(localStorage.getItem(RECENT_USER_ADDED_KEY) || '[]'); } catch { return []; } }
+function setUserAdded(arr)   { localStorage.setItem(RECENT_USER_ADDED_KEY, JSON.stringify(arr)); }
+function getPersistedJobs()  { try { return JSON.parse(localStorage.getItem(RECENT_RESULTS_KEY)   || '[]'); } catch { return []; } }
+function setPersistedJobs(a) { localStorage.setItem(RECENT_RESULTS_KEY, JSON.stringify(a)); }
+
+// Age label relative to today
+function ageLabel(isoDate) {
+  if (!isoDate) return '';
+  const today = new Date(); today.setHours(0,0,0,0);
+  const d     = new Date(isoDate); d.setHours(0,0,0,0);
+  const days  = Math.round((today - d) / 86400000);
+  if (days === 0) return 'Added today';
+  if (days === 1) return 'Added 1 day ago';
+  return `Added ${days} days ago`;
+}
+
+// Age badge colour
+function ageBadgeStyle(isoDate) {
+  if (!isoDate) return 'background:#f3f4f6;color:#6b7280';
+  const today = new Date(); today.setHours(0,0,0,0);
+  const d     = new Date(isoDate); d.setHours(0,0,0,0);
+  const days  = Math.round((today - d) / 86400000);
+  if (days === 0) return 'background:#d1fae5;color:#065f46';
+  if (days <= 1)  return 'background:#dbeafe;color:#1e40af';
+  return 'background:#fef3c7;color:#92400e';
+}
 
 let recentSuggIdx = -1;
 
@@ -2095,19 +2121,26 @@ function selectRecentCompany(name) {
 function hideRecentSuggestionsDelayed() { setTimeout(() => document.getElementById('recentCompanySuggestions').classList.remove('visible'), 200); }
 
 function addRecentCompany() {
-  const val  = document.getElementById('recentCompanyInput').value.trim();
+  const inp  = document.getElementById('recentCompanyInput');
+  const val  = inp.value.trim();
+  const note = document.getElementById('recentAddNote');
   if (!val) return;
+
   const list = getWatchlist();
-  // Add to full watchlist (used for scanning) if not already present
-  if (!list.some(c => c.toLowerCase() === val.toLowerCase())) {
-    setWatchlist([...list, val]);
+  const alreadyIn = list.some(c => c.toLowerCase() === val.toLowerCase());
+
+  if (alreadyIn) {
+    note.textContent = `"${val}" is already in the scan list.`;
+    note.style.color = 'var(--purple)';
+    setTimeout(() => { note.textContent = ''; }, 3000);
+    return;
   }
-  // Track user-added separately (shown as chips)
+
+  setWatchlist([...list, val]);
   const ua = getUserAdded();
-  if (!ua.some(c => c.toLowerCase() === val.toLowerCase())) {
-    setUserAdded([...ua, val]);
-  }
-  document.getElementById('recentCompanyInput').value = '';
+  if (!ua.some(c => c.toLowerCase() === val.toLowerCase())) setUserAdded([...ua, val]);
+  inp.value = '';
+  note.textContent = '';
   renderWatchlistChips();
 }
 
@@ -2206,25 +2239,53 @@ async function scanRecentJobs() {
   btn.disabled = false; btn.textContent = '⚡ Scan';
 
   // Flatten all jobs, sort by date descending
-  const allJobs = allResults.flatMap(r => r.jobs);
-  allJobs.sort((a, b) => (b.listed || '').localeCompare(a.listed || ''));
+  const freshJobs = allResults.flatMap(r => r.jobs);
+  freshJobs.sort((a, b) => (b.listed || '').localeCompare(a.listed || ''));
+
+  // Merge with persisted jobs — keep existing entries not in fresh results,
+  // drop any already applied/cancelled, stamp addedAt for new ones
+  const appliedIds   = new Set(getPracticeApplied().map(j => j.id));
+  const cancelledIds = new Set(getPracticeCancelled().map(j => j.id));
+  const existing     = getPersistedJobs().filter(j => !appliedIds.has(j.pid) && !cancelledIds.has(j.pid));
+  const existingPids = new Set(existing.map(j => j.pid));
+  const today        = new Date().toISOString().substring(0, 10);
+
+  const newEntries = freshJobs
+    .map(j => ({ ...j, pid: 'r_' + slugifyPractice(j.title + '_' + j.company), addedAt: today }))
+    .filter(j => !existingPids.has(j.pid));
+
+  const merged = [...newEntries, ...existing];
+  setPersistedJobs(merged);
 
   const cutoffStr = cutoff.toLocaleDateString('en-US', {month:'short', day:'numeric'});
-  statusEl.innerHTML = allJobs.length > 0
-    ? `Found <strong>${allJobs.length}</strong> BA opening${allJobs.length!==1?'s':''} in the last 3 days (since ${cutoffStr})`
-    : `No new BA openings in the last 3 days across ${list.length} companies (since ${cutoffStr})`;
+  document.getElementById('recentStatus').innerHTML = merged.length > 0
+    ? `<strong>${merged.length}</strong> BA opening${merged.length!==1?'s':''} saved — ${newEntries.length} new from this scan (since ${cutoffStr})`
+    : `No new BA openings found in the last 3 days (since ${cutoffStr})`;
 
-  if (allJobs.length === 0) { resultsEl.innerHTML = ''; return; }
+  renderPersistedJobs();
+}
+
+function renderPersistedJobs() {
+  const resultsEl   = document.getElementById('recentResults');
+  const appliedIds  = new Set(getPracticeApplied().map(j => j.id));
+  const cancelledIds= new Set(getPracticeCancelled().map(j => j.id));
+
+  // Filter out applied/cancelled, keep the rest
+  const jobs = getPersistedJobs().filter(j => !appliedIds.has(j.pid) && !cancelledIds.has(j.pid));
+
+  if (jobs.length === 0) { resultsEl.innerHTML = ''; return; }
 
   const srcBg = src => src === 'Greenhouse' ? '#d1fae5' : '#fef3c7';
   const srcFg = src => src === 'Greenhouse' ? '#065f46' : '#92400e';
 
-  resultsEl.innerHTML = allJobs.map(j => {
-    const pid        = 'r_' + slugifyPractice(j.title + '_' + j.company);
+  resultsEl.innerHTML = jobs.map(j => {
+    const pid        = j.pid;
     const pApplied   = getPracticeApplied().find(x => x.id === pid);
     const pCancelled = getPracticeCancelled().find(x => x.id === pid);
     const appliedDis   = pCancelled ? 'disabled' : '';
     const cancelledDis = pApplied   ? 'disabled' : '';
+    const age          = ageLabel(j.addedAt);
+    const ageSty       = ageBadgeStyle(j.addedAt);
     return `
     <div class="career-job-card" data-pid="${escHtml(pid)}">
       <div class="career-job-top">
@@ -2234,23 +2295,30 @@ async function scanRecentJobs() {
             <span style="font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;background:${srcBg(j.source)};color:${srcFg(j.source)};margin-left:5px">${j.source}</span>
           </div>
         </div>
-        ${j.listed ? `<span style="font-size:10.5px;color:#6b7280;flex-shrink:0">${escHtml(j.listed)}</span>` : ''}
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0">
+          ${age ? `<span style="font-size:10px;font-weight:700;padding:1px 8px;border-radius:999px;${ageSty}">${age}</span>` : ''}
+          ${j.listed ? `<span style="font-size:10.5px;color:#6b7280">${escHtml(j.listed)}</span>` : ''}
+        </div>
       </div>
       <div class="career-job-loc">📍 ${escHtml(j.loc)}</div>
       ${j.desc ? `<div class="career-job-desc">${escHtml(j.desc)}${j.desc.length>=220?'…':''}</div>` : ''}
       <div class="career-job-actions">
         <a class="apply-btn" href="${escHtml(j.url)}" target="_blank" style="font-size:12px;padding:6px 14px">Apply →</a>
         <button class="applied-btn ${pApplied?'is-applied':''}" ${appliedDis} style="font-size:11.5px;padding:5px 12px"
-          onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
+          onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this);removePersistedJob('${escHtml(pid)}')">
           ${pApplied?'✓ Applied!':'✓ Mark Applied'}
         </button>
         <button class="cancel-btn ${pCancelled?'is-cancelled':''}" ${cancelledDis} style="font-size:11.5px;padding:5px 12px"
-          onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this)">
+          onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company)}','${escHtml(j.url)}',this);removePersistedJob('${escHtml(pid)}')">
           ${pCancelled?'✕ Cancelled':'✕ Cancel'}
         </button>
       </div>
     </div>`;
   }).join('');
+}
+
+function removePersistedJob(pid) {
+  setPersistedJobs(getPersistedJobs().filter(j => j.pid !== pid));
 }
 
 // Companies confirmed on Greenhouse or Lever — pre-seeded into the watchlist
@@ -2301,13 +2369,41 @@ const GREENHOUSE_COMPANIES = [
   'Twitch','Discord','Roblox','Unity','Niantic',
 ];
 
-// Init on load — seed background watchlist silently on first visit, never show as chips
+// Init on load
 document.addEventListener('DOMContentLoaded', () => {
-  if (getWatchlist().length === 0) {
-    setWatchlist([...new Set(GREENHOUSE_COMPANIES)]);
-  }
+  if (getWatchlist().length === 0) setWatchlist([...new Set(GREENHOUSE_COMPANIES)]);
   renderWatchlistChips();
+  renderPersistedJobs();       // restore saved scan results immediately
+  scheduleAutoScans();         // set up midnight + noon PST auto-scans
 });
+
+// ── Auto-scan at midnight and noon PST ──
+function scheduleAutoScans() {
+  function msUntilNext(hourPST) {
+    // PST = UTC-8, PDT = UTC-7; use UTC-8 conservative
+    const now    = new Date();
+    const utcH   = now.getUTCHours();
+    const utcM   = now.getUTCMinutes();
+    const utcS   = now.getUTCSeconds();
+    const targetUTC = hourPST + 8;           // PST offset
+    const nowMins   = utcH * 60 + utcM;
+    const tgtMins   = (targetUTC % 24) * 60;
+    let diff = tgtMins - nowMins;
+    if (diff <= 0) diff += 24 * 60;
+    return (diff * 60 - utcS) * 1000;
+  }
+
+  function armScan(hourPST) {
+    const delay = msUntilNext(hourPST);
+    setTimeout(async () => {
+      await scanRecentJobs();
+      setInterval(() => scanRecentJobs(), 24 * 60 * 60 * 1000); // repeat every 24h
+    }, delay);
+  }
+
+  armScan(0);    // midnight PST
+  armScan(12);   // noon PST
+}
 
 // ── Company Career Search ──
 
