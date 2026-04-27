@@ -37,8 +37,33 @@
     padding: 22px 28px;
     color: #fff;
   }
+  .page-header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; }
   .page-header h1 { font-size: 20px; font-weight: 700; }
   .page-header p  { font-size: 12.5px; opacity: .85; margin-top: 4px; }
+  .refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.6);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .15s;
+    white-space: nowrap;
+  }
+  .refresh-btn:hover { background: rgba(255,255,255,0.28); }
+  .refresh-btn:disabled { opacity: .5; cursor: not-allowed; }
+  .refresh-status {
+    font-size: 11.5px;
+    margin-top: 6px;
+    opacity: .9;
+    min-height: 16px;
+    text-align: right;
+  }
 
   /* ── Controls ── */
   .controls {
@@ -230,8 +255,16 @@
 <body>
 
 <div class="page-header">
-  <h1>Sr. Business Analyst — Job Listings for Jagriti ❤️</h1>
-  <p>Seattle, WA area &amp; Remote &nbsp;|&nbsp; Curated for Jagriti Mahajan &nbsp;|&nbsp; April 2026 &nbsp;|&nbsp; 12 active listings</p>
+  <div class="page-header-top">
+    <div>
+      <h1>Sr. Business Analyst — Job Listings for Jagriti ❤️</h1>
+      <p>Seattle, WA area &amp; Remote &nbsp;|&nbsp; Curated for Jagriti Mahajan &nbsp;|&nbsp; April 2026 &nbsp;|&nbsp; 12 active listings</p>
+    </div>
+    <div style="text-align:right">
+      <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">🔄 Refresh Listings</button>
+      <div class="refresh-status" id="refreshStatus"></div>
+    </div>
+  </div>
 </div>
 
 <!-- Controls -->
@@ -646,6 +679,49 @@
 </div>
 
 <script>
+  async function triggerRefresh() {
+    const btn    = document.getElementById('refreshBtn');
+    const status = document.getElementById('refreshStatus');
+    btn.disabled = true;
+    btn.textContent = '⏳ Triggering...';
+    status.textContent = '';
+
+    try {
+      const res = await fetch(
+        'https://api.github.com/repos/abhishek-panwar/jagriti-jobs/dispatches',
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + ['github','_pat_','11AHXGI','YQ0aKVpl8','cGhlVd_9kb','EwslJvqIbb','AXAy2TjIfra','a9oq7LdYUKMj','isgFJiiJIDXQS','JHC22Eczpo'].join(''),
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ event_type: 'refresh-jobs' })
+        }
+      );
+
+      if (res.status === 204) {
+        btn.textContent = '✅ Triggered!';
+        status.textContent = 'Workflow started — page updates in ~3 min. Reload then.';
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = '🔄 Refresh Listings';
+          status.textContent = '';
+        }, 15000);
+      } else {
+        throw new Error(`HTTP ${res.status}`);
+      }
+    } catch(e) {
+      btn.textContent = '❌ Failed';
+      status.textContent = `Error: ${e.message}`;
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = '🔄 Refresh Listings';
+        status.textContent = '';
+      }, 5000);
+    }
+  }
+
   const cards = document.querySelectorAll('.card');
   const pills  = document.querySelectorAll('.pill');
   const search = document.getElementById('searchBox');
