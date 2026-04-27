@@ -2176,7 +2176,7 @@ async function scanRecentJobs() {
 
   btn.disabled = true; btn.textContent = '⏳ Scanning…';
   statusEl.textContent = `Scanning ${list.length} company${list.length!==1?'ies':'y'}…`;
-  resultsEl.innerHTML = '';
+  // Don't clear results here — keep existing persisted cards visible while scan runs
 
   // 3-day cutoff
   const cutoff = new Date();
@@ -2267,6 +2267,7 @@ async function scanRecentJobs() {
 
 function renderPersistedJobs() {
   const resultsEl   = document.getElementById('recentResults');
+  const statusEl    = document.getElementById('recentStatus');
   const appliedIds  = new Set(getPracticeApplied().map(j => j.id));
   const cancelledIds= new Set(getPracticeCancelled().map(j => j.id));
 
@@ -2274,6 +2275,11 @@ function renderPersistedJobs() {
   const jobs = getPersistedJobs().filter(j => !appliedIds.has(j.pid) && !cancelledIds.has(j.pid));
 
   if (jobs.length === 0) { resultsEl.innerHTML = ''; return; }
+
+  // Restore status text if blank (e.g. on page load)
+  if (!statusEl.textContent.trim()) {
+    statusEl.innerHTML = `<strong>${jobs.length}</strong> BA opening${jobs.length!==1?'s':''} saved from last scan`;
+  }
 
   const srcBg = src => src === 'Greenhouse' ? '#d1fae5' : '#fef3c7';
   const srcFg = src => src === 'Greenhouse' ? '#065f46' : '#92400e';
