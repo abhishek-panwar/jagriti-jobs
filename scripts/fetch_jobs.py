@@ -47,7 +47,7 @@ def save_json(path, data):
         json.dump(data, f, indent=2)
 
 # ── Normalise raw job into common schema ──
-def normalise(title, company, location, url, description, salary_min=None, salary_max=None, source=""):
+def normalise(title, company, location, url, description, salary_min=None, salary_max=None, source="", listed=""):
     return {
         "title":       (title or "").strip(),
         "company":     (company or "").strip(),
@@ -57,6 +57,7 @@ def normalise(title, company, location, url, description, salary_min=None, salar
         "salary_min":  salary_min,
         "salary_max":  salary_max,
         "source":      source,
+        "listed":      listed or "",
     }
 
 # ── Source 1: JSearch ──
@@ -74,6 +75,8 @@ def fetch_jsearch(query, num_results=15):
             city  = j.get("job_city")  or ""
             state = j.get("job_state") or ""
             loc   = (city + (", " + state if state else "")).strip(", ") or "Seattle, WA"
+            raw_date = j.get("job_posted_at_datetime_utc") or j.get("job_posted_at") or ""
+            listed_date = raw_date[:10] if raw_date else ""
             jobs.append(normalise(
                 title       = j.get("job_title") or "",
                 company     = j.get("employer_name") or "",
@@ -82,7 +85,8 @@ def fetch_jsearch(query, num_results=15):
                 description = (j.get("job_description") or "")[:600],
                 salary_min  = j.get("job_min_salary"),
                 salary_max  = j.get("job_max_salary"),
-                source      = j.get("job_publisher") or "JSearch"
+                source      = j.get("job_publisher") or "JSearch",
+                listed      = listed_date
             ))
         print(f"  JSearch: {len(jobs)} jobs fetched")
     except Exception as e:
@@ -103,6 +107,8 @@ def fetch_adzuna(query, location, results=10):
         r.raise_for_status()
         for j in r.json().get("results", []):
             mn, mx = j.get("salary_min"), j.get("salary_max")
+            raw_date = j.get("created") or ""
+            listed_date = raw_date[:10] if raw_date else ""
             jobs.append(normalise(
                 title       = j.get("title") or "",
                 company     = j.get("company", {}).get("display_name") or "",
@@ -111,7 +117,8 @@ def fetch_adzuna(query, location, results=10):
                 description = (j.get("description") or "")[:600],
                 salary_min  = int(mn) if mn else None,
                 salary_max  = int(mx) if mx else None,
-                source      = "Adzuna"
+                source      = "Adzuna",
+                listed      = listed_date
             ))
         print(f"  Adzuna ({location}): {len(jobs)} jobs fetched")
     except Exception as e:
@@ -130,13 +137,16 @@ def fetch_remotive(results=8):
         r.raise_for_status()
         for j in r.json().get("jobs", [])[:results]:
             desc = re.sub(r'<[^>]+>', '', j.get("description",""))[:600]
+            raw_date = j.get("publication_date") or ""
+            listed_date = raw_date[:10] if raw_date else ""
             jobs.append(normalise(
                 title       = j.get("title") or "",
                 company     = j.get("company_name") or "",
                 location    = "Remote",
                 url         = j.get("url") or "#",
                 description = desc,
-                source      = "Remotive"
+                source      = "Remotive",
+                listed      = listed_date
             ))
         print(f"  Remotive: {len(jobs)} jobs fetched")
     except Exception as e:
@@ -222,10 +232,12 @@ def card_html(i, job):
     url     = job["url"]
     desc    = html_lib.escape(excerpt(job["description"]))
     sal     = salary_str(job)
+    listed  = job.get("listed", "")
     data_text = f"{title} {company} {loc}".lower()
+    listed_attr = f' data-listed="{listed}"' if listed else ""
     return f"""
   <!-- Job {i+1} -->
-  <div class="card" data-tier="{t}" data-location="{lt}" data-id="{jid}" data-resume="{rstem}" data-text="{data_text}">
+  <div class="card" data-tier="{t}" data-location="{lt}" data-id="{jid}" data-resume="{rstem}" data-text="{data_text}"{listed_attr}>
     <div class="card-top">
       <div>
         <div class="job-title">{title} {source_badge_html(job)}</div>
@@ -249,6 +261,7 @@ def card_html(i, job):
     <div class="card-actions">
       <a class="apply-btn" href="{url}" target="_blank">Apply →</a>
       <button class="applied-btn" onclick="markApplied('{jid}', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('{jid}', this)">✕ Cancel</button>
     </div>
   </div>"""
 
