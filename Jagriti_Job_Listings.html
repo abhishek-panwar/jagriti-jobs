@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sr. Business Analyst — Job Listings for Jagriti ❤️</title>
+<style>
+  :root {
+    --blue: #1a56a4;
+    --blue-light: #e8f0fb;
+    --accent: #0f3d78;
+    --green: #065f46;
+    --green-bg: #d1fae5;
+    --yellow: #92610a;
+    --yellow-bg: #fef9c3;
+    --red: #991b1b;
+    --red-bg: #fee2e2;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13.5px;
+    background: #f0f4f8;
+    color: var(--text);
+    padding: 24px 16px 48px;
+  }
+
+  /* ── Page header ── */
+  .page-header {
+    max-width: 960px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    border-radius: 10px;
+    padding: 22px 28px;
+    color: #fff;
+  }
+  .page-header h1 { font-size: 20px; font-weight: 700; }
+  .page-header p  { font-size: 12.5px; opacity: .85; margin-top: 4px; }
+
+  /* ── Controls ── */
+  .controls {
+    max-width: 960px;
+    margin: 0 auto 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+  .filter-group { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pill {
+    padding: 5px 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--blue);
+    background: #fff;
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .pill.active, .pill:hover { background: var(--blue); color: #fff; }
+  .search-box {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    font-size: 12.5px;
+    outline: none;
+    width: 220px;
+    background: #fff;
+  }
+  .search-box:focus { border-color: var(--blue); }
+  .count-label {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  /* ── Grid ── */
+  .grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  /* ── Card ── */
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-left: 4px solid var(--blue);
+    transition: box-shadow .15s, transform .1s;
+  }
+  .card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12); transform: translateY(-2px); }
+  .card.hidden { display: none; }
+
+  /* tier colors */
+  .card[data-tier="1"] { border-left-color: #1a56a4; }
+  .card[data-tier="2"] { border-left-color: #0891b2; }
+  .card[data-tier="3"] { border-left-color: #9333ea; }
+
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .job-title { font-size: 13.5px; font-weight: 700; color: var(--accent); line-height: 1.35; }
+  .company   { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+
+  .badges { display: flex; flex-wrap: wrap; gap: 5px; }
+  .badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  .badge-remote   { background: var(--green-bg);  color: var(--green); }
+  .badge-hybrid   { background: var(--yellow-bg); color: var(--yellow); }
+  .badge-onsite   { background: #f3f4f6;           color: #374151; }
+  .badge-tier1    { background: var(--blue-light); color: var(--blue); }
+  .badge-tier2    { background: #e0f2fe;           color: #0369a1; }
+  .badge-tier3    { background: #f3e8ff;           color: #7e22ce; }
+
+  .location { font-size: 12px; color: var(--muted); }
+  .salary   { font-size: 12px; font-weight: 700; color: #065f46; }
+
+  .requirements { padding-left: 16px; }
+  .requirements li { font-size: 12px; color: var(--muted); line-height: 1.55; margin-bottom: 2px; }
+
+  .fit-note {
+    font-size: 11.5px;
+    background: var(--blue-light);
+    color: var(--blue);
+    border-radius: 6px;
+    padding: 6px 10px;
+    line-height: 1.45;
+  }
+  .fit-note strong { font-weight: 700; }
+
+  .card-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+  .apply-btn {
+    display: inline-block;
+    padding: 7px 18px;
+    background: var(--blue);
+    color: #fff;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-align: center;
+    transition: background .15s;
+  }
+  .apply-btn:hover { background: var(--accent); }
+  .resume-section {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+  .resume-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .resume-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    line-height: 1.45;
+  }
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    background: #fff;
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    transition: background .15s, color .15s;
+  }
+  .download-btn:hover { background: var(--blue); color: #fff; }
+
+  /* ── Summary table ── */
+  .summary-wrap {
+    max-width: 960px;
+    margin: 24px auto 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    overflow: hidden;
+  }
+  .summary-title {
+    padding: 12px 20px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  th { background: var(--blue-light); color: var(--blue); font-size: 11.5px; padding: 8px 14px; text-align: left; }
+  td { font-size: 12px; padding: 8px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f9fafb; }
+  td a { color: var(--blue); text-decoration: none; font-weight: 600; }
+  td a:hover { text-decoration: underline; }
+
+  @media (max-width: 680px) {
+    .grid { grid-template-columns: 1fr; }
+    .search-box { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Sr. Business Analyst — Job Listings for Jagriti ❤️</h1>
+  <p>Seattle, WA area &amp; Remote &nbsp;|&nbsp; Curated for Jagriti Mahajan &nbsp;|&nbsp; April 2026 &nbsp;|&nbsp; 12 active listings</p>
+</div>
+
+<!-- Controls -->
+<div class="controls">
+  <div class="filter-group">
+    <button class="pill active" data-filter="all">All (12)</button>
+    <button class="pill" data-filter="remote">Remote</button>
+    <button class="pill" data-filter="hybrid">Hybrid</button>
+    <button class="pill" data-filter="onsite">On-site</button>
+    <button class="pill" data-filter="tier1">Best Match</button>
+    <button class="pill" data-filter="tier2">Good Match</button>
+  </div>
+  <input class="search-box" type="text" placeholder="Search by title or company..." id="searchBox">
+  <span class="count-label" id="countLabel">Showing 12 of 12</span>
+</div>
+
+<!-- Cards grid -->
+<div class="grid" id="grid">
+
+  <!-- 1 -->
+  <div class="card" data-tier="1" data-location="remote" data-text="kiewit nuclear solutions senior business analyst remote power bi azure">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Sr. Business Analyst – Kiewit Nuclear Solutions</div>
+        <div class="company">Kiewit</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-remote">Remote</span>
+        <span class="badge badge-tier1">Best Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Seattle, WA (Remote with occasional travel)</div>
+    <div class="salary">$136,000 – $142,000 / year</div>
+    <ul class="requirements">
+      <li>7+ years in Business Analysis, Systems Analysis, or Technical BA roles</li>
+      <li>Power BI, Azure Data Lake, Azure DevOps, SQL Server</li>
+      <li>BRDs, FRS documents, process flow diagrams; multi-initiative intake management</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> Fully remote, best overall match — Azure maps to AWS background, Power BI is a direct hit, 7-year min is well below Jagriti's 12+.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: BRD/FRD documentation, Power BI, Azure-adjacent data platforms, multi-initiative intake management — aligned to Kiewit's 7-year BA requirement.</div>
+      <a class="download-btn" href="resumes/resume_kiewit.pdf" download="Jagriti_Mahajan_Resume_Kiewit.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="card" data-tier="1" data-location="onsite" data-text="amazon senior business analyst talent acquisition analytics sql power bi">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Senior Business Analyst – Talent Acquisition Analytics</div>
+        <div class="company">Amazon</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier1">Best Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Seattle, WA</div>
+    <div class="salary">$118,200 – $160,000 / year</div>
+    <ul class="requirements">
+      <li>5+ years in finance or analytical field; SQL + Tableau or Power BI</li>
+      <li>Define metrics and extract business insights from large datasets</li>
+      <li>Stakeholder communication up to executive level</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> Power BI, SQL, and financial data platform experience are direct matches. 12+ years far exceeds the 5-year minimum.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: KPI definition, Power BI executive dashboards, SQL analytics, and senior stakeholder communication — aligned to Amazon's TA Analytics requirements.</div>
+      <a class="download-btn" href="resumes/resume_amazon_ta.pdf" download="Jagriti_Mahajan_Resume_Amazon_TA.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="card" data-tier="1" data-location="onsite" data-text="amazon sr business analyst wwgs operations analytics sql power bi">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Sr. Business Analyst – WWGS Operations Analytics</div>
+        <div class="company">Amazon</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier1">Best Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Seattle, WA (also Bothell, Austin, Arlington)</div>
+    <div class="salary">$118,200 – $160,000 / year</div>
+    <ul class="requirements">
+      <li>5+ years analytical field; 3+ years SQL and Power BI / Tableau</li>
+      <li>Deep-dive analysis to generate actionable business insights</li>
+      <li>Preferred: MBA, AWS QuickSight, financial / business analysis background</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> Strong SQL + Power BI match; AWS QuickSight is adjacent to existing AWS skills.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: Operational deep-dive analysis, SQL + Power BI, AWS ecosystem familiarity, and cross-domain data insights — aligned to Amazon WWGS Operations Analytics.</div>
+      <a class="download-btn" href="resumes/resume_amazon_wwgs.pdf" download="Jagriti_Mahajan_Resume_Amazon_WWGS.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card" data-tier="1" data-location="onsite" data-text="amazon sr business analyst amzl otr planning sql power bi bellevue">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Sr. Business Analyst – AMZL OTR Planning</div>
+        <div class="company">Amazon</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier1">Best Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Bellevue, WA (also Austin, Nashville)</div>
+    <div class="salary">$118,200 – $160,000 / year</div>
+    <ul class="requirements">
+      <li>5+ years analytical experience; 5+ years SQL and Power BI / Tableau</li>
+      <li>Excel proficiency with data-driven stakeholder recommendations</li>
+      <li>Preferred: MBA, 7+ years financial / business analysis</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> Direct SQL + Power BI match in a data-heavy last-mile logistics analytics environment.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: 5+ years SQL and Power BI, data-driven planning recommendations, financial analysis background — aligned to Amazon AMZL OTR Planning.</div>
+      <a class="download-btn" href="resumes/resume_amazon_otr.pdf" download="Jagriti_Mahajan_Resume_Amazon_OTR.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card" data-tier="1" data-location="onsite" data-text="amazon senior business analyst network balance equipment optimization nbeo bellevue">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Senior Business Analyst – Network Balance &amp; Equipment Optimization</div>
+        <div class="company">Amazon</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier1">Best Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Bellevue, WA</div>
+    <div class="salary">$118,200 – $160,000 / year</div>
+    <ul class="requirements">
+      <li>5+ years analytical experience; SQL, Power BI / Tableau for dashboards</li>
+      <li>Cross-functional collaboration across tech, ops, finance, and transportation</li>
+      <li>Preferred: Master's in supply chain, operations, engineering, or analytics</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> Power BI and SQL are core requirements; strong cross-functional stakeholder background is a direct match.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: Cross-functional collaboration across tech/ops/finance, Snowflake data governance, Power BI dashboards — aligned to Amazon NBEO role.</div>
+      <a class="download-btn" href="resumes/resume_amazon_nbeo.pdf" download="Jagriti_Mahajan_Resume_Amazon_NBEO.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="card" data-tier="1" data-location="onsite" data-text="wizards of the coast senior business analyst sql etl api power bi renton">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Senior Business Analyst</div>
+        <div class="company">Wizards of the Coast</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier1">Best Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Renton, WA (~20 min from Seattle)</div>
+    <div class="salary">$95,000 – $159,000 / year</div>
+    <ul class="requirements">
+      <li>Master's + 5 yrs OR Bachelor's + 8 yrs in consumer, digital, or tech analysis</li>
+      <li>Advanced SQL including query optimization; ETL processes and API knowledge</li>
+      <li>Sophisticated dashboards in Tableau and / or Power BI</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> ETL + API + Power BI + SQL are all direct matches. 12+ years exceeds the 8-year requirement.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: Advanced SQL with query optimization, ETL pipelines, API design, Power BI/Tableau — aligned to Wizards of the Coast's digital analytics requirements.</div>
+      <a class="download-btn" href="resumes/resume_wizards.pdf" download="Jagriti_Mahajan_Resume_WizardsOfTheCoast.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-wizards-of-the-coast-4364552218" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="card" data-tier="2" data-location="onsite" data-text="spacex sr business analyst starlink growth sql power bi redmond">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Sr. Business Analyst – Starlink Growth</div>
+        <div class="company">SpaceX</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier2">Good Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Redmond, WA (~30 min from Seattle)</div>
+    <div class="salary">$115,000 – $150,000 / year</div>
+    <ul class="requirements">
+      <li>Bachelor's + 5+ years in business analytics, consulting, or growth operations</li>
+      <li>3+ years SQL and dashboard management (Tableau / Power BI / Looker)</li>
+      <li>Preferred: ETL processes, statistical modeling (Python / R), financial metrics expertise</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> SQL, Power BI, and financial data background are relevant in a high-growth tech environment.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: SQL, Power BI, financial metrics expertise, growth analytics background — aligned to SpaceX Starlink Growth BA role.</div>
+      <a class="download-btn" href="resumes/resume_spacex.pdf" download="Jagriti_Mahajan_Resume_SpaceX.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="card" data-tier="2" data-location="onsite" data-text="intepros senior financial business analyst seattle contract">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Senior Financial Business Analyst</div>
+        <div class="company">IntePros (contract placement)</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier2">Good Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Seattle / Bothell, WA</div>
+    <div class="salary">Salary not listed (contract)</div>
+    <ul class="requirements">
+      <li>Complex financial modeling for strategic and operational decision-making</li>
+      <li>Cross-functional stakeholder management across senior leadership</li>
+      <li>Product strategy alignment; process improvement and automation experience</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> Financial data platforms experience is a direct match; contract role with placement through IntePros staffing.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: Financial data platforms (LSEG/Refinitiv), complex stakeholder management, data governance, process automation — aligned to IntePros Financial BA role.</div>
+      <a class="download-btn" href="resumes/resume_intepros_financial.pdf" download="Jagriti_Mahajan_Resume_IntePros_Financial.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-financial-business-analyst-at-intepros-4376218003" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="card" data-tier="2" data-location="onsite" data-text="nac architecture senior business analyst seattle process visio lucidchart">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Senior Business Analyst</div>
+        <div class="company">NAC Architecture</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier2">Good Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Seattle, WA</div>
+    <div class="salary">$115,000 – $170,000 / year</div>
+    <ul class="requirements">
+      <li>Bachelor's + 6–8+ years in business analysis or process improvement</li>
+      <li>Workflow documentation, cross-functional facilitation, technology adoption</li>
+      <li>Microsoft 365 suite; Visio / LucidChart process mapping</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> Strong process/governance background matches data governance experience; Visio and LucidChart are already on the resume.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: Workflow documentation, Visio/LucidChart process mapping, Microsoft 365, technology adoption facilitation — aligned to NAC Architecture BA role.</div>
+      <a class="download-btn" href="resumes/resume_nac.pdf" download="Jagriti_Mahajan_Resume_NAC_Architecture.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-nac-4384641541" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="card" data-tier="2" data-location="hybrid" data-text="evotec senior it business analyst gxp boomi api agile seattle hybrid">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Senior IT Business Analyst – GxP Systems Integration (Boomi)</div>
+        <div class="company">Evotec</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-hybrid">Hybrid</span>
+        <span class="badge badge-tier2">Good Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Seattle, WA (Hybrid)</div>
+    <div class="salary">$126,000 – $140,000 + discretionary bonus</div>
+    <ul class="requirements">
+      <li>5+ years IT Business Analyst experience in regulated / GxP environments</li>
+      <li>Boomi or comparable integration platform; ERP / LIMS / MES integrations</li>
+      <li>API integration knowledge; Agile methodology familiarity</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> RESTful API and Agile/Scrum are directly called out as preferred skills; hybrid arrangement.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: RESTful API integration, Agile/Scrum, compliance-sensitive UAT, regulated environment experience — aligned to Evotec GxP Systems Integration role.</div>
+      <a class="download-btn" href="resumes/resume_evotec.pdf" download="Jagriti_Mahajan_Resume_Evotec.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-it-business-analyst-gxp-systems-integration-boomi-at-evotec-4374508335" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="card" data-tier="3" data-location="onsite" data-text="intepros business analyst iv geospatial seattle part time contract">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Business Analyst IV – Geospatial</div>
+        <div class="company">IntePros (contract placement)</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-onsite">On-site</span>
+        <span class="badge badge-tier3">Partial Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Seattle, WA (20 hrs/week contract)</div>
+    <div class="salary">Salary not listed (part-time contract)</div>
+    <ul class="requirements">
+      <li>5+ years geospatial analysis; 5+ years advanced Excel; 2+ years large database management</li>
+      <li>Python and / or R for statistical methods</li>
+      <li>Bachelor's required; Master's preferred</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> Part-time contract; large database + SQL skills transfer well despite the geospatial niche.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: Large-scale database management, advanced Excel, SQL analytics, data quality validation — aligned to IntePros Geospatial BA IV role.</div>
+      <a class="download-btn" href="resumes/resume_intepros_geo.pdf" download="Jagriti_Mahajan_Resume_IntePros_Geo.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="card" data-tier="3" data-location="remote" data-text="turing remote business analyst ai training contractor">
+    <div class="card-top">
+      <div>
+        <div class="job-title">Remote Business Analyst – AI Training (57510)</div>
+        <div class="company">Turing</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-remote">Remote</span>
+        <span class="badge badge-tier3">Partial Match</span>
+      </div>
+    </div>
+    <div class="location">📍 Fully Remote (UTC-8 overlap required)</div>
+    <div class="salary">~$50–100/hr (contractor, no benefits)</div>
+    <ul class="requirements">
+      <li>Strong analytical and critical thinking for evaluating AI model outputs</li>
+      <li>Structured fact-checking and detailed written justifications</li>
+      <li>Minimum 30 hrs/week commitment; contractor status</li>
+    </ul>
+    <div class="fit-note"><strong>Why it fits:</strong> Fully remote and flexible; however this is an AI training/evaluation contract, not a traditional BA position.</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Highlights: AI-assisted data workflows, structured analytical thinking, detailed written justifications, enterprise governance — aligned to Turing Remote BA role.</div>
+      <a class="download-btn" href="resumes/resume_turing.pdf" download="Jagriti_Mahajan_Resume_Turing.pdf">⬇ Download Resume PDF</a>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114" target="_blank">Apply on LinkedIn →</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Summary table -->
+<div class="summary-wrap">
+  <div class="summary-title">Quick Reference — All 12 Listings</div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Role</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Salary</th>
+        <th>Match</th>
+        <th>Apply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Sr. BA – Kiewit Nuclear</td><td>Kiewit</td><td>Remote</td><td>$136–142K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182" target="_blank">Apply →</a></td></tr>
+      <tr><td>2</td><td>Sr. BA – Talent Acquisition Analytics</td><td>Amazon</td><td>Seattle, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315" target="_blank">Apply →</a></td></tr>
+      <tr><td>3</td><td>Sr. BA – WWGS Operations Analytics</td><td>Amazon</td><td>Seattle, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335" target="_blank">Apply →</a></td></tr>
+      <tr><td>4</td><td>Sr. BA – AMZL OTR Planning</td><td>Amazon</td><td>Bellevue, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159" target="_blank">Apply →</a></td></tr>
+      <tr><td>5</td><td>Sr. BA – Network Balance &amp; Equipment</td><td>Amazon</td><td>Bellevue, WA</td><td>$118–160K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662" target="_blank">Apply →</a></td></tr>
+      <tr><td>6</td><td>Senior Business Analyst</td><td>Wizards of the Coast</td><td>Renton, WA</td><td>$95–159K</td><td><span class="badge badge-tier1">Best</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-wizards-of-the-coast-4364552218" target="_blank">Apply →</a></td></tr>
+      <tr><td>7</td><td>Sr. BA – Starlink Growth</td><td>SpaceX</td><td>Redmond, WA</td><td>$115–150K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384" target="_blank">Apply →</a></td></tr>
+      <tr><td>8</td><td>Senior Financial Business Analyst</td><td>IntePros</td><td>Seattle, WA</td><td>Contract</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-financial-business-analyst-at-intepros-4376218003" target="_blank">Apply →</a></td></tr>
+      <tr><td>9</td><td>Senior Business Analyst</td><td>NAC Architecture</td><td>Seattle, WA</td><td>$115–170K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-nac-4384641541" target="_blank">Apply →</a></td></tr>
+      <tr><td>10</td><td>Sr. IT BA – GxP Systems (Boomi)</td><td>Evotec</td><td>Seattle, WA (Hybrid)</td><td>$126–140K</td><td><span class="badge badge-tier2">Good</span></td><td><a href="https://www.linkedin.com/jobs/view/senior-it-business-analyst-gxp-systems-integration-boomi-at-evotec-4374508335" target="_blank">Apply →</a></td></tr>
+      <tr><td>11</td><td>Business Analyst IV – Geospatial</td><td>IntePros</td><td>Seattle, WA</td><td>Contract PT</td><td><span class="badge badge-tier3">Partial</span></td><td><a href="https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389" target="_blank">Apply →</a></td></tr>
+      <tr><td>12</td><td>Remote BA – AI Training</td><td>Turing</td><td>Remote</td><td>~$50–100/hr</td><td><span class="badge badge-tier3">Partial</span></td><td><a href="https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114" target="_blank">Apply →</a></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+  const pills  = document.querySelectorAll('.pill');
+  const search = document.getElementById('searchBox');
+  const countLabel = document.getElementById('countLabel');
+  let activeFilter = 'all';
+  let searchTerm = '';
+
+  function updateCount() {
+    const visible = [...cards].filter(c => !c.classList.contains('hidden')).length;
+    countLabel.textContent = `Showing ${visible} of ${cards.length}`;
+  }
+
+  function applyFilters() {
+    cards.forEach(card => {
+      const loc   = card.dataset.location;
+      const tier  = card.dataset.tier;
+      const text  = card.dataset.text + ' ' + card.innerText.toLowerCase();
+
+      const filterMatch =
+        activeFilter === 'all'   ? true :
+        activeFilter === 'remote'? loc === 'remote' :
+        activeFilter === 'hybrid'? loc === 'hybrid' :
+        activeFilter === 'onsite'? loc === 'onsite' :
+        activeFilter === 'tier1' ? tier === '1' :
+        activeFilter === 'tier2' ? tier === '2' : true;
+
+      const searchMatch = searchTerm === '' || text.includes(searchTerm);
+
+      card.classList.toggle('hidden', !(filterMatch && searchMatch));
+    });
+    updateCount();
+  }
+
+  pills.forEach(btn => {
+    btn.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  search.addEventListener('input', () => {
+    searchTerm = search.value.toLowerCase().trim();
+    applyFilters();
+  });
+
+  updateCount();
+</script>
+</body>
+</html>

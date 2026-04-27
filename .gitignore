@@ -1,0 +1,6 @@
+.jagriti_config
+*.docx
+resumes/*.docx
+__pycache__/
+*.pyc
+.DS_Store

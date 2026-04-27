@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jagriti Mahajan – Resume (Impactful)</title>
+<style>
+  :root {
+    --blue: #1a56a4;
+    --blue-light: #e8f0fb;
+    --text: #1f2937;
+    --muted: #4b5563;
+    --border: #d1d5db;
+    --accent: #0f3d78;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13.5px;
+    color: var(--text);
+    background: #f0f4f8;
+    padding: 24px 16px 40px;
+  }
+
+  /* ── controls bar ── */
+  #controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .pill {
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1.5px solid var(--blue);
+    background: #fff;
+    color: var(--blue);
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .pill.active, .pill:hover { background: var(--blue); color: #fff; }
+
+  /* ── card ── */
+  #resume {
+    max-width: 820px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.10);
+    overflow: hidden;
+  }
+
+  /* ── header ── */
+  header {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--blue) 100%);
+    color: #fff;
+    padding: 28px 36px 22px;
+  }
+  header h1 { font-size: 26px; font-weight: 700; letter-spacing: .5px; }
+  .contact {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-size: 12.5px;
+    opacity: .92;
+  }
+  .contact a { color: #cde4ff; text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+
+  /* ── body layout ── */
+  .resume-body { padding: 0 36px 32px; }
+
+  /* ── section ── */
+  .section {
+    margin-top: 22px;
+    transition: opacity .25s;
+  }
+  .section.hidden { display: none; }
+
+  .section-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue-light);
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+  }
+
+  /* ── skills grid ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+  }
+  .skill-row { font-size: 12.5px; line-height: 1.5; }
+  .skill-label { font-weight: 700; color: var(--text); }
+
+  /* ── job ── */
+  .job { margin-bottom: 18px; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .job-title { font-weight: 700; font-size: 13.5px; }
+  .job-company { font-size: 12.5px; color: var(--muted); margin-top: 1px; }
+  .job-client { font-size: 12px; color: var(--muted); font-style: italic; }
+  .job-date {
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  .job ul { margin-top: 7px; padding-left: 18px; }
+  .job li {
+    font-size: 12.5px;
+    line-height: 1.55;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+
+  /* ── education ── */
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  .edu-degree { font-size: 13px; font-weight: 600; }
+  .edu-school { font-size: 12px; color: var(--muted); }
+  .edu-date { font-size: 12px; color: var(--muted); font-weight: 600; }
+
+  /* ── tooltip on bullet hover ── */
+  li[data-tip] { position: relative; cursor: default; }
+  li[data-tip]:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 0; top: 100%;
+    background: #1e293b;
+    color: #f8fafc;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    margin-top: 2px;
+    opacity: .95;
+  }
+
+  /* ── placeholder highlight ── */
+  .ph {
+    background: #fff3cd;
+    color: #92610a;
+    border-radius: 3px;
+    padding: 0 3px;
+    font-style: italic;
+    font-size: 11.5px;
+  }
+
+  /* ── print ── */
+  @media print {
+    body { background: #fff; padding: 0; }
+    #controls { display: none; }
+    #resume { box-shadow: none; border-radius: 0; }
+    .section.hidden { display: block !important; }
+  }
+
+  @media (max-width: 560px) {
+    header { padding: 20px 18px 16px; }
+    .resume-body { padding: 0 18px 24px; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── filter controls ── -->
+<div id="controls">
+  <button class="pill active" data-section="all">All</button>
+  <button class="pill" data-section="summary">Summary</button>
+  <button class="pill" data-section="skills">Skills</button>
+  <button class="pill" data-section="experience">Experience</button>
+  <button class="pill" data-section="education">Education</button>
+</div>
+
+<div id="resume">
+
+  <!-- header -->
+  <header>
+    <h1>Jagriti Mahajan</h1>
+    <div class="contact">
+      <span>&#128205; Brookfield, WI</span>
+      <span>&#128222; (908) 240-9209</span>
+      <a href="mailto:jagriti.mahajan0507@gmail.com">jagriti.mahajan0507@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jagritimahajan0507" target="_blank">LinkedIn: jagritimahajan0507</a>
+    </div>
+  </header>
+
+  <div class="resume-body">
+
+    <!-- Professional Summary -->
+    <div class="section" id="sec-summary">
+      <div class="section-title">Professional Summary</div>
+      <p style="font-size:13px;line-height:1.6;color:var(--muted)">
+        Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization — with 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions, accelerating delivery and improving enterprise decision-making.
+      </p>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="section" id="sec-skills">
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div class="skill-row"><span class="skill-label">Cloud &amp; Data Platforms:</span> AWS, Snowflake, Confluent Cloud</div>
+        <div class="skill-row"><span class="skill-label">API &amp; Integration:</span> RESTful APIs, JSON, Swagger, ReadyAPI, Swagger Editor</div>
+        <div class="skill-row"><span class="skill-label">Data &amp; Analytics:</span> SQL, Tableau, Power BI, Informatica, SAS Enterprise Guide, MS Excel, Data.World</div>
+        <div class="skill-row"><span class="skill-label">Database &amp; Operating Systems:</span> IBM DB2, RDBMS, SQL Server, DynamoDB, MySQL, Mainframe, Datacom, Windows</div>
+        <div class="skill-row"><span class="skill-label">Modeling &amp; Designing:</span> MS Visio, SmartDraw, Process Model, LucidChart</div>
+        <div class="skill-row"><span class="skill-label">Methodologies:</span> Agile, Scrum, SAFe, UAT, BRD/FRD</div>
+        <div class="skill-row"><span class="skill-label">Other Tools:</span> IBM Audit Viewer, JIRA, Confluence, GitLab, Maestro</div>
+      </div>
+    </div>
+
+    <!-- Work Experience -->
+    <div class="section" id="sec-experience">
+      <div class="section-title">Work Experience</div>
+
+      <!-- BETANXT -->
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Sr. Technical Business Analyst</div>
+            <div class="job-company">BETANXT (formerly LSEG) &mdash; Brookfield, WI</div>
+          </div>
+          <div class="job-date">Oct 2021 &ndash; Present</div>
+        </div>
+        <ul>
+          <li data-tip="DataXchange is a Snowflake-based enterprise data exchange platform">Driving the build-out of DataXchange on Snowflake by curating and onboarding 145+ enterprise datasets; partnering with AI teams to enhance dataset intelligence through enriched metadata, structure, and business context.</li>
+          <li>Leading the design of AI-assisted data governance workflows to automate metadata generation and standardization across 14 domains, reducing manual effort by ~70% and improving cross-domain data consistency.</li>
+          <li>Design and maintain scalable Snowflake views to enable governed data access, ensuring alignment with business use cases, data quality standards, and regulatory requirements.</li>
+          <li>Translate business requirements into detailed service specifications — including JSON schemas, data mappings, and end-to-end API flows — for API-driven systems.</li>
+          <li>Perform root cause analysis and data validation using SQL, IBM Audit Viewer, and mainframe tools, resolving 100+ production incidents and reducing defect re-open rate.</li>
+          <li>Own Agile backlog decomposition and sprint planning across 3 teams (35 members total), transforming epics into well-defined user stories with acceptance criteria, Definition of Ready, and Definition of Done.</li>
+          <li>Support QA across multiple releases with test planning, data preparation, and smoke/UAT testing via ReadyAPI and Swagger Editor, achieving 92% first-pass acceptance rate.</li>
+          <li data-tip="Migrated from DynamoDB to Snowflake for WORM-compliant long-term retention">Led feasibility analysis and migration from DynamoDB to Snowflake to implement 7-year WORM-compliant data retention, reducing storage costs by ~24% and satisfying regulatory compliance requirements.</li>
+          <li>Integrated 400+ APIs into the AWS-hosted Operations Workbench, guiding web teams on efficient designs that improved system performance and reduced load.</li>
+          <li>Identified and resolved an order-lifecycle gap by defining event triggers for expiring VSP orders using multi-table SQL analysis.</li>
+          <li>Developed a Power BI dashboard using a centralized Excel data source to standardize API inventory tracking, significantly reducing manual effort of scrolling through Excel, and improving reporting efficiency and data visualization.</li>
+          <li>Created an Excel-based calculation model to assist API developers and QA teams with validating complex API transactions, reducing QA effort by 20% and defect rate by 60%.</li>
+        </ul>
+      </div>
+
+      <!-- ADROIT / Refinitiv -->
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Sr. Technical Business Analyst</div>
+            <div class="job-company">ADROIT &mdash; Brookfield, WI</div>
+            <div class="job-client">Client: Refinitiv</div>
+          </div>
+          <div class="job-date">May 2018 &ndash; Oct 2021</div>
+        </div>
+        <ul>
+          <li>Designed 300+ RESTful APIs for Refinitiv's financial data platform, translating business requirements into robust, integration-ready service specifications consumed by enterprise clients globally.</li>
+          <li>Provided onboarding training and ongoing support to enterprise clients on Refinitiv data products, driving effective adoption across client teams.</li>
+          <li>Performed impact, feasibility, and gap analyses to define project scope and success criteria across multiple concurrent workstreams.</li>
+          <li>Conducted source-to-target data mapping and maintained data dictionaries, defining columns, data types, transformation logic, and applicable business rules.</li>
+        </ul>
+      </div>
+
+      <!-- Aon Hewitt -->
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Business Systems Analyst</div>
+            <div class="job-company">Aon Hewitt</div>
+          </div>
+          <div class="job-date">Nov 2011 &ndash; Jul 2016</div>
+        </div>
+        <ul>
+          <li>Gathered and analyzed Defined Benefit domain requirements from business stakeholders, translating them into detailed system change specifications.</li>
+          <li>Produced SQL and JCL-based impact analysis reports to validate downstream data accuracy ahead of each release.</li>
+          <li>Executed end-to-end testing to validate accuracy, functionality, and regulatory compliance of system enhancements.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section" id="sec-education">
+      <div class="section-title">Education</div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-degree">MS in Computer Information Systems</div>
+          <div class="edu-school">Colorado State University, Fort Collins, CO &mdash; <em style="font-weight:400;font-style:normal;font-size:11.5px;color:var(--muted)">Graduate Web Developer (Part-Time), Aug 2016 &ndash; Dec 2017</em></div>
+        </div>
+        <div class="edu-date">Dec 2017</div>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-degree">Bachelor of Technology in Information Technology</div>
+          <div class="edu-school">Lovely Professional University, India</div>
+        </div>
+        <div class="edu-date">May 2011</div>
+      </div>
+    </div>
+
+  </div><!-- /.resume-body -->
+</div><!-- /#resume -->
+
+<script>
+  const pills = document.querySelectorAll('.pill');
+  const sections = {
+    summary:    document.getElementById('sec-summary'),
+    skills:     document.getElementById('sec-skills'),
+    experience: document.getElementById('sec-experience'),
+    education:  document.getElementById('sec-education'),
+  };
+
+  pills.forEach(btn => {
+    btn.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.dataset.section;
+      Object.entries(sections).forEach(([key, el]) => {
+        if (target === 'all' || target === key) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
