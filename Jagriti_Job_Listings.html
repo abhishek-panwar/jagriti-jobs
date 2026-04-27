@@ -261,7 +261,7 @@
       <p>Seattle, WA area &amp; Remote &nbsp;|&nbsp; Curated for Jagriti Mahajan &nbsp;|&nbsp; April 2026 &nbsp;|&nbsp; 12 active listings</p>
     </div>
     <div style="text-align:right">
-      <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">🔄 Refresh Listings</button>
+      <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">🔄 Refresh Jobs</button>
       <div class="refresh-status" id="refreshStatus"></div>
     </div>
   </div>
@@ -705,7 +705,7 @@
         status.textContent = 'Workflow started — page updates in ~3 min. Reload then.';
         setTimeout(() => {
           btn.disabled = false;
-          btn.textContent = '🔄 Refresh Listings';
+          btn.textContent = '🔄 Refresh Jobs';
           status.textContent = '';
         }, 15000);
       } else {
