@@ -2019,6 +2019,28 @@ const CAREER_PAGES = {
   'wizards of the coast':  'https://company.wizards.com/en/careers',
 };
 
+// Companies on Greenhouse or Lever — queried directly, no key, CORS-enabled
+// Slugs verified against their public boards APIs
+const ATS_COMPANIES = {
+  'airbnb':               { ats: 'greenhouse', slug: 'airbnb' },
+  'stripe':               { ats: 'greenhouse', slug: 'stripe' },
+  'snowflake':            { ats: 'greenhouse', slug: 'snowflake' },
+  'databricks':           { ats: 'greenhouse', slug: 'databricks' },
+  'twilio':               { ats: 'greenhouse', slug: 'twilio' },
+  'hubspot':              { ats: 'greenhouse', slug: 'hubspot' },
+  'zendesk':              { ats: 'greenhouse', slug: 'zendesk' },
+  'palo alto networks':   { ats: 'greenhouse', slug: 'paloaltonetworks' },
+  'atlassian':            { ats: 'greenhouse', slug: 'atlassian' },
+  'splunk':               { ats: 'greenhouse', slug: 'splunk' },
+  'cloudflare':           { ats: 'greenhouse', slug: 'cloudflare' },
+  'figma':                { ats: 'greenhouse', slug: 'figma' },
+  'aon':                  { ats: 'greenhouse', slug: 'aon' },
+  'uber':                 { ats: 'greenhouse', slug: 'uber' },
+  'netflix':              { ats: 'lever',      slug: 'netflix' },
+  'shopify':              { ats: 'lever',      slug: 'shopify' },
+  'reddit':               { ats: 'lever',      slug: 'reddit' },
+};
+
 let careerSuggIdx = -1;
 let careerCitySuggIdx = -1;
 
@@ -2102,94 +2124,153 @@ async function searchCareerJobs() {
   statusEl.innerHTML = `Searching for <strong>${escHtml(companyRaw)}</strong> listings${cityRaw ? ' in ' + escHtml(cityRaw) : ''}…`;
   resultsEl.innerHTML = '';
 
+  // ── Helper: render job cards ──
+  function renderCareerCards(jobs, source) {
+    return jobs.map(j => {
+      const pid        = 'c_' + slugifyPractice((j.title || '') + '_' + (j.company || companyRaw));
+      const pApplied   = getPracticeApplied().find(x => x.id === pid);
+      const pCancelled = getPracticeCancelled().find(x => x.id === pid);
+      const appliedDis   = pCancelled ? 'disabled' : '';
+      const cancelledDis = pApplied   ? 'disabled' : '';
+      const srcBg = source === 'Greenhouse' || source === 'Lever' ? '#d1fae5' : '#e8f0fb';
+      const srcFg = source === 'Greenhouse' || source === 'Lever' ? '#065f46' : '#1a56a4';
+      return `
+      <div class="career-job-card" data-pid="${escHtml(pid)}">
+        <div class="career-job-top">
+          <div>
+            <div class="career-job-title">${escHtml(j.title)}</div>
+            <div class="career-job-company">${escHtml(j.company || companyRaw)}
+              <span style="font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;background:${srcBg};color:${srcFg};margin-left:5px">${escHtml(source)}</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0">
+            ${j.salary ? `<span style="font-size:11.5px;font-weight:700;color:#065f46">${escHtml(j.salary)}</span>` : ''}
+            ${j.listed ? `<span style="font-size:10.5px;color:#6b7280">${escHtml(j.listed)}</span>` : ''}
+          </div>
+        </div>
+        <div class="career-job-loc">📍 ${escHtml(j.loc || cityRaw || 'USA')}</div>
+        ${j.desc ? `<div class="career-job-desc">${escHtml(j.desc)}${j.desc.length >= 220 ? '…' : ''}</div>` : ''}
+        <div class="career-job-actions">
+          <a class="apply-btn" href="${escHtml(j.url)}" target="_blank" style="font-size:12px;padding:6px 14px">Apply →</a>
+          <button class="applied-btn ${pApplied ? 'is-applied' : ''}" ${appliedDis} style="font-size:11.5px;padding:5px 12px"
+            onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company || companyRaw)}','${escHtml(j.url)}',this)">
+            ${pApplied ? '✓ Applied!' : '✓ Mark Applied'}
+          </button>
+          <button class="cancel-btn ${pCancelled ? 'is-cancelled' : ''}" ${cancelledDis} style="font-size:11.5px;padding:5px 12px"
+            onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(j.title)}','${escHtml(j.company || companyRaw)}','${escHtml(j.url)}',this)">
+            ${pCancelled ? '✕ Cancelled' : '✕ Cancel'}
+          </button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // ── Helper: show fallback links ──
+  function showFallbackLinks(note) {
+    const q  = encodeURIComponent(`"senior business analyst" "${companyRaw}"`);
+    const l  = cityRaw ? encodeURIComponent(cityRaw) : '';
+    statusEl.innerHTML = `${note}
+      &nbsp;<a href="https://www.indeed.com/jobs?q=${q}${l?'&l='+l:''}" target="_blank" style="color:var(--purple);font-weight:700">Indeed →</a>
+      &nbsp;<a href="https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent('senior business analyst '+companyRaw)}${l?'&location='+l:''}" target="_blank" style="color:var(--purple);font-weight:700">LinkedIn →</a>
+      &nbsp;<a href="https://www.glassdoor.com/Job/jobs.htm?sc.keyword=${encodeURIComponent('senior business analyst '+companyRaw)}${l?'&locKeyword='+l:''}" target="_blank" style="color:var(--purple);font-weight:700">Glassdoor →</a>`;
+  }
+
   try {
+    const atsEntry = ATS_COMPANIES[companyRaw.toLowerCase()];
+
+    // ── Path 1: Greenhouse ──
+    if (atsEntry?.ats === 'greenhouse') {
+      const r = await fetch(`https://boards-api.greenhouse.io/v1/boards/${atsEntry.slug}/jobs?content=true`);
+      if (!r.ok) throw new Error('greenhouse');
+      const data = await r.json();
+      const BA_RE = /business analyst|BA\s*[23]?|sr\.?\s*ba/i;
+      const cityLow = cityRaw.toLowerCase();
+      let jobs = (data.jobs || []).filter(j => BA_RE.test(j.title));
+      if (cityRaw) jobs = jobs.filter(j => (j.location?.name || '').toLowerCase().includes(cityLow));
+
+      btn.disabled = false; btn.textContent = '🔍 Search';
+
+      if (jobs.length === 0) {
+        showFallbackLinks(`No Business Analyst openings at <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} right now — search on:`);
+        return;
+      }
+      statusEl.innerHTML = `Found <strong>${jobs.length}</strong> listing${jobs.length!==1?'s':''} at <strong>${escHtml(companyRaw)}</strong>${cityRaw?' in '+escHtml(cityRaw):''} <em style="font-size:11px;color:#6b7280">(direct from career site)</em>`;
+      resultsEl.innerHTML = renderCareerCards(jobs.slice(0, 15).map(j => ({
+        title:  j.title,
+        company: companyRaw,
+        loc:    j.location?.name || cityRaw || 'USA',
+        url:    j.absolute_url || '#',
+        desc:   (j.content || '').replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim().substring(0, 220),
+        listed: j.updated_at ? j.updated_at.substring(0,10) : '',
+      })), 'Greenhouse');
+      return;
+    }
+
+    // ── Path 2: Lever ──
+    if (atsEntry?.ats === 'lever') {
+      const r = await fetch(`https://api.lever.co/v0/postings/${atsEntry.slug}?mode=json`);
+      if (!r.ok) throw new Error('lever');
+      const data = await r.json();
+      const BA_RE = /business analyst|BA\s*[23]?|sr\.?\s*ba/i;
+      const cityLow = cityRaw.toLowerCase();
+      let jobs = data.filter(j => BA_RE.test(j.text));
+      if (cityRaw) jobs = jobs.filter(j => (j.categories?.location || '').toLowerCase().includes(cityLow));
+
+      btn.disabled = false; btn.textContent = '🔍 Search';
+
+      if (jobs.length === 0) {
+        showFallbackLinks(`No Business Analyst openings at <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} right now — search on:`);
+        return;
+      }
+      statusEl.innerHTML = `Found <strong>${jobs.length}</strong> listing${jobs.length!==1?'s':''} at <strong>${escHtml(companyRaw)}</strong>${cityRaw?' in '+escHtml(cityRaw):''} <em style="font-size:11px;color:#6b7280">(direct from career site)</em>`;
+      resultsEl.innerHTML = renderCareerCards(jobs.slice(0, 15).map(j => ({
+        title:  j.text,
+        company: companyRaw,
+        loc:    j.categories?.location || cityRaw || 'USA',
+        url:    j.hostedUrl || '#',
+        desc:   (j.descriptionPlain || '').replace(/\s+/g,' ').trim().substring(0, 220),
+        listed: j.createdAt ? new Date(j.createdAt).toISOString().substring(0,10) : '',
+      })), 'Lever');
+      return;
+    }
+
+    // ── Path 3: Adzuna fallback (broad fetch + strict client-side filter) ──
     const appId  = localStorage.getItem('adzuna_app_id')  || '5975f043';
     const appKey = localStorage.getItem('adzuna_app_key') || '8f81b1c0abed562e98c9a0d5a1890d93';
-
-    // Fetch broadly then filter strictly by company name client-side
-    // Adzuna's `company` param is not a strict filter, so we do it ourselves
-    const params = {
-      app_id: appId, app_key: appKey,
-      what: 'senior business analyst',
-      results_per_page: '50',
-      sort_by: 'relevance'
-    };
+    const params = { app_id: appId, app_key: appKey, what: 'senior business analyst', results_per_page: '50', sort_by: 'relevance' };
     if (cityRaw) { params.where = cityRaw; params.distance = '30'; }
 
     const r = await fetch('https://api.adzuna.com/v1/api/jobs/us/search/1?' + new URLSearchParams(params));
-    if (!r.ok) throw new Error(`Adzuna returned ${r.status}`);
+    if (!r.ok) throw new Error(`Adzuna ${r.status}`);
     const data = await r.json();
 
-    // Strict client-side company filter: every word in the search (>2 chars) must appear in employer name
     const companyWords = companyRaw.toLowerCase().split(/\s+/).filter(w => w.length > 2);
-    const results = (data.results || []).filter(j => {
+    const matched = (data.results || []).filter(j => {
       const co = (j.company?.display_name || '').toLowerCase();
       return companyWords.every(w => co.includes(w));
     });
 
     btn.disabled = false; btn.textContent = '🔍 Search';
 
-    // No company matches — fall back to direct search links
-    if (results.length === 0) {
-      const q  = encodeURIComponent(`"senior business analyst" "${companyRaw}"`);
-      const l  = cityRaw ? encodeURIComponent(cityRaw) : '';
-      const indeedUrl    = `https://www.indeed.com/jobs?q=${q}${l ? '&l=' + l : ''}`;
-      const linkedinUrl  = `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent('senior business analyst ' + companyRaw)}${l ? '&location=' + l : ''}`;
-      const glassdoorUrl = `https://www.glassdoor.com/Job/jobs.htm?sc.keyword=${encodeURIComponent('senior business analyst ' + companyRaw)}${l ? '&locKeyword=' + l : ''}`;
-      statusEl.innerHTML = `No Adzuna listings found for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — search directly:
-        &nbsp;<a href="${indeedUrl}" target="_blank" style="color:var(--purple);font-weight:700">Indeed →</a>
-        &nbsp;<a href="${linkedinUrl}" target="_blank" style="color:var(--purple);font-weight:700">LinkedIn →</a>
-        &nbsp;<a href="${glassdoorUrl}" target="_blank" style="color:var(--purple);font-weight:700">Glassdoor →</a>`;
+    if (matched.length === 0) {
+      showFallbackLinks(`No listings found for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — search directly on:`);
       return;
     }
 
-    statusEl.innerHTML = `Found <strong>${results.length}</strong> listing${results.length !== 1 ? 's' : ''} at <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''}`;
-
-    resultsEl.innerHTML = results.map(j => {
-      const pid        = 'c_' + slugifyPractice((j.title || '') + '_' + (j.company?.display_name || companyRaw));
-      const pApplied   = getPracticeApplied().find(x => x.id === pid);
-      const pCancelled = getPracticeCancelled().find(x => x.id === pid);
-      const appliedDis   = pCancelled ? 'disabled' : '';
-      const cancelledDis = pApplied   ? 'disabled' : '';
-      const title   = j.title || '';
-      const company = j.company?.display_name || companyRaw;
-      const loc     = j.location?.display_name || cityRaw || 'USA';
-      const url     = j.redirect_url || '#';
-      const desc    = (j.description || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim().substring(0, 220);
-      const mn = j.salary_min, mx = j.salary_max;
-      const salary  = (mn && mx) ? `$${Math.round(mn/1000)}K – $${Math.round(mx/1000)}K/yr` : '';
-      const listed  = j.created ? j.created.substring(0, 10) : '';
-      return `
-      <div class="career-job-card" data-pid="${escHtml(pid)}">
-        <div class="career-job-top">
-          <div>
-            <div class="career-job-title">${escHtml(title)}</div>
-            <div class="career-job-company">${escHtml(company)}</div>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0">
-            ${salary ? `<span style="font-size:11.5px;font-weight:700;color:#065f46">${escHtml(salary)}</span>` : ''}
-            ${listed ? `<span style="font-size:10.5px;color:#6b7280">${escHtml(listed)}</span>` : ''}
-          </div>
-        </div>
-        <div class="career-job-loc">📍 ${escHtml(loc)}</div>
-        ${desc ? `<div class="career-job-desc">${escHtml(desc)}${desc.length >= 220 ? '…' : ''}</div>` : ''}
-        <div class="career-job-actions">
-          <a class="apply-btn" href="${escHtml(url)}" target="_blank" style="font-size:12px;padding:6px 14px">Apply →</a>
-          <button class="applied-btn ${pApplied ? 'is-applied' : ''}" ${appliedDis} style="font-size:11.5px;padding:5px 12px"
-            onclick="markPracticeApplied('${escHtml(pid)}','${escHtml(title)}','${escHtml(company)}','${escHtml(url)}',this)">
-            ${pApplied ? '✓ Applied!' : '✓ Mark Applied'}
-          </button>
-          <button class="cancel-btn ${pCancelled ? 'is-cancelled' : ''}" ${cancelledDis} style="font-size:11.5px;padding:5px 12px"
-            onclick="markPracticeCancelled('${escHtml(pid)}','${escHtml(title)}','${escHtml(company)}','${escHtml(url)}',this)">
-            ${pCancelled ? '✕ Cancelled' : '✕ Cancel'}
-          </button>
-        </div>
-      </div>`;
-    }).join('');
+    statusEl.innerHTML = `Found <strong>${matched.length}</strong> listing${matched.length!==1?'s':''} at <strong>${escHtml(companyRaw)}</strong>${cityRaw?' in '+escHtml(cityRaw):''}`;
+    resultsEl.innerHTML = renderCareerCards(matched.slice(0,15).map(j => ({
+      title:  j.title || '',
+      company: j.company?.display_name || companyRaw,
+      loc:    j.location?.display_name || cityRaw || 'USA',
+      url:    j.redirect_url || '#',
+      desc:   (j.description || '').replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim().substring(0,220),
+      salary: (j.salary_min && j.salary_max) ? `$${Math.round(j.salary_min/1000)}K – $${Math.round(j.salary_max/1000)}K/yr` : '',
+      listed: j.created ? j.created.substring(0,10) : '',
+    })), 'Adzuna');
 
   } catch(e) {
     btn.disabled = false; btn.textContent = '🔍 Search';
-    statusEl.innerHTML = `Search failed: ${escHtml(e.message)}`;
+    showFallbackLinks(`Search failed — find <strong>${escHtml(companyRaw)}</strong> jobs on:`);
   }
 }
 
