@@ -33,7 +33,7 @@
 
   /* ── Page header ── */
   .page-header {
-    max-width: 960px;
+    max-width: 1280px;
     margin: 0 auto 20px;
     background: linear-gradient(135deg, var(--accent), var(--blue));
     border-radius: 10px;
@@ -70,7 +70,7 @@
 
   /* ── Controls ── */
   .controls {
-    max-width: 960px;
+    max-width: 1280px;
     margin: 0 auto 16px;
     display: flex;
     flex-wrap: wrap;
@@ -105,15 +105,6 @@
     font-size: 12px;
     color: var(--muted);
     font-weight: 600;
-  }
-
-  /* ── Grid ── */
-  .grid {
-    max-width: 960px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
   }
 
   /* ── Card ── */
@@ -289,12 +280,112 @@
   td a { color: var(--blue); text-decoration: none; font-weight: 600; }
   td a:hover { text-decoration: underline; }
 
-  /* ── Bottom two-column layout (table + applied sidebar) ── */
+  /* ── Main page layout: cards + right sidebar ── */
+  .page-layout {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .main-col {
+    flex: 1;
+    min-width: 0;
+  }
+  .right-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: sticky;
+    top: 16px;
+  }
+
+  /* ── Grid (inside main-col) ── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 0;
+  }
+
+  /* ── Collapsible panel (shared by Cancelled + Applied) ── */
+  .side-panel {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    overflow: hidden;
+  }
+  .side-panel-header {
+    padding: 11px 14px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 12.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  .side-panel-header:hover { opacity: .92; }
+  .side-panel-header-left { display: flex; align-items: center; gap: 7px; }
+  .side-panel-count {
+    background: rgba(255,255,255,0.25);
+    border-radius: 999px;
+    padding: 1px 8px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .side-panel-chevron { font-size: 12px; transition: transform .2s; }
+  .side-panel-chevron.open { transform: rotate(180deg); }
+  .side-panel-body { display: none; }
+  .side-panel-body.open { display: block; }
+  .side-panel-scroll { max-height: 300px; overflow-y: auto; }
+
+  /* Cancelled header = red */
+  .side-panel-header.cancelled-hdr { background: #991b1b; }
+  .side-panel-header.cancelled-hdr:hover { background: #7f1d1d; }
+  /* Applied header = green */
+  .side-panel-header.applied-hdr  { background: #065f46; }
+  .side-panel-header.applied-hdr:hover  { background: #047857; }
+
+  .side-row {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .side-row:last-child { border-bottom: none; }
+  .side-row-title { font-weight: 700; color: var(--accent); font-size: 11.5px; line-height: 1.3; margin-bottom: 1px; }
+  .side-row-meta  { font-size: 10.5px; color: var(--muted); margin-bottom: 5px; }
+  .side-row-link  { color: var(--blue); text-decoration: none; font-weight: 600; }
+  .side-row-link:hover { text-decoration: underline; }
+  .side-row-footer { display: flex; justify-content: space-between; align-items: center; }
+  .side-row-date  { font-size: 10px; color: var(--muted); }
+  .side-row-undo  {
+    padding: 2px 8px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 999px;
+    background: #fff;
+    font-size: 10px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .side-row-undo:hover { border-color: var(--red); color: var(--red); background: var(--red-bg); }
+  .side-empty {
+    padding: 12px 14px;
+    font-size: 11.5px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ── Bottom layout: table under main-col ── */
   .bottom-layout {
-    max-width: 960px;
+    max-width: 1280px;
     margin: 24px auto 0;
     display: flex;
-    gap: 16px;
+    gap: 18px;
     align-items: flex-start;
   }
   .summary-wrap {
@@ -305,82 +396,50 @@
     box-shadow: 0 2px 10px rgba(0,0,0,.07);
     overflow: hidden;
   }
+  .bottom-sidebar-spacer { width: 280px; flex-shrink: 0; }
 
-  /* ── Applied Jobs sidebar ── */
-  .applied-sidebar {
-    width: 272px;
-    flex-shrink: 0;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.07);
-    overflow: hidden;
-    position: sticky;
-    top: 16px;
-  }
-  .applied-sidebar-header {
-    padding: 12px 16px;
-    background: #065f46;
-    color: #fff;
-    font-weight: 700;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .applied-count {
-    background: rgba(255,255,255,0.25);
-    border-radius: 999px;
-    padding: 1px 8px;
-    font-size: 11px;
-    font-weight: 700;
-  }
-  .applied-body {
-    max-height: 420px;
-    overflow-y: auto;
-  }
-  .applied-empty {
-    padding: 14px 16px;
-    font-size: 12px;
-    color: var(--muted);
-    font-style: italic;
-    line-height: 1.5;
-  }
-  .applied-row {
-    padding: 10px 16px;
-    border-bottom: 1px solid var(--border);
-  }
-  .applied-row:last-child { border-bottom: none; }
-  .applied-row-title {
-    font-weight: 700;
-    color: var(--accent);
-    font-size: 12px;
-    line-height: 1.35;
-    margin-bottom: 2px;
-  }
-  .applied-row-meta {
-    font-size: 11px;
-    color: var(--muted);
-    margin-bottom: 6px;
-  }
-  .applied-row-link { color: var(--blue); text-decoration: none; font-weight: 600; }
-  .applied-row-link:hover { text-decoration: underline; }
-  .applied-row-footer { display: flex; justify-content: space-between; align-items: center; }
-  .applied-row-date { font-size: 10.5px; color: var(--muted); }
-  .applied-row-undo {
-    padding: 2px 9px;
-    border: 1.5px solid #d1d5db;
-    border-radius: 999px;
-    background: #fff;
+  /* ── Posting age badge ── */
+  .posting-age {
+    display: inline-block;
     font-size: 10.5px;
     color: var(--muted);
-    cursor: pointer;
-    transition: all .15s;
+    background: #f3f4f6;
+    border-radius: 999px;
+    padding: 1px 8px;
+    margin-left: 6px;
+    font-weight: 500;
   }
-  .applied-row-undo:hover { border-color: var(--red); color: var(--red); background: var(--red-bg); }
+  .posting-age.fresh { background: var(--green-bg); color: var(--green); }
+  .posting-age.old   { background: var(--red-bg);   color: var(--red); }
 
-  @media (max-width: 780px) {
-    .bottom-layout { flex-direction: column; }
-    .applied-sidebar { width: 100%; position: static; }
+  /* Cancel button */
+  .cancel-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1.5px solid #d1d5db;
+    color: var(--muted);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .cancel-btn:hover:not(:disabled) { border-color: var(--red); color: var(--red); background: var(--red-bg); }
+  .cancel-btn.is-cancelled { background: var(--red-bg); border-color: var(--red); color: var(--red); cursor: default; }
+
+  /* card.cancelled-hidden */
+  .card.cancelled-hidden { display: none; }
+
+  @media (max-width: 1024px) {
+    .page-layout, .bottom-layout { flex-direction: column; }
+    .right-sidebar, .bottom-sidebar-spacer { width: 100%; position: static; }
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 680px) {
+    .grid { grid-template-columns: 1fr; }
   }
 
   /* ── Practice Jobs section ── */
@@ -622,8 +681,12 @@
   <span class="count-label" id="countLabel">Showing 12 of 12</span>
 </div>
 
+<!-- Main page layout -->
+<div class="page-layout">
+<div class="main-col">
+
 <!-- Threshold progress bar -->
-<div id="thresholdBar" style="max-width:960px;margin:0 auto 14px;background:#fff;border-radius:8px;padding:10px 16px;box-shadow:0 1px 4px rgba(0,0,0,.06)"></div>
+<div id="thresholdBar" style="margin-bottom:14px;background:#fff;border-radius:8px;padding:10px 16px;box-shadow:0 1px 4px rgba(0,0,0,.06)"></div>
 
 <!-- Cards grid -->
 <div class="grid" id="grid">
@@ -657,6 +720,7 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('kiewit', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('kiewit', this)">✕ Cancel</button>
     </div>
   </div>
 
@@ -689,6 +753,7 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('amazon_ta', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('amazon_ta', this)">✕ Cancel</button>
     </div>
   </div>
 
@@ -721,6 +786,7 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('amazon_wwgs', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('amazon_wwgs', this)">✕ Cancel</button>
     </div>
   </div>
 
@@ -753,6 +819,7 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-amzl-otr-planning-at-amazon-4405472159" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('amazon_otr', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('amazon_otr', this)">✕ Cancel</button>
     </div>
   </div>
 
@@ -785,6 +852,7 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('amazon_nbeo', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('amazon_nbeo', this)">✕ Cancel</button>
     </div>
   </div>
 
@@ -817,6 +885,7 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-wizards-of-the-coast-4364552218" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('wizards', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('wizards', this)">✕ Cancel</button>
     </div>
   </div>
 
@@ -849,6 +918,7 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('spacex', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('spacex', this)">✕ Cancel</button>
     </div>
   </div>
 
@@ -881,6 +951,7 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-financial-business-analyst-at-intepros-4376218003" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('intepros_fin', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('intepros_fin', this)">✕ Cancel</button>
     </div>
   </div>
 
@@ -913,6 +984,7 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-business-analyst-at-nac-4384641541" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('nac', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('nac', this)">✕ Cancel</button>
     </div>
   </div>
 
@@ -945,6 +1017,7 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/senior-it-business-analyst-gxp-systems-integration-boomi-at-evotec-4374508335" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('evotec', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('evotec', this)">✕ Cancel</button>
     </div>
   </div>
 
@@ -977,6 +1050,7 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('intepros_geo', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('intepros_geo', this)">✕ Cancel</button>
     </div>
   </div>
 
@@ -1009,15 +1083,55 @@
     <div class="card-actions">
       <a class="apply-btn" href="https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114" target="_blank">Apply on LinkedIn →</a>
       <button class="applied-btn" onclick="markApplied('turing', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('turing', this)">✕ Cancel</button>
     </div>
   </div>
 
-</div>
+</div><!-- /grid -->
 
-<!-- Bottom: summary table + applied sidebar side by side -->
+</div><!-- /main-col -->
+
+<!-- Right sidebar: Cancelled + Applied panels -->
+<div class="right-sidebar">
+
+  <!-- Cancelled Jobs panel -->
+  <div class="side-panel" id="cancelledSection">
+    <div class="side-panel-header cancelled-hdr" onclick="togglePanel('cancelled')">
+      <div class="side-panel-header-left">
+        🚫 Cancelled <span class="side-panel-count" id="cancelledCount">0</span>
+      </div>
+      <span class="side-panel-chevron" id="cancelledChevron">▼</span>
+    </div>
+    <div class="side-panel-body" id="cancelledBody">
+      <div class="side-panel-scroll" id="cancelledScroll">
+        <div class="side-empty">No jobs cancelled yet.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Applied Jobs panel -->
+  <div class="side-panel" id="appliedSection">
+    <div class="side-panel-header applied-hdr" onclick="togglePanel('applied')">
+      <div class="side-panel-header-left">
+        ✅ Applied <span class="side-panel-count" id="appliedCount">0</span>
+      </div>
+      <span class="side-panel-chevron" id="appliedChevron">▼</span>
+    </div>
+    <div class="side-panel-body" id="appliedBody">
+      <div class="side-panel-scroll" id="appliedScroll">
+        <div class="side-empty">No jobs applied yet. Click "✓ Mark Applied" on a card.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /right-sidebar -->
+
+</div><!-- /page-layout -->
+
+<!-- Bottom: summary table + spacer for alignment -->
 <div class="bottom-layout">
 
-  <!-- Summary table -->
+  <!-- Summary table (left, aligned under main-col) -->
   <div class="summary-wrap">
     <div class="summary-title">Quick Reference — All 12 Listings</div>
     <table>
@@ -1049,15 +1163,8 @@
     </table>
   </div>
 
-  <!-- Applied Jobs sidebar (right) -->
-  <div class="applied-sidebar" id="appliedSection">
-    <div class="applied-sidebar-header">
-      ✅ Applied Jobs <span class="applied-count" id="appliedCount">0</span>
-    </div>
-    <div class="applied-body" id="appliedBody">
-      <div class="applied-empty">No jobs marked as applied yet. Click "✓ Mark Applied" on a card after you apply.</div>
-    </div>
-  </div>
+  <!-- Spacer to align with right sidebar -->
+  <div class="bottom-sidebar-spacer"></div>
 
 </div>
 
@@ -1170,11 +1277,15 @@ const US_CITIES = [
 const GH_REPO    = 'abhishek-panwar/jagriti-jobs';
 const GH_TOKEN   = () => ['github','_pat_','11AHXGI','YQ0aKVpl8','cGhlVd_9kb','EwslJvqIbb','AXAy2TjIfra','a9oq7LdYUKMj','isgFJiiJIDXQS','JHC22Eczpo'].join('');
 const APPLIED_FILE = 'resumes/applied_jobs.json';
-const APPLIED_LS_KEY = 'jagriti_applied_jobs_v1';
+const APPLIED_LS_KEY   = 'jagriti_applied_jobs_v1';
+const CANCELLED_FILE   = 'resumes/cancelled_jobs.json';
+const CANCELLED_LS_KEY = 'jagriti_cancelled_jobs_v1';
 
-let appliedFileSha = null;   // GitHub file SHA, needed for updates
-let pushPending    = false;
-let pushTimer      = null;
+let appliedFileSha   = null;
+let cancelledFileSha = null;
+let pushPending      = false;
+let pushTimer        = null;
+let cancelledPushTimer = null;
 
 // Local cache — always source of truth in memory
 function getApplied() {
@@ -1183,6 +1294,14 @@ function getApplied() {
 }
 function setApplied(arr) {
   localStorage.setItem(APPLIED_LS_KEY, JSON.stringify(arr));
+}
+
+function getCancelled() {
+  try { return JSON.parse(localStorage.getItem(CANCELLED_LS_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+function setCancelled(arr) {
+  localStorage.setItem(CANCELLED_LS_KEY, JSON.stringify(arr));
 }
 
 // Load from GitHub on page load — merge with any local entries
@@ -1220,10 +1339,7 @@ function schedulePush() {
 
 async function pushAppliedToGitHub() {
   const applied = getApplied();
-  const payload = {
-    applied,
-    lastUpdated: new Date().toISOString()
-  };
+  const payload = { applied, lastUpdated: new Date().toISOString() };
   const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
   const body = {
     message: `Update applied jobs (${applied.length} total)`,
@@ -1247,9 +1363,62 @@ async function pushAppliedToGitHub() {
       const d = await res.json();
       appliedFileSha = d.content?.sha || appliedFileSha;
     }
+  } catch(e) {}
+}
+
+// ── Cancelled Jobs — same GitHub persistence pattern as applied ──
+async function syncCancelledFromGitHub() {
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GH_REPO}/contents/${CANCELLED_FILE}`,
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } }
+    );
+    if (!res.ok) { initCancelledState(); return; }
+    const data = await res.json();
+    cancelledFileSha = data.sha;
+    const remote = JSON.parse(atob(data.content.replace(/\n/g,''))).cancelled || [];
+    const local  = getCancelled();
+    const byId   = {};
+    [...remote, ...local].forEach(j => { byId[j.id] = j; });
+    setCancelled(Object.values(byId));
+    initCancelledState();
   } catch(e) {
-    // Network issue — data still safe in localStorage
+    initCancelledState();
   }
+}
+
+function scheduleCancelledPush() {
+  if (cancelledPushTimer) clearTimeout(cancelledPushTimer);
+  cancelledPushTimer = setTimeout(pushCancelledToGitHub, 2000);
+}
+
+async function pushCancelledToGitHub() {
+  const cancelled = getCancelled();
+  const payload = { cancelled, lastUpdated: new Date().toISOString() };
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const body = {
+    message: `Update cancelled jobs (${cancelled.length} total)`,
+    content,
+    ...(cancelledFileSha ? { sha: cancelledFileSha } : {})
+  };
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GH_REPO}/contents/${CANCELLED_FILE}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + GH_TOKEN(),
+          'Content-Type': 'application/json',
+          'Accept': 'application/vnd.github+json'
+        },
+        body: JSON.stringify(body)
+      }
+    );
+    if (res.ok) {
+      const d = await res.json();
+      cancelledFileSha = d.content?.sha || cancelledFileSha;
+    }
+  } catch(e) {}
 }
 
 function markApplied(jobId, btn) {
@@ -1296,21 +1465,22 @@ function undoApplied(jobId) {
 }
 
 function renderAppliedSection() {
-  const applied = getApplied();
-  const countEl = document.getElementById('appliedCount');
-  const body    = document.getElementById('appliedBody');
-  countEl.textContent = applied.length;
+  const applied  = getApplied();
+  const countEl  = document.getElementById('appliedCount');
+  const scroll   = document.getElementById('appliedScroll');
+  if (countEl) countEl.textContent = applied.length;
+  if (!scroll) return;
   if (applied.length === 0) {
-    body.innerHTML = '<div class="applied-empty">No jobs marked as applied yet. Click "✓ Mark Applied" on a card after you apply.</div>';
+    scroll.innerHTML = '<div class="side-empty">No jobs applied yet. Click "✓ Mark Applied" on a card.</div>';
     return;
   }
-  body.innerHTML = applied.map(job => `
-    <div class="applied-row">
-      <div class="applied-row-title">✅ ${escHtml(job.title)}</div>
-      <div class="applied-row-meta">${escHtml(job.company)}${job.applyUrl ? ` &nbsp;·&nbsp; <a class="applied-row-link" href="${escHtml(job.applyUrl)}" target="_blank">View →</a>` : ''}</div>
-      <div class="applied-row-footer">
-        <span class="applied-row-date">${escHtml(job.appliedAt)}</span>
-        <button class="applied-row-undo" onclick="undoApplied('${escHtml(job.id)}')">Undo</button>
+  scroll.innerHTML = applied.map(job => `
+    <div class="side-row">
+      <div class="side-row-title">✅ ${escHtml(job.title)}</div>
+      <div class="side-row-meta">${escHtml(job.company)}${job.applyUrl ? ` &nbsp;·&nbsp; <a class="side-row-link" href="${escHtml(job.applyUrl)}" target="_blank">View →</a>` : ''}</div>
+      <div class="side-row-footer">
+        <span class="side-row-date">${escHtml(job.appliedAt)}</span>
+        <button class="side-row-undo" onclick="undoApplied('${escHtml(job.id)}')">Undo</button>
       </div>
     </div>
   `).join('');
@@ -1327,25 +1497,130 @@ function initAppliedState() {
   renderAppliedSection();
 }
 
-// ── Threshold progress bar ──
-function updateThresholdBar() {
-  const totalCards   = document.querySelectorAll('.card').length;
-  const appliedCount = getApplied().length;
-  const pct          = totalCards > 0 ? Math.min(100, Math.round(appliedCount / totalCards * 100)) : 0;
-  const el = document.getElementById('thresholdBar');
-  if (!el) return;
-  const needed = Math.ceil(totalCards * 0.7);
-  const remaining = Math.max(0, needed - appliedCount);
-  el.innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:11.5px">
-      <span style="color:var(--muted)">New jobs fetch when <strong>70%</strong> applied (${appliedCount}/${totalCards} — ${pct}%)</span>
-      <span style="color:${remaining===0?'var(--green)':'var(--muted)'};font-weight:700">
-        ${remaining === 0 ? '✓ Ready to fetch new jobs' : `${remaining} more to unlock refresh`}
-      </span>
+function markCancelled(jobId, btn) {
+  const card = document.querySelector(`.card[data-id="${jobId}"]`);
+  if (!card) return;
+  const already = getCancelled();
+  if (already.find(j => j.id === jobId)) return;
+
+  const title    = card.querySelector('.job-title')?.firstChild?.textContent?.trim() || '';
+  const company  = card.querySelector('.company')?.textContent || '';
+  const applyUrl = card.querySelector('.apply-btn')?.href || '';
+
+  const updated = [...already, {
+    id: jobId, title, company, applyUrl,
+    cancelledAt: new Date().toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'})
+  }];
+  setCancelled(updated);
+  scheduleCancelledPush();
+
+  btn.classList.add('is-cancelled');
+  btn.textContent = '✕ Cancelled';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    card.classList.add('cancelled-hidden');
+    applyFilters();
+    renderCancelledSection();
+    updateThresholdBar();
+  }, 700);
+}
+
+function undoCancelled(jobId) {
+  setCancelled(getCancelled().filter(j => j.id !== jobId));
+  scheduleCancelledPush();
+  const card = document.querySelector(`.card[data-id="${jobId}"]`);
+  if (card) {
+    card.classList.remove('cancelled-hidden');
+    const btn = card.querySelector('.cancel-btn');
+    if (btn) { btn.classList.remove('is-cancelled'); btn.textContent = '✕ Cancel'; btn.disabled = false; }
+  }
+  applyFilters();
+  renderCancelledSection();
+  updateThresholdBar();
+}
+
+function renderCancelledSection() {
+  const cancelled = getCancelled();
+  const countEl   = document.getElementById('cancelledCount');
+  const scroll    = document.getElementById('cancelledScroll');
+  if (countEl) countEl.textContent = cancelled.length;
+  if (!scroll) return;
+  if (cancelled.length === 0) {
+    scroll.innerHTML = '<div class="side-empty">No jobs cancelled yet.</div>';
+    return;
+  }
+  scroll.innerHTML = cancelled.map(job => `
+    <div class="side-row">
+      <div class="side-row-title">🚫 ${escHtml(job.title)}</div>
+      <div class="side-row-meta">${escHtml(job.company)}${job.applyUrl ? ` &nbsp;·&nbsp; <a class="side-row-link" href="${escHtml(job.applyUrl)}" target="_blank">View →</a>` : ''}</div>
+      <div class="side-row-footer">
+        <span class="side-row-date">${escHtml(job.cancelledAt)}</span>
+        <button class="side-row-undo" onclick="undoCancelled('${escHtml(job.id)}')">Undo</button>
+      </div>
     </div>
-    <div style="height:6px;background:#e5e7eb;border-radius:999px;overflow:hidden">
-      <div style="height:100%;width:${pct}%;background:${pct>=70?'var(--green)':'var(--blue)'};border-radius:999px;transition:width .4s"></div>
-    </div>`;
+  `).join('');
+}
+
+function initCancelledState() {
+  getCancelled().forEach(job => {
+    const card = document.querySelector(`.card[data-id="${job.id}"]`);
+    if (!card) return;
+    card.classList.add('cancelled-hidden');
+    const btn = card.querySelector('.cancel-btn');
+    if (btn) { btn.classList.add('is-cancelled'); btn.textContent = '✕ Cancelled'; btn.disabled = true; }
+  });
+  renderCancelledSection();
+}
+
+function togglePanel(which) {
+  const bodyId   = which === 'cancelled' ? 'cancelledBody'   : 'appliedBody';
+  const chevId   = which === 'cancelled' ? 'cancelledChevron': 'appliedChevron';
+  const body     = document.getElementById(bodyId);
+  const chev     = document.getElementById(chevId);
+  if (!body) return;
+  const open = body.classList.toggle('open');
+  if (chev) chev.classList.toggle('open', open);
+}
+
+// ── Threshold progress bar + Refresh button lock ──
+function updateThresholdBar() {
+  const allCards     = document.querySelectorAll('.card');
+  const totalCards   = allCards.length;
+  const appliedIds   = new Set(getApplied().map(j => j.id));
+  const cancelledIds = new Set(getCancelled().map(j => j.id));
+  const resolvedCount = [...allCards].filter(c => {
+    const id = c.dataset.id;
+    return appliedIds.has(id) || cancelledIds.has(id);
+  }).length;
+  const pendingCount = totalCards - resolvedCount;
+  const pct = totalCards > 0 ? Math.min(100, Math.round(resolvedCount / totalCards * 100)) : 0;
+
+  const el = document.getElementById('thresholdBar');
+  if (el) {
+    const needed    = Math.ceil(totalCards * 0.7);
+    const remaining = Math.max(0, needed - resolvedCount);
+    el.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:11.5px">
+        <span style="color:var(--muted)">New jobs fetch when <strong>70%</strong> resolved (${resolvedCount}/${totalCards} — ${pct}%)</span>
+        <span style="color:${remaining===0?'var(--green)':'var(--muted)'};font-weight:700">
+          ${remaining === 0 ? '✓ Ready to fetch new jobs' : `${remaining} more to unlock refresh`}
+        </span>
+      </div>
+      <div style="height:6px;background:#e5e7eb;border-radius:999px;overflow:hidden">
+        <div style="height:100%;width:${pct}%;background:${pct>=70?'var(--green)':'var(--blue)'};border-radius:999px;transition:width .4s"></div>
+      </div>`;
+  }
+
+  // Enable Refresh button only when ≤4 jobs are still pending (unresolved)
+  const btn = document.getElementById('refreshBtn');
+  if (btn && !btn.dataset.triggered) {
+    const unlocked = pendingCount <= 4;
+    btn.disabled = !unlocked;
+    btn.title = unlocked
+      ? 'Fetch fresh job listings'
+      : `Refresh unlocks when ≤4 jobs remain (${pendingCount} pending)`;
+  }
 }
 
 // ── Filter + search ──
@@ -1358,13 +1633,20 @@ let searchTerm = '';
 
 function updateCount() {
   const total   = cards.length;
-  const visible = [...cards].filter(c => !c.classList.contains('hidden') && !c.classList.contains('applied-hidden')).length;
+  const visible = [...cards].filter(c =>
+    !c.classList.contains('hidden') &&
+    !c.classList.contains('applied-hidden') &&
+    !c.classList.contains('cancelled-hidden')
+  ).length;
   countLabel.textContent = `Showing ${visible} of ${total}`;
 }
 
 function applyFilters() {
   cards.forEach(card => {
-    if (card.classList.contains('applied-hidden')) { card.classList.remove('hidden'); return; }
+    if (card.classList.contains('applied-hidden') || card.classList.contains('cancelled-hidden')) {
+      card.classList.remove('hidden');
+      return;
+    }
     const loc  = card.dataset.location;
     const tier = card.dataset.tier;
     const text = (card.dataset.text + ' ' + card.innerText).toLowerCase();
@@ -1630,6 +1912,7 @@ async function triggerRefresh() {
   const btn    = document.getElementById('refreshBtn');
   const status = document.getElementById('refreshStatus');
   btn.disabled = true;
+  btn.dataset.triggered = '1';
   btn.textContent = '⏳ Triggering...';
   status.textContent = '';
 
@@ -1649,14 +1932,26 @@ async function triggerRefresh() {
     if (res.status === 204) {
       btn.textContent = '✅ Triggered!';
       status.textContent = 'Workflow started — page updates in ~3 min. Reload then.';
-      setTimeout(() => { btn.disabled = false; btn.textContent = '🔄 Refresh Jobs'; status.textContent = ''; }, 15000);
+      setTimeout(() => {
+        delete btn.dataset.triggered;
+        btn.disabled = false;
+        btn.textContent = '🔄 Refresh Jobs';
+        status.textContent = '';
+        updateThresholdBar();
+      }, 15000);
     } else {
       throw new Error(`HTTP ${res.status}`);
     }
   } catch(e) {
     btn.textContent = '❌ Failed';
     status.textContent = `Error: ${e.message}`;
-    setTimeout(() => { btn.disabled = false; btn.textContent = '🔄 Refresh Jobs'; status.textContent = ''; }, 5000);
+    setTimeout(() => {
+      delete btn.dataset.triggered;
+      btn.disabled = false;
+      btn.textContent = '🔄 Refresh Jobs';
+      status.textContent = '';
+      updateThresholdBar();
+    }, 5000);
   }
 }
 
@@ -1677,6 +1972,12 @@ async function loadChangeNotes() {
       } else {
         el.className = 'change-note unchanged';
         el.innerHTML = '<strong>✓ Your existing resume is good to go for this job.</strong> No changes were needed — the standard summary is the best fit.';
+        // Hide download button when resume is unchanged
+        const section = el.closest('.resume-section');
+        if (section) {
+          const dlBtn = section.querySelector('.download-btn');
+          if (dlBtn) dlBtn.style.display = 'none';
+        }
       }
     });
   } catch(e) {
@@ -1693,14 +1994,46 @@ function describeChange(summary) {
   return 'role-specific strengths';
 }
 
+// ── Posting age badges ──
+function renderPostingAges() {
+  document.querySelectorAll('.card[data-listed]').forEach(card => {
+    const listed = card.dataset.listed;
+    if (!listed) return;
+    const ms   = Date.now() - new Date(listed).getTime();
+    const days = Math.floor(ms / 86400000);
+    if (days < 0) return;
+    let label, cls;
+    if (days <= 7) {
+      label = days === 0 ? 'Today' : days === 1 ? '1 day ago' : `${days} days ago`;
+      cls   = 'posting-age fresh';
+    } else if (days <= 30) {
+      label = `${days} days ago`;
+      cls   = 'posting-age';
+    } else {
+      const months = Math.floor(days / 30);
+      label = months === 1 ? '1 month ago' : `${months} months ago`;
+      cls   = 'posting-age old';
+    }
+    const locEl = card.querySelector('.location');
+    if (locEl && !locEl.querySelector('.posting-age')) {
+      const badge = document.createElement('span');
+      badge.className = cls;
+      badge.textContent = label;
+      locEl.appendChild(badge);
+    }
+  });
+}
+
 // ── Init ──
 if (!localStorage.getItem('adzuna_app_id'))  localStorage.setItem('adzuna_app_id',  '5975f043');
 if (!localStorage.getItem('adzuna_app_key')) localStorage.setItem('adzuna_app_key', '8f81b1c0abed562e98c9a0d5a1890d93');
 updateApiKeyStatus();
 updateCount();
+renderPostingAges();
 loadChangeNotes();
-syncAppliedFromGitHub();   // loads from GitHub, then calls initAppliedState + updateThresholdBar
-loadRefreshMeta();         // shows JSearch cooldown + threshold warning on button
+syncAppliedFromGitHub();    // loads from GitHub, then calls initAppliedState + updateThresholdBar
+syncCancelledFromGitHub();  // loads cancelled from GitHub, then calls initCancelledState
+loadRefreshMeta();          // shows JSearch cooldown + threshold warning on button
 </script>
 </body>
 </html>
