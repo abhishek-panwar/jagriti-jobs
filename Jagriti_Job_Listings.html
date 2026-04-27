@@ -341,7 +341,19 @@
   .side-panel-chevron.open { transform: rotate(180deg); }
   .side-panel-body { display: none; }
   .side-panel-body.open { display: block; }
-  .side-panel-scroll { max-height: 300px; overflow-y: auto; }
+  .side-panel-scroll { max-height: 260px; overflow-y: auto; }
+  .side-panel-footer {
+    padding: 7px 14px 9px;
+    border-top: 1px solid var(--border);
+    text-align: right;
+  }
+  .side-see-all {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .side-see-all:hover { text-decoration: underline; }
 
   /* Cancelled header = red */
   .side-panel-header.cancelled-hdr { background: #991b1b; }
@@ -1100,11 +1112,14 @@
       <div class="side-panel-header-left">
         🚫 Cancelled <span class="side-panel-count" id="cancelledCount">0</span>
       </div>
-      <span class="side-panel-chevron" id="cancelledChevron">▼</span>
+      <span class="side-panel-chevron open" id="cancelledChevron">▼</span>
     </div>
-    <div class="side-panel-body" id="cancelledBody">
+    <div class="side-panel-body open" id="cancelledBody">
       <div class="side-panel-scroll" id="cancelledScroll">
         <div class="side-empty">No jobs cancelled yet.</div>
+      </div>
+      <div class="side-panel-footer">
+        <a class="side-see-all" href="jobs-log.html?tab=cancelled" target="_blank">See all →</a>
       </div>
     </div>
   </div>
@@ -1115,11 +1130,14 @@
       <div class="side-panel-header-left">
         ✅ Applied <span class="side-panel-count" id="appliedCount">0</span>
       </div>
-      <span class="side-panel-chevron" id="appliedChevron">▼</span>
+      <span class="side-panel-chevron open" id="appliedChevron">▼</span>
     </div>
-    <div class="side-panel-body" id="appliedBody">
+    <div class="side-panel-body open" id="appliedBody">
       <div class="side-panel-scroll" id="appliedScroll">
         <div class="side-empty">No jobs applied yet. Click "✓ Mark Applied" on a card.</div>
+      </div>
+      <div class="side-panel-footer">
+        <a class="side-see-all" href="jobs-log.html?tab=applied" target="_blank">See all →</a>
       </div>
     </div>
   </div>
@@ -1583,7 +1601,7 @@ function togglePanel(which) {
   if (chev) chev.classList.toggle('open', open);
 }
 
-// ── Threshold progress bar + Refresh button lock ──
+// ── Threshold progress bar (informational only — no button lock) ──
 function updateThresholdBar() {
   const allCards     = document.querySelectorAll('.card');
   const totalCards   = allCards.length;
@@ -1593,34 +1611,21 @@ function updateThresholdBar() {
     const id = c.dataset.id;
     return appliedIds.has(id) || cancelledIds.has(id);
   }).length;
-  const pendingCount = totalCards - resolvedCount;
   const pct = totalCards > 0 ? Math.min(100, Math.round(resolvedCount / totalCards * 100)) : 0;
 
   const el = document.getElementById('thresholdBar');
-  if (el) {
-    const needed    = Math.ceil(totalCards * 0.7);
-    const remaining = Math.max(0, needed - resolvedCount);
-    el.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:11.5px">
-        <span style="color:var(--muted)">New jobs fetch when <strong>70%</strong> resolved (${resolvedCount}/${totalCards} — ${pct}%)</span>
-        <span style="color:${remaining===0?'var(--green)':'var(--muted)'};font-weight:700">
-          ${remaining === 0 ? '✓ Ready to fetch new jobs' : `${remaining} more to unlock refresh`}
-        </span>
-      </div>
-      <div style="height:6px;background:#e5e7eb;border-radius:999px;overflow:hidden">
-        <div style="height:100%;width:${pct}%;background:${pct>=70?'var(--green)':'var(--blue)'};border-radius:999px;transition:width .4s"></div>
-      </div>`;
-  }
-
-  // Enable Refresh button only when ≤4 jobs are still pending (unresolved)
-  const btn = document.getElementById('refreshBtn');
-  if (btn && !btn.dataset.triggered) {
-    const unlocked = pendingCount <= 4;
-    btn.disabled = !unlocked;
-    btn.title = unlocked
-      ? 'Fetch fresh job listings'
-      : `Refresh unlocks when ≤4 jobs remain (${pendingCount} pending)`;
-  }
+  if (!el) return;
+  const pendingCount = totalCards - resolvedCount;
+  el.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:11.5px">
+      <span style="color:var(--muted)">Progress: <strong>${resolvedCount}/${totalCards}</strong> resolved (applied + cancelled)</span>
+      <span style="color:${pct===100?'var(--green)':'var(--muted)'};font-weight:700">
+        ${pct === 100 ? '✓ All done — ready for fresh listings' : `${pendingCount} remaining`}
+      </span>
+    </div>
+    <div style="height:6px;background:#e5e7eb;border-radius:999px;overflow:hidden">
+      <div style="height:100%;width:${pct}%;background:${pct>=70?'var(--green)':'var(--blue)'};border-radius:999px;transition:width .4s"></div>
+    </div>`;
 }
 
 // ── Filter + search ──
@@ -1896,11 +1901,6 @@ async function loadRefreshMeta() {
       } else {
         lines.push(`JSearch ready · ${calls}/180 calls used this month`);
       }
-    }
-
-    if (ts.met === false) {
-      lines.push(`⚠ New jobs locked until ${ts.pct}%→70% applied (${ts.applied}/${ts.total})`);
-      document.getElementById('refreshBtn').title = 'New jobs will be fetched once 70% of current listings are applied';
     }
 
     if (lines.length) statusEl.textContent = lines.join(' · ');
