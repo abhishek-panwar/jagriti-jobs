@@ -8,13 +8,6 @@
       "cancelledAt": "Apr 26, 2026"
     },
     {
-      "id": "turing",
-      "title": "Remote Business Analyst – AI Training (57510)",
-      "company": "Turing",
-      "applyUrl": "https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114",
-      "cancelledAt": "Apr 26, 2026"
-    },
-    {
       "id": "amazon_nbeo",
       "title": "Senior Business Analyst – Network Balance & Equipment Optimization",
       "company": "Amazon",
@@ -36,5 +29,5 @@
       "cancelledAt": "Apr 26, 2026"
     }
   ],
-  "lastUpdated": "2026-04-27T04:37:12.994Z"
+  "lastUpdated": "2026-04-27T04:49:43.505Z"
 }
