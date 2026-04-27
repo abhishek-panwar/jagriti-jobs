@@ -25,9 +25,6 @@ jobs:
         run: pip install requests python-docx reportlab
 
       - name: Fetch job listings and update HTML
-        env:
-          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
-          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
         run: python3 scripts/fetch_jobs.py
 
       - name: Generate tailored PDFs
@@ -39,4 +36,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add Jagriti_Job_Listings.html resumes/
           git diff --staged --quiet || git commit -m "Refresh job listings $(date '+%Y-%m-%d %H:%M UTC')"
+          git pull --rebase origin main
           git push
