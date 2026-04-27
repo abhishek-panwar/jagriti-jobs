@@ -2106,24 +2106,40 @@ async function searchCareerJobs() {
     const appId  = localStorage.getItem('adzuna_app_id')  || '5975f043';
     const appKey = localStorage.getItem('adzuna_app_key') || '8f81b1c0abed562e98c9a0d5a1890d93';
 
-    // Embed company name in the query so Adzuna relevance-ranks it to the top
-    const what = `senior business analyst ${companyRaw}`;
-    const params = { app_id: appId, app_key: appKey, what, results_per_page: '20', sort_by: 'relevance' };
+    // Search broadly for "senior business analyst" — company filter applied client-side
+    const params = { app_id: appId, app_key: appKey, what: 'senior business analyst', results_per_page: '50', sort_by: 'relevance' };
     if (cityRaw) { params.where = cityRaw; params.distance = '30'; }
 
     const r = await fetch('https://api.adzuna.com/v1/api/jobs/us/search/1?' + new URLSearchParams(params));
-    if (!r.ok) throw new Error(`Adzuna ${r.status}`);
+    if (!r.ok) throw new Error(`Adzuna returned ${r.status}`);
     const data = await r.json();
-    const results = data.results || [];
+    const all = data.results || [];
 
     btn.disabled = false; btn.textContent = '🔍 Search';
 
-    if (results.length === 0) {
-      statusEl.innerHTML = `No listings found for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — try leaving city blank.`;
+    if (all.length === 0) {
+      statusEl.innerHTML = `No listings found${cityRaw ? ' in ' + escHtml(cityRaw) : ''} — try leaving city blank.`;
       return;
     }
 
-    statusEl.innerHTML = `Found <strong>${results.length}</strong> listing${results.length !== 1 ? 's' : ''} for <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''}`;
+    // Split into company-matched and everything else
+    const companyWords = companyRaw.toLowerCase().split(/\s+/).filter(w => w.length > 2);
+    const matchesCo = j => {
+      const co = (j.company?.display_name || '').toLowerCase();
+      return companyWords.some(w => co.includes(w));
+    };
+    const matched = all.filter(matchesCo);
+    const others  = all.filter(j => !matchesCo(j));
+
+    // Always show company matches first; append others only if matches are few
+    const results = matched.length >= 3
+      ? matched
+      : [...matched, ...others].slice(0, 15);
+
+    const matchNote = matched.length > 0
+      ? `<strong>${matched.length}</strong> from <strong>${escHtml(companyRaw)}</strong>${cityRaw ? ' in ' + escHtml(cityRaw) : ''}`
+      : `No exact match for <strong>${escHtml(companyRaw)}</strong> — showing nearby Sr. BA roles${cityRaw ? ' in ' + escHtml(cityRaw) : ''}`;
+    statusEl.innerHTML = matchNote;
 
     resultsEl.innerHTML = results.map(j => {
       const pid        = 'c_' + slugifyPractice((j.title || '') + '_' + (j.company?.display_name || companyRaw));
