@@ -1,4 +1,12 @@
 {
-  "cancelled": [],
-  "lastUpdated": "2026-04-28T00:57:00.894Z"
+  "cancelled": [
+    {
+      "id": "intepros_geo",
+      "title": "Business Analyst IV – Geospatial",
+      "company": "IntePros (contract placement)",
+      "applyUrl": "https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389",
+      "cancelledAt": "Apr 27, 2026"
+    }
+  ],
+  "lastUpdated": "2026-04-28T00:57:15.963Z"
 }
