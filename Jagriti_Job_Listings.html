@@ -927,6 +927,8 @@
 <div class="page-layout">
 <div class="main-col">
 
+<div id="progressBar" style="margin-bottom:14px;background:#fff;border-radius:8px;padding:10px 16px;box-shadow:0 1px 4px rgba(0,0,0,.06);display:none"></div>
+
 <!-- Cards grid -->
 <div class="grid" id="grid">
 </div><!-- /grid -->
@@ -1316,11 +1318,11 @@ async function syncAppliedFromGitHub() {
     const merged = Object.values(byId);
     setApplied(merged);
     initAppliedState();
-    updateThresholdBar();
+    checkRefreshButton();
   } catch(e) {
     // Offline or auth issue — fall back to localStorage silently
     initAppliedState();
-    updateThresholdBar();
+    checkRefreshButton();
   }
 }
 
@@ -1439,7 +1441,7 @@ function markApplied(jobId, btn) {
     card.classList.add('applied-hidden');
     applyFilters();
     renderAppliedSection();
-    updateThresholdBar();
+    checkRefreshButton();
   }, 700);
 }
 
@@ -1454,7 +1456,7 @@ function undoApplied(jobId) {
   }
   applyFilters();
   renderAppliedSection();
-  updateThresholdBar();
+  checkRefreshButton();
 }
 
 function renderAppliedSection() {
@@ -1515,7 +1517,7 @@ function markCancelled(jobId, btn) {
     card.classList.add('cancelled-hidden');
     applyFilters();
     renderCancelledSection();
-    updateThresholdBar();
+    checkRefreshButton();
   }, 700);
 }
 
@@ -1530,7 +1532,7 @@ function undoCancelled(jobId) {
   }
   applyFilters();
   renderCancelledSection();
-  updateThresholdBar();
+  checkRefreshButton();
 }
 
 function renderCancelledSection() {
@@ -1582,8 +1584,159 @@ function togglePanel(which) {
   if (chev) chev.classList.toggle('open', open);
 }
 
-// ── Threshold progress bar + Refresh button lock (unlocks at ≤1 pending) ──
-function updateThresholdBar() { /* threshold removed — refresh is always available */ }
+// ── Refresh button lock: disabled when ≥2 jobs remain unresolved ──
+function checkRefreshButton() {
+  const cards = getCards();
+  const total = cards.length;
+  const appliedIds   = new Set(getApplied().map(j => j.id));
+  const cancelledIds = new Set(getCancelled().map(j => j.id));
+  const resolved = [...cards].filter(c => appliedIds.has(c.dataset.id) || cancelledIds.has(c.dataset.id)).length;
+  const remaining = total - resolved;
+  const btn = document.getElementById('refreshBtn');
+  if (btn && !btn.dataset.triggered) {
+    btn.disabled = remaining >= 2;
+    btn.title = remaining >= 2
+      ? `${remaining} jobs remaining — resolve all but 1 to unlock refresh`
+      : 'Fetch fresh job listings';
+  }
+  const el = document.getElementById('progressBar');
+  if (el && total > 0) {
+    el.style.display = 'block';
+    const pct = Math.round(resolved / total * 100);
+    el.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:11.5px">
+        <span style="color:var(--muted)">Progress: <strong>${resolved}/${total}</strong> resolved</span>
+        <span style="color:${remaining<2?'var(--green)':'var(--muted)'};font-weight:700">
+          ${remaining === 0 ? '✓ All done — ready to refresh' : remaining === 1 ? '🔓 Refresh unlocked!' : `${remaining} remaining`}
+        </span>
+      </div>
+      <div style="height:6px;background:#e5e7eb;border-radius:999px;overflow:hidden">
+        <div style="height:100%;width:${pct}%;background:${remaining<2?'var(--green)':'var(--blue)'};border-radius:999px;transition:width .4s"></div>
+      </div>`;
+  } else if (el && total === 0) {
+    el.style.display = 'none';
+  }
+}
+
+// ── Build a card HTML string from a job object (from new_jobs.json) ──
+const SKILLS_KEYWORDS_JS = [
+  "Snowflake","AWS","SQL","Power BI","Tableau","Agile","Scrum","SAFe",
+  "data governance","RESTful","RESTful API","API","JSON","Swagger","ReadyAPI",
+  "BRD","FRD","UAT","ETL","data platform","analytics","requirements",
+  "process improvement","user stories","stakeholder","metadata","Informatica",
+  "Confluence","JIRA","data quality","data mapping","Visio","LucidChart",
+  "DynamoDB","SQL Server","IBM DB2","Mainframe"
+];
+
+function scoreJobJs(job) {
+  const text = ((job.title || '') + ' ' + (job.description || '')).toLowerCase();
+  return SKILLS_KEYWORDS_JS.filter(kw => text.includes(kw.toLowerCase())).length;
+}
+
+function buildCardHtml(job, i) {
+  const score = scoreJobJs(job);
+  const t = score >= 6 ? '1' : score >= 3 ? '2' : '3';
+  const tierLabel = t === '1' ? 'Best Match' : t === '2' ? 'Good Match' : 'Partial Match';
+  const tierBadge = t === '1' ? 'badge-tier1' : t === '2' ? 'badge-tier2' : 'badge-tier3';
+
+  const combined = ((job.title || '') + ' ' + (job.description || '') + ' ' + (job.location || '')).toLowerCase();
+  const locType = combined.includes('remote') ? 'remote' : combined.includes('hybrid') ? 'hybrid' : 'onsite';
+  const locBadge = locType === 'remote' ? 'badge-remote' : locType === 'hybrid' ? 'badge-hybrid' : 'badge-onsite';
+
+  const mn = job.salary_min, mx = job.salary_max;
+  const salStr = (mn && mx) ? `$${parseInt(mn).toLocaleString()} – $${parseInt(mx).toLocaleString()} / year`
+               : mn ? `From $${parseInt(mn).toLocaleString()} / year`
+               : 'Salary not listed';
+
+  const src = job.source || '';
+  const srcColors = {
+    'linkedin':     ['#0a66c2','#e8f0fb'],
+    'indeed':       ['#2d2d2d','#f3f4f6'],
+    'glassdoor':    ['#0caa41','#d1fae5'],
+    'ziprecruiter': ['#4b0082','#f3e8ff'],
+    'remotive':     ['#7c3aed','#f5f3ff'],
+    'adzuna':       ['#1a56a4','#e8f0fb'],
+  };
+  let srcBadge = '';
+  const srcKey = src.toLowerCase();
+  let matched = Object.entries(srcColors).find(([k]) => srcKey.includes(k));
+  if (matched) {
+    const [fg, bg] = matched[1];
+    srcBadge = `<span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:${bg};color:${fg};margin-left:4px">${escHtml(src)}</span>`;
+  } else if (src) {
+    srcBadge = `<span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#f3f4f6;color:#374151;margin-left:4px">${escHtml(src)}</span>`;
+  }
+
+  const matchedKws = SKILLS_KEYWORDS_JS.filter(kw => combined.includes(kw.toLowerCase())).slice(0, 5);
+  const kwText = matchedKws.length ? escHtml(matchedKws.join(', ')) : 'general BA skills';
+  const srcNote = src ? ` &nbsp;·&nbsp; via <em>${escHtml(src)}</em>` : '';
+  const fitNote = `<strong>${escHtml(tierLabel)}:</strong> ${score}/${SKILLS_KEYWORDS_JS.length} keywords matched — ${kwText}.${srcNote}`;
+
+  const desc = ((job.description || '').replace(/\n/g,' ').trim().substring(0, 220));
+  const descText = desc.length >= 220 ? desc + '…' : desc;
+  const rstem = `resume_job_${String(i+1).padStart(2,'0')}`;
+  const jid = job.id || ('job_' + (job.title||'').toLowerCase().replace(/[^a-z0-9]+/g,'_').substring(0,40));
+  const dataText = escHtml(((job.title||'') + ' ' + (job.company||'') + ' ' + (job.location||'')).toLowerCase());
+  const listedAttr = job.listed ? ` data-listed="${escHtml(job.listed)}"` : '';
+
+  return `
+  <div class="card" data-tier="${t}" data-location="${locType}" data-id="${escHtml(jid)}" data-resume="${rstem}" data-text="${dataText}"${listedAttr}>
+    <div class="card-top">
+      <div>
+        <div class="job-title">${escHtml(job.title || '')} ${srcBadge}</div>
+        <div class="company">${escHtml(job.company || '')}</div>
+      </div>
+      <div class="badges">
+        <span class="badge ${locBadge}">${locType.charAt(0).toUpperCase() + locType.slice(1)}</span>
+        <span class="badge ${tierBadge}">${tierLabel}</span>
+      </div>
+    </div>
+    <div class="location">📍 ${escHtml(job.location || '')}</div>
+    <div class="salary">${salStr}</div>
+    <ul class="requirements"><li>${escHtml(descText)}</li></ul>
+    <div class="fit-note">${fitNote}</div>
+    <div class="resume-section">
+      <div class="resume-section-title">📄 Tailored Resume for this Role</div>
+      <div class="resume-note">Resume summary tailored to match keywords and requirements of this posting.</div>
+      <a class="download-btn" href="resumes/${rstem}.pdf" download="Jagriti_Mahajan_Resume_${i+1}.pdf">⬇ Download Resume PDF</a>
+      <div class="change-note" id="change-${rstem}"></div>
+    </div>
+    <div class="card-actions">
+      <a class="apply-btn" href="${escHtml(job.url || '#')}" target="_blank">Apply →</a>
+      <button class="applied-btn" onclick="markApplied('${escHtml(jid)}', this)">✓ Mark Applied</button>
+      <button class="cancel-btn" onclick="markCancelled('${escHtml(jid)}', this)">✕ Cancel</button>
+    </div>
+  </div>`;
+}
+
+// ── Load jobs from new_jobs.json and render cards ──
+async function loadJobs() {
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('gridEmpty');
+  try {
+    const res = await fetch(
+      `https://raw.githubusercontent.com/${GH_REPO}/main/resumes/new_jobs.json?_=` + Date.now()
+    );
+    if (!res.ok) { showGridEmpty(); return; }
+    const data = await res.json();
+    const jobs = data.jobs || [];
+    if (jobs.length === 0) { showGridEmpty(); return; }
+    grid.innerHTML = jobs.map((job, i) => buildCardHtml(job, i)).join('');
+    initAppliedState();
+    initCancelledState();
+    applyFilters();
+    renderPostingAges();
+    loadChangeNotes();
+    checkRefreshButton();
+  } catch(e) {
+    showGridEmpty();
+  }
+}
+
+function showGridEmpty() {
+  document.getElementById('gridEmpty').style.display = 'block';
+  checkRefreshButton();
+}
 
 // ── Filter + search (dynamic — re-queries DOM so new cards from refresh are picked up) ──
 const pills      = document.querySelectorAll('.pill');
@@ -2034,6 +2187,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderWatchlistChips();
   renderPersistedJobs();       // restore saved scan results immediately
   scheduleAutoScans();         // set up midnight + noon PST auto-scans
+  loadJobs();                  // fetch new_jobs.json and render cards dynamically
 });
 
 // ── Auto-scan at 12 AM, 6 AM, 12 PM, 6 PM PST ──
@@ -2844,7 +2998,7 @@ async function triggerRefresh() {
         btn.disabled = false;
         btn.textContent = '🔄 Refresh Jobs';
         status.textContent = '';
-        updateThresholdBar();
+        checkRefreshButton();
       }, 15000);
     } else {
       throw new Error(`HTTP ${res.status}`);
@@ -2857,7 +3011,7 @@ async function triggerRefresh() {
       btn.disabled = false;
       btn.textContent = '🔄 Refresh Jobs';
       status.textContent = '';
-      updateThresholdBar();
+      checkRefreshButton();
     }, 5000);
   }
 }
@@ -2938,7 +3092,7 @@ updateApiKeyStatus();
 updateCount();
 renderPostingAges();
 loadChangeNotes();
-syncAppliedFromGitHub();    // loads from GitHub, then calls initAppliedState + updateThresholdBar
+syncAppliedFromGitHub();    // loads from GitHub, then calls initAppliedState + checkRefreshButton
 syncCancelledFromGitHub();  // loads cancelled from GitHub, then calls initCancelledState
 renderPracticeApplied();    // populate practice sidebar from localStorage
 renderPracticeCancelled();
