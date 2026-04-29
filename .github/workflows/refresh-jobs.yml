@@ -34,7 +34,10 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Jagriti_Job_Listings.html resumes/
+          git stash
           git pull --rebase origin main
+          git stash pop || true
           git add Jagriti_Job_Listings.html resumes/
           git diff --staged --quiet || git commit -m "Refresh job listings $(date '+%Y-%m-%d %H:%M UTC')"
           git push
