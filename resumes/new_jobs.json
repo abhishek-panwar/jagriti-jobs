@@ -1,5 +1,18 @@
 {
-  "jobs": [],
-  "totalCount": 0,
-  "fetchedAt": ""
+  "jobs": [
+    {
+      "title": "Business Analyst III - AMZ9686403",
+      "company": "Amazon",
+      "location": "International, King County",
+      "url": "https://www.adzuna.com/land/ad/5702221986?se=GqHSyGhD8RGFcsTXphbzJg&utm_medium=api&utm_source=5975f043&v=78BE4E3D2D22CA8492BCCD98B1D438082985C409",
+      "description": "Description MULTIPLE POSITIONS AVAILABLE Employer: AMAZON ADVERTISING LLC Offered Position: Business Analyst III Job Location: Seattle, Washington Job Number: AMZ9686403 Position Responsibilities: Support senior management by managing metrics reporting and performing data mining and big data analysis to provide strategic advice on business forecast models. Collect business use cases, research and evaluate opportunities to help Amazon leverage its data to support business functions through compl\u2026",
+      "salary_min": 140237,
+      "salary_max": 140237,
+      "source": "Adzuna",
+      "listed": "2026-04-17",
+      "id": "job_business_analyst_iii_amz9686403_amazon"
+    }
+  ],
+  "totalCount": 1,
+  "fetchedAt": "2026-04-29T01:14:34.704075"
 }
