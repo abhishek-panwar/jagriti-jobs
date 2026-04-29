@@ -1628,6 +1628,38 @@ const US_CITIES = [
   'Honolulu, HI','Anchorage, AK','Omaha, NE','Colorado Springs, CO','Arlington, VA'
 ];
 
+// ── Resume profile — drives all job title matching and search queries ──
+const RESUME_PROFILE = {
+  "name": "Jagriti Mahajan",
+  "target_titles": [
+    "Sr. Business Analyst", "Senior Business Analyst",
+    "Sr. Technical Business Analyst", "Senior Technical Business Analyst",
+    "Business Systems Analyst", "IT Business Analyst",
+    "Sr. IT Business Analyst", "Senior IT Business Analyst",
+    "Data Business Analyst", "Sr. Data Business Analyst",
+    "Business Analyst III", "BA III",
+    "Product Analyst", "Sr. Product Analyst",
+    "Solutions Analyst", "Sr. Solutions Analyst",
+    "Enterprise Business Analyst",
+    "Technical Analyst", "Sr. Technical Analyst",
+    "Data Analyst", "Sr. Data Analyst",
+    "Data Governance Analyst",
+    "Process Analyst", "Sr. Process Analyst",
+    "Requirements Analyst"
+  ],
+  "title_regex_js": "\\b(?:sr\\.?|senior|lead|principal|staff|enterprise)\\s+(?:(?:technical|it|data|systems?|product|solutions?|process|requirements)\\s+)?(?:business\\s+analyst|ba)\\b|\\bbusiness\\s+(?:systems?|it|data|technical|solutions?|process|requirements)\\s+analyst\\b|\\bbusiness\\s+analyst\\s*(?:iii|3)\\b|\\bba[-\\s]?(?:iii|3)\\b|\\b(?:data\\s+governance|solutions?|requirements|process|technical|it)\\s+analyst\\b(?!.*(?:marketing|financial|finance|hr|human\\s+resources|junior|jr\\.?|associate|entry))",
+  "skills": [
+    "AWS", "Snowflake", "SQL", "Power BI", "Tableau", "Agile", "Scrum",
+    "RESTful APIs", "JSON", "Swagger", "BRD", "FRD", "UAT",
+    "data governance", "Confluence", "JIRA", "Informatica", "ETL",
+    "stakeholder", "requirements", "user stories", "API", "analytics",
+    "process improvement", "metadata", "data platform", "data quality"
+  ],
+  "adzuna_query": "business analyst",
+  "fallback_query": "senior business analyst"
+};
+const TITLE_RE = new RegExp(RESUME_PROFILE.title_regex_js, 'i');
+
 // ── Applied Jobs — persisted to GitHub repo (survives deployments) ──
 const GH_REPO    = 'abhishek-panwar/jagriti-jobs';
 const GH_TOKEN     = () => ['github','_pat_','11AHXGI','YQ0aKVpl8','cGhlVd_9kb','EwslJvqIbb','AXAy2TjIfra','a9oq7LdYUKMj','isgFJiiJIDXQS','JHC22Eczpo'].join('');
@@ -2187,7 +2219,7 @@ async function scanRecentJobs() {
   cutoff.setDate(cutoff.getDate() - 3);
   cutoff.setHours(0, 0, 0, 0);
 
-  const BA_RE_RECENT = /\b(senior|sr\.?)\s+(business analyst|ba\b)|business analyst\s*(iii|3)\b|ba[-\s]?(iii|3)\b/i;
+  const BA_RE_RECENT = TITLE_RE;
   // WA state (Seattle, Redmond, Bellevue, Kirkland, etc.) OR remote/anywhere
   const LOC_RE_RECENT = /\bWA\b|washington state|seattle|redmond|bellevue|kirkland|tacoma|spokane|olympia|remote|anywhere/i;
 
@@ -2643,8 +2675,8 @@ async function searchCareerJobs() {
   statusEl.innerHTML = `Searching for <strong>${escHtml(companyRaw)}</strong> listings${cityRaw ? ' in ' + escHtml(cityRaw) : ''}…`;
   resultsEl.innerHTML = '';
 
-  // Title must be Sr/Senior BA or BA 3/III
-  const BA_RE = /\b(senior|sr\.?)\s+(business analyst|ba\b)|business analyst\s*(iii|3)\b|ba[-\s]?(iii|3)\b/i;
+  // Title filter driven by resume profile
+  const BA_RE = TITLE_RE;
 
   // US location check — matches state abbreviations, "United States", "US", or "Remote"
   const US_RE = /\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\b|united states|USA|\bU\.S\.|remote/i;
@@ -2694,12 +2726,12 @@ async function searchCareerJobs() {
 
   // ── Helper: fallback direct-search links ──
   function showFallbackLinks(note) {
-    const q = encodeURIComponent(`"senior business analyst" "${companyRaw}"`);
+    const q = encodeURIComponent(`"${RESUME_PROFILE.fallback_query}" "${companyRaw}"`);
     const l = cityRaw ? encodeURIComponent(cityRaw) : '';
     statusEl.innerHTML = `${note}
       &nbsp;<a href="https://www.indeed.com/jobs?q=${q}${l?'&l='+l:''}" target="_blank" style="color:var(--purple);font-weight:700">Indeed →</a>
-      &nbsp;<a href="https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent('senior business analyst '+companyRaw)}${l?'&location='+l:''}" target="_blank" style="color:var(--purple);font-weight:700">LinkedIn →</a>
-      &nbsp;<a href="https://www.glassdoor.com/Job/jobs.htm?sc.keyword=${encodeURIComponent('senior business analyst '+companyRaw)}${l?'&locKeyword='+l:''}" target="_blank" style="color:var(--purple);font-weight:700">Glassdoor →</a>`;
+      &nbsp;<a href="https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(RESUME_PROFILE.fallback_query+' '+companyRaw)}${l?'&location='+l:''}" target="_blank" style="color:var(--purple);font-weight:700">LinkedIn →</a>
+      &nbsp;<a href="https://www.glassdoor.com/Job/jobs.htm?sc.keyword=${encodeURIComponent(RESUME_PROFILE.fallback_query+' '+companyRaw)}${l?'&locKeyword='+l:''}" target="_blank" style="color:var(--purple);font-weight:700">Glassdoor →</a>`;
   }
 
   try {
@@ -2770,7 +2802,7 @@ async function searchCareerJobs() {
     statusEl.innerHTML = `Searching Adzuna for <strong>${escHtml(companyRaw)}</strong>…`;
     const appId  = localStorage.getItem('adzuna_app_id')  || '5975f043';
     const appKey = localStorage.getItem('adzuna_app_key') || '8f81b1c0abed562e98c9a0d5a1890d93';
-    const params = { app_id: appId, app_key: appKey, what: 'senior business analyst', results_per_page: '50', sort_by: 'relevance' };
+    const params = { app_id: appId, app_key: appKey, what: RESUME_PROFILE.adzuna_query, results_per_page: '50', sort_by: 'relevance' };
     if (cityRaw) { params.where = cityRaw; params.distance = '30'; }
 
     const r = await fetch('https://api.adzuna.com/v1/api/jobs/us/search/1?' + new URLSearchParams(params));
@@ -2940,7 +2972,7 @@ async function searchPracticeJobs() {
   const fallback = document.getElementById('practiceFallback');
 
   // Update fallback links regardless
-  const q = encodeURIComponent('senior business analyst');
+  const q = encodeURIComponent(RESUME_PROFILE.fallback_query);
   const loc = encodeURIComponent(city);
   document.getElementById('linkedinLink').href  = `https://www.linkedin.com/jobs/search/?keywords=${q}&location=${loc}`;
   document.getElementById('indeedLink').href    = `https://www.indeed.com/jobs?q=${q}&l=${loc}`;
@@ -2964,7 +2996,7 @@ async function searchPracticeJobs() {
     const url = `https://api.adzuna.com/v1/api/jobs/us/search/1`
       + `?app_id=${encodeURIComponent(appId)}`
       + `&app_key=${encodeURIComponent(appKey)}`
-      + `&what=senior+business+analyst`
+      + `&what=${encodeURIComponent(RESUME_PROFILE.adzuna_query)}`
       + `&where=${encodeURIComponent(city)}`
       + `&results_per_page=10`
       + `&distance=30`
