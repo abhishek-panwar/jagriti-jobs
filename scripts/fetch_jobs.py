@@ -327,25 +327,6 @@ if __name__ == "__main__":
         "jsearch_calls_this_month": 0,
         "jsearch_month": "2000-01"
     })
-    applied_data = load_json("resumes/applied_jobs.json", {"applied": []})
-    cache_data   = load_json("resumes/jobs_cache.json",   {"jobs": [], "totalCount": 0})
-
-    # ── Check 70% threshold ──
-    cached_jobs  = cache_data.get("jobs", [])
-    total_cached = len(cached_jobs)
-    applied_ids  = {j["id"] for j in applied_data.get("applied", [])}
-    applied_count = sum(1 for j in cached_jobs if j.get("id") in applied_ids)
-    pct = (applied_count / total_cached * 100) if total_cached > 0 else 100
-    threshold_met = total_cached == 0 or pct >= 70
-
-    print(f"Applied: {applied_count}/{total_cached} ({pct:.0f}%) — threshold {'MET ✓' if threshold_met else f'not met (need 70%)'}")
-
-    if not threshold_met:
-        print(f"Skipping fetch — only {pct:.0f}% of jobs applied. Refresh will fetch new jobs once ≥70% are applied.")
-        meta["threshold_status"] = {"applied": applied_count, "total": total_cached, "pct": round(pct), "met": False}
-        save_json("resumes/fetch_meta.json", meta)
-        exit(0)
-
     # ── JSearch cooldown check ──
     try:
         jsearch_last = datetime.datetime.fromisoformat(meta.get("jsearch_last_called", "2000-01-01T00:00:00"))
@@ -408,7 +389,7 @@ if __name__ == "__main__":
     # ── Update HTML ──
     build_html(jobs)
 
-    # ── Save cache (workflow reads this next run for threshold check) ──
+    # ── Save cache ──
     save_json("resumes/jobs_cache.json", {
         "jobs":       jobs,
         "totalCount": len(jobs),
@@ -416,12 +397,7 @@ if __name__ == "__main__":
     })
 
     # ── Save meta ──
-    meta["threshold_status"] = {
-        "applied": applied_count, "total": len(jobs),
-        "pct": 0,   # freshly fetched, 0% applied
-        "met": True,
-        "lastFetch": now.isoformat()
-    }
+    meta["lastFetch"] = now.isoformat()
     meta["jsearch_next_available"] = (
         (jsearch_last + datetime.timedelta(hours=24)).isoformat()
         if can_use_jsearch
