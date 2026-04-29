@@ -1458,6 +1458,7 @@ function undoApplied(jobId) {
     const btn = card.querySelector('.applied-btn');
     if (btn) { btn.classList.remove('is-applied'); btn.textContent = '✓ Mark Applied'; btn.disabled = false; }
   }
+  addToNewJobs(jobId);
   applyFilters();
   renderAppliedSection();
   checkRefreshButton();
@@ -1535,6 +1536,7 @@ function undoCancelled(jobId) {
     const btn = card.querySelector('.cancel-btn');
     if (btn) { btn.classList.remove('is-cancelled'); btn.textContent = '✕ Cancel'; btn.disabled = false; }
   }
+  addToNewJobs(jobId);
   applyFilters();
   renderCancelledSection();
   checkRefreshButton();
@@ -1685,7 +1687,7 @@ function buildCardHtml(job, i) {
   const listedAttr = job.listed ? ` data-listed="${escHtml(job.listed)}"` : '';
 
   return `
-  <div class="card" data-tier="${t}" data-location="${locType}" data-id="${escHtml(jid)}" data-resume="${rstem}" data-text="${dataText}"${listedAttr}>
+  <div class="card" data-tier="${t}" data-location="${locType}" data-id="${escHtml(jid)}" data-resume="${rstem}" data-text="${dataText}" data-source="${escHtml(job.source||'')}"${listedAttr}>
     <div class="card-top">
       <div>
         <div class="job-title">${escHtml(job.title || '')} ${srcBadge}</div>
@@ -1746,9 +1748,8 @@ function showGridEmpty() {
   checkRefreshButton();
 }
 
-// Remove a job from new_jobs.json on GitHub so it never re-appears on reload
-async function removeFromNewJobs(jobId) {
-  newJobsCache = newJobsCache.filter(j => j.id !== jobId);
+// Push current newJobsCache to new_jobs.json on GitHub
+async function pushNewJobs(message) {
   if (!newJobsSha) return;
   const payload = { jobs: newJobsCache, totalCount: newJobsCache.length, fetchedAt: new Date().toISOString() };
   const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
@@ -1762,7 +1763,7 @@ async function removeFromNewJobs(jobId) {
           'Content-Type': 'application/json',
           'Accept': 'application/vnd.github+json'
         },
-        body: JSON.stringify({ message: `Remove resolved job: ${jobId}`, content, sha: newJobsSha })
+        body: JSON.stringify({ message, content, sha: newJobsSha })
       }
     );
     if (res.ok) {
@@ -1770,6 +1771,37 @@ async function removeFromNewJobs(jobId) {
       newJobsSha = d.content?.sha || newJobsSha;
     }
   } catch(e) {}
+}
+
+// Remove a job from new_jobs.json (called on apply/cancel)
+function removeFromNewJobs(jobId) {
+  newJobsCache = newJobsCache.filter(j => j.id !== jobId);
+  pushNewJobs(`Remove resolved job: ${jobId}`);
+}
+
+// Re-add a job to new_jobs.json (called on undo)
+function addToNewJobs(jobId) {
+  // Find the original job data from the card's dataset
+  const card = document.querySelector(`.card[data-id="${jobId}"]`);
+  if (!card) return;
+  // Reconstruct minimal job object from card data attributes + DOM
+  const job = {
+    id:          jobId,
+    title:       card.querySelector('.job-title')?.firstChild?.textContent?.trim() || '',
+    company:     card.querySelector('.company')?.textContent?.trim() || '',
+    location:    card.querySelector('.location')?.textContent?.replace('📍','').trim() || '',
+    url:         card.querySelector('.apply-btn')?.href || '#',
+    description: card.querySelector('.requirements li')?.textContent?.trim() || '',
+    salary_min:  null,
+    salary_max:  null,
+    source:      card.dataset.source || '',
+    listed:      card.dataset.listed || '',
+  };
+  // Only add if not already in cache
+  if (!newJobsCache.find(j => j.id === jobId)) {
+    newJobsCache.push(job);
+  }
+  pushNewJobs(`Undo: restore job ${jobId}`);
 }
 
 // ── Filter + search (dynamic — re-queries DOM so new cards from refresh are picked up) ──
