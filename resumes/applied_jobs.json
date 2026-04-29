@@ -2,28 +2,28 @@
   "applied": [
     {
       "id": "kiewit",
-      "title": "Sr. Business Analyst – Kiewit Nuclear Solutions",
+      "title": "Sr. Business Analyst â Kiewit Nuclear Solutions",
       "company": "Kiewit",
       "applyUrl": "https://www.linkedin.com/jobs/view/senior-business-analyst-kiewit-nuclear-solutions-at-kiewit-4393806182",
       "appliedAt": "Apr 27, 2026"
     },
     {
       "id": "amazon_ta",
-      "title": "Senior Business Analyst – Talent Acquisition Analytics",
+      "title": "Senior Business Analyst â Talent Acquisition Analytics",
       "company": "Amazon",
       "applyUrl": "https://www.linkedin.com/jobs/view/senior-business-analyst-talent-acquisition-analytics-at-amazon-4378014315",
       "appliedAt": "Apr 27, 2026"
     },
     {
       "id": "amazon_nbeo",
-      "title": "Senior Business Analyst – Network Balance & Equipment Optimization",
+      "title": "Senior Business Analyst â Network Balance & Equipment Optimization",
       "company": "Amazon",
       "applyUrl": "https://www.linkedin.com/jobs/view/senior-business-analyst-network-balance-and-equipment-optimization-nbeo-at-amazon-4402892662",
       "appliedAt": "Apr 27, 2026"
     },
     {
       "id": "spacex",
-      "title": "Sr. Business Analyst – Starlink Growth",
+      "title": "Sr. Business Analyst â Starlink Growth",
       "company": "SpaceX",
       "applyUrl": "https://www.linkedin.com/jobs/view/sr-business-analyst-starlink-growth-at-spacex-4368899384",
       "appliedAt": "Apr 27, 2026"
@@ -51,11 +51,18 @@
     },
     {
       "id": "evotec",
-      "title": "Senior IT Business Analyst – GxP Systems Integration (Boomi)",
+      "title": "Senior IT Business Analyst â GxP Systems Integration (Boomi)",
       "company": "Evotec",
       "applyUrl": "https://www.linkedin.com/jobs/view/senior-it-business-analyst-gxp-systems-integration-boomi-at-evotec-4374508335",
       "appliedAt": "Apr 27, 2026"
+    },
+    {
+      "id": "amazon_wwgs",
+      "title": "Sr. Business Analyst – WWGS Operations Analytics",
+      "company": "Amazon",
+      "applyUrl": "https://www.linkedin.com/jobs/view/sr-business-analyst-wwgs-worldwide-grocery-stores-operations-analytics-at-amazon-4383785335",
+      "appliedAt": "Apr 28, 2026"
     }
   ],
-  "lastUpdated": "2026-04-28T04:12:01.384Z"
+  "lastUpdated": "2026-04-29T00:36:07.962Z"
 }
