@@ -1271,13 +1271,16 @@ const TITLE_RE = new RegExp(RESUME_PROFILE.title_regex_js, 'i');
 const GH_REPO    = 'abhishek-panwar/jagriti-jobs';
 const GH_TOKEN     = () => ['github','_pat_','11AHXGI','YQ0aKVpl8','cGhlVd_9kb','EwslJvqIbb','AXAy2TjIfra','a9oq7LdYUKMj','isgFJiiJIDXQS','JHC22Eczpo'].join('');
 const JSEARCH_KEY  = () => ['58cd19e2f7msh91cf447019c17c1p1c8ca5js','nc4d911a8d7c9'].join('');
-const APPLIED_FILE = 'resumes/applied_jobs.json';
+const APPLIED_FILE   = 'resumes/applied_jobs.json';
 const APPLIED_LS_KEY   = 'jagriti_applied_jobs_v1';
-const CANCELLED_FILE   = 'resumes/cancelled_jobs.json';
+const CANCELLED_FILE = 'resumes/cancelled_jobs.json';
 const CANCELLED_LS_KEY = 'jagriti_cancelled_jobs_v1';
+const NEW_JOBS_FILE  = 'resumes/new_jobs.json';
 
 let appliedFileSha   = null;
 let cancelledFileSha = null;
+let newJobsSha       = null;
+let newJobsCache     = [];   // in-memory copy of current new_jobs list
 let pushPending      = false;
 let pushTimer        = null;
 let cancelledPushTimer = null;
@@ -1442,6 +1445,7 @@ function markApplied(jobId, btn) {
     applyFilters();
     renderAppliedSection();
     checkRefreshButton();
+    removeFromNewJobs(jobId);
   }, 700);
 }
 
@@ -1518,6 +1522,7 @@ function markCancelled(jobId, btn) {
     applyFilters();
     renderCancelledSection();
     checkRefreshButton();
+    removeFromNewJobs(jobId);
   }, 700);
 }
 
@@ -1711,16 +1716,19 @@ function buildCardHtml(job, i) {
 
 // ── Load jobs from new_jobs.json and render cards ──
 async function loadJobs() {
-  const grid = document.getElementById('grid');
-  const empty = document.getElementById('gridEmpty');
   try {
     const res = await fetch(
-      `https://raw.githubusercontent.com/${GH_REPO}/main/resumes/new_jobs.json?_=` + Date.now()
+      `https://api.github.com/repos/${GH_REPO}/contents/${NEW_JOBS_FILE}`,
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } }
     );
     if (!res.ok) { showGridEmpty(); return; }
     const data = await res.json();
-    const jobs = data.jobs || [];
+    newJobsSha   = data.sha;
+    const parsed = JSON.parse(atob(data.content.replace(/\n/g, '')));
+    const jobs   = parsed.jobs || [];
+    newJobsCache = jobs;
     if (jobs.length === 0) { showGridEmpty(); return; }
+    const grid = document.getElementById('grid');
     grid.innerHTML = jobs.map((job, i) => buildCardHtml(job, i)).join('');
     initAppliedState();
     initCancelledState();
@@ -1736,6 +1744,32 @@ async function loadJobs() {
 function showGridEmpty() {
   document.getElementById('gridEmpty').style.display = 'block';
   checkRefreshButton();
+}
+
+// Remove a job from new_jobs.json on GitHub so it never re-appears on reload
+async function removeFromNewJobs(jobId) {
+  newJobsCache = newJobsCache.filter(j => j.id !== jobId);
+  if (!newJobsSha) return;
+  const payload = { jobs: newJobsCache, totalCount: newJobsCache.length, fetchedAt: new Date().toISOString() };
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GH_REPO}/contents/${NEW_JOBS_FILE}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + GH_TOKEN(),
+          'Content-Type': 'application/json',
+          'Accept': 'application/vnd.github+json'
+        },
+        body: JSON.stringify({ message: `Remove resolved job: ${jobId}`, content, sha: newJobsSha })
+      }
+    );
+    if (res.ok) {
+      const d = await res.json();
+      newJobsSha = d.content?.sha || newJobsSha;
+    }
+  } catch(e) {}
 }
 
 // ── Filter + search (dynamic — re-queries DOM so new cards from refresh are picked up) ──
