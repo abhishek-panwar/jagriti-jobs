@@ -17,15 +17,12 @@ BASE_SUMMARY = (
     "governed data solutions that accelerate delivery and improve enterprise decision-making."
 )
 
-# Read current HTML to extract job titles and companies for summary generation
-def extract_jobs_from_html():
+def load_jobs_from_json():
     try:
-        with open("Jagriti_Job_Listings.html","r") as f:
-            html = f.read()
-        titles   = re.findall(r'class="job-title">(.*?)</div>', html)
-        companies= re.findall(r'class="company">(.*?)</div>', html)
-        return list(zip(titles[:12], companies[:12]))
-    except:
+        with open("resumes/new_jobs.json") as f:
+            data = json.load(f)
+        return [(j["title"], j["company"]) for j in data.get("jobs", [])]
+    except Exception:
         return []
 
 def make_summary(title, company):
@@ -218,21 +215,15 @@ if __name__ == "__main__":
         print(f"Base DOCX not found: {SRC_DOCX}")
         exit(1)
 
-    jobs = extract_jobs_from_html()
+    jobs = load_jobs_from_json()
     if not jobs:
-        print("No jobs found in HTML — generating 12 generic resumes.")
-        jobs = [("Senior Business Analyst", "Company") for _ in range(12)]
-
-    names = [
-        "resume_job_01","resume_job_02","resume_job_03","resume_job_04",
-        "resume_job_05","resume_job_06","resume_job_07","resume_job_08",
-        "resume_job_09","resume_job_10","resume_job_11","resume_job_12",
-    ]
+        print("No jobs in new_jobs.json — skipping resume generation.")
+        exit(0)
 
     changes = {}
 
-    for i, (title, company) in enumerate(jobs[:12]):
-        name     = names[i]
+    for i, (title, company) in enumerate(jobs):
+        name     = f"resume_job_{i+1:02d}"
         tmp_docx = os.path.join(OUT_DIR, name + ".docx")
         pdf_path = os.path.join(OUT_DIR, name + ".pdf")
         shutil.copy2(SRC_DOCX, tmp_docx)
