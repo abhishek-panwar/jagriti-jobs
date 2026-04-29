@@ -6,8 +6,7 @@
     "applied": 0,
     "total": 20,
     "pct": 0,
-    "met": true,
-    "lastFetch": "2026-04-29T00:44:35.164180"
+    "met": false
   },
   "jsearch_next_available": "2000-01-02T00:00:00"
 }
