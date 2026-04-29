@@ -927,9 +927,6 @@
 <div class="page-layout">
 <div class="main-col">
 
-<!-- Threshold progress bar -->
-<div id="thresholdBar" style="margin-bottom:14px;background:#fff;border-radius:8px;padding:10px 16px;box-shadow:0 1px 4px rgba(0,0,0,.06)"></div>
-
 <!-- Cards grid -->
 <div class="grid" id="grid">
 </div><!-- /grid -->
@@ -1586,41 +1583,7 @@ function togglePanel(which) {
 }
 
 // ── Threshold progress bar + Refresh button lock (unlocks at ≤1 pending) ──
-function updateThresholdBar() {
-  const allCards     = getCards();
-  const totalCards   = allCards.length;
-  const appliedIds   = new Set(getApplied().map(j => j.id));
-  const cancelledIds = new Set(getCancelled().map(j => j.id));
-  const resolvedCount = [...allCards].filter(c => {
-    const id = c.dataset.id;
-    return appliedIds.has(id) || cancelledIds.has(id);
-  }).length;
-  const pendingCount = totalCards - resolvedCount;
-  const pct = totalCards > 0 ? Math.min(100, Math.round(resolvedCount / totalCards * 100)) : 0;
-
-  const el = document.getElementById('thresholdBar');
-  if (el) {
-    el.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:11.5px">
-        <span style="color:var(--muted)">Progress: <strong>${resolvedCount}/${totalCards}</strong> resolved (applied + cancelled)</span>
-        <span style="color:${pendingCount<=1?'var(--green)':'var(--muted)'};font-weight:700">
-          ${pendingCount === 0 ? '✓ All done — ready for fresh listings' : pendingCount === 1 ? '🔓 Refresh unlocked!' : `${pendingCount} remaining — resolve all but 1 to refresh`}
-        </span>
-      </div>
-      <div style="height:6px;background:#e5e7eb;border-radius:999px;overflow:hidden">
-        <div style="height:100%;width:${pct}%;background:${pendingCount<=1?'var(--green)':'var(--blue)'};border-radius:999px;transition:width .4s"></div>
-      </div>`;
-  }
-
-  const btn = document.getElementById('refreshBtn');
-  if (btn && !btn.dataset.triggered) {
-    const unlocked = pendingCount <= 1;
-    btn.disabled = !unlocked;
-    btn.title = unlocked
-      ? 'Fetch fresh job listings'
-      : `Refresh unlocks when only 1 job remains (${pendingCount} pending)`;
-  }
-}
+function updateThresholdBar() { /* threshold removed — refresh is always available */ }
 
 // ── Filter + search (dynamic — re-queries DOM so new cards from refresh are picked up) ──
 const pills      = document.querySelectorAll('.pill');
@@ -2833,30 +2796,21 @@ function renderPracticeCancelled() {
   `).join('');
 }
 
-// ── Refresh Jobs button meta (cooldown + threshold info) ──
+// ── Refresh Jobs button meta (JSearch cooldown info only) ──
 async function loadRefreshMeta() {
   try {
     const res = await fetch(`https://raw.githubusercontent.com/${GH_REPO}/main/resumes/fetch_meta.json?_=` + Date.now());
     if (!res.ok) return;
-    const meta = await res.json();
-
+    const meta    = await res.json();
     const statusEl = document.getElementById('refreshStatus');
-    const ts       = meta.threshold_status || {};
     const nextStr  = meta.jsearch_next_available;
     const calls    = meta.jsearch_calls_this_month || 0;
-    const lines    = [];
-
     if (nextStr) {
-      const next  = new Date(nextStr);
-      const hoursLeft = Math.max(0, (next - Date.now()) / 3600000);
-      if (hoursLeft > 0.1) {
-        lines.push(`JSearch cooldown: ${hoursLeft.toFixed(1)}h left · ${calls}/180 calls this month`);
-      } else {
-        lines.push(`JSearch ready · ${calls}/180 calls used this month`);
-      }
+      const hoursLeft = Math.max(0, (new Date(nextStr) - Date.now()) / 3600000);
+      statusEl.textContent = hoursLeft > 0.1
+        ? `JSearch cooldown: ${hoursLeft.toFixed(1)}h left · ${calls}/180 calls this month`
+        : `JSearch ready · ${calls}/180 calls used this month`;
     }
-
-    if (lines.length) statusEl.textContent = lines.join(' · ');
   } catch(e) {}
 }
 
