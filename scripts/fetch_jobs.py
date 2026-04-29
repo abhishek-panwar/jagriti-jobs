@@ -26,12 +26,27 @@ JSEARCH_HOST   = "jsearch.p.rapidapi.com"
 
 TODAY = datetime.date.today().strftime("%B %Y")
 
+# ── Resume-based profile (mirrors RESUME_PROFILE in the HTML) ──
 SKILLS_KEYWORDS = [
-    "Snowflake","AWS","API","SQL","Power BI","Agile","Scrum",
-    "data governance","RESTful","business analyst","Tableau","stakeholder",
-    "BRD","FRD","ETL","data platform","analytics","requirements",
-    "process improvement","user stories","UAT"
+    "Snowflake","AWS","SQL","Power BI","Tableau","Agile","Scrum","SAFe",
+    "data governance","RESTful","RESTful API","API","JSON","Swagger","ReadyAPI",
+    "BRD","FRD","UAT","ETL","data platform","analytics","requirements",
+    "process improvement","user stories","stakeholder","metadata","Informatica",
+    "Confluence","JIRA","data quality","data mapping","Visio","LucidChart",
+    "DynamoDB","SQL Server","IBM DB2","Mainframe","Snowflake"
 ]
+
+# Title regex: matches all roles Jagriti qualifies for (mirrors TITLE_RE in HTML)
+TITLE_RE = re.compile(
+    r'\b(?:sr\.?|senior|lead|principal|staff|enterprise)\s+'
+    r'(?:(?:technical|it|data|systems?|product|solutions?|process|requirements)\s+)?'
+    r'(?:business\s+analyst|ba)\b'
+    r'|\bbusiness\s+(?:systems?|it|data|technical|solutions?|process|requirements)\s+analyst\b'
+    r'|\bbusiness\s+analyst\s*(?:iii|3)\b'
+    r'|\bba[-\s]?(?:iii|3)\b'
+    r'|\b(?:data\s+governance|solutions?|requirements|process|technical|it)\s+analyst\b',
+    re.IGNORECASE
+)
 
 # ── Helpers ──
 def load_json(path, default):
@@ -359,26 +374,26 @@ if __name__ == "__main__":
 
     if can_use_jsearch:
         print("Fetching from JSearch (LinkedIn/Indeed/Glassdoor/ZipRecruiter)...")
-        # Single combined call instead of two — saves quota
-        all_jobs += fetch_jsearch("senior business analyst Seattle WA OR remote", num_results=18)
+        all_jobs += fetch_jsearch("business analyst Seattle WA OR remote", num_results=18)
         meta["jsearch_last_called"]        = now.isoformat()
         meta["jsearch_calls_this_month"]   = monthly_calls + 1
 
     print("Fetching from Adzuna...")
-    all_jobs += fetch_adzuna("senior business analyst", "Seattle WA", 12)
-    all_jobs += fetch_adzuna("senior business analyst", "remote",     8)
+    all_jobs += fetch_adzuna("business analyst", "Seattle WA", 12)
+    all_jobs += fetch_adzuna("business analyst", "remote",     8)
 
     print("Fetching from Remotive...")
     all_jobs += fetch_remotive(8)
 
-    # Deduplicate
+    # Deduplicate + title filter (resume-based regex, not hardcoded "Sr BA" only)
     seen, unique = set(), []
     for j in all_jobs:
         key = (j["title"].lower().strip(), j["company"].lower().strip())
         if key not in seen and j["title"] and j["company"]:
-            seen.add(key)
-            j["id"] = job_id(j)     # bake in stable ID
-            unique.append(j)
+            if TITLE_RE.search(j["title"]):   # only keep roles matching her profile
+                seen.add(key)
+                j["id"] = job_id(j)
+                unique.append(j)
 
     unique.sort(key=score_job, reverse=True)
     jobs = unique[:20]
