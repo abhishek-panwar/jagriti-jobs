@@ -36,17 +36,17 @@ SKILLS_KEYWORDS = [
     "DynamoDB","SQL Server","IBM DB2","Mainframe","Snowflake"
 ]
 
-# Title regex: matches all roles Jagriti qualifies for (mirrors TITLE_RE in HTML)
+# Title regex — broad BA match, excludes junior/associate/unrelated roles
 TITLE_RE = re.compile(
-    r'\b(?:sr\.?|senior|lead|principal|staff|enterprise)\s+'
+    r'\b(?:sr\.?|senior|lead|principal|staff|enterprise|technical|it|data|systems?|product|solutions?|process|requirements)\s+'
     r'(?:(?:technical|it|data|systems?|product|solutions?|process|requirements)\s+)?'
     r'(?:business\s+analyst|ba)\b'
-    r'|\bbusiness\s+(?:systems?|it|data|technical|solutions?|process|requirements)\s+analyst\b'
-    r'|\bbusiness\s+analyst\s*(?:iii|3)\b'
-    r'|\bba[-\s]?(?:iii|3)\b'
-    r'|\b(?:data\s+governance|solutions?|requirements|process|technical|it)\s+analyst\b',
+    r'|\bbusiness\s+(?:analyst|systems?\s+analyst|it\s+analyst|data\s+analyst|technical\s+analyst|solutions?\s+analyst|process\s+analyst|requirements\s+analyst)\b'
+    r'|\bbusiness\s+analyst\s*(?:i{1,3}|iv|v|[1-5])?\b'
+    r'|\bba[-\s]?(?:iii|3|iv|4)\b',
     re.IGNORECASE
 )
+TITLE_EXCLUDE_RE = re.compile(r'\b(junior|jr\.?|associate|entry.level|marketing analyst|financial analyst)\b', re.IGNORECASE)
 
 # ── Helpers ──
 def load_json(path, default):
@@ -239,7 +239,7 @@ if __name__ == "__main__":
     for j in all_jobs:
         key = (j["title"].lower().strip(), j["company"].lower().strip())
         if key not in seen and j["title"] and j["company"]:
-            if TITLE_RE.search(j["title"]):   # only keep roles matching her profile
+            if TITLE_RE.search(j["title"]) and not TITLE_EXCLUDE_RE.search(j["title"]):
                 seen.add(key)
                 j["id"] = job_id(j)
                 unique.append(j)
