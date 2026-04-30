@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Business Analyst - Payments(Retail/Ecommerce)",
-      "company": "IT commence llc",
-      "location": "Times Square, King County",
-      "url": "https://www.adzuna.com/land/ad/5707343167?se=oBspRGlD8RGLLrIe10BuwQ&utm_medium=api&utm_source=5975f043&v=8F2816E40481FB9F53064203E395F50CA2134506",
-      "description": "Role: Business Analyst - Payments (Retail/Ecommerce) Location: Seattle, WA Duration: 12 Months Role Overview We are seeking a Business Analyst with strong expertise in Payments and hands-on experience in Retail/Ecommerce domain. The candidate will be responsible for gathering and translating business requirements into functional specifications, supporting payment integrations, and ensuring seamless transaction flows across digital commerce platforms. Key Responsibilities: Elicit, analyze, and d…",
-      "salary_min": 115987,
-      "salary_max": 115987,
-      "source": "Adzuna",
-      "listed": "2026-04-22",
-      "id": "job_business_analyst_payments_retail_ecommer"
-    },
-    {
       "title": "Business Analyst",
       "company": "Judge Group, Inc.",
       "location": "Redmond, King County",
@@ -37,6 +25,6 @@
       "id": "job_erp_business_analyst_insight_global"
     }
   ],
-  "totalCount": 3,
-  "fetchedAt": "2026-04-30T03:38:06.480Z"
+  "totalCount": 2,
+  "fetchedAt": "2026-04-30T03:38:12.331Z"
 }
