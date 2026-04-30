@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Business Analyst",
-      "company": "Kforce Technology Staffing",
-      "location": "Times Square, King County",
-      "url": "https://www.adzuna.com/land/ad/5702982448?se=oBspRGlD8RGLLrIe10BuwQ&utm_medium=api&utm_source=5975f043&v=3E7CCC9D5AAE7914F6D84D62A47314B70E8A29F7",
-      "description": "RESPONSIBILITIES: Kforce has an enterprise client seeking a Business Analyst II in Seattle, WA. Responsibilities: * Analyzes business data and systems to support sustainability and supplier decarbonization initiatives * Designs and executes segmentation analyses to prioritize stakeholder engagement based on performance metrics and strategic impact * Owns preparation of performance reporting for monthly and quarterly business reviews, building and maintaining dashboards that provide real-time vi…",
-      "salary_min": 107796,
-      "salary_max": 107796,
-      "source": "Adzuna",
-      "listed": "2026-04-17",
-      "id": "job_business_analyst_kforce_technology_staff"
-    },
-    {
       "title": "Business Analyst - Payments(Retail/Ecommerce)",
       "company": "IT commence llc",
       "location": "Times Square, King County",
@@ -49,6 +37,6 @@
       "id": "job_erp_business_analyst_insight_global"
     }
   ],
-  "totalCount": 4,
-  "fetchedAt": "2026-04-30T01:03:05.637Z"
+  "totalCount": 3,
+  "fetchedAt": "2026-04-30T03:38:06.480Z"
 }
