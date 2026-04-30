@@ -52,7 +52,11 @@ endobj
 endobj
 9 0 obj
 <<
+<<<<<<< Updated upstream
 /Author (\(anonymous\)) /CreationDate (D:20260430033912+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20260430033912+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+=======
+/Author (\(anonymous\)) /CreationDate (D:20260430033922+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20260430033922+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+>>>>>>> Stashed changes
   /Subject (\(unspecified\)) /Title (\(anonymous\)) /Trapped /False
 >>
 endobj
@@ -93,7 +97,11 @@ xref
 trailer
 <<
 /ID 
+<<<<<<< Updated upstream
 [<76b547ed5bf43bf7f8833be5c257a48b><76b547ed5bf43bf7f8833be5c257a48b>]
+=======
+[<8328f17cf99fc10bb7fa9cbca551c00a><8328f17cf99fc10bb7fa9cbca551c00a>]
+>>>>>>> Stashed changes
 % ReportLab generated PDF document -- digest (opensource)
 
 /Info 9 0 R
