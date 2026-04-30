@@ -61,18 +61,6 @@
       "id": "job_business_analyst_listings_amazon"
     },
     {
-      "title": "Business Analyst, US Prime",
-      "company": "Amazon",
-      "location": "International, King County",
-      "url": "https://www.adzuna.com/land/ad/5678847101?se=oBspRGlD8RGLLrIe10BuwQ&utm_medium=api&utm_source=5975f043&v=7B4674DD43735B2D5CB52D1B6C675CABF7F169D9",
-      "description": "Description Are you ready to turn data into decisions that shape one of Amazon's most iconic programs? The US Prime Finance team is looking for an analytically-driven Business Analyst who thrives at the intersection of data, storytelling, and strategy. A successful candidate will be a strategic thinker, highly analytical, comfortable with creating data driven narratives, customer obsessed, and have a willingness to navigate ambiguity. They must be comfortable contributing to plans presented to …",
-      "salary_min": 161938,
-      "salary_max": 161938,
-      "source": "Adzuna",
-      "listed": "2026-03-26",
-      "id": "job_business_analyst_us_prime_amazon"
-    },
-    {
       "title": "Business Analyst, Global Logistics Exports",
       "company": "Amazon",
       "location": "Bellevue, King County",
@@ -97,6 +85,6 @@
       "id": "job_sr_sales_operations_business_analyst_mic"
     }
   ],
-  "totalCount": 8,
-  "fetchedAt": "2026-04-30T01:02:37.785Z"
+  "totalCount": 7,
+  "fetchedAt": "2026-04-30T01:02:41.459Z"
 }
