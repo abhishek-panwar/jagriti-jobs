@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Business Analyst",
-      "company": "Judge Group, Inc.",
-      "location": "Redmond, King County",
-      "url": "https://www.adzuna.com/land/ad/5707337625?se=oBspRGlD8RGLLrIe10BuwQ&utm_medium=api&utm_source=5975f043&v=1F722CA3356AD4E7BA5EEC472CB566EE1491F991",
-      "description": "Location: Redmond, WA Salary: $65.00 USD Hourly - $80.00 USD Hourly Description: Our client is currently seeking a Project Manager for a 12 month  contract. Medical device or other highly regulated industry experience is preferred. About the Role We are seeking a detail-oriented Business Analyst to support EUMDR regulatory compliance initiatives and drive data-driven decision-making across purchasing and manufacturing operations. In this role, you will analyze component run-out timelines, coord…",
-      "salary_min": 116658,
-      "salary_max": 116658,
-      "source": "Adzuna",
-      "listed": "2026-04-22",
-      "id": "job_business_analyst_judge_group_inc"
-    },
-    {
       "title": "ERP Business Analyst",
       "company": "Insight Global",
       "location": "Renton, King County",
@@ -25,6 +13,6 @@
       "id": "job_erp_business_analyst_insight_global"
     }
   ],
-  "totalCount": 2,
-  "fetchedAt": "2026-04-30T03:38:12.331Z"
+  "totalCount": 1,
+  "fetchedAt": "2026-04-30T03:38:35.269Z"
 }
