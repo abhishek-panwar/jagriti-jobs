@@ -61,18 +61,6 @@
       "id": "job_business_analyst_listings_amazon"
     },
     {
-      "title": "Business Analyst, Global Logistics Exports",
-      "company": "Amazon",
-      "location": "Bellevue, King County",
-      "url": "https://www.adzuna.com/land/ad/5678847038?se=oBspRGlD8RGLLrIe10BuwQ&utm_medium=api&utm_source=5975f043&v=E2B9A600BEDB9BC72EB4DFF1AC1C9B5FFE1BEDB0",
-      "description": "Description The Global Logistics Exports organization enables customers across the world to access international selection that is sold in other countries. To do so, we manage the global cross-border supply chain, operating the largest Amazon cross-country network spanning 1k lanes and 200 countries. . By incorporating various programs and businesses into our supply chains, we spin the flywheel to reduce costs and improve delivery speeds for all our clients. We are looking for a Business Analys…",
-      "salary_min": 221802,
-      "salary_max": 221802,
-      "source": "Adzuna",
-      "listed": "2026-03-26",
-      "id": "job_business_analyst_global_logistics_export"
-    },
-    {
       "title": "Sr. Sales Operations Business Analyst",
       "company": "Microsoft Corporation",
       "location": "Redmond, King County",
@@ -85,6 +73,6 @@
       "id": "job_sr_sales_operations_business_analyst_mic"
     }
   ],
-  "totalCount": 7,
-  "fetchedAt": "2026-04-30T01:02:41.459Z"
+  "totalCount": 6,
+  "fetchedAt": "2026-04-30T01:02:47.956Z"
 }
