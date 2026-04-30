@@ -25,18 +25,6 @@
       "id": "job_business_analyst_payments_retail_ecommer"
     },
     {
-      "title": "Business Analyst II, SPT Analytics",
-      "company": "Amazon",
-      "location": "International, King County",
-      "url": "https://www.adzuna.com/land/ad/5670352348?se=oBspRGlD8RGLLrIe10BuwQ&utm_medium=api&utm_source=5975f043&v=3B8F8EE3ABFEEA5D902614A784377DD5B7F63DAA",
-      "description": "Description As we strive to be Earth's most customer-centric company, Amazon has reinvented how hundreds of millions of people shop online - providing customers with the opportunity to find and discover virtually anything they want to buy and providing millions of sellers with a platform for growing successful businesses. We are looking for an exceptional business analyst to help us develop new ways to build trust and loyalty with sellers, a crucial component of our flywheel Sellers' trust in A…",
-      "salary_min": 161785,
-      "salary_max": 161785,
-      "source": "Adzuna",
-      "listed": "2026-03-18",
-      "id": "job_business_analyst_ii_spt_analytics_amazon"
-    },
-    {
       "title": "Business Analyst",
       "company": "Judge Group, Inc.",
       "location": "Redmond, King County",
@@ -121,6 +109,6 @@
       "id": "job_sr_sales_operations_business_analyst_mic"
     }
   ],
-  "totalCount": 10,
-  "fetchedAt": "2026-04-30T01:01:49.614Z"
+  "totalCount": 9,
+  "fetchedAt": "2026-04-30T01:01:55.833Z"
 }
