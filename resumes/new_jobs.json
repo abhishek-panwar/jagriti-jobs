@@ -1,18 +1,5 @@
 {
-  "jobs": [
-    {
-      "title": "ERP Business Analyst",
-      "company": "Insight Global",
-      "location": "Renton, King County",
-      "url": "https://www.adzuna.com/land/ad/5710851904?se=oBspRGlD8RGLLrIe10BuwQ&utm_medium=api&utm_source=5975f043&v=599642E194BDEDAD077070D6CABCB59C87044187",
-      "description": "Job Description Role Overview Insight Global Client is seeking a Senior ERP Business Analyst to lead stabilization, optimization, and long-term scalability of its ERP system (DMSi Agility) across manufacturing, sales, inventory, and operations. This is a hands-on, execution-first role requiring strong cross-functional partnership, ownership, and the ability to lead without direct authority. The immediate priority is correcting and standardizing BOMs (Bills of Materials) and related ERP processe…",
-      "salary_min": 90316,
-      "salary_max": 90316,
-      "source": "Adzuna",
-      "listed": "2026-04-26",
-      "id": "job_erp_business_analyst_insight_global"
-    }
-  ],
-  "totalCount": 1,
-  "fetchedAt": "2026-04-30T03:38:35.269Z"
+  "jobs": [],
+  "totalCount": 0,
+  "fetchedAt": "2026-04-30T03:38:37.161Z"
 }
