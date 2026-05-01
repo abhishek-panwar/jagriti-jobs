@@ -1,6 +1,292 @@
 {
   "jobs": [
     {
+      "title": "Partner Solutions Architect, UK",
+      "company": "Stripe",
+      "loc": "LOCATION",
+      "url": "https://stripe.com/jobs/search?gh_jid=7614951",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure p",
+      "listed": "2026-05-01",
+      "source": "Greenhouse",
+      "pid": "r_partner_solutions_architect_uk_stripe",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Sr. Delivery Solutions Architect - Manufacturing",
+      "company": "Databricks",
+      "loc": "Central - United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8530859002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ327R171&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;At Databricks, we are on a mission to empower our customers to solve the world&#39;s ",
+      "listed": "2026-05-01",
+      "source": "Greenhouse",
+      "pid": "r_sr_delivery_solutions_architect_manufact",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior Technical Architect - Patient CRM",
+      "company": "Veeva Systems",
+      "loc": "New York - New York City",
+      "url": "https://jobs.lever.co/veeva/ef0c4e0d-2f01-4a9e-86b5-e1dd6f46e4ab",
+      "desc": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B ",
+      "listed": "2026-05-01",
+      "source": "Lever",
+      "pid": "r_senior_technical_architect_patient_crm_v",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior Technical Architect - Patient CRM",
+      "company": "Veeva Systems",
+      "loc": "Illinois - Chicago",
+      "url": "https://jobs.lever.co/veeva/ffb5c005-6313-418b-b508-1c8aa4a3432c",
+      "desc": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B ",
+      "listed": "2026-05-01",
+      "source": "Lever",
+      "pid": "r_senior_technical_architect_patient_crm_v",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Associate, Insurance Senior Business Analyst",
+      "company": "SoFi",
+      "loc": "UT - Cottonwood Heights; CA - San Francisco HQ; VA - Reston; TX - Frisco   ",
+      "url": "https://sofi.com/careers/job/7677710003?gh_jid=7677710003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://www.sofi.com/sofi-employee-applicant-privacy-notice/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Employee Applicant Privacy Notice&lt;/str",
+      "listed": "2026-05-01",
+      "source": "Greenhouse",
+      "pid": "r_associate_insurance_senior_business_anal",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Product Owner, GTM Sales Systems",
+      "company": "Klaviyo",
+      "loc": "San Francisco, CA",
+      "url": "https://www.klaviyo.com/careers/jobs?gh_jid=7721795003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;em&gt;At Klaviyo, we value the unique backgrounds, experiences and perspectives each Klaviyo (we call ourselves Klaviyos) brings to our workplace each and every day",
+      "listed": "2026-05-01",
+      "source": "Greenhouse",
+      "pid": "r_product_owner_gtm_sales_systems_klaviyo",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior Technical Program Manager, Product",
+      "company": "Lyft",
+      "loc": "San Francisco, CA",
+      "url": "https://app.careerpuck.com/job-board/lyft/job/8433701002?gh_jid=8433701002",
+      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Lyft connects people to",
+      "listed": "2026-05-01",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_product",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Staff Technical Program Manager, Mergers & Acquisition",
+      "company": "Lyft",
+      "loc": "San Francisco, CA",
+      "url": "https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002",
+      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Rooted in Lyft&#39;s mi",
+      "listed": "2026-05-01",
+      "source": "Greenhouse",
+      "pid": "r_staff_technical_program_manager_mergers_",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Solutions Architect, Platforms - UK",
+      "company": "Stripe",
+      "loc": "London",
+      "url": "https://stripe.com/jobs/search?gh_jid=7574857",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fr",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_platforms_uk_stripe",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Specialist Solutions Architect - Cloud Infrastructure & Platform",
+      "company": "Databricks",
+      "loc": "United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8525037002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ127R316&lt;/p&gt; &lt;p&gt;As a Specialist Solutions Architect (SSA) - Cloud Infrastructure &amp;amp; Platform, you will guide customers in the administration and security of ",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_specialist_solutions_architect_cloud_inf",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Sr. ISV & Partner Solutions Architect",
+      "company": "Databricks",
+      "loc": "United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8439172002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ327R144&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;As a Partner Solutions Architect, you will focus on cultivating technical relationships with one of our largest Glo",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_sr_isv_partner_solutions_architect_datab",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Marketing Business Analyst",
+      "company": "Fivetran",
+      "loc": "Oakland, California, United States, AMER",
+      "url": "https://www.fivetran.com/careers/job?gh_jid=7674622003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;From Fivetran’s founding until now, our mission has remained the same: to make access to data as simple and reliable as electricity. With Fivetran, customer data arrive",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_marketing_business_analyst_fivetran",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Product Owner - Financial Analytics",
+      "company": "Capital One",
+      "loc": "Limassol, Cyprus",
+      "url": "https://jobs.lever.co/capital/9c184f7d-4fe4-450c-aa67-19d37c0eb285",
+      "desc": "",
+      "listed": "2026-04-30",
+      "source": "Lever",
+      "pid": "r_product_owner_financial_analytics_capita",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior Manager, Solutions Architect, Games",
+      "company": "Discord",
+      "loc": "San Francisco Bay Area",
+      "url": "https://job-boards.greenhouse.io/discord/jobs/8391234002",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Discord is used by over 200 million people every month for many different reasons, but there’s one thing that nearly everyone does on our platform:&lt;strong&gt; play v",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_senior_manager_solutions_architect_games",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Staff Technical Program Manager, Revenue Product Compliance",
+      "company": "Discord",
+      "loc": "San Francisco Bay Area",
+      "url": "https://job-boards.greenhouse.io/discord/jobs/8450205002",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Discord is used by over 200 million people every month for many different reasons, but there’s one thing that nearly everyone does on our platform:&lt;strong&gt; play v",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_staff_technical_program_manager_revenue_",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Specialist Solutions Architect - AI/ML (Communications, Media, Entertainment & Games)",
+      "company": "Databricks",
+      "loc": "United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8530171002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ227R247&lt;/p&gt; &lt;p&gt;As a Specialist Solutions Architect (SSA) - AI/ML Engineering, you will be the trusted technical ML &amp;amp; AI expert to both Databricks customers",
+      "listed": "2026-04-29",
+      "source": "Greenhouse",
+      "pid": "r_specialist_solutions_architect_ai_ml_com",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Specialist Solutions Architect - AI/ML (Retail)",
+      "company": "Databricks",
+      "loc": "United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8002207002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ227R362&lt;/p&gt; &lt;p&gt;As a Specialist Solutions Architect (SSA) - AI/ML Engineering, you will be the trusted technical ML &amp;amp; AI expert to both Databricks customers",
+      "listed": "2026-04-29",
+      "source": "Greenhouse",
+      "pid": "r_specialist_solutions_architect_ai_ml_ret",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior PLM Business Analyst II",
+      "company": "Rocket Lab",
+      "loc": "Long Beach, CA",
+      "url": "https://job-boards.greenhouse.io/rocketlab/jobs/7711296003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;ABOUT ROCKET LAB&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Rocket Lab is an end-to-end space company delivering responsive launch services, complete spacecraft de",
+      "listed": "2026-04-29",
+      "source": "Greenhouse",
+      "pid": "r_senior_plm_business_analyst_ii_rocket_la",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Sr. Systems Analyst, People Technology",
+      "company": "Sweetgreen",
+      "loc": "Los Angeles, CA",
+      "url": "https://careers.sweetgreen.com/jobs/7868665?gh_jid=7868665",
+      "desc": "&lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p data-pm-slice=&quot;0 0 []&quot;&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;sweetgreen has been on a mission to build healthier communities since 2007 — and behi",
+      "listed": "2026-04-29",
+      "source": "Greenhouse",
+      "pid": "r_sr_systems_analyst_people_technology_swe",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Solutions Architect, Platforms",
+      "company": "Stripe",
+      "loc": "Chicago, IL or New York, NY",
+      "url": "https://stripe.com/jobs/search?gh_jid=7396509",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;At Stripe, you have an unprecedented opportunity to put the global economy within every",
+      "listed": "2026-04-28",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_platforms_stripe",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Solutions Architect - Financial Services (Strategic Data Providers)",
+      "company": "Databricks",
+      "loc": "Georgia; Illinois; Massachusetts; New York; North Carolina",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8520024002",
+      "desc": "&lt;p&gt;FEQ327R7&lt;/p&gt; &lt;p&gt;While candidates in the listed location(s) are encouraged to apply for this role, exceptionally well-qualified candidates in other East Coast locations will also be considered.&lt;/p&",
+      "listed": "2026-04-28",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_financial_services_s",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior Technical Program Manager, Privacy",
+      "company": "Robinhood",
+      "loc": "New York, NY",
+      "url": "https://boards.greenhouse.io/robinhood/jobs/7773503?t=gh_src=&gh_jid=7773503",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;Join us in building the future of finance.&lt;/h2&gt; &lt;p&gt;Our mission is to democratize finance for all. &lt;a href=&quot;https://www.cerulli.com/press-releases/c",
+      "listed": "2026-04-28",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_privacy",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Staff Technical Program Manager - Reliability Engineering",
+      "company": "Robinhood",
+      "loc": "Menlo Park, CA",
+      "url": "https://boards.greenhouse.io/robinhood/jobs/7739577?t=gh_src=&gh_jid=7739577",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;Join us in building the future of finance.&lt;/h2&gt; &lt;p&gt;Our mission is to democratize finance for all. &lt;a href=&quot;https://www.cerulli.com/press-releases/c",
+      "listed": "2026-04-28",
+      "source": "Greenhouse",
+      "pid": "r_staff_technical_program_manager_reliabil",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Data Governance Engineer",
+      "company": "Chime",
+      "loc": "San Francisco, CA, USA",
+      "url": "https://boards.greenhouse.io/chime/jobs/8525098002?gh_jid=8525098002",
+      "desc": "&lt;h2&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;The Data Governance function is pivotal in ensuring the integrity, trustworthiness, and effective management of Chime’s data assets. Our mission i",
+      "listed": "2026-04-28",
+      "source": "Greenhouse",
+      "pid": "r_data_governance_engineer_chime",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Partner Solution Architect (PSA)",
+      "company": "Sumo Logic",
+      "loc": "Austin, TX",
+      "url": "https://job-boards.greenhouse.io/sumologic/jobs/7862187",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Partner Solution Architect (PSA)&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;Sumo Logic&#39;s Cloud SIEM (Security Information and Event Management) platform provides comprehensive security visibility and ",
+      "listed": "2026-04-28",
+      "source": "Greenhouse",
+      "pid": "r_partner_solution_architect_psa_sumo_logi",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior Technical Program Manager, Health ML",
+      "company": "Whoop",
+      "loc": "Boston, MA",
+      "url": "https://jobs.lever.co/whoop/07a5beee-b576-4266-acdf-56c3bd7afc5e",
+      "desc": "",
+      "listed": "2026-04-28",
+      "source": "Lever",
+      "pid": "r_senior_technical_program_manager_health_",
+      "addedAt": "2026-05-01"
+    },
+    {
       "title": "Senior Business Systems Analyst",
       "company": "Twilio",
       "loc": "Remote - US",
@@ -89,6 +375,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 8,
-  "updatedAt": "2026-05-01T01:07:08.494Z"
+  "totalCount": 34,
+  "updatedAt": "2026-05-01T19:19:59.108Z"
 }
