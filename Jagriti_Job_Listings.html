@@ -1280,21 +1280,25 @@ const TITLE_RE = new RegExp(RESUME_PROFILE.title_regex_js, 'i');
 const GH_REPO    = 'abhishek-panwar/jagriti-jobs';
 const GH_TOKEN     = () => ['github','_pat_','11AHXGI','YQ0aKVpl8','cGhlVd_9kb','EwslJvqIbb','AXAy2TjIfra','a9oq7LdYUKMj','isgFJiiJIDXQS','JHC22Eczpo'].join('');
 const JSEARCH_KEY  = () => ['58cd19e2f7msh91cf447019c17c1p1c8ca5js','nc4d911a8d7c9'].join('');
-const APPLIED_FILE   = 'resumes/applied_jobs.json';
-const APPLIED_LS_KEY   = 'jagriti_applied_jobs_v1';
-const CANCELLED_FILE = 'resumes/cancelled_jobs.json';
-const CANCELLED_LS_KEY = 'jagriti_cancelled_jobs_v1';
-const NEW_JOBS_FILE    = 'resumes/new_jobs.json';
-const RECENT_JOBS_FILE = 'resumes/recent_jobs.json';
+const APPLIED_FILE              = 'resumes/applied_jobs.json';
+const APPLIED_LS_KEY            = 'jagriti_applied_jobs_v1';
+const CANCELLED_FILE            = 'resumes/cancelled_jobs.json';
+const CANCELLED_LS_KEY          = 'jagriti_cancelled_jobs_v1';
+const NEW_JOBS_FILE             = 'resumes/new_jobs.json';
+const RECENT_JOBS_FILE          = 'resumes/recent_jobs.json';
+const RECENT_APPLIED_FILE       = 'resumes/recent_applied_jobs.json';
+const RECENT_CANCELLED_FILE     = 'resumes/recent_cancelled_jobs.json';
 
-let appliedFileSha   = null;
-let cancelledFileSha = null;
-let newJobsSha       = null;
-let newJobsCache     = [];   // in-memory copy of current new_jobs list
-let recentJobsSha    = null;
-let pushPending      = false;
-let pushTimer        = null;
-let cancelledPushTimer = null;
+let appliedFileSha          = null;
+let cancelledFileSha        = null;
+let newJobsSha              = null;
+let newJobsCache            = [];
+let recentJobsSha           = null;
+let recentAppliedSha        = null;
+let recentCancelledSha      = null;
+let pushPending             = false;
+let pushTimer               = null;
+let cancelledPushTimer      = null;
 
 // Local cache — always source of truth in memory
 function getApplied() {
@@ -1822,7 +1826,7 @@ async function syncRecentJobsFromGitHub() {
       `https://api.github.com/repos/${GH_REPO}/contents/${RECENT_JOBS_FILE}`,
       { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } }
     );
-    if (!res.ok) { renderPersistedJobs(); return; }
+    if (!res.ok) return;
     const data   = await res.json();
     recentJobsSha = data.sha;
     const remote = JSON.parse(atob(data.content.replace(/\n/g,''))).jobs || [];
@@ -1834,16 +1838,13 @@ async function syncRecentJobsFromGitHub() {
     const merged = Object.values(byPid);
     merged.sort((a, b) => (b.listed || '').localeCompare(a.listed || ''));
 
-    // Drop applied/cancelled
+    // Drop applied/cancelled (using freshly-synced lists)
     const appliedIds   = new Set(getPracticeApplied().map(j => j.id));
     const cancelledIds = new Set(getPracticeCancelled().map(j => j.id));
     const clean = merged.filter(j => !appliedIds.has(j.pid) && !cancelledIds.has(j.pid));
 
     setPersistedJobsLocal(clean);
-    renderPersistedJobs();
-  } catch(e) {
-    renderPersistedJobs();
-  }
+  } catch(e) {}
 }
 
 async function pushRecentJobsToGitHub() {
@@ -2312,7 +2313,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const wl = getWatchlist();
   if (!wl.some(c => c.toLowerCase() === 'spacex')) setWatchlist([...wl, 'SpaceX']);
   renderWatchlistChips();
-  syncRecentJobsFromGitHub();  // load recent jobs from GitHub (falls back to localStorage)
+  // Sync all recent section state from GitHub — runs in parallel, each falls back to localStorage
+  Promise.all([
+    syncRecentJobsFromGitHub(),
+    syncRecentAppliedFromGitHub(),
+    syncRecentCancelledFromGitHub(),
+  ]).then(() => {
+    renderPracticeApplied();
+    renderPracticeCancelled();
+    renderPersistedJobs();
+  });
   scheduleAutoScans();         // set up midnight + noon PST auto-scans
   loadJobs();                  // fetch new_jobs.json and render cards dynamically
 });
@@ -2947,8 +2957,79 @@ const PRACTICE_CANCELLED_KEY = 'jagriti_practice_cancelled_v1';
 
 function getPracticeApplied()   { try { return JSON.parse(localStorage.getItem(PRACTICE_APPLIED_KEY)   || '[]'); } catch(e) { return []; } }
 function getPracticeCancelled() { try { return JSON.parse(localStorage.getItem(PRACTICE_CANCELLED_KEY) || '[]'); } catch(e) { return []; } }
-function setPracticeApplied(arr)   { localStorage.setItem(PRACTICE_APPLIED_KEY,   JSON.stringify(arr)); }
-function setPracticeCancelled(arr) { localStorage.setItem(PRACTICE_CANCELLED_KEY, JSON.stringify(arr)); }
+function setPracticeApplied(arr)   { localStorage.setItem(PRACTICE_APPLIED_KEY,   JSON.stringify(arr)); pushRecentAppliedToGitHub(); }
+function setPracticeCancelled(arr) { localStorage.setItem(PRACTICE_CANCELLED_KEY, JSON.stringify(arr)); pushRecentCancelledToGitHub(); }
+
+async function _ghPut(filePath, shaRef, payload, message) {
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const body    = { message, content, ...(shaRef[0] ? { sha: shaRef[0] } : {}) };
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${filePath}`, {
+      method: 'PUT',
+      headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Content-Type': 'application/json',
+                 'Accept': 'application/vnd.github+json' },
+      body: JSON.stringify(body)
+    });
+    if (res.ok) { const d = await res.json(); shaRef[0] = d.content?.sha || shaRef[0]; }
+  } catch(e) {}
+}
+
+async function _ghGet(filePath, shaRef) {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${filePath}`,
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } });
+    if (!res.ok) return null;
+    const data = await res.json();
+    shaRef[0] = data.sha;
+    return JSON.parse(atob(data.content.replace(/\n/g,'')));
+  } catch(e) { return null; }
+}
+
+// Wrap SHA scalars in arrays so _ghPut/_ghGet can mutate them by reference
+const _recentAppliedShaRef    = [null];
+const _recentCancelledShaRef  = [null];
+
+async function pushRecentAppliedToGitHub() {
+  const arr = getPracticeApplied();
+  _recentAppliedShaRef[0] = recentAppliedSha;
+  await _ghPut(RECENT_APPLIED_FILE, _recentAppliedShaRef,
+    { applied: arr, updatedAt: new Date().toISOString() },
+    `Update recent applied jobs (${arr.length} total)`);
+  recentAppliedSha = _recentAppliedShaRef[0];
+}
+
+async function pushRecentCancelledToGitHub() {
+  const arr = getPracticeCancelled();
+  _recentCancelledShaRef[0] = recentCancelledSha;
+  await _ghPut(RECENT_CANCELLED_FILE, _recentCancelledShaRef,
+    { cancelled: arr, updatedAt: new Date().toISOString() },
+    `Update recent cancelled jobs (${arr.length} total)`);
+  recentCancelledSha = _recentCancelledShaRef[0];
+}
+
+async function syncRecentAppliedFromGitHub() {
+  const ref = [recentAppliedSha];
+  const data = await _ghGet(RECENT_APPLIED_FILE, ref);
+  recentAppliedSha = ref[0];
+  if (!data) return;
+  const remote = data.applied || [];
+  const local  = getPracticeApplied();
+  const byId   = {};
+  [...remote, ...local].forEach(j => { byId[j.id] = j; });
+  localStorage.setItem(PRACTICE_APPLIED_KEY, JSON.stringify(Object.values(byId)));
+}
+
+async function syncRecentCancelledFromGitHub() {
+  const ref = [recentCancelledSha];
+  const data = await _ghGet(RECENT_CANCELLED_FILE, ref);
+  recentCancelledSha = ref[0];
+  if (!data) return;
+  const remote = data.cancelled || [];
+  const local  = getPracticeCancelled();
+  const byId   = {};
+  [...remote, ...local].forEach(j => { byId[j.id] = j; });
+  localStorage.setItem(PRACTICE_CANCELLED_KEY, JSON.stringify(Object.values(byId)));
+}
 
 function slugifyPractice(s) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'').substring(0,40);
@@ -3022,15 +3103,37 @@ function markPracticeCancelled(pid, title, company, url, btn) {
 }
 
 function undoPracticeApplied(pid) {
+  const job = getPracticeApplied().find(j => j.id === pid);
   setPracticeApplied(getPracticeApplied().filter(j => j.id !== pid));
   renderPracticeApplied();
   _resetPracticeButtons(pid);
+  if (job) _restoreToRecentJobs(job, pid);
 }
 
 function undoPracticeCancelled(pid) {
+  const job = getPracticeCancelled().find(j => j.id === pid);
   setPracticeCancelled(getPracticeCancelled().filter(j => j.id !== pid));
   renderPracticeCancelled();
   _resetPracticeButtons(pid);
+  if (job) _restoreToRecentJobs(job, pid);
+}
+
+function _restoreToRecentJobs(job, pid) {
+  const existing = getPersistedJobs();
+  if (existing.find(j => j.pid === pid)) return;
+  const restored = {
+    pid,
+    title:   job.title   || '',
+    company: job.company || '',
+    loc:     job.loc     || '',
+    url:     job.applyUrl || '#',
+    desc:    '',
+    source:  job.source  || '',
+    listed:  job.listed  || '',
+    addedAt: new Date().toISOString().substring(0, 10),
+  };
+  setPersistedJobs([restored, ...existing]);
+  renderPersistedJobs(false);
 }
 
 function renderPracticeApplied() {
