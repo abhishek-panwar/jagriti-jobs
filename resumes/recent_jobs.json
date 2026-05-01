@@ -5,7 +5,7 @@
       "company": "Twilio",
       "loc": "Remote - US",
       "url": "https://job-boards.greenhouse.io/twilio/jobs/7643551",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we\u2019re shaping the future of communications, all from the comfort of our homes. We delive",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
       "listed": "2026-04-30",
       "source": "Greenhouse",
       "pid": "r_senior_business_systems_analyst_twilio",
@@ -45,6 +45,39 @@
       "addedAt": "2026-05-01"
     },
     {
+      "title": "Senior Business System Analyst, Salesforce",
+      "company": "Twilio",
+      "loc": "Remote - Canada",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7807737",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_senior_business_system_analyst_salesforc",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior Zendesk Business Systems Analyst",
+      "company": "Twilio",
+      "loc": "Remote - Canada",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7705692",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_senior_zendesk_business_systems_analyst_",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Technical Program Manager (P4)",
+      "company": "Twilio",
+      "loc": "Remote - Alberta, Canada (DNU)",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7821489",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_p4_twilio",
+      "addedAt": "2026-05-01"
+    },
+    {
       "title": "Solutions Architect, Hunter - Digital Native Business",
       "company": "Databricks",
       "loc": "Remote - California; Remote - Colorado; Remote - Illinois; Remote - New York; Remote - Oregon; Remote - Texas; Remote - Washington",
@@ -71,7 +104,7 @@
       "company": "Stripe",
       "loc": "New York City, South San Francisco, or Remote",
       "url": "https://stripe.com/jobs/search?gh_jid=7462261",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies\u2014fro",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
       "listed": "2026-04-27",
       "source": "Greenhouse",
       "pid": "r_solutions_architect_enterprise_stripe",
@@ -89,6 +122,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 8,
-  "updatedAt": "2026-05-01T01:01:45.238204"
+  "totalCount": 11,
+  "updatedAt": "2026-05-01T01:06:43.841Z"
 }
