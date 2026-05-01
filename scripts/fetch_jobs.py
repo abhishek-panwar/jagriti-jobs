@@ -36,7 +36,19 @@ SKILLS_KEYWORDS = [
     "DynamoDB","SQL Server","IBM DB2","Mainframe","Snowflake"
 ]
 
-# Title regex — broad BA match, excludes junior/associate/unrelated roles
+# ── Search query — mirrors RESUME_PROFILE.search_query in the HTML ──
+# Add/remove terms here to change what all API sources fetch.
+SEARCH_TERMS = [
+    "business analyst",
+    "product owner",
+    "solutions architect",
+    "systems analyst",
+    "technical program manager",
+    "data governance",
+]
+SEARCH_QUERY = " OR ".join(SEARCH_TERMS)
+
+# Title regex — broad match against SEARCH_TERMS, excludes junior/associate/unrelated roles
 TITLE_RE = re.compile(
     r'\b(?:sr\.?|senior|lead|principal|staff|enterprise|technical|it|data|systems?|product|solutions?|process|requirements)\s+'
     r'(?:(?:technical|it|data|systems?|product|solutions?|process|requirements)\s+)?'
@@ -229,13 +241,13 @@ if __name__ == "__main__":
 
     if can_use_jsearch:
         print("Fetching from JSearch (LinkedIn/Indeed/Glassdoor/ZipRecruiter)...")
-        all_jobs += fetch_jsearch("business analyst Seattle WA OR remote", num_results=18)
+        all_jobs += fetch_jsearch(f"({SEARCH_QUERY}) Seattle WA OR remote", num_results=18)
         meta["jsearch_last_called"]        = now.isoformat()
         meta["jsearch_calls_this_month"]   = monthly_calls + 1
 
     print("Fetching from Adzuna...")
-    all_jobs += fetch_adzuna("business analyst", "Seattle WA", 12)
-    all_jobs += fetch_adzuna("business analyst", "remote",     8)
+    all_jobs += fetch_adzuna(SEARCH_QUERY, "Seattle WA", 12)
+    all_jobs += fetch_adzuna(SEARCH_QUERY, "remote",     8)
 
     print("Fetching from Remotive...")
     all_jobs += fetch_remotive(8)
