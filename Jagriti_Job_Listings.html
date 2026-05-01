@@ -1284,12 +1284,14 @@ const APPLIED_FILE   = 'resumes/applied_jobs.json';
 const APPLIED_LS_KEY   = 'jagriti_applied_jobs_v1';
 const CANCELLED_FILE = 'resumes/cancelled_jobs.json';
 const CANCELLED_LS_KEY = 'jagriti_cancelled_jobs_v1';
-const NEW_JOBS_FILE  = 'resumes/new_jobs.json';
+const NEW_JOBS_FILE    = 'resumes/new_jobs.json';
+const RECENT_JOBS_FILE = 'resumes/recent_jobs.json';
 
 let appliedFileSha   = null;
 let cancelledFileSha = null;
 let newJobsSha       = null;
 let newJobsCache     = [];   // in-memory copy of current new_jobs list
+let recentJobsSha    = null;
 let pushPending      = false;
 let pushTimer        = null;
 let cancelledPushTimer = null;
@@ -1813,6 +1815,55 @@ function addToNewJobs(jobId) {
   pushNewJobs(`Undo: restore job ${jobId}`);
 }
 
+// ── Recent Jobs — GitHub persistence (mirrors new_jobs.json pattern) ──
+async function syncRecentJobsFromGitHub() {
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GH_REPO}/contents/${RECENT_JOBS_FILE}`,
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } }
+    );
+    if (!res.ok) { renderPersistedJobs(); return; }
+    const data   = await res.json();
+    recentJobsSha = data.sha;
+    const remote = JSON.parse(atob(data.content.replace(/\n/g,''))).jobs || [];
+
+    // Merge: remote is authoritative; keep any local entries not yet pushed
+    const local  = getPersistedJobs();
+    const byPid  = {};
+    [...remote, ...local].forEach(j => { byPid[j.pid] = j; });
+    const merged = Object.values(byPid);
+    merged.sort((a, b) => (b.listed || '').localeCompare(a.listed || ''));
+
+    // Drop applied/cancelled
+    const appliedIds   = new Set(getPracticeApplied().map(j => j.id));
+    const cancelledIds = new Set(getPracticeCancelled().map(j => j.id));
+    const clean = merged.filter(j => !appliedIds.has(j.pid) && !cancelledIds.has(j.pid));
+
+    setPersistedJobsLocal(clean);
+    renderPersistedJobs();
+  } catch(e) {
+    renderPersistedJobs();
+  }
+}
+
+async function pushRecentJobsToGitHub() {
+  const jobs    = getPersistedJobs();
+  const payload = { jobs, totalCount: jobs.length, updatedAt: new Date().toISOString() };
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const body    = { message: `Update recent jobs (${jobs.length} total)`, content,
+                    ...(recentJobsSha ? { sha: recentJobsSha } : {}) };
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GH_REPO}/contents/${RECENT_JOBS_FILE}`,
+      { method: 'PUT',
+        headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Content-Type': 'application/json',
+                   'Accept': 'application/vnd.github+json' },
+        body: JSON.stringify(body) }
+    );
+    if (res.ok) { const d = await res.json(); recentJobsSha = d.content?.sha || recentJobsSha; }
+  } catch(e) {}
+}
+
 // ── Filter + search (dynamic — re-queries DOM so new cards from refresh are picked up) ──
 const pills      = document.querySelectorAll('.pill');
 const search     = document.getElementById('searchBox');
@@ -1909,8 +1960,9 @@ function getWatchlist()      { try { return JSON.parse(localStorage.getItem(RECE
 function setWatchlist(arr)   { localStorage.setItem(RECENT_WATCHLIST_KEY,  JSON.stringify(arr)); }
 function getUserAdded()      { try { return JSON.parse(localStorage.getItem(RECENT_USER_ADDED_KEY) || '[]'); } catch { return []; } }
 function setUserAdded(arr)   { localStorage.setItem(RECENT_USER_ADDED_KEY, JSON.stringify(arr)); }
-function getPersistedJobs()  { try { return JSON.parse(localStorage.getItem(RECENT_RESULTS_KEY)   || '[]'); } catch { return []; } }
-function setPersistedJobs(a) { localStorage.setItem(RECENT_RESULTS_KEY, JSON.stringify(a)); }
+function getPersistedJobs()       { try { return JSON.parse(localStorage.getItem(RECENT_RESULTS_KEY) || '[]'); } catch { return []; } }
+function setPersistedJobsLocal(a) { localStorage.setItem(RECENT_RESULTS_KEY, JSON.stringify(a)); }
+function setPersistedJobs(a)      { setPersistedJobsLocal(a); pushRecentJobsToGitHub(); }
 
 let recentPage = 0;
 const RECENT_PAGE_SIZE = 10;
@@ -2260,7 +2312,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const wl = getWatchlist();
   if (!wl.some(c => c.toLowerCase() === 'spacex')) setWatchlist([...wl, 'SpaceX']);
   renderWatchlistChips();
-  renderPersistedJobs();       // restore saved scan results immediately
+  syncRecentJobsFromGitHub();  // load recent jobs from GitHub (falls back to localStorage)
   scheduleAutoScans();         // set up midnight + noon PST auto-scans
   loadJobs();                  // fetch new_jobs.json and render cards dynamically
 });
