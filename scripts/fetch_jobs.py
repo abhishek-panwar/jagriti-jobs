@@ -43,7 +43,9 @@ TITLE_RE = re.compile(
     r'(?:business\s+analyst|ba)\b'
     r'|\bbusiness\s+(?:analyst|systems?\s+analyst|it\s+analyst|data\s+analyst|technical\s+analyst|solutions?\s+analyst|process\s+analyst|requirements\s+analyst)\b'
     r'|\bbusiness\s+analyst\s*(?:i{1,3}|iv|v|[1-5])?\b'
-    r'|\bba[-\s]?(?:iii|3|iv|4)\b',
+    r'|\bba[-\s]?(?:iii|3|iv|4)\b'
+    r'|\b(?:sr\.?|senior|lead|principal|staff|technical|business)?\s*product\s+owner\b'
+    r'|\bbusiness\s+systems?\s+\w+\b',
     re.IGNORECASE
 )
 TITLE_EXCLUDE_RE = re.compile(r'\b(junior|jr\.?|associate|entry.level|marketing analyst|financial analyst)\b', re.IGNORECASE)
