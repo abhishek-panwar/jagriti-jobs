@@ -1322,7 +1322,7 @@ async function syncAppliedFromGitHub() {
   try {
     const res = await fetch(
       `https://api.github.com/repos/${GH_REPO}/contents/${APPLIED_FILE}`,
-      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } }
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' }, cache: 'no-store' }
     );
     if (!res.ok) return;
     const data   = await res.json();
@@ -1384,7 +1384,7 @@ async function syncCancelledFromGitHub() {
   try {
     const res = await fetch(
       `https://api.github.com/repos/${GH_REPO}/contents/${CANCELLED_FILE}`,
-      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } }
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' }, cache: 'no-store' }
     );
     if (!res.ok) { initCancelledState(); return; }
     const data = await res.json();
@@ -1736,7 +1736,7 @@ async function loadJobs() {
   try {
     const res = await fetch(
       `https://api.github.com/repos/${GH_REPO}/contents/${NEW_JOBS_FILE}`,
-      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } }
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' }, cache: 'no-store' }
     );
     if (!res.ok) { showGridEmpty(); return; }
     const data = await res.json();
@@ -1824,7 +1824,7 @@ async function syncRecentJobsFromGitHub() {
   try {
     const res = await fetch(
       `https://api.github.com/repos/${GH_REPO}/contents/${RECENT_JOBS_FILE}`,
-      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } }
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' }, cache: 'no-store' }
     );
     if (!res.ok) return;
     const data   = await res.json();
@@ -1851,7 +1851,7 @@ async function pushRecentJobsToGitHub() {
   // Always fetch current SHA before writing — ensures we never 409 on a stale/null SHA
   try {
     const chk = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${RECENT_JOBS_FILE}`,
-      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } });
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' }, cache: 'no-store' });
     if (chk.ok) { const cd = await chk.json(); recentJobsSha = cd.sha; }
   } catch(e) {}
 
@@ -2994,7 +2994,7 @@ async function _ghPut(filePath, shaRef, payload, message) {
 async function _ghGet(filePath, shaRef) {
   try {
     const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${filePath}`,
-      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } });
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' }, cache: 'no-store' });
     if (!res.ok) return null;
     const data = await res.json();
     shaRef[0] = data.sha;
@@ -3009,7 +3009,7 @@ const _recentCancelledShaRef  = [null];
 async function pushRecentAppliedToGitHub() {
   try {
     const chk = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${RECENT_APPLIED_FILE}`,
-      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } });
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' }, cache: 'no-store' });
     if (chk.ok) { const cd = await chk.json(); recentAppliedSha = cd.sha; }
   } catch(e) {}
   const arr     = getPracticeApplied();
@@ -3029,7 +3029,7 @@ async function pushRecentAppliedToGitHub() {
 async function pushRecentCancelledToGitHub() {
   try {
     const chk = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${RECENT_CANCELLED_FILE}`,
-      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } });
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' }, cache: 'no-store' });
     if (chk.ok) { const cd = await chk.json(); recentCancelledSha = cd.sha; }
   } catch(e) {}
   const arr     = getPracticeCancelled();
