@@ -1,5 +1,160 @@
 {
-  "jobs": [],
-  "totalCount": 0,
-  "updatedAt": "2026-05-01T00:41:07.433402"
+  "jobs": [
+    {
+      "title": "Partner Solutions Architect",
+      "company": "Twilio",
+      "loc": "Remote - Brazil",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7659831",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_partner_solutions_architect_twilio",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Partner Solutions Architect",
+      "company": "Twilio",
+      "loc": "Remote - United Kingdom",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7659776",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_partner_solutions_architect_twilio",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior Business System Analyst, Salesforce",
+      "company": "Twilio",
+      "loc": "Remote - Canada",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7807737",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_senior_business_system_analyst_salesforc",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior Business Systems Analyst",
+      "company": "Twilio",
+      "loc": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7643551",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_senior_business_systems_analyst_twilio",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior Zendesk Business Systems Analyst",
+      "company": "Twilio",
+      "loc": "Remote - Canada",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7705692",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_senior_zendesk_business_systems_analyst_",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Technical Program Manager (P4)",
+      "company": "Twilio",
+      "loc": "Remote - Alberta, Canada (DNU)",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7821489",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_p4_twilio",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Business Analyst (Starlink Growth)",
+      "company": "SpaceX",
+      "loc": "Redmond, WA",
+      "url": "https://boards.greenhouse.io/spacex/jobs/8403125002?gh_jid=8403125002",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_business_analyst_starlink_growth_spacex",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Sr. Business Analyst (Starlink Growth)",
+      "company": "SpaceX",
+      "loc": "Redmond, WA",
+      "url": "https://boards.greenhouse.io/spacex/jobs/8403144002?gh_jid=8403144002",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_sr_business_analyst_starlink_growth_spac",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Sr. Business Analyst, Workforce Planning (Starlink) ",
+      "company": "SpaceX",
+      "loc": "Redmond, WA",
+      "url": "https://boards.greenhouse.io/spacex/jobs/8444717002?gh_jid=8444717002",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_sr_business_analyst_workforce_planning_s",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Solutions Architect, Hunter - Digital Native Business",
+      "company": "Databricks",
+      "loc": "Remote - California; Remote - Colorado; Remote - Illinois; Remote - New York; Remote - Oregon; Remote - Texas; Remote - Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8432348002",
+      "desc": "&lt;p&gt;As a Hunter Solutions Architect on the Digital Natives team, you will shape the future of the big data landscape by working with the most sophisticated data engineering and data science teams in the world.&lt;/p",
+      "listed": "2026-04-29",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_hunter_digital_nativ",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Technical Architect, Go-to-Market",
+      "company": "Dropbox",
+      "loc": "Remote - Canada: Select locations",
+      "url": "https://jobs.dropbox.com/listing/7775447?gh_jid=7775447",
+      "desc": "&lt;h2 class=&quot;p1&quot;&gt;&lt;span class=&quot;s1&quot;&gt;Role Description&lt;/span&gt;&lt;/h2&gt; &lt;p&gt;&lt;span class=&quot;ace-line-pocket-zws&quot; data-faketext=&quot;&quot; data-contentcollector-ignore-spa",
+      "listed": "2026-04-28",
+      "source": "Greenhouse",
+      "pid": "r_technical_architect_go_to_market_dropbox",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Technical Architect, Go-to-Market",
+      "company": "Dropbox",
+      "loc": "Remote - US: Select locations",
+      "url": "https://jobs.dropbox.com/listing/7775446?gh_jid=7775446",
+      "desc": "&lt;h2 class=&quot;p1&quot;&gt;&lt;span class=&quot;s1&quot;&gt;Role Description&lt;/span&gt;&lt;/h2&gt; &lt;p&gt;&lt;span class=&quot;ace-line-pocket-zws&quot; data-faketext=&quot;&quot; data-contentcollector-ignore-spa",
+      "listed": "2026-04-28",
+      "source": "Greenhouse",
+      "pid": "r_technical_architect_go_to_market_dropbox",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Solutions Architect, Enterprise",
+      "company": "Stripe",
+      "loc": "New York City, South San Francisco, or Remote",
+      "url": "https://stripe.com/jobs/search?gh_jid=7462261",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
+      "listed": "2026-04-27",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_enterprise_stripe",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Solutions Architect, Strategic Enterprise Platforms",
+      "company": "Stripe",
+      "loc": "San Francisco, CA or New York, NY or Remote",
+      "url": "https://stripe.com/jobs/search?gh_jid=7386950",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;At Stripe, you have an unprecedented opportunity to put the global economy within every",
+      "listed": "2026-04-27",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_strategic_enterprise",
+      "addedAt": "2026-05-01"
+    }
+  ],
+  "totalCount": 14,
+  "updatedAt": "2026-05-01T00:54:36.353Z"
 }
