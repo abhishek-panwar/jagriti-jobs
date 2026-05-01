@@ -1281,9 +1281,9 @@ const GH_REPO    = 'abhishek-panwar/jagriti-jobs';
 const GH_TOKEN     = () => ['github','_pat_','11AHXGI','YQ0aKVpl8','cGhlVd_9kb','EwslJvqIbb','AXAy2TjIfra','a9oq7LdYUKMj','isgFJiiJIDXQS','JHC22Eczpo'].join('');
 const JSEARCH_KEY  = () => ['58cd19e2f7msh91cf447019c17c1p1c8ca5js','nc4d911a8d7c9'].join('');
 const APPLIED_FILE              = 'resumes/applied_jobs.json';
-const APPLIED_LS_KEY            = 'jagriti_applied_jobs_v1';
+const APPLIED_LS_KEY            = 'jagriti_applied_jobs_v2';
 const CANCELLED_FILE            = 'resumes/cancelled_jobs.json';
-const CANCELLED_LS_KEY          = 'jagriti_cancelled_jobs_v1';
+const CANCELLED_LS_KEY          = 'jagriti_cancelled_jobs_v2';
 const NEW_JOBS_FILE             = 'resumes/new_jobs.json';
 const RECENT_JOBS_FILE          = 'resumes/recent_jobs.json';
 const RECENT_APPLIED_FILE       = 'resumes/recent_applied_jobs.json';
@@ -1953,9 +1953,9 @@ function toggleRecentSection() {
 }
 
 // ── Recent Openings — watchlist stored in localStorage ──
-const RECENT_WATCHLIST_KEY   = 'jagriti_recent_watchlist_v1';
-const RECENT_USER_ADDED_KEY  = 'jagriti_recent_user_added_v1';
-const RECENT_RESULTS_KEY     = 'jagriti_recent_results_v1';   // persisted scan results
+const RECENT_WATCHLIST_KEY   = 'jagriti_recent_watchlist_v2';
+const RECENT_USER_ADDED_KEY  = 'jagriti_recent_user_added_v2';
+const RECENT_RESULTS_KEY     = 'jagriti_recent_results_v2';   // persisted scan results
 
 function getWatchlist()      { try { return JSON.parse(localStorage.getItem(RECENT_WATCHLIST_KEY)  || '[]'); } catch { return []; } }
 function setWatchlist(arr)   { localStorage.setItem(RECENT_WATCHLIST_KEY,  JSON.stringify(arr)); }
@@ -2308,6 +2308,11 @@ const GREENHOUSE_COMPANIES = [
 
 // Init on load
 document.addEventListener('DOMContentLoaded', () => {
+  // Purge all v1 localStorage keys — forces fresh load from GitHub on all browsers
+  ['jagriti_applied_jobs_v1','jagriti_cancelled_jobs_v1',
+   'jagriti_recent_watchlist_v1','jagriti_recent_user_added_v1','jagriti_recent_results_v1',
+   'jagriti_practice_applied_v1','jagriti_practice_cancelled_v1'].forEach(k => localStorage.removeItem(k));
+
   if (getWatchlist().length === 0) setWatchlist([...new Set(GREENHOUSE_COMPANIES)]);
   // Ensure SpaceX is in the background watchlist (not shown as a chip)
   const wl = getWatchlist();
@@ -2952,8 +2957,8 @@ function escHtml(str) {
 }
 
 // ── Practice Jobs — Applied + Cancelled (localStorage only, no GitHub push) ──
-const PRACTICE_APPLIED_KEY   = 'jagriti_practice_applied_v1';
-const PRACTICE_CANCELLED_KEY = 'jagriti_practice_cancelled_v1';
+const PRACTICE_APPLIED_KEY   = 'jagriti_practice_applied_v2';
+const PRACTICE_CANCELLED_KEY = 'jagriti_practice_cancelled_v2';
 
 function getPracticeApplied()   { try { return JSON.parse(localStorage.getItem(PRACTICE_APPLIED_KEY)   || '[]'); } catch(e) { return []; } }
 function getPracticeCancelled() { try { return JSON.parse(localStorage.getItem(PRACTICE_CANCELLED_KEY) || '[]'); } catch(e) { return []; } }
