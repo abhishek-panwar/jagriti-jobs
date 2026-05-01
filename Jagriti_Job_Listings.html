@@ -2091,8 +2091,9 @@ async function scanRecentJobs() {
   cutoff.setHours(0, 0, 0, 0);
 
   const BA_RE_RECENT = TITLE_RE;
-  // WA state (Seattle, Redmond, Bellevue, Kirkland, etc.) OR remote/anywhere
-  const LOC_RE_RECENT = /\bWA\b|washington state|seattle|redmond|bellevue|kirkland|tacoma|spokane|olympia|remote|anywhere/i;
+  // USA only: any US state abbreviation, "United States", "U.S.", "Remote", or blank (default to US)
+  const LOC_RE_RECENT = /\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\b|united states|\bUSA\b|\bU\.S\b|remote|anywhere/i;
+  const isUsaOrRemote = loc => !loc || LOC_RE_RECENT.test(loc);
 
   // Fetch one company — tries Greenhouse slugs then Lever slugs
   async function fetchCompany(company) {
@@ -2104,7 +2105,7 @@ async function scanRecentJobs() {
       if (!data) continue;
       const jobs = (data.jobs || [])
         .filter(j => BA_RE_RECENT.test(j.title))
-        .filter(j => LOC_RE_RECENT.test(j.location?.name || ''))
+        .filter(j => isUsaOrRemote(j.location?.name || ''))
         .filter(j => j.updated_at && new Date(j.updated_at) >= cutoff)
         .map(j => ({
           title:  j.title,
@@ -2124,7 +2125,7 @@ async function scanRecentJobs() {
       if (!data) continue;
       const jobs = data
         .filter(j => BA_RE_RECENT.test(j.text))
-        .filter(j => LOC_RE_RECENT.test(j.categories?.location || ''))
+        .filter(j => isUsaOrRemote(j.categories?.location || ''))
         .filter(j => j.createdAt && new Date(j.createdAt) >= cutoff)
         .map(j => ({
           title:  j.text,
