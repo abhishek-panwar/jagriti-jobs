@@ -1,4 +1,26 @@
 {
-  "cancelled": [],
-  "updatedAt": "2026-05-01T00:41:07.433402"
+  "cancelled": [
+    {
+      "id": "r_partner_solutions_architect_twilio",
+      "title": "Partner Solutions Architect",
+      "company": "Twilio",
+      "applyUrl": "https://job-boards.greenhouse.io/twilio/jobs/7659776",
+      "cancelledAt": "Apr 30, 2026"
+    },
+    {
+      "id": "r_senior_business_system_analyst_salesforc",
+      "title": "Senior Business System Analyst, Salesforce",
+      "company": "Twilio",
+      "applyUrl": "https://job-boards.greenhouse.io/twilio/jobs/7807737",
+      "cancelledAt": "Apr 30, 2026"
+    },
+    {
+      "id": "r_senior_zendesk_business_systems_analyst_",
+      "title": "Senior Zendesk Business Systems Analyst",
+      "company": "Twilio",
+      "applyUrl": "https://job-boards.greenhouse.io/twilio/jobs/7705692",
+      "cancelledAt": "Apr 30, 2026"
+    }
+  ],
+  "updatedAt": "2026-05-01T01:07:06.052Z"
 }
