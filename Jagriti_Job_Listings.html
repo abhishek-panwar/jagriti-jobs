@@ -2091,9 +2091,13 @@ async function scanRecentJobs() {
   cutoff.setHours(0, 0, 0, 0);
 
   const BA_RE_RECENT = TITLE_RE;
-  // USA only: any US state abbreviation, "United States", "U.S.", "Remote", or blank (default to US)
-  const LOC_RE_RECENT = /\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\b|united states|\bUSA\b|\bU\.S\b|remote|anywhere/i;
-  const isUsaOrRemote = loc => !loc || LOC_RE_RECENT.test(loc);
+  // Reject any location that explicitly names a non-US country
+  const NON_US_RE = /\b(canada|united kingdom|uk|india|australia|germany|france|netherlands|brazil|mexico|ireland|singapore|poland|spain|italy|portugal|sweden|denmark|norway|finland|switzerland|austria|belgium|czech|romania|hungary|ukraine|israel|japan|china|korea|new zealand|south africa|philippines|pakistan|nigeria|kenya)\b/i;
+  const isUsaOrRemote = loc => {
+    if (!loc) return true;                    // blank = assume US
+    if (NON_US_RE.test(loc)) return false;   // explicit non-US country → reject
+    return true;                              // everything else passes (US states, Remote, etc.)
+  };
 
   // Fetch one company — tries Greenhouse slugs then Lever slugs
   async function fetchCompany(company) {
