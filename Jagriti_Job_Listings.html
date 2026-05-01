@@ -1262,8 +1262,17 @@ const RESUME_PROFILE = {
     "stakeholder", "requirements", "user stories", "API", "analytics",
     "process improvement", "metadata", "data platform", "data quality"
   ],
-  "adzuna_query": "business analyst",
-  "fallback_query": "senior business analyst"
+  "search_terms": [
+    "business analyst",
+    "product owner",
+    "solutions architect",
+    "systems analyst",
+    "technical program manager",
+    "data governance"
+  ],
+  "search_query": "business analyst OR product owner OR solutions architect OR systems analyst OR technical program manager OR data governance",
+  "adzuna_query": "business analyst OR product owner OR solutions architect OR systems analyst OR technical program manager OR data governance",
+  "fallback_query": "senior business analyst OR solutions architect OR technical program manager"
 };
 const TITLE_RE = new RegExp(RESUME_PROFILE.title_regex_js, 'i');
 
@@ -2791,7 +2800,7 @@ async function searchPracticeJobs() {
   const btn = document.getElementById('practiceSearchBtn');
   btn.disabled = true;
   btn.textContent = '⏳ Searching...';
-  status.textContent = `Searching Business Analyst jobs in ${city}...`;
+  status.textContent = `Searching jobs in ${city}...`;
   grid.innerHTML = '';
   fallback.style.display = 'none';
 
