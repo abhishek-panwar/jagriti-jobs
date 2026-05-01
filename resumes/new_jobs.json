@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Business Analyst with PMI-PBA or CBAP",
-      "company": "Triwave Solutions Inc",
-      "location": "Seattle, WA",
-      "url": "https://www.adzuna.com/details/5713896732",
-      "description": "JOB TITLE: Business Analyst\n\nThe scope of the proposed services will include the following:\n\nCompile and complete a business requirements document\n\nUsing Agile methods to analyze and document business functions and requirements\n\nConsult with management and personnel to identify, define and document business\n\nfunctions, needs and objectives, operational procedures, problems, input and output\n\nrequirements\n\nAnalyze the integration of business functions with technology\n\nPerform and/or facilitate business and technical analysis in support of project design and\n\nimplementation for a team of applica",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Adzuna",
-      "listed": "2026-04-29",
-      "id": "job_business_analyst_with_pmi_pba_or_cbap_tr"
-    },
-    {
       "title": "Workday Business Analyst",
       "company": "Confiz",
       "location": "East Union, King County",
@@ -229,6 +217,6 @@
       "id": "job_business_analyst_listings_amazon"
     }
   ],
-  "totalCount": 19,
-  "fetchedAt": "2026-05-01T12:48:03.150Z"
+  "totalCount": 18,
+  "fetchedAt": "2026-05-01T13:49:05.326Z"
 }
