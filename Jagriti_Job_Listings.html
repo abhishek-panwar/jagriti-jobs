@@ -1848,6 +1848,13 @@ async function syncRecentJobsFromGitHub() {
 }
 
 async function pushRecentJobsToGitHub() {
+  // Always fetch current SHA before writing — ensures we never 409 on a stale/null SHA
+  try {
+    const chk = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${RECENT_JOBS_FILE}`,
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } });
+    if (chk.ok) { const cd = await chk.json(); recentJobsSha = cd.sha; }
+  } catch(e) {}
+
   const jobs    = getPersistedJobs();
   const payload = { jobs, totalCount: jobs.length, updatedAt: new Date().toISOString() };
   const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
@@ -2995,21 +3002,43 @@ const _recentAppliedShaRef    = [null];
 const _recentCancelledShaRef  = [null];
 
 async function pushRecentAppliedToGitHub() {
-  const arr = getPracticeApplied();
-  _recentAppliedShaRef[0] = recentAppliedSha;
-  await _ghPut(RECENT_APPLIED_FILE, _recentAppliedShaRef,
-    { applied: arr, updatedAt: new Date().toISOString() },
-    `Update recent applied jobs (${arr.length} total)`);
-  recentAppliedSha = _recentAppliedShaRef[0];
+  try {
+    const chk = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${RECENT_APPLIED_FILE}`,
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } });
+    if (chk.ok) { const cd = await chk.json(); recentAppliedSha = cd.sha; }
+  } catch(e) {}
+  const arr     = getPracticeApplied();
+  const payload = { applied: arr, updatedAt: new Date().toISOString() };
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const body    = { message: `Update recent applied jobs (${arr.length} total)`, content,
+                    ...(recentAppliedSha ? { sha: recentAppliedSha } : {}) };
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${RECENT_APPLIED_FILE}`,
+      { method: 'PUT', headers: { 'Authorization': 'Bearer ' + GH_TOKEN(),
+        'Content-Type': 'application/json', 'Accept': 'application/vnd.github+json' },
+        body: JSON.stringify(body) });
+    if (res.ok) { const d = await res.json(); recentAppliedSha = d.content?.sha || recentAppliedSha; }
+  } catch(e) {}
 }
 
 async function pushRecentCancelledToGitHub() {
-  const arr = getPracticeCancelled();
-  _recentCancelledShaRef[0] = recentCancelledSha;
-  await _ghPut(RECENT_CANCELLED_FILE, _recentCancelledShaRef,
-    { cancelled: arr, updatedAt: new Date().toISOString() },
-    `Update recent cancelled jobs (${arr.length} total)`);
-  recentCancelledSha = _recentCancelledShaRef[0];
+  try {
+    const chk = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${RECENT_CANCELLED_FILE}`,
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' } });
+    if (chk.ok) { const cd = await chk.json(); recentCancelledSha = cd.sha; }
+  } catch(e) {}
+  const arr     = getPracticeCancelled();
+  const payload = { cancelled: arr, updatedAt: new Date().toISOString() };
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const body    = { message: `Update recent cancelled jobs (${arr.length} total)`, content,
+                    ...(recentCancelledSha ? { sha: recentCancelledSha } : {}) };
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${RECENT_CANCELLED_FILE}`,
+      { method: 'PUT', headers: { 'Authorization': 'Bearer ' + GH_TOKEN(),
+        'Content-Type': 'application/json', 'Accept': 'application/vnd.github+json' },
+        body: JSON.stringify(body) });
+    if (res.ok) { const d = await res.json(); recentCancelledSha = d.content?.sha || recentCancelledSha; }
+  } catch(e) {}
 }
 
 async function syncRecentAppliedFromGitHub() {
