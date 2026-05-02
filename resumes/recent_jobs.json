@@ -1,6 +1,17 @@
 {
   "jobs": [
     {
+      "title": "Technical Program Manager, Internal Systems",
+      "company": "Stripe",
+      "loc": "US Remote",
+      "url": "https://stripe.com/jobs/search?gh_jid=7680365",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
+      "listed": "2026-05-01",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_internal_syste",
+      "addedAt": "2026-05-02"
+    },
+    {
       "title": "Partner Solutions Architect, UK",
       "company": "Stripe",
       "loc": "LOCATION",
@@ -375,6 +386,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 34,
-  "updatedAt": "2026-05-01T19:19:59.108Z"
+  "totalCount": 35,
+  "updatedAt": "2026-05-02T04:51:24.295Z"
 }
