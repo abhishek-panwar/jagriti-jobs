@@ -100,7 +100,7 @@ def fetch_jsearch(query, num_results=15):
         r = requests.get(
             "https://jsearch.p.rapidapi.com/search",
             headers={"X-RapidAPI-Key": JSEARCH_KEY, "X-RapidAPI-Host": JSEARCH_HOST},
-            params={"query": query, "page": "1", "num_pages": "2", "date_posted": "month"},
+            params={"query": query, "page": "1", "num_pages": "2", "date_posted": "week"},
             timeout=15
         )
         r.raise_for_status()
@@ -138,10 +138,13 @@ def fetch_adzuna(query, location, results=10):
             timeout=15
         )
         r.raise_for_status()
+        cutoff = datetime.date.today() - datetime.timedelta(days=7)
         for j in r.json().get("results", []):
-            mn, mx = j.get("salary_min"), j.get("salary_max")
             raw_date = j.get("created") or ""
             listed_date = raw_date[:10] if raw_date else ""
+            if listed_date and datetime.date.fromisoformat(listed_date) < cutoff:
+                continue
+            mn, mx = j.get("salary_min"), j.get("salary_max")
             jobs.append(normalise(
                 title       = j.get("title") or "",
                 company     = j.get("company", {}).get("display_name") or "",
@@ -153,7 +156,7 @@ def fetch_adzuna(query, location, results=10):
                 source      = "Adzuna",
                 listed      = listed_date
             ))
-        print(f"  Adzuna ({location}): {len(jobs)} jobs fetched")
+        print(f"  Adzuna ({location}): {len(jobs)} jobs fetched (last 7 days)")
     except Exception as e:
         print(f"  Adzuna error: {e}")
     return jobs
@@ -168,10 +171,13 @@ def fetch_remotive(results=8):
             timeout=15
         )
         r.raise_for_status()
+        cutoff = datetime.date.today() - datetime.timedelta(days=7)
         for j in r.json().get("jobs", [])[:results]:
-            desc = re.sub(r'<[^>]+>', '', j.get("description",""))[:600]
             raw_date = j.get("publication_date") or ""
             listed_date = raw_date[:10] if raw_date else ""
+            if listed_date and datetime.date.fromisoformat(listed_date) < cutoff:
+                continue
+            desc = re.sub(r'<[^>]+>', '', j.get("description",""))[:600]
             jobs.append(normalise(
                 title       = j.get("title") or "",
                 company     = j.get("company_name") or "",
@@ -181,7 +187,7 @@ def fetch_remotive(results=8):
                 source      = "Remotive",
                 listed      = listed_date
             ))
-        print(f"  Remotive: {len(jobs)} jobs fetched")
+        print(f"  Remotive: {len(jobs)} jobs fetched (last 7 days)")
     except Exception as e:
         print(f"  Remotive error: {e}")
     return jobs
