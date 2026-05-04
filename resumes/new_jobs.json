@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "DGS - Business Analyst 4",
-      "company": "InstantServe LLC",
-      "location": "Seattle, WA",
-      "url": "https://www.theladders.com/job/dgs-business-analyst-4-davita-virtual-travel_86691195",
-      "description": "Senior LIMS Business Analyst\n\nLooking for an experienced Business Analyst with LIMS implementation experience to join a team to implement a Starlims LPH product used for testing Environmental and Clinical samples.\nMax$$\n\nSenior LIMS Business Analyst\n\nThis role will join a team of analysts who work on multiple LIMS and web portals. We are currently implementing a replacement Starlims LIMS(LPH version) for our environmental and clinical users. The candidate will be involved in application discovery/training, requirements gathering, and QA testing. The candidate should have laboratory testing exp",
-      "salary_min": 90000,
-      "salary_max": 120000,
-      "source": "Ladders",
-      "listed": "2026-04-27",
-      "id": "job_dgs_business_analyst_4_instantserve_llc"
-    },
-    {
       "title": "Senior Business Analyst (ServiceNow) â 13+ Years Experience â Healthcare Domain",
       "company": "Bright Sol",
       "location": "Seattle, WA",
@@ -145,6 +133,6 @@
       "id": "job_business_analyst_listings_amazon"
     }
   ],
-  "totalCount": 12,
-  "fetchedAt": "2026-05-04T00:13:16.369Z"
+  "totalCount": 11,
+  "fetchedAt": "2026-05-04T00:19:35.641Z"
 }
