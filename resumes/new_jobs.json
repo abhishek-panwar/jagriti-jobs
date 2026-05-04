@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Fresher Business Analyst (Only Citizen)",
-      "company": "Veracity Software Inc",
-      "location": "Seattle, WA",
-      "url": "https://www.linkedin.com/jobs/view/fresher-business-analyst-only-citizen-at-veracity-software-inc-4403754536",
-      "description": "Job Title: Fresher Business Analyst (Only Citizen)\n\nLocation: Location: New Jersey (Hybrid/Onsite) or Remote\n\nEmployment Type: Training + Internship Opportunity\n\nCandidates: Only Citizen\n\nJob Description:\n\nWe are looking for recent graduates (US Citizens) interested in starting their careers in Business Analysis or AI/ML. This opportunity includes structured training, hands-on internship exposure,Â and potential career support. Candidates with backgrounds in IT, Computer Science, BBA, MBA, or related fields are encouraged to apply. Strong communication, analytical thinking, and willingness to l",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "LinkedIn",
-      "listed": "2026-04-24",
-      "id": "job_fresher_business_analyst_only_citizen_ve"
-    },
-    {
       "title": "Factset Business analyst with investment experience and Figma or wireframe- Remote- Factset exp must (Worcester)",
       "company": "Yoh, A Day & Zimmermann Company",
       "location": "Seattle, WA",
@@ -205,6 +193,6 @@
       "id": "job_business_analyst_listings_amazon"
     }
   ],
-  "totalCount": 17,
-  "fetchedAt": "2026-05-04T00:11:40.256Z"
+  "totalCount": 16,
+  "fetchedAt": "2026-05-04T00:11:49.245Z"
 }
