@@ -62,7 +62,14 @@
       "company": "Yoh, A Day & Zimmermann Company",
       "applyUrl": "https://www.talent.com/view?id=616336216386250601",
       "cancelledAt": "May 3, 2026"
+    },
+    {
+      "id": "job_business_analyst_flora_farms",
+      "title": "Business Analyst",
+      "company": "Flora Farms",
+      "applyUrl": "https://florafarms.applytojob.com/apply/uwhiT9PZ0G/Business-Analyst",
+      "cancelledAt": "May 3, 2026"
     }
   ],
-  "lastUpdated": "2026-05-04T00:12:16.230Z"
+  "lastUpdated": "2026-05-04T00:12:28.117Z"
 }
