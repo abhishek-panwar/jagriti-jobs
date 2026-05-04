@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Factset Business analyst with investment experience and Figma or wireframe- Remote- Factset exp must (Worcester)",
-      "company": "Yoh, A Day & Zimmermann Company",
-      "location": "Seattle, WA",
-      "url": "https://www.talent.com/view?id=616336216386250601",
-      "description": "Please contact\nRenu Goel\n857-207-2676\nrenu.goel@yoh.com\n\nFactset exp is a must. Please do not submit resumes without Factset.\nFigma / Wireframe exp\n\nBusiness Analyst â FactSet Digital Client Portal (Investments) Seeking an experienced Business Analyst with strong FactSet experience to join a high-profile project delivering a vendor-provided digital client portal. This role requires deep investment and investment data expertise, along with hands-on experience leading requirements discovery and staying embedded through configuration, integrations, testing, and go-live.\n\nKey Responsibilities:â¢ Le",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Talent.com",
-      "listed": "2026-04-23",
-      "id": "job_factset_business_analyst_with_investment"
-    },
-    {
       "title": "Business Analyst",
       "company": "Flora Farms",
       "location": "Seattle, WA",
@@ -193,6 +181,6 @@
       "id": "job_business_analyst_listings_amazon"
     }
   ],
-  "totalCount": 16,
-  "fetchedAt": "2026-05-04T00:11:49.245Z"
+  "totalCount": 15,
+  "fetchedAt": "2026-05-04T00:12:14.937Z"
 }
