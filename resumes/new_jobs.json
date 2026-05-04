@@ -38,18 +38,6 @@
     },
     {
       "title": "Business Analyst",
-      "company": "San Diego Endodontics",
-      "location": "Times Square, King County",
-      "url": "https://www.adzuna.com/land/ad/5330350583?se=ZtFru0ZE8RGtfYqXd6LnHQ&utm_medium=api&utm_source=5975f043&v=984D711D99B780F85E3FAF9BDEDF22D9C6DE710F",
-      "description": "JOIN US AS A BUSINESS ANALYST Similar Industry Titles and Key Words: Business Analyst, BA, Planner About This Opportunity As a Business Analyst, youâll apply your financial, analytical and communication skills to impact the bottom line. Youâll negotiate and maintain business relationships with the largest vendors in the industry and benchmark the competition to stay on top of the latest trends in merchandising and how they may apply at QuattroTek. You will leverage professional partnerships witâ¦",
-      "salary_min": 84941,
-      "salary_max": 84941,
-      "source": "Adzuna",
-      "listed": "2025-07-31",
-      "id": "job_business_analyst_san_diego_endodontics"
-    },
-    {
-      "title": "Business Analyst",
       "company": "Tepui Consulting",
       "location": "Redmond, King County",
       "url": "https://www.adzuna.com/details/4858835686?utm_medium=api&utm_source=5975f043",
@@ -133,6 +121,6 @@
       "id": "job_business_analyst_listings_amazon"
     }
   ],
-  "totalCount": 11,
-  "fetchedAt": "2026-05-04T00:19:35.641Z"
+  "totalCount": 10,
+  "fetchedAt": "2026-05-04T00:19:50.344Z"
 }
