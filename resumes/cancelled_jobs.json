@@ -90,7 +90,14 @@
       "company": "San Diego Endodontics",
       "applyUrl": "https://www.adzuna.com/land/ad/5330350583?se=ZtFru0ZE8RGtfYqXd6LnHQ&utm_medium=api&utm_source=5975f043&v=984D711D99B780F85E3FAF9BDEDF22D9C6DE710F",
       "cancelledAt": "May 3, 2026"
+    },
+    {
+      "id": "job_business_analyst_tepui_consulting",
+      "title": "Business Analyst",
+      "company": "Tepui Consulting",
+      "applyUrl": "https://www.adzuna.com/details/4858835686?utm_medium=api&utm_source=5975f043",
+      "cancelledAt": "May 3, 2026"
     }
   ],
-  "lastUpdated": "2026-05-04T00:19:51.633Z"
+  "lastUpdated": "2026-05-04T00:19:54.814Z"
 }
