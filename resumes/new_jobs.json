@@ -1,18 +1,5 @@
 {
-  "jobs": [
-    {
-      "title": "GA TECH IT Enterprise Business Analyst 3 [Data Gov]",
-      "company": "Vir Healthway",
-      "location": "Seattle, WA",
-      "url": "https://lensa.com/job-v1/vir-healthway/remote/it-business-analyst/5e590255926cffc176bae348c5c98b22",
-      "description": "Under broad supervision, analyzes the enterprise bus./tech. environment and participates in the operationalization of the enterprise data governance program (including standards, procedures, processes, technologies, documentation, training, and more).\n\nJob Summary:\n\nUnder broad supervision, analyzes the enterprise business/technology environment and participates in the design, implementation, and maintenance of the enterprise data governance program (including standards, procedures, processes, technologies, documentation, knowledge/training, and more).\n\nPosition duties:\n\nOperationalization of",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Lensa",
-      "listed": "2026-04-09",
-      "id": "job_ga_tech_it_enterprise_business_analyst_3"
-    }
-  ],
-  "totalCount": 1,
-  "fetchedAt": "2026-05-04T12:20:36.597Z"
+  "jobs": [],
+  "totalCount": 0,
+  "fetchedAt": "2026-05-04T12:20:38.868Z"
 }
