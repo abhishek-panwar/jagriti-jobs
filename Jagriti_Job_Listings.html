@@ -2087,7 +2087,7 @@ async function scanRecentJobs() {
 
   // 3-day cutoff
   const cutoff = new Date();
-  cutoff.setDate(cutoff.getDate() - 3);
+  cutoff.setDate(cutoff.getDate() - 7);
   cutoff.setHours(0, 0, 0, 0);
 
   const BA_RE_RECENT = TITLE_RE;
@@ -2572,6 +2572,12 @@ async function searchCareerJobs() {
   // US location check — matches state abbreviations, "United States", "US", or "Remote"
   const US_RE = /\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\b|united states|USA|\bU\.S\.|remote/i;
 
+  // 7-day cutoff
+  const searchCutoff = new Date();
+  searchCutoff.setDate(searchCutoff.getDate() - 7);
+  searchCutoff.setHours(0, 0, 0, 0);
+  const isRecent = date => !date || new Date(date) >= searchCutoff;
+
   const cityLow = cityRaw.toLowerCase();
 
   // ── Helper: render job cards ──
@@ -2635,7 +2641,8 @@ async function searchCareerJobs() {
     }
 
     if (ghData) {
-      let jobs = (ghData.jobs || []).filter(j => BA_RE.test(j.title));
+      let jobs = (ghData.jobs || []).filter(j => BA_RE.test(j.title))
+                                    .filter(j => isRecent(j.updated_at));
       if (cityRaw) {
         jobs = jobs.filter(j => (j.location?.name||'').toLowerCase().includes(cityLow));
       } else {
@@ -2666,7 +2673,8 @@ async function searchCareerJobs() {
     }
 
     if (lvData) {
-      let jobs = lvData.filter(j => BA_RE.test(j.text));
+      let jobs = lvData.filter(j => BA_RE.test(j.text))
+                       .filter(j => isRecent(j.createdAt ? new Date(j.createdAt).toISOString() : null));
       if (cityRaw) {
         jobs = jobs.filter(j => (j.categories?.location||'').toLowerCase().includes(cityLow));
       } else {
