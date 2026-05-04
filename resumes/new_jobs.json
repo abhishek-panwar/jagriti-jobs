@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Business Analyst",
-      "company": "Flora Farms",
-      "location": "Seattle, WA",
-      "url": "https://florafarms.applytojob.com/apply/uwhiT9PZ0G/Business-Analyst",
-      "description": "Flora Farms is seeking a highly motivated and detail-oriented Business Analyst to join our dynamic team. In this role, you will be instrumental in bridging the gap between business needs and technological solutions, working closely with stakeholders to analyze processes, identify opportunities for improvement, and drive strategic initiatives that enhance overall business performance. The ideal candidate will possess strong analytical skills, a keen understanding of data interpretation, and the ability to communicate complex concepts effectively to various departments. At Flora Farms, you will",
-      "salary_min": 65000,
-      "salary_max": 95000,
-      "source": "JazzHR",
-      "listed": "2026-04-21",
-      "id": "job_business_analyst_flora_farms"
-    },
-    {
       "title": "DGS - Business Analyst 4",
       "company": "InstantServe LLC",
       "location": "Seattle, WA",
@@ -181,6 +169,6 @@
       "id": "job_business_analyst_listings_amazon"
     }
   ],
-  "totalCount": 15,
-  "fetchedAt": "2026-05-04T00:12:14.937Z"
+  "totalCount": 14,
+  "fetchedAt": "2026-05-04T00:12:26.818Z"
 }
