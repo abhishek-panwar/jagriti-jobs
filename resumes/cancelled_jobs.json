@@ -2,14 +2,14 @@
   "cancelled": [
     {
       "id": "intepros_geo",
-      "title": "Business Analyst IV â Geospatial",
+      "title": "Business Analyst IV Ã¢ÂÂ Geospatial",
       "company": "IntePros (contract placement)",
       "applyUrl": "https://www.linkedin.com/jobs/view/business-analyst-iv-at-intepros-4399902389",
       "cancelledAt": "Apr 27, 2026"
     },
     {
       "id": "turing",
-      "title": "Remote Business Analyst â AI Training (57510)",
+      "title": "Remote Business Analyst Ã¢ÂÂ AI Training (57510)",
       "company": "Turing",
       "applyUrl": "https://www.linkedin.com/jobs/view/remote-business-analyst-57510-at-turing-4405297114",
       "cancelledAt": "Apr 27, 2026"
@@ -41,7 +41,14 @@
       "company": "Insight Global",
       "applyUrl": "https://www.adzuna.com/land/ad/5710851904?se=oBspRGlD8RGLLrIe10BuwQ&utm_medium=api&utm_source=5975f043&v=599642E194BDEDAD077070D6CABCB59C87044187",
       "cancelledAt": "Apr 29, 2026"
+    },
+    {
+      "id": "job_workday_business_analyst_confiz",
+      "title": "Workday Business Analyst",
+      "company": "Confiz",
+      "applyUrl": "https://www.adzuna.com/land/ad/5288686618?se=ZtFru0ZE8RGtfYqXd6LnHQ&utm_medium=api&utm_source=5975f043&v=4DD7382A6C17B5470A527A59F35B3D415603B8D4",
+      "cancelledAt": "May 3, 2026"
     }
   ],
-  "lastUpdated": "2026-04-30T03:38:38.467Z"
+  "lastUpdated": "2026-05-04T00:11:41.552Z"
 }
