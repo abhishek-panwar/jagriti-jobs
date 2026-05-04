@@ -37,18 +37,6 @@
       "id": "job_business_analyst_payments_retail_ecommer"
     },
     {
-      "title": "Business Analyst",
-      "company": "Tepui Consulting",
-      "location": "Redmond, King County",
-      "url": "https://www.adzuna.com/details/4858835686?utm_medium=api&utm_source=5975f043",
-      "description": "About Us Tepui is a higher standard of consulting. We are a team of business process experts with a solutions approach to management, business intelligence, and data visualization. Leveraging technology to assess performance, we work with clients to identify problems and address them through analytics. Our consultants cover all aspects of BI and present meaningful insights through clear, visual storytelling so your business can thrive during market change. Tepui is the key to elevate your businâ¦",
-      "salary_min": 97523,
-      "salary_max": 97523,
-      "source": "Adzuna",
-      "listed": "2024-09-10",
-      "id": "job_business_analyst_tepui_consulting"
-    },
-    {
       "title": "Senior Business Analyst",
       "company": "Bellevue, WA",
       "location": "Bellevue, King County",
@@ -121,6 +109,6 @@
       "id": "job_business_analyst_listings_amazon"
     }
   ],
-  "totalCount": 10,
-  "fetchedAt": "2026-05-04T00:19:50.344Z"
+  "totalCount": 9,
+  "fetchedAt": "2026-05-04T00:19:53.516Z"
 }
