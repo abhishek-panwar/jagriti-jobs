@@ -25,18 +25,6 @@
       "id": "job_business_systems_analyst_hybrid_lower_co"
     },
     {
-      "title": "Business System Analyst II / Data Analyst",
-      "company": "Sundayy",
-      "location": "Seattle, WA",
-      "url": "https://bebee.com/us/jobs/business-system-analyst-ii-data-analyst-sundayy--theirstack-664930728",
-      "description": "About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest and most complex agencies within the state, employing approximately 17,000 dedicated professionals. Its primary mission is to ensure the health, safety, and well-being of all North Carolinians through comprehensive human services.\n\nThe department provides vital support to special populations, including individuals who are deaf, blind, developmentally disabled, or mentally ill. Additionally, DHHS plays a crucial role in assisting economically disadvantaged residents to achieve independence, thereby",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "BeBee",
-      "listed": "2026-04-17",
-      "id": "job_business_system_analyst_ii_data_analyst_"
-    },
-    {
       "title": "Technical Business Analyst – Alternate Program Manager (APM)",
       "company": "Zantech",
       "location": "Seattle, WA",
@@ -49,6 +37,6 @@
       "id": "job_technical_business_analyst_alternate_pro"
     }
   ],
-  "totalCount": 4,
-  "fetchedAt": "2026-05-04T12:20:32.245Z"
+  "totalCount": 3,
+  "fetchedAt": "2026-05-04T12:20:33.702Z"
 }
