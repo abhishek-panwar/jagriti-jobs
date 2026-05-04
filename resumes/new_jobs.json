@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Senior Business Analyst (ServiceNow) â 13+ Years Experience â Healthcare Domain",
-      "company": "Bright Sol",
-      "location": "Seattle, WA",
-      "url": "https://www.dice.com/job-detail/69620b2a-8bbc-4b99-8fcd-e2a142808168",
-      "description": "Senior Business Analyst (ServiceNow) â 13+ Years Experience â Healthcare Domain\n\nLocation: Remote (Go-Live Onsite in Houston, TX Required)\nJob Type: Contract\nð° Compensation\nâ¢ Competitive hourly rate (based on experience)\nð Role Overview\n\nWe are looking for a Senior Business Analyst with 13+ years of experience and strong expertise in ServiceNow within the healthcare domain. This role requires a seasoned BA who can bridge business and technology, drive requirements, and support testing and release cycles.\n\nThis is primarily a remote role, but candidates must be available to travel to Houston, T",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Dice",
-      "listed": "2026-04-29",
-      "id": "job_senior_business_analyst_servicenow_13_ye"
-    },
-    {
       "title": "Business Analyst",
       "company": "Kforce Technology Staffing",
       "location": "Times Square, King County",
@@ -109,6 +97,6 @@
       "id": "job_business_analyst_listings_amazon"
     }
   ],
-  "totalCount": 9,
-  "fetchedAt": "2026-05-04T00:19:53.516Z"
+  "totalCount": 8,
+  "fetchedAt": "2026-05-04T00:20:18.011Z"
 }
