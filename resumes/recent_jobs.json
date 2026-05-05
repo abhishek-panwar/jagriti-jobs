@@ -1,17 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Sr. Delivery Solutions Architect - Manufacturing",
-      "company": "Databricks",
-      "loc": "Central - United States",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8530859002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ327R171&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;At Databricks, we are on a mission to empower our customers to solve the world&#39;s ",
-      "listed": "2026-05-01",
-      "source": "Greenhouse",
-      "pid": "r_sr_delivery_solutions_architect_manufact",
-      "addedAt": "2026-05-01"
-    },
-    {
       "title": "Associate, Insurance Senior Business Analyst",
       "company": "SoFi",
       "loc": "UT - Cottonwood Heights; CA - San Francisco HQ; VA - Reston; TX - Frisco   ",
@@ -23,39 +12,6 @@
       "addedAt": "2026-05-01"
     },
     {
-      "title": "Product Owner, GTM Sales Systems",
-      "company": "Klaviyo",
-      "loc": "San Francisco, CA",
-      "url": "https://www.klaviyo.com/careers/jobs?gh_jid=7721795003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;em&gt;At Klaviyo, we value the unique backgrounds, experiences and perspectives each Klaviyo (we call ourselves Klaviyos) brings to our workplace each and every day",
-      "listed": "2026-05-01",
-      "source": "Greenhouse",
-      "pid": "r_product_owner_gtm_sales_systems_klaviyo",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Specialist Solutions Architect - Cloud Infrastructure & Platform",
-      "company": "Databricks",
-      "loc": "United States",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8525037002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ127R316&lt;/p&gt; &lt;p&gt;As a Specialist Solutions Architect (SSA) - Cloud Infrastructure &amp;amp; Platform, you will guide customers in the administration and security of ",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_specialist_solutions_architect_cloud_inf",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Sr. ISV & Partner Solutions Architect",
-      "company": "Databricks",
-      "loc": "United States",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8439172002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ327R144&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;As a Partner Solutions Architect, you will focus on cultivating technical relationships with one of our largest Glo",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_sr_isv_partner_solutions_architect_datab",
-      "addedAt": "2026-05-01"
-    },
-    {
       "title": "Marketing Business Analyst",
       "company": "Fivetran",
       "loc": "Oakland, California, United States, AMER",
@@ -64,28 +20,6 @@
       "listed": "2026-04-30",
       "source": "Greenhouse",
       "pid": "r_marketing_business_analyst_fivetran",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Product Owner - Financial Analytics",
-      "company": "Capital One",
-      "loc": "Limassol, Cyprus",
-      "url": "https://jobs.lever.co/capital/9c184f7d-4fe4-450c-aa67-19d37c0eb285",
-      "desc": "",
-      "listed": "2026-04-30",
-      "source": "Lever",
-      "pid": "r_product_owner_financial_analytics_capita",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Senior Manager, Solutions Architect, Games",
-      "company": "Discord",
-      "loc": "San Francisco Bay Area",
-      "url": "https://job-boards.greenhouse.io/discord/jobs/8391234002",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Discord is used by over 200 million people every month for many different reasons, but there’s one thing that nearly everyone does on our platform:&lt;strong&gt; play v",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_senior_manager_solutions_architect_games",
       "addedAt": "2026-05-01"
     },
     {
@@ -108,28 +42,6 @@
       "listed": "2026-04-30",
       "source": "Greenhouse",
       "pid": "r_senior_business_systems_analyst_twilio",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Business Analyst (Starlink Growth)",
-      "company": "SpaceX",
-      "loc": "Redmond, WA",
-      "url": "https://boards.greenhouse.io/spacex/jobs/8403125002?gh_jid=8403125002",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_business_analyst_starlink_growth_spacex",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Sr. Business Analyst (Starlink Growth)",
-      "company": "SpaceX",
-      "loc": "Redmond, WA",
-      "url": "https://boards.greenhouse.io/spacex/jobs/8403144002?gh_jid=8403144002",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_sr_business_analyst_starlink_growth_spac",
       "addedAt": "2026-05-01"
     },
     {
@@ -309,6 +221,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 28,
-  "updatedAt": "2026-05-05T11:56:35.650Z"
+  "totalCount": 20,
+  "updatedAt": "2026-05-05T12:10:08.236Z"
 }
