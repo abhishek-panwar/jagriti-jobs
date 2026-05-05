@@ -1,17 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Partner Solutions Architect, UK",
-      "company": "Stripe",
-      "loc": "LOCATION",
-      "url": "https://stripe.com/jobs/search?gh_jid=7614951",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure p",
-      "listed": "2026-05-01",
-      "source": "Greenhouse",
-      "pid": "r_partner_solutions_architect_uk_stripe",
-      "addedAt": "2026-05-01"
-    },
-    {
       "title": "Sr. Delivery Solutions Architect - Manufacturing",
       "company": "Databricks",
       "loc": "Central - United States",
@@ -20,17 +9,6 @@
       "listed": "2026-05-01",
       "source": "Greenhouse",
       "pid": "r_sr_delivery_solutions_architect_manufact",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Senior Technical Architect - Patient CRM",
-      "company": "Veeva Systems",
-      "loc": "Illinois - Chicago",
-      "url": "https://jobs.lever.co/veeva/ffb5c005-6313-418b-b508-1c8aa4a3432c",
-      "desc": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B ",
-      "listed": "2026-05-01",
-      "source": "Lever",
-      "pid": "r_senior_technical_architect_patient_crm_v",
       "addedAt": "2026-05-01"
     },
     {
@@ -331,6 +309,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 30,
-  "updatedAt": "2026-05-05T11:48:16.683Z"
+  "totalCount": 28,
+  "updatedAt": "2026-05-05T11:56:35.650Z"
 }
