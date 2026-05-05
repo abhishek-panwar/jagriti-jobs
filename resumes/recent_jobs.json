@@ -1,17 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Technical Program Manager, Internal Systems",
-      "company": "Stripe",
-      "loc": "US Remote",
-      "url": "https://stripe.com/jobs/search?gh_jid=7680365",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies\u2014fro",
-      "listed": "2026-05-01",
-      "source": "Greenhouse",
-      "pid": "r_technical_program_manager_internal_syste",
-      "addedAt": "2026-05-02"
-    },
-    {
       "title": "Partner Solutions Architect, UK",
       "company": "Stripe",
       "loc": "LOCATION",
@@ -31,17 +20,6 @@
       "listed": "2026-05-01",
       "source": "Greenhouse",
       "pid": "r_sr_delivery_solutions_architect_manufact",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Senior Technical Architect - Patient CRM",
-      "company": "Veeva Systems",
-      "loc": "New York - New York City",
-      "url": "https://jobs.lever.co/veeva/ef0c4e0d-2f01-4a9e-86b5-e1dd6f46e4ab",
-      "desc": "Veeva Systems is a mission-driven organization and pioneer in industry cloud, helping life sciences companies bring therapies to patients faster. As one of the fastest-growing SaaS companies in history, we surpassed $3B ",
-      "listed": "2026-05-01",
-      "source": "Lever",
-      "pid": "r_senior_technical_architect_patient_crm_v",
       "addedAt": "2026-05-01"
     },
     {
@@ -100,17 +78,6 @@
       "addedAt": "2026-05-01"
     },
     {
-      "title": "Solutions Architect, Platforms - UK",
-      "company": "Stripe",
-      "loc": "London",
-      "url": "https://stripe.com/jobs/search?gh_jid=7574857",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies\u2014fr",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_platforms_uk_stripe",
-      "addedAt": "2026-05-01"
-    },
-    {
       "title": "Specialist Solutions Architect - Cloud Infrastructure & Platform",
       "company": "Databricks",
       "loc": "United States",
@@ -137,7 +104,7 @@
       "company": "Fivetran",
       "loc": "Oakland, California, United States, AMER",
       "url": "https://www.fivetran.com/careers/job?gh_jid=7674622003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;From Fivetran\u2019s founding until now, our mission has remained the same: to make access to data as simple and reliable as electricity. With Fivetran, customer data arrive",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;From Fivetran’s founding until now, our mission has remained the same: to make access to data as simple and reliable as electricity. With Fivetran, customer data arrive",
       "listed": "2026-04-30",
       "source": "Greenhouse",
       "pid": "r_marketing_business_analyst_fivetran",
@@ -159,7 +126,7 @@
       "company": "Discord",
       "loc": "San Francisco Bay Area",
       "url": "https://job-boards.greenhouse.io/discord/jobs/8391234002",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Discord is used by over 200 million people every month for many different reasons, but there\u2019s one thing that nearly everyone does on our platform:&lt;strong&gt; play v",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Discord is used by over 200 million people every month for many different reasons, but there’s one thing that nearly everyone does on our platform:&lt;strong&gt; play v",
       "listed": "2026-04-30",
       "source": "Greenhouse",
       "pid": "r_senior_manager_solutions_architect_games",
@@ -170,10 +137,54 @@
       "company": "Discord",
       "loc": "San Francisco Bay Area",
       "url": "https://job-boards.greenhouse.io/discord/jobs/8450205002",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Discord is used by over 200 million people every month for many different reasons, but there\u2019s one thing that nearly everyone does on our platform:&lt;strong&gt; play v",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Discord is used by over 200 million people every month for many different reasons, but there’s one thing that nearly everyone does on our platform:&lt;strong&gt; play v",
       "listed": "2026-04-30",
       "source": "Greenhouse",
       "pid": "r_staff_technical_program_manager_revenue_",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Senior Business Systems Analyst",
+      "company": "Twilio",
+      "loc": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7643551",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_senior_business_systems_analyst_twilio",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Business Analyst (Starlink Growth)",
+      "company": "SpaceX",
+      "loc": "Redmond, WA",
+      "url": "https://boards.greenhouse.io/spacex/jobs/8403125002?gh_jid=8403125002",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_business_analyst_starlink_growth_spacex",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Sr. Business Analyst (Starlink Growth)",
+      "company": "SpaceX",
+      "loc": "Redmond, WA",
+      "url": "https://boards.greenhouse.io/spacex/jobs/8403144002?gh_jid=8403144002",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_sr_business_analyst_starlink_growth_spac",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Sr. Business Analyst, Workforce Planning (Starlink) ",
+      "company": "SpaceX",
+      "loc": "Redmond, WA",
+      "url": "https://boards.greenhouse.io/spacex/jobs/8444717002?gh_jid=8444717002",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
+      "listed": "2026-04-30",
+      "source": "Greenhouse",
+      "pid": "r_sr_business_analyst_workforce_planning_s",
       "addedAt": "2026-05-01"
     },
     {
@@ -214,10 +225,21 @@
       "company": "Sweetgreen",
       "loc": "Los Angeles, CA",
       "url": "https://careers.sweetgreen.com/jobs/7868665?gh_jid=7868665",
-      "desc": "&lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p data-pm-slice=&quot;0 0 []&quot;&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;sweetgreen has been on a mission to build healthier communities since 2007 \u2014 and behi",
+      "desc": "&lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p data-pm-slice=&quot;0 0 []&quot;&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;sweetgreen has been on a mission to build healthier communities since 2007 — and behi",
       "listed": "2026-04-29",
       "source": "Greenhouse",
       "pid": "r_sr_systems_analyst_people_technology_swe",
+      "addedAt": "2026-05-01"
+    },
+    {
+      "title": "Solutions Architect, Hunter - Digital Native Business",
+      "company": "Databricks",
+      "loc": "Remote - California; Remote - Colorado; Remote - Illinois; Remote - New York; Remote - Oregon; Remote - Texas; Remote - Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8432348002",
+      "desc": "&lt;p&gt;As a Hunter Solutions Architect on the Digital Natives team, you will shape the future of the big data landscape by working with the most sophisticated data engineering and data science teams in the world.&lt;/p",
+      "listed": "2026-04-29",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_hunter_digital_nativ",
       "addedAt": "2026-05-01"
     },
     {
@@ -269,7 +291,7 @@
       "company": "Chime",
       "loc": "San Francisco, CA, USA",
       "url": "https://boards.greenhouse.io/chime/jobs/8525098002?gh_jid=8525098002",
-      "desc": "&lt;h2&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;The Data Governance function is pivotal in ensuring the integrity, trustworthiness, and effective management of Chime\u2019s data assets. Our mission i",
+      "desc": "&lt;h2&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;The Data Governance function is pivotal in ensuring the integrity, trustworthiness, and effective management of Chime’s data assets. Our mission i",
       "listed": "2026-04-28",
       "source": "Greenhouse",
       "pid": "r_data_governance_engineer_chime",
@@ -298,61 +320,6 @@
       "addedAt": "2026-05-01"
     },
     {
-      "title": "Senior Business Systems Analyst",
-      "company": "Twilio",
-      "loc": "Remote - US",
-      "url": "https://job-boards.greenhouse.io/twilio/jobs/7643551",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we\u2019re shaping the future of communications, all from the comfort of our homes. We delive",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_senior_business_systems_analyst_twilio",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Business Analyst (Starlink Growth)",
-      "company": "SpaceX",
-      "loc": "Redmond, WA",
-      "url": "https://boards.greenhouse.io/spacex/jobs/8403125002?gh_jid=8403125002",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_business_analyst_starlink_growth_spacex",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Sr. Business Analyst (Starlink Growth)",
-      "company": "SpaceX",
-      "loc": "Redmond, WA",
-      "url": "https://boards.greenhouse.io/spacex/jobs/8403144002?gh_jid=8403144002",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_sr_business_analyst_starlink_growth_spac",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Sr. Business Analyst, Workforce Planning (Starlink) ",
-      "company": "SpaceX",
-      "loc": "Redmond, WA",
-      "url": "https://boards.greenhouse.io/spacex/jobs/8444717002?gh_jid=8444717002",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_sr_business_analyst_workforce_planning_s",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Solutions Architect, Hunter - Digital Native Business",
-      "company": "Databricks",
-      "loc": "Remote - California; Remote - Colorado; Remote - Illinois; Remote - New York; Remote - Oregon; Remote - Texas; Remote - Washington",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8432348002",
-      "desc": "&lt;p&gt;As a Hunter Solutions Architect on the Digital Natives team, you will shape the future of the big data landscape by working with the most sophisticated data engineering and data science teams in the world.&lt;/p",
-      "listed": "2026-04-29",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_hunter_digital_nativ",
-      "addedAt": "2026-05-01"
-    },
-    {
       "title": "Technical Architect, Go-to-Market",
       "company": "Dropbox",
       "loc": "Remote - US: Select locations",
@@ -368,7 +335,7 @@
       "company": "Stripe",
       "loc": "New York City, South San Francisco, or Remote",
       "url": "https://stripe.com/jobs/search?gh_jid=7462261",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies\u2014fro",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
       "listed": "2026-04-27",
       "source": "Greenhouse",
       "pid": "r_solutions_architect_enterprise_stripe",
@@ -386,6 +353,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 35,
-  "updatedAt": "2026-05-04T20:16:27.686905+00:00"
+  "totalCount": 32,
+  "updatedAt": "2026-05-05T11:48:04.577Z"
 }
