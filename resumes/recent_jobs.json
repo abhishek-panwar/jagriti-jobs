@@ -1,50 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Associate, Insurance Senior Business Analyst",
-      "company": "SoFi",
-      "loc": "UT - Cottonwood Heights; CA - San Francisco HQ; VA - Reston; TX - Frisco   ",
-      "url": "https://sofi.com/careers/job/7677710003?gh_jid=7677710003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://www.sofi.com/sofi-employee-applicant-privacy-notice/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Employee Applicant Privacy Notice&lt;/str",
-      "listed": "2026-05-01",
-      "source": "Greenhouse",
-      "pid": "r_associate_insurance_senior_business_anal",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Marketing Business Analyst",
-      "company": "Fivetran",
-      "loc": "Oakland, California, United States, AMER",
-      "url": "https://www.fivetran.com/careers/job?gh_jid=7674622003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;From Fivetran’s founding until now, our mission has remained the same: to make access to data as simple and reliable as electricity. With Fivetran, customer data arrive",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_marketing_business_analyst_fivetran",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Staff Technical Program Manager, Revenue Product Compliance",
-      "company": "Discord",
-      "loc": "San Francisco Bay Area",
-      "url": "https://job-boards.greenhouse.io/discord/jobs/8450205002",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Discord is used by over 200 million people every month for many different reasons, but there’s one thing that nearly everyone does on our platform:&lt;strong&gt; play v",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_staff_technical_program_manager_revenue_",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Senior Business Systems Analyst",
-      "company": "Twilio",
-      "loc": "Remote - US",
-      "url": "https://job-boards.greenhouse.io/twilio/jobs/7643551",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
-      "listed": "2026-04-30",
-      "source": "Greenhouse",
-      "pid": "r_senior_business_systems_analyst_twilio",
-      "addedAt": "2026-05-01"
-    },
-    {
       "title": "Sr. Business Analyst, Workforce Planning (Starlink) ",
       "company": "SpaceX",
       "loc": "Redmond, WA",
@@ -221,6 +177,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 20,
-  "updatedAt": "2026-05-05T12:10:08.236Z"
+  "totalCount": 16,
+  "updatedAt": "2026-05-05T12:19:01.270Z"
 }
