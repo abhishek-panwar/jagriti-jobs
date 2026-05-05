@@ -56,28 +56,6 @@
       "addedAt": "2026-05-01"
     },
     {
-      "title": "Senior Technical Program Manager, Product",
-      "company": "Lyft",
-      "loc": "San Francisco, CA",
-      "url": "https://app.careerpuck.com/job-board/lyft/job/8433701002?gh_jid=8433701002",
-      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Lyft connects people to",
-      "listed": "2026-05-01",
-      "source": "Greenhouse",
-      "pid": "r_senior_technical_program_manager_product",
-      "addedAt": "2026-05-01"
-    },
-    {
-      "title": "Staff Technical Program Manager, Mergers & Acquisition",
-      "company": "Lyft",
-      "loc": "San Francisco, CA",
-      "url": "https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002",
-      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Rooted in Lyft&#39;s mi",
-      "listed": "2026-05-01",
-      "source": "Greenhouse",
-      "pid": "r_staff_technical_program_manager_mergers_",
-      "addedAt": "2026-05-01"
-    },
-    {
       "title": "Specialist Solutions Architect - Cloud Infrastructure & Platform",
       "company": "Databricks",
       "loc": "United States",
@@ -353,6 +331,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 32,
-  "updatedAt": "2026-05-05T11:48:04.577Z"
+  "totalCount": 30,
+  "updatedAt": "2026-05-05T11:48:16.683Z"
 }
