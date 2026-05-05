@@ -48,7 +48,28 @@
       "company": "Lyft",
       "applyUrl": "https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002",
       "cancelledAt": "May 5, 2026"
+    },
+    {
+      "id": "r_senior_technical_program_manager_product",
+      "title": "Senior Technical Program Manager, Product",
+      "company": "Lyft",
+      "applyUrl": "https://app.careerpuck.com/job-board/lyft/job/8433701002?gh_jid=8433701002",
+      "cancelledAt": "May 5, 2026"
+    },
+    {
+      "id": "r_partner_solutions_architect_uk_stripe",
+      "title": "Partner Solutions Architect, UK",
+      "company": "Stripe",
+      "applyUrl": "https://stripe.com/jobs/search?gh_jid=7614951",
+      "cancelledAt": "May 5, 2026"
+    },
+    {
+      "id": "r_specialist_solutions_architect_cloud_inf",
+      "title": "Specialist Solutions Architect - Cloud Infrastructure & Platform",
+      "company": "Databricks",
+      "applyUrl": "https://databricks.com/company/careers/open-positions/job?gh_jid=8525037002",
+      "cancelledAt": "May 5, 2026"
     }
   ],
-  "updatedAt": "2026-05-05T11:48:09.647Z"
+  "updatedAt": "2026-05-05T11:57:00.224Z"
 }
