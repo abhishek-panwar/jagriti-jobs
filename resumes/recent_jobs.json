@@ -1,6 +1,94 @@
 {
   "jobs": [
     {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Remote - Washington D.C.",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8535384002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/p&gt; &lt;p&gt;******Active full-scope polygraph clearance is required at time of application*****&lt;br&gt;&lt;br&gt;This remote role re",
+      "listed": "2026-05-05",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-05-06"
+    },
+    {
+      "title": "Business Systems Analyst II",
+      "company": "Affirm",
+      "loc": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7721455003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Affirm is reinventing credit to make it more honest and friendly, giving consumers the flexibility to buy now and pay later without any hidden fees or compounding inter",
+      "listed": "2026-05-05",
+      "source": "Greenhouse",
+      "pid": "r_business_systems_analyst_ii_affirm",
+      "addedAt": "2026-05-06"
+    },
+    {
+      "title": "Partner Solutions Architect (Public Sector)",
+      "company": "Datadog",
+      "loc": "Denver, Colorado, USA",
+      "url": "https://careers.datadoghq.com/detail/7605887/?gh_jid=7605887",
+      "desc": "&lt;p&gt;We are Datadog&#39;s in-house product experts. The technical solutions team enables Datadog&#39;s worldwide growth by educating potential clients and ensuring that existing customers are happy and successful.&lt",
+      "listed": "2026-05-05",
+      "source": "Greenhouse",
+      "pid": "r_partner_solutions_architect_public_secto",
+      "addedAt": "2026-05-06"
+    },
+    {
+      "title": "Product Solutions Architect - LLM Observability",
+      "company": "Datadog",
+      "loc": "Boston, Massachusetts, USA; Denver, Colorado, USA; New York, New York, USA; San Francisco, California, USA",
+      "url": "https://careers.datadoghq.com/detail/7627531/?gh_jid=7627531",
+      "desc": "&lt;p&gt;The Product Solutions Architecture (PSA) team acts as a technical multiplier across Datadog. PSAs are domain experts who partner with Field teams on complex customer use cases across pre- and post-sales engageme",
+      "listed": "2026-05-05",
+      "source": "Greenhouse",
+      "pid": "r_product_solutions_architect_llm_observab",
+      "addedAt": "2026-05-06"
+    },
+    {
+      "title": "Product Solutions Architect - Product Analytics and Experimentation",
+      "company": "Datadog",
+      "loc": "Boston, Massachusetts, USA; Denver, Colorado, USA; New York, New York, USA; San Francisco, California, USA",
+      "url": "https://careers.datadoghq.com/detail/7732699/?gh_jid=7732699",
+      "desc": "&lt;p&gt;The Product Solutions Architecture (PSA) team acts as a technical multiplier across Datadog. PSAs are domain experts who partner with Field teams on complex customer use cases across pre- and post-sales engageme",
+      "listed": "2026-05-05",
+      "source": "Greenhouse",
+      "pid": "r_product_solutions_architect_product_anal",
+      "addedAt": "2026-05-06"
+    },
+    {
+      "title": "Senior Product Solutions Architect - Logs",
+      "company": "Datadog",
+      "loc": "Boston, Massachusetts, USA; New York, New York, USA",
+      "url": "https://careers.datadoghq.com/detail/7750751/?gh_jid=7750751",
+      "desc": "&lt;p&gt;We are Datadog&#39;s in-house product experts. The technical solutions team enables Datadog&#39;s worldwide growth by educating potential clients and ensuring that existing customers are happy and successful. We",
+      "listed": "2026-05-05",
+      "source": "Greenhouse",
+      "pid": "r_senior_product_solutions_architect_logs_",
+      "addedAt": "2026-05-06"
+    },
+    {
+      "title": "Senior Technical Program Manager, Knowledge Systems",
+      "company": "Datadog",
+      "loc": "Boston, Massachusetts, USA; New York, New York, USA; San Francisco, California, USA",
+      "url": "https://careers.datadoghq.com/detail/7446392/?gh_jid=7446392",
+      "desc": "&lt;p&gt;Datadog&#39;s Technical Solutions (TS) organization is composed of 1,100+ customer-facing technical experts around the world, from Sales Engineers, Technical Account Managers, Support Engineers, and Solution Arc",
+      "listed": "2026-05-05",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_knowled",
+      "addedAt": "2026-05-06"
+    },
+    {
+      "title": "Technical Program Manager, Internal Systems",
+      "company": "Stripe",
+      "loc": "US Remote",
+      "url": "https://stripe.com/jobs/search?gh_jid=7680365",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
+      "listed": "2026-05-04",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_internal_syste",
+      "addedAt": "2026-05-06"
+    },
+    {
       "title": "Resident Solutions Architect - Public Sector",
       "company": "Databricks",
       "loc": "Maryland",
@@ -240,17 +328,6 @@
       "listed": "2026-05-04",
       "source": "Greenhouse",
       "pid": "r_technical_program_manager_identity_and_a",
-      "addedAt": "2026-05-05"
-    },
-    {
-      "title": "Technical Program Manager, Internal Systems",
-      "company": "Stripe",
-      "loc": "US Remote",
-      "url": "https://stripe.com/jobs/search?gh_jid=7680365",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_technical_program_manager_internal_syste",
       "addedAt": "2026-05-05"
     },
     {
@@ -749,6 +826,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 68,
-  "updatedAt": "2026-05-05T19:57:52.980Z"
+  "totalCount": 75,
+  "updatedAt": "2026-05-06T06:01:19.535Z"
 }
