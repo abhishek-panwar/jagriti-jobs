@@ -45,28 +45,6 @@
       "addedAt": "2026-05-06"
     },
     {
-      "title": "Senior Product Solutions Architect - Logs",
-      "company": "Datadog",
-      "loc": "Boston, Massachusetts, USA; New York, New York, USA",
-      "url": "https://careers.datadoghq.com/detail/7750751/?gh_jid=7750751",
-      "desc": "&lt;p&gt;We are Datadog&#39;s in-house product experts. The technical solutions team enables Datadog&#39;s worldwide growth by educating potential clients and ensuring that existing customers are happy and successful. We",
-      "listed": "2026-05-05",
-      "source": "Greenhouse",
-      "pid": "r_senior_product_solutions_architect_logs_",
-      "addedAt": "2026-05-06"
-    },
-    {
-      "title": "Senior Technical Program Manager, Knowledge Systems",
-      "company": "Datadog",
-      "loc": "Boston, Massachusetts, USA; New York, New York, USA; San Francisco, California, USA",
-      "url": "https://careers.datadoghq.com/detail/7446392/?gh_jid=7446392",
-      "desc": "&lt;p&gt;Datadog&#39;s Technical Solutions (TS) organization is composed of 1,100+ customer-facing technical experts around the world, from Sales Engineers, Technical Account Managers, Support Engineers, and Solution Arc",
-      "listed": "2026-05-05",
-      "source": "Greenhouse",
-      "pid": "r_senior_technical_program_manager_knowled",
-      "addedAt": "2026-05-06"
-    },
-    {
       "title": "Resident Solutions Architect - Public Sector",
       "company": "Databricks",
       "loc": "Virginia",
@@ -540,6 +518,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 49,
-  "updatedAt": "2026-05-08T02:59:23.416Z"
+  "totalCount": 47,
+  "updatedAt": "2026-05-08T03:00:05.019Z"
 }
