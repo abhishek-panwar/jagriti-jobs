@@ -78,17 +78,6 @@
       "addedAt": "2026-05-05"
     },
     {
-      "title": "Principal Solutions Architect",
-      "company": "Cloudflare",
-      "loc": "Hybrid",
-      "url": "https://boards.greenhouse.io/cloudflare/jobs/7814877?gh_jid=7814877",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;div&gt;&lt;strong&gt;About Us&lt;/strong&gt;&lt;/div&gt; &lt;div&gt; &lt;p&gt;At Cloudflare, we are on a mission to help build a better Internet. Today the company runs one ",
-      "listed": "2026-05-05",
-      "source": "Greenhouse",
-      "pid": "r_principal_solutions_architect_cloudflare",
-      "addedAt": "2026-05-05"
-    },
-    {
       "title": "Sr. SaaS Solutions Architect",
       "company": "Peloton",
       "loc": "New York, New York",
@@ -562,6 +551,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 51,
-  "updatedAt": "2026-05-08T02:40:15.666Z"
+  "totalCount": 50,
+  "updatedAt": "2026-05-08T02:58:44.136Z"
 }
