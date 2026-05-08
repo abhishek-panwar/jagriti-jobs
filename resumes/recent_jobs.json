@@ -12,17 +12,6 @@
       "addedAt": "2026-05-05"
     },
     {
-      "title": "Solutions Architect, Startup & SMB (German-speaking)",
-      "company": "Stripe",
-      "loc": "Dublin",
-      "url": "https://stripe.com/jobs/search?gh_jid=7442995",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure p",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_startup_smb_german_s",
-      "addedAt": "2026-05-05"
-    },
-    {
       "title": "Specialist Solutions Architect, Crypto & Stablecoins",
       "company": "Stripe",
       "loc": "US-NY",
@@ -375,6 +364,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 34,
-  "updatedAt": "2026-05-08T03:03:15.753Z"
+  "totalCount": 33,
+  "updatedAt": "2026-05-08T03:03:17.713Z"
 }
