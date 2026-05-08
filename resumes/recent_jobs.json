@@ -12,28 +12,6 @@
       "addedAt": "2026-05-05"
     },
     {
-      "title": "Solutions Architect, Platforms - UKI",
-      "company": "Stripe",
-      "loc": "Dublin",
-      "url": "https://stripe.com/jobs/search?gh_jid=7601673",
-      "desc": "&lt;p&gt;&lt;strong&gt;Solutions Architect, Platforms&lt;/strong&gt;&lt;/p&gt; &lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;At Strip",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_platforms_uki_stripe",
-      "addedAt": "2026-05-05"
-    },
-    {
-      "title": "Solutions Architect, SMB",
-      "company": "Stripe",
-      "loc": "Chicago",
-      "url": "https://stripe.com/jobs/search?gh_jid=7361440",
-      "desc": "&lt;h2&gt;Who we are&lt;/h2&gt; &lt;h3&gt;About Stripe&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companiesâfrom the worldâs largest enterprises to the most ambitious st",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_smb_stripe",
-      "addedAt": "2026-05-05"
-    },
-    {
       "title": "Solutions Architect, Startup & SMB (German-speaking)",
       "company": "Stripe",
       "loc": "Dublin",
@@ -397,6 +375,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 36,
-  "updatedAt": "2026-05-08T03:03:12.410Z"
+  "totalCount": 34,
+  "updatedAt": "2026-05-08T03:03:15.753Z"
 }
