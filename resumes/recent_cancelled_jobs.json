@@ -111,7 +111,21 @@
       "company": "Cloudflare",
       "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7814877?gh_jid=7814877",
       "cancelledAt": "May 7, 2026"
+    },
+    {
+      "id": "r_sr_saas_solutions_architect_peloton",
+      "title": "Sr. SaaS Solutions Architect",
+      "company": "Peloton",
+      "applyUrl": "https://careers.onepeloton.com/en/all-jobs/?gh_jid=7568890",
+      "cancelledAt": "May 7, 2026"
+    },
+    {
+      "id": "r_senior_technical_program_manager_knowled",
+      "title": "Senior Technical Program Manager, Knowledge Systems",
+      "company": "Datadog",
+      "applyUrl": "https://careers.datadoghq.com/detail/7446392/?gh_jid=7446392",
+      "cancelledAt": "May 7, 2026"
     }
   ],
-  "updatedAt": "2026-05-08T02:58:43.527Z"
+  "updatedAt": "2026-05-08T03:00:04.509Z"
 }
