@@ -67,17 +67,6 @@
       "addedAt": "2026-05-05"
     },
     {
-      "title": "Technical Program Manager, Payments Experiences",
-      "company": "Stripe",
-      "loc": "Chicago, Remote in the US",
-      "url": "https://stripe.com/jobs/search?gh_jid=6932491",
-      "desc": "&lt;h2&gt;Who we are&lt;/h2&gt; &lt;h3&gt;About Stripe&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure platform for businesses. Millions of companiesâfrom the worl",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_technical_program_manager_payments_exper",
-      "addedAt": "2026-05-05"
-    },
-    {
       "title": "Technical Program Manager, Risk",
       "company": "Stripe",
       "loc": "Bangalore",
@@ -86,28 +75,6 @@
       "listed": "2026-05-04",
       "source": "Greenhouse",
       "pid": "r_technical_program_manager_risk_stripe",
-      "addedAt": "2026-05-05"
-    },
-    {
-      "title": "Sr. Solutions Architect",
-      "company": "Databricks",
-      "loc": "Remote - Texas",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8417656002",
-      "desc": "&lt;p data-renderer-start-pos=&quot;1648&quot;&gt;Location: Houston, TX&amp;nbsp;&lt;/p&gt; &lt;p data-renderer-start-pos=&quot;1648&quot;&gt;While candidates in the listed location are encouraged for this role, candidat",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_sr_solutions_architect_databricks",
-      "addedAt": "2026-05-05"
-    },
-    {
-      "title": "Staff Business Systems Analyst",
-      "company": "Gusto",
-      "loc": "San Francisco, CA",
-      "url": "https://job-boards.greenhouse.io/gusto/jobs/7815573",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p style=&quot;line-height: 1.2;&quot;&gt;&amp;nbsp;&lt;/p&gt; &lt;hr&gt; &lt;p&gt;&lt;strong&gt;About Gusto&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Gusto, we&#39;re on a missio",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_staff_business_systems_analyst_gusto",
       "addedAt": "2026-05-05"
     },
     {
@@ -353,6 +320,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 32,
-  "updatedAt": "2026-05-08T03:03:25.006Z"
+  "totalCount": 29,
+  "updatedAt": "2026-05-08T03:06:27.743Z"
 }
