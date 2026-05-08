@@ -1,17 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Business Systems Analyst, HR & Legal Systems",
-      "company": "Planet Labs",
-      "loc": "San Francisco, CA",
-      "url": "https://job-boards.greenhouse.io/planetlabs/jobs/7814772",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Welcome to Planet. We believe in using space to help life on Earth.&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Planet designs, builds, and operates the largest con",
-      "listed": "2026-05-05",
-      "source": "Greenhouse",
-      "pid": "r_business_systems_analyst_hr_legal_system",
-      "addedAt": "2026-05-05"
-    },
-    {
       "title": "Specialist Solutions Architect, Crypto & Stablecoins",
       "company": "Stripe",
       "loc": "US-NY",
@@ -364,6 +353,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 33,
-  "updatedAt": "2026-05-08T03:03:17.713Z"
+  "totalCount": 32,
+  "updatedAt": "2026-05-08T03:03:25.006Z"
 }
