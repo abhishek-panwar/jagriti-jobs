@@ -1,17 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Remote - Washington D.C.",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8535384002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/p&gt; &lt;p&gt;******Active full-scope polygraph clearance is required at time of application*****&lt;br&gt;&lt;br&gt;This remote role re",
-      "listed": "2026-05-05",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-05-06"
-    },
-    {
       "title": "Business Systems Analyst, HR & Legal Systems",
       "company": "Planet Labs",
       "loc": "San Francisco, CA",
@@ -20,72 +9,6 @@
       "listed": "2026-05-05",
       "source": "Greenhouse",
       "pid": "r_business_systems_analyst_hr_legal_system",
-      "addedAt": "2026-05-05"
-    },
-    {
-      "title": "Billing Solutions Architect",
-      "company": "Stripe",
-      "loc": "London, Dublin, Berlin",
-      "url": "https://stripe.com/jobs/search?gh_jid=7115730",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure p",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_billing_solutions_architect_stripe",
-      "addedAt": "2026-05-05"
-    },
-    {
-      "title": "Data Governance Lead",
-      "company": "Stripe",
-      "loc": "Remote US",
-      "url": "https://stripe.com/jobs/search?gh_jid=5922987",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure pl",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_data_governance_lead_stripe",
-      "addedAt": "2026-05-05"
-    },
-    {
-      "title": "Partner Solutions Architect - AWS",
-      "company": "Stripe",
-      "loc": "New York",
-      "url": "https://stripe.com/jobs/search?gh_jid=7607761",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for busines",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_partner_solutions_architect_aws_stripe",
-      "addedAt": "2026-05-05"
-    },
-    {
-      "title": "Partner Solutions Architect - Consulting Partners",
-      "company": "Stripe",
-      "loc": "Chicago or Atlanta",
-      "url": "https://stripe.com/jobs/search?gh_jid=7411434",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companiesâfro",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_partner_solutions_architect_consulting_p",
-      "addedAt": "2026-05-05"
-    },
-    {
-      "title": "Solutions Architect, Enterprise, France",
-      "company": "Stripe",
-      "loc": "Paris",
-      "url": "https://stripe.com/jobs/search?gh_jid=7619227",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies - f",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_enterprise_france_st",
-      "addedAt": "2026-05-05"
-    },
-    {
-      "title": "Solutions Architect, Italy",
-      "company": "Stripe",
-      "loc": "Milan, Barcelona, Madrid, Dublin, Amsterdam",
-      "url": "https://stripe.com/jobs/search?gh_jid=7784353",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure p",
-      "listed": "2026-05-04",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_italy_stripe",
       "addedAt": "2026-05-05"
     },
     {
@@ -474,6 +397,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 43,
-  "updatedAt": "2026-05-08T03:00:16.717Z"
+  "totalCount": 36,
+  "updatedAt": "2026-05-08T03:03:12.410Z"
 }
