@@ -12,50 +12,6 @@
       "addedAt": "2026-05-06"
     },
     {
-      "title": "Business Systems Analyst II",
-      "company": "Affirm",
-      "loc": "Remote US",
-      "url": "https://job-boards.greenhouse.io/affirm/jobs/7721455003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Affirm is reinventing credit to make it more honest and friendly, giving consumers the flexibility to buy now and pay later without any hidden fees or compounding inter",
-      "listed": "2026-05-05",
-      "source": "Greenhouse",
-      "pid": "r_business_systems_analyst_ii_affirm",
-      "addedAt": "2026-05-06"
-    },
-    {
-      "title": "Partner Solutions Architect (Public Sector)",
-      "company": "Datadog",
-      "loc": "Denver, Colorado, USA",
-      "url": "https://careers.datadoghq.com/detail/7605887/?gh_jid=7605887",
-      "desc": "&lt;p&gt;We are Datadog&#39;s in-house product experts. The technical solutions team enables Datadog&#39;s worldwide growth by educating potential clients and ensuring that existing customers are happy and successful.&lt",
-      "listed": "2026-05-05",
-      "source": "Greenhouse",
-      "pid": "r_partner_solutions_architect_public_secto",
-      "addedAt": "2026-05-06"
-    },
-    {
-      "title": "Product Solutions Architect - LLM Observability",
-      "company": "Datadog",
-      "loc": "Boston, Massachusetts, USA; Denver, Colorado, USA; New York, New York, USA; San Francisco, California, USA",
-      "url": "https://careers.datadoghq.com/detail/7627531/?gh_jid=7627531",
-      "desc": "&lt;p&gt;The Product Solutions Architecture (PSA) team acts as a technical multiplier across Datadog. PSAs are domain experts who partner with Field teams on complex customer use cases across pre- and post-sales engageme",
-      "listed": "2026-05-05",
-      "source": "Greenhouse",
-      "pid": "r_product_solutions_architect_llm_observab",
-      "addedAt": "2026-05-06"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Virginia",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494107002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R175&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirement",
-      "listed": "2026-05-05",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-05-05"
-    },
-    {
       "title": "Business Systems Analyst, HR & Legal Systems",
       "company": "Planet Labs",
       "loc": "San Francisco, CA",
@@ -518,6 +474,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 47,
-  "updatedAt": "2026-05-08T03:00:05.019Z"
+  "totalCount": 43,
+  "updatedAt": "2026-05-08T03:00:16.717Z"
 }
