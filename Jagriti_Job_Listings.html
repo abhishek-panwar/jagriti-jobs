@@ -1340,7 +1340,7 @@ async function syncAppliedFromGitHub() {
   if (data) {
     appliedFileSha = data.sha;
     _appliedShaRef[0] = data.sha;
-    appliedCache = JSON.parse(atob(data.content.replace(/\n/g,''))).applied || [];
+    appliedCache = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))))).applied || [];
   }
   initAppliedState();
   checkRefreshButton();
@@ -1358,7 +1358,7 @@ async function syncCancelledFromGitHub() {
   if (data) {
     cancelledFileSha = data.sha;
     _cancelledShaRef[0] = data.sha;
-    cancelledCache = JSON.parse(atob(data.content.replace(/\n/g,''))).cancelled || [];
+    cancelledCache = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))))).cancelled || [];
   }
   initCancelledState();
 }
@@ -1677,7 +1677,7 @@ async function loadJobs() {
     if (!res.ok) { showGridEmpty(); return; }
     const data = await res.json();
     newJobsSha   = data.sha;
-    const parsed = JSON.parse(atob(data.content.replace(/\n/g, '')));
+    const parsed = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g, '')))));
     const jobs   = parsed.jobs || [];
     newJobsCache = jobs;
     if (jobs.length === 0) { showGridEmpty(); return; }
@@ -1765,7 +1765,7 @@ async function syncRecentJobsFromGitHub() {
     if (!res.ok) return;
     const data   = await res.json();
     recentJobsSha = data.sha;
-    const remote = JSON.parse(atob(data.content.replace(/\n/g,''))).jobs || [];
+    const remote = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))))).jobs || [];
 
     // Merge: remote is authoritative; keep any local entries not yet pushed
     const local  = getPersistedJobs();
@@ -2943,7 +2943,7 @@ async function _ghGet(filePath, shaRef) {
     if (!res.ok) return null;
     const data = await res.json();
     shaRef[0] = data.sha;
-    return JSON.parse(atob(data.content.replace(/\n/g,'')));
+    return JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,'')))));
   } catch(e) { return null; }
 }
 
