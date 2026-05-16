@@ -453,6 +453,9 @@
         <div class="section-link" onclick="showSection('aws-s3')">S3</div>
         <div class="section-link" onclick="showSection('aws-glue')">Glue &amp; ETL</div>
         <div class="section-link" onclick="showSection('aws-redshift')">Redshift</div>
+        <div class="section-link" onclick="showSection('aws-ec2')">EC2</div>
+        <div class="section-link" onclick="showSection('aws-rds')">RDS &amp; Databases</div>
+        <div class="section-link" onclick="showSection('aws-elasticsearch')">OpenSearch / ES</div>
         <div class="section-link" onclick="showSection('aws-cheatsheet')">Cheat Sheet</div>
       </div>
     </div>
@@ -1651,6 +1654,186 @@ FORMAT AS PARQUET;</pre>
 </div>
 
 
+<div class="tutorial-section" id="aws-ec2">
+  <h2>EC2 — Elastic Compute Cloud</h2>
+  <p class="section-meta">Virtual servers in the cloud · Instance types · BA relevance · Interview Q&amp;A</p>
+
+  <div class="content-block">
+    <h3>What is EC2?</h3>
+    <p>EC2 is AWS's virtual machine service. It gives you a server in the cloud — you choose the OS, CPU, memory, and storage, and AWS runs it for you. Think of it as renting a computer in Amazon's data center instead of buying one yourself. Applications, APIs, web servers, and batch jobs all run on EC2 instances.</p>
+    <p>As a BA, you won't launch EC2 instances, but you'll encounter them when discussing where applications live, why something went down, or why a process is slow.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Key Concepts</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Term</th><th>What it means</th><th>Why a BA cares</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Instance</strong></td><td>A single virtual machine running on EC2</td><td>When the team says "the app is on an EC2 instance" — this is what they mean. If the instance goes down, the app is unavailable.</td></tr>
+        <tr><td><strong>Instance type</strong></td><td>The size/specs of the machine (e.g., t3.medium = 2 CPU, 4GB RAM). Different types are optimised for compute, memory, or storage.</td><td>If a batch job is slow or a pipeline keeps failing with memory errors, the instance type may need upgrading — a cost vs performance trade-off you may need to flag in requirements.</td></tr>
+        <tr><td><strong>AMI</strong><br>(Amazon Machine Image)</td><td>A snapshot/template of a machine — the OS, installed software, configuration. Used to spin up identical instances quickly.</td><td>Relevant in discussions about environment setup — "we spin up test environments from an AMI" means new test servers can be created quickly from a fixed baseline.</td></tr>
+        <tr><td><strong>Security Group</strong></td><td>A virtual firewall for an instance — controls which IPs and ports can connect to it</td><td>If a team can't connect to a database or API on an EC2 instance, a misconfigured security group is usually the first thing to check. Useful context when debugging access issues.</td></tr>
+        <tr><td><strong>Auto Scaling</strong></td><td>Automatically adds or removes EC2 instances based on load (e.g., adds servers during peak traffic)</td><td>Relevant for capacity planning requirements — "the system should handle 10x traffic during peak periods" is often addressed through auto scaling.</td></tr>
+        <tr><td><strong>Elastic IP</strong></td><td>A fixed public IP address you can assign to an EC2 instance</td><td>Relevant when external partners or systems need a stable IP to whitelist for connectivity.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>How EC2 Fits in a Data Pipeline</h3>
+    <p>In many organisations, ETL jobs, API servers, and data processing scripts run on EC2 instances. A typical flow might look like:</p>
+    <pre><code>Source System (on-prem DB)
+  → EC2 instance running a Python script (pulls data via API or JDBC)
+  → S3 (raw data dropped here)
+  → Glue / Lambda (transforms the data)
+  → Redshift (final destination for reporting)</code></pre>
+    <p>As a BA, knowing that "the extraction runs on an EC2 instance" helps you understand where to look when the pipeline fails — is the instance running? Did the script error? Is the security group blocking the connection?</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Interview Q&amp;A</h3>
+    <p><strong>Q: What is EC2 and have you worked with it?</strong><br>
+    Sample answer: "EC2 is AWS's virtual machine service — essentially renting a server in the cloud. In my experience, EC2 instances were used to host ETL scripts, API endpoints, and middleware applications that fed data into our data warehouse. I worked with the engineering team to define compute requirements for new pipelines and was involved in incident triage when instances had performance or connectivity issues."</p>
+    <p><strong>Q: What's the difference between EC2 and serverless (Lambda)?</strong><br>
+    EC2 is always on — you pay for the instance whether it's doing work or not. Lambda is event-driven — it only runs (and costs money) when triggered. EC2 is better for long-running processes; Lambda for short, infrequent tasks. As a BA, this distinction matters when discussing pipeline architecture trade-offs with engineers.</p>
+  </div>
+</div>
+
+<div class="tutorial-section" id="aws-rds">
+  <h2>RDS &amp; AWS Databases</h2>
+  <p class="section-meta">Relational databases · RDS vs DynamoDB vs Aurora · When to use what · Interview Q&amp;A</p>
+
+  <div class="content-block">
+    <h3>What is RDS?</h3>
+    <p>RDS (Relational Database Service) is AWS's managed relational database service. Instead of installing and maintaining a database server yourself on EC2, AWS handles backups, patching, failover, and scaling. You just connect to it and run SQL. RDS supports PostgreSQL, MySQL, SQL Server, Oracle, and MariaDB.</p>
+    <p><strong>Why it matters for BAs:</strong> Most transactional systems — the operational databases that record real-time business activity (orders, users, transactions) — run on RDS. When you're writing requirements for features that read or write data to a production system, that system is very likely on RDS.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>AWS Database Options — Which is Which</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Service</th><th>Type</th><th>Best for</th><th>BA relevance</th></tr></thead>
+      <tbody>
+        <tr><td><strong>RDS</strong></td><td>Managed relational DB (SQL)</td><td>Transactional systems — orders, users, accounts, anything with relationships between tables</td><td>Source system for most data pipelines. Data gets extracted from RDS and loaded into Redshift for analysis.</td></tr>
+        <tr><td><strong>Aurora</strong></td><td>AWS's own high-performance relational DB — compatible with MySQL or PostgreSQL</td><td>High-traffic applications needing speed and reliability. Drop-in replacement for MySQL/Postgres but faster and auto-scales storage.</td><td>You may encounter Aurora as the production database for a high-volume application. Same SQL as MySQL/PostgreSQL.</td></tr>
+        <tr><td><strong>DynamoDB</strong></td><td>NoSQL key-value &amp; document store</td><td>High-speed lookups at massive scale — user profiles, session data, real-time caches, IoT event streams</td><td>You won't write SQL against DynamoDB — it uses its own query language. Relevant when requirements involve near real-time data or very high write volumes. Not suitable for complex joins.</td></tr>
+        <tr><td><strong>Redshift</strong></td><td>Data warehouse (OLAP)</td><td>Analytics and reporting on large historical datasets</td><td>Your primary query target. Not for transactional use — for reading and aggregating large amounts of data.</td></tr>
+        <tr><td><strong>ElastiCache</strong></td><td>In-memory cache (Redis / Memcached)</td><td>Extremely fast temporary storage — API response caching, session management, leaderboards</td><td>Comes up in performance discussions — "we cache API responses in ElastiCache to avoid hitting the database on every request." Explains why some data appears stale until the cache expires.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>RDS Key Concepts</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Term</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Read Replica</strong></td><td>A copy of the database that handles read traffic — prevents heavy reporting queries from slowing down the production database. ETL extractions and BI tools often connect to the read replica, not the primary.</td></tr>
+        <tr><td><strong>Multi-AZ</strong></td><td>Automatic failover — AWS keeps a standby copy in a different availability zone. If the primary goes down, the standby takes over automatically. Relevant for SLA discussions.</td></tr>
+        <tr><td><strong>Snapshot</strong></td><td>A point-in-time backup of the entire database. Can be restored if data is corrupted or accidentally deleted.</td></tr>
+        <tr><td><strong>Parameter Group</strong></td><td>Configuration settings for the database engine — things like max connections, query timeouts. Can affect performance behaviour.</td></tr>
+        <tr><td><strong>Connection Pooling</strong></td><td>Reusing database connections rather than opening a new one for every request — reduces overhead. Relevant when high-traffic applications hit connection limits.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>OLTP vs OLAP — The Core Distinction</h3>
+    <div class="note-box">
+      <strong>OLTP (RDS/Aurora)</strong> — records transactions as they happen. Many small, fast read/write operations. Optimised for current data. <em>Think: "Save this order," "Update this user's address."</em><br><br>
+      <strong>OLAP (Redshift/Snowflake)</strong> — analyses historical data. Few large, slow queries that scan millions of rows. Optimised for aggregation. <em>Think: "What were total sales by region for Q3?"</em>
+    </div>
+    <p>Data flows from OLTP → ETL → OLAP. As a BA, understanding this distinction helps you direct questions to the right system and set correct expectations about data freshness (OLAP data is typically 1 day behind because it's loaded overnight).</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Interview Q&amp;A</h3>
+    <p><strong>Q: What's the difference between RDS and Redshift?</strong><br>
+    Sample answer: "RDS is a transactional database — it handles the real-time operational data like orders and user records, optimised for many small fast reads and writes. Redshift is a data warehouse — it handles analytical queries across large historical datasets, optimised for aggregations and reporting. In our architecture, RDS was the source system and Redshift was where we queried processed data for dashboards. Data moved between them via nightly ETL pipelines."</p>
+    <p><strong>Q: What is a read replica and why does it matter?</strong><br>
+    Sample answer: "A read replica is a copy of the production database that handles read-only queries. We used this to ensure that BI tools and ETL extractions didn't put load on the primary production database. This was important for maintaining application performance — if a heavy reporting query ran against the primary, it could slow down the application for end users."</p>
+  </div>
+</div>
+
+<div class="tutorial-section" id="aws-elasticsearch">
+  <h2>OpenSearch / Elasticsearch</h2>
+  <p class="section-meta">Search &amp; analytics engine · How it works · Use cases · Interview Q&amp;A</p>
+
+  <div class="content-block">
+    <h3>What is Elasticsearch / OpenSearch?</h3>
+    <p>Elasticsearch is a search and analytics engine — it's designed to find things fast across large volumes of unstructured or semi-structured text. Amazon OpenSearch Service is AWS's managed version of the open-source OpenSearch project (which is a fork of Elasticsearch). The two are nearly identical in how you use them.</p>
+    <p>Unlike a relational database where you search with SQL using exact matches, Elasticsearch uses <strong>full-text search</strong> — it can find relevant results even if the exact words don't match, rank results by relevance, and handle typos.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>How It Works (Simplified)</h3>
+    <p>When data is indexed into Elasticsearch, it builds an <strong>inverted index</strong> — like the index at the back of a book, mapping every word to every document that contains it. This is what makes search so fast.</p>
+    <pre><code>Data Source (RDS, S3, logs)
+  → Indexing pipeline (Lambda, Glue, Logstash)
+  → Elasticsearch / OpenSearch index
+  → Application / Dashboard queries the index
+  → Results returned in milliseconds</code></pre>
+  </div>
+
+  <div class="content-block">
+    <h3>Key Concepts</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Term</th><th>What it means</th><th>SQL equivalent</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Index</strong></td><td>A collection of documents of a similar type — where you store and search data</td><td>≈ Table</td></tr>
+        <tr><td><strong>Document</strong></td><td>A single record stored in an index — in JSON format</td><td>≈ Row</td></tr>
+        <tr><td><strong>Field</strong></td><td>A key-value pair within a document</td><td>≈ Column</td></tr>
+        <tr><td><strong>Mapping</strong></td><td>The schema definition for an index — defines field types (text, keyword, date, number)</td><td>≈ Table schema / DDL</td></tr>
+        <tr><td><strong>Shard</strong></td><td>Elasticsearch splits large indexes into shards distributed across nodes for performance and scale</td><td>≈ Partitioning</td></tr>
+        <tr><td><strong>Query DSL</strong></td><td>Elasticsearch's JSON-based query language — used instead of SQL</td><td>≈ SQL SELECT</td></tr>
+        <tr><td><strong>Kibana</strong></td><td>AWS OpenSearch Dashboards (or Kibana) — a UI for exploring data and building visualisations on top of an ES index</td><td>≈ Power BI / reporting layer</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>When You'll Encounter It as a BA</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Use case</th><th>What's happening</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Application search</strong></td><td>Product search, document search, customer search features in an app. If a feature involves "search as you type" or fuzzy matching, Elasticsearch is likely behind it.</td></tr>
+        <tr><td><strong>Log analytics</strong></td><td>Application and infrastructure logs are shipped to ES/OpenSearch in real time. Engineers use it to find error patterns and debug incidents. If you're writing requirements for an alerting system, logs likely come from here.</td></tr>
+        <tr><td><strong>API monitoring</strong></td><td>API call logs, latency metrics, error rates — often indexed into ES for real-time dashboards. Relevant to your experience with 400+ APIs.</td></tr>
+        <tr><td><strong>Audit trails</strong></td><td>In regulated industries, audit log requirements often lead to an ES index — fast searchable record of who did what and when.</td></tr>
+        <tr><td><strong>Data governance</strong></td><td>Some data catalogs and metadata search tools use Elasticsearch under the hood to make data assets discoverable across the organisation.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>Sample Query (what it looks like)</h3>
+    <p>Searching for job postings where the title contains "business analyst" posted in the last 7 days:</p>
+    <pre><code>GET /jobs/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "title": "business analyst" } }
+      ],
+      "filter": [
+        { "range": { "posted_date": { "gte": "now-7d" } } }
+      ]
+    }
+  },
+  "sort": [{ "posted_date": { "order": "desc" } }]
+}</code></pre>
+    <p>As a BA, you won't write these queries day-to-day, but reading one in a requirements discussion or data investigation is a useful skill.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Interview Q&amp;A</h3>
+    <p><strong>Q: What is Elasticsearch and when would you use it instead of a relational database?</strong><br>
+    Sample answer: "Elasticsearch is a search and analytics engine optimised for full-text search and log analysis. I'd recommend it over a relational database when the use case involves free-text search with relevance ranking, fuzzy matching, or real-time log analysis — things that SQL isn't well-suited for. For example, a customer-facing product search feature, an API monitoring dashboard, or a searchable audit log are all good candidates. In our environment, API call logs were indexed into OpenSearch and queried via dashboards to track error rates and latency trends."</p>
+    <p><strong>Q: What's the difference between Elasticsearch and a database like RDS?</strong><br>
+    RDS is built for structured data with strict schemas, ACID transactions, and complex joins — it's the right choice for recording business events reliably. Elasticsearch is built for search and analytics on large volumes of text or logs — it's fast at finding and ranking results but not designed for transactional writes or complex relational queries. They solve different problems and are often used together.</p>
+  </div>
+</div>
+
 <div class="tutorial-section" id="aws-cheatsheet">
   <h2>AWS Cheat Sheet</h2>
   <p class="section-meta">Quick reference for interviews — BA-focused</p>
@@ -1663,6 +1846,12 @@ FORMAT AS PARQUET;</pre>
         <tr><td><strong>S3</strong><br>(Simple Storage Service)</td><td>Object storage — store any file in the cloud in containers called buckets</td><td>Raw data lands here. ETL jobs read from and write to S3. You reference S3 paths in requirements and validate output files during testing.</td></tr>
         <tr><td><strong>AWS Glue</strong></td><td>Managed ETL service — crawlers scan data sources and build a catalog; ETL jobs transform data</td><td>You define transformation rules and business logic that Glue jobs implement. You do UAT on job output. The Data Catalog helps you discover existing data assets.</td></tr>
         <tr><td><strong>Redshift</strong></td><td>Cloud data warehouse — columnar storage for large-scale analytical SQL queries</td><td>Your primary query target for reporting and analysis. Use standard SQL. It's where cleaned, processed data lives for BI tools like Power BI to connect to.</td></tr>
+        <tr><td><strong>EC2</strong><br>(Elastic Compute Cloud)</td><td>Virtual servers in the cloud — you choose the OS, CPU, memory; AWS runs the hardware</td><td>Applications, ETL scripts, and APIs often run on EC2. Relevant when discussing where a system lives, why it went down, or capacity planning for new pipelines.</td></tr>
+        <tr><td><strong>RDS</strong><br>(Relational Database Service)</td><td>Managed relational database — supports PostgreSQL, MySQL, SQL Server, Oracle. Handles backups and failover automatically.</td><td>Source system for most data pipelines. Transactional data (orders, users, events) lives here. ETL extracts from RDS and loads into Redshift.</td></tr>
+        <tr><td><strong>Aurora</strong></td><td>AWS's high-performance managed relational DB — MySQL/PostgreSQL compatible, auto-scales storage</td><td>Same SQL as RDS but faster and more resilient. Common in high-traffic production systems. Treat it like RDS from a BA perspective.</td></tr>
+        <tr><td><strong>DynamoDB</strong></td><td>NoSQL key-value database — extremely fast at single-record lookups at any scale</td><td>Used for real-time features like user sessions, product catalogs, and IoT events. No SQL joins — data must be modelled differently. Relevant in requirements for near real-time or very high volume writes.</td></tr>
+        <tr><td><strong>OpenSearch</strong><br>(Elasticsearch)</td><td>Search and analytics engine — full-text search, fuzzy matching, log analytics, real-time dashboards</td><td>Behind application search features, API monitoring dashboards, and audit logs. If a requirement involves free-text search or log analysis, OpenSearch is likely involved.</td></tr>
+        <tr><td><strong>ElastiCache</strong></td><td>In-memory cache (Redis/Memcached) — stores frequently accessed data in memory for near-instant retrieval</td><td>Explains why some data appears stale — it's cached and refreshes on a schedule. Relevant for performance requirements and debugging "why isn't my change showing up."</td></tr>
         <tr><td><strong>Athena</strong></td><td>Serverless SQL engine — runs SQL queries directly on files in S3 without loading them into a database</td><td>Quick ad-hoc exploration of raw S3 data without a full pipeline. Useful for data profiling during requirements gathering or investigation.</td></tr>
         <tr><td><strong>IAM</strong><br>(Identity &amp; Access Management)</td><td>Manages who can access what AWS resources — through users, roles, and policies</td><td>Data access problems trace back here. You need to know what IAM role you need and how to request it. Glue jobs, Redshift connections, and S3 access all require correct IAM permissions.</td></tr>
         <tr><td><strong>CloudWatch</strong></td><td>Monitoring and logging service — tracks metrics, stores logs, sends alerts</td><td>When a Glue job fails or a pipeline hasn't run, CloudWatch logs are where the data engineering team looks. As a BA, you may need to raise a ticket referencing a CloudWatch error.</td></tr>
@@ -1683,11 +1872,16 @@ FORMAT AS PARQUET;</pre>
         <tr><td><strong>Data Catalog</strong></td><td>Metadata inventory — what tables exist, their schemas, where data lives. Populated by Glue crawlers.</td></tr>
         <tr><td><strong>Bucket Policy</strong></td><td>Access rules attached to an S3 bucket — controls who can read/write that specific bucket</td></tr>
         <tr><td><strong>IAM Role</strong></td><td>A set of permissions that can be assumed by a user or service (e.g., a Glue job assumes a role to access S3)</td></tr>
-        <tr><td><strong>OLTP</strong></td><td>Operational databases for recording transactions — SQL Server, DB2 production systems</td></tr>
-        <tr><td><strong>OLAP</strong></td><td>Analytical data warehouses for querying historical data at scale — Redshift, Snowflake</td></tr>
+        <tr><td><strong>OLTP</strong></td><td>Operational databases for recording transactions — SQL Server, RDS, Aurora. Many small fast reads/writes. Current data.</td></tr>
+        <tr><td><strong>OLAP</strong></td><td>Analytical data warehouses for querying historical data at scale — Redshift, Snowflake. Few large slow queries. Historical data.</td></tr>
+        <tr><td><strong>Read Replica</strong></td><td>A copy of an RDS/Aurora database that handles read traffic — prevents BI tools and ETL from slowing down the production database</td></tr>
+        <tr><td><strong>Multi-AZ</strong></td><td>Automatic database failover — AWS keeps a standby copy in another availability zone. If primary fails, standby takes over automatically.</td></tr>
+        <tr><td><strong>Inverted Index</strong></td><td>The data structure Elasticsearch uses — maps every word to every document containing it. Makes full-text search millisecond-fast.</td></tr>
+        <tr><td><strong>Shard</strong></td><td>Elasticsearch splits large indexes across multiple shards (nodes) for scale and parallelism — similar to partitioning in SQL</td></tr>
         <tr><td><strong>Region</strong></td><td>Geographic AWS data center location — matters for data residency and compliance requirements</td></tr>
         <tr><td><strong>Parquet</strong></td><td>Columnar file format used in S3 — much more efficient than CSV for large data, commonly used in data pipelines</td></tr>
         <tr><td><strong>COPY command</strong></td><td>Redshift's bulk-load command — efficiently loads large files from S3 into a Redshift table</td></tr>
+        <tr><td><strong>Cache invalidation</strong></td><td>When cached data is cleared/refreshed — explains why a change doesn't appear immediately. Relevant in requirements for data freshness SLAs.</td></tr>
       </tbody>
     </table>
   </div>
