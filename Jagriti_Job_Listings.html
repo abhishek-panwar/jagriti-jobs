@@ -1320,7 +1320,7 @@ async function _ghWriteJson(path, shaRef, payload, message) {
   // Always re-fetch SHA first to avoid 409 conflicts
   const cur = await _ghFetchSha(path);
   if (cur) shaRef[0] = cur.sha;
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const content = btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(payload, null, 2))));
   const body = { message, content, ...(shaRef[0] ? { sha: shaRef[0] } : {}) };
   try {
     const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${path}`, {
@@ -1340,7 +1340,7 @@ async function syncAppliedFromGitHub() {
   if (data) {
     appliedFileSha = data.sha;
     _appliedShaRef[0] = data.sha;
-    appliedCache = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))))).applied || [];
+    appliedCache = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(data.content.replace(/\n/g,'')), c => c.charCodeAt(0)))).applied || [];
   }
   initAppliedState();
   checkRefreshButton();
@@ -1358,7 +1358,7 @@ async function syncCancelledFromGitHub() {
   if (data) {
     cancelledFileSha = data.sha;
     _cancelledShaRef[0] = data.sha;
-    cancelledCache = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))))).cancelled || [];
+    cancelledCache = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(data.content.replace(/\n/g,'')), c => c.charCodeAt(0)))).cancelled || [];
   }
   initCancelledState();
 }
@@ -1677,7 +1677,7 @@ async function loadJobs() {
     if (!res.ok) { showGridEmpty(); return; }
     const data = await res.json();
     newJobsSha   = data.sha;
-    const parsed = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g, '')))));
+    const parsed = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(data.content.replace(/\n/g, '')), c => c.charCodeAt(0))));
     const jobs   = parsed.jobs || [];
     newJobsCache = jobs;
     if (jobs.length === 0) { showGridEmpty(); return; }
@@ -1703,7 +1703,7 @@ function showGridEmpty() {
 async function pushNewJobs(message) {
   if (!newJobsSha) return;
   const payload = { jobs: newJobsCache, totalCount: newJobsCache.length, fetchedAt: new Date().toISOString() };
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const content = btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(payload, null, 2))));
   try {
     const res = await fetch(
       `https://api.github.com/repos/${GH_REPO}/contents/${NEW_JOBS_FILE}`,
@@ -1765,7 +1765,7 @@ async function syncRecentJobsFromGitHub() {
     if (!res.ok) return;
     const data   = await res.json();
     recentJobsSha = data.sha;
-    const remote = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))))).jobs || [];
+    const remote = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(data.content.replace(/\n/g,'')), c => c.charCodeAt(0)))).jobs || [];
 
     // Merge: remote is authoritative; keep any local entries not yet pushed
     const local  = getPersistedJobs();
@@ -1793,7 +1793,7 @@ async function pushRecentJobsToGitHub() {
 
   const jobs    = getPersistedJobs();
   const payload = { jobs, totalCount: jobs.length, updatedAt: new Date().toISOString() };
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const content = btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(payload, null, 2))));
   const body    = { message: `Update recent jobs (${jobs.length} total)`, content,
                     ...(recentJobsSha ? { sha: recentJobsSha } : {}) };
   try {
@@ -2923,7 +2923,7 @@ function setPracticeApplied(arr)   { localStorage.setItem(PRACTICE_APPLIED_KEY, 
 function setPracticeCancelled(arr) { localStorage.setItem(PRACTICE_CANCELLED_KEY, JSON.stringify(arr)); pushRecentCancelledToGitHub(); }
 
 async function _ghPut(filePath, shaRef, payload, message) {
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const content = btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(payload, null, 2))));
   const body    = { message, content, ...(shaRef[0] ? { sha: shaRef[0] } : {}) };
   try {
     const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${filePath}`, {
@@ -2943,7 +2943,7 @@ async function _ghGet(filePath, shaRef) {
     if (!res.ok) return null;
     const data = await res.json();
     shaRef[0] = data.sha;
-    return JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,'')))));
+    return JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(data.content.replace(/\n/g,'')), c => c.charCodeAt(0))));
   } catch(e) { return null; }
 }
 
@@ -2959,7 +2959,7 @@ async function pushRecentAppliedToGitHub() {
   } catch(e) {}
   const arr     = getPracticeApplied();
   const payload = { applied: arr, updatedAt: new Date().toISOString() };
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const content = btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(payload, null, 2))));
   const body    = { message: `Update recent applied jobs (${arr.length} total)`, content,
                     ...(recentAppliedSha ? { sha: recentAppliedSha } : {}) };
   try {
@@ -2979,7 +2979,7 @@ async function pushRecentCancelledToGitHub() {
   } catch(e) {}
   const arr     = getPracticeCancelled();
   const payload = { cancelled: arr, updatedAt: new Date().toISOString() };
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const content = btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(payload, null, 2))));
   const body    = { message: `Update recent cancelled jobs (${arr.length} total)`, content,
                     ...(recentCancelledSha ? { sha: recentCancelledSha } : {}) };
   try {
