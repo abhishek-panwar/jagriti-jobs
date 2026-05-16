@@ -428,115 +428,1232 @@
       <p>Select a section from the left panel — Power BI, SQL, or AWS. Content will be added here.</p>
     </div>
 
-    <!-- ══════════════════════════════════════════
-         POWER BI SECTIONS
-    ══════════════════════════════════════════ -->
 
-    <div class="tutorial-section" id="pbi-overview">
-      <h2>📊 Power BI — Overview</h2>
-      <div class="section-meta">Introduction to Power BI concepts and architecture</div>
-      <div class="note-box">Content coming soon — this section will cover Power BI Desktop, Service, and Gateway architecture.</div>
+<div class="tutorial-section" id="pbi-overview">
+  <h2>Power BI Overview</h2>
+  <p class="section-meta">Core concepts · Interview essentials · BA perspective</p>
+
+  <div class="content-block">
+    <h3>What is Power BI?</h3>
+    <p>Power BI is Microsoft's business intelligence tool that lets you connect to data sources, transform and model data, build visualizations, and share reports with stakeholders. As a BA, you'll use it to turn raw data into dashboards that help decision-makers act faster.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>The 3 Core Components</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Component</th><th>What it is</th><th>When you use it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Power BI Desktop</strong></td><td>Free Windows app where you build reports and data models</td><td>Day-to-day development — connecting data, writing DAX, designing visuals</td></tr>
+        <tr><td><strong>Power BI Service</strong></td><td>Cloud platform (app.powerbi.com) where you publish and share reports</td><td>Publishing finished reports, setting up dashboards, managing workspace access</td></tr>
+        <tr><td><strong>Power BI Gateway</strong></td><td>A bridge that lets the Service reach on-premises data sources</td><td>When your data lives on a company SQL Server or file share, not in the cloud</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box">
+    <strong>Interview tip:</strong> Interviewers often ask "what is the difference between a report and a dashboard?" — this trips people up. A <strong>report</strong> is built in Desktop and can have multiple pages with detailed visuals. A <strong>dashboard</strong> lives only in the Service and is a single canvas of pinned tiles from one or more reports. You cannot create a dashboard in Desktop.
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Key Concepts to Know</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Term</th><th>Plain-language explanation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dataset</strong></td><td>The published data model in the Service — the tables, relationships, and measures your report pulls from</td></tr>
+        <tr><td><strong>Dataflow</strong></td><td>A reusable ETL process defined in the Service using Power Query. Think of it as a shared data prep layer multiple reports can use, instead of each report connecting and transforming data independently</td></tr>
+        <tr><td><strong>Power Query</strong></td><td>The data transformation layer inside Desktop (also called "M" language). You use it to clean, reshape, and combine data before it loads into your model</td></tr>
+        <tr><td><strong>Workspace</strong></td><td>A folder in the Service where reports, datasets, and dashboards live. Teams are organized into workspaces with role-based access</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>Common Interview Questions</h3>
+    <p><strong>Q: What is Power BI and how have you used it?</strong><br>
+    Sample answer: "Power BI is Microsoft's BI platform. I've used Desktop to build reports on top of SQL Server and Snowflake data, written DAX measures for KPIs, and published reports to the Service for business stakeholders to access through dashboards."</p>
+    <p><strong>Q: What is the difference between a dataset and a dataflow?</strong><br>
+    Sample answer: "A dataset is the published data model a report connects to. A dataflow is an upstream data preparation step — it transforms and stores data in the Service so multiple datasets can reuse the same cleaned data without duplicating transformation logic."</p>
+    <p><strong>Q: What is Power Query used for?</strong><br>
+    Sample answer: "Power Query is used to clean and shape data before it enters the data model — removing columns, filtering rows, merging tables, changing data types, and handling nulls. It runs before your DAX calculations."</p>
+  </div>
+
+  <div class="tip-box">
+    <strong>Practical tip:</strong> Even if you haven't built Power BI reports from scratch, frame your experience around the outcome — "I validated the data model," "I defined the KPI requirements," "I did UAT on the dashboard" — that is legitimate BA involvement.
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="pbi-dax">
+  <h2>DAX Formulas</h2>
+  <p class="section-meta">Measures · Calculated columns · Key functions · Interview Q&A</p>
+
+  <div class="content-block">
+    <h3>What is DAX?</h3>
+    <p>DAX (Data Analysis Expressions) is the formula language used in Power BI to create calculations. You write DAX to define measures (like Total Sales) and calculated columns (like a Profit Margin % column). It looks similar to Excel formulas but is designed to work on entire tables and relationships, not individual cells.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Measure vs Calculated Column — A Classic Interview Question</h3>
+    <table class="cheat-table">
+      <thead><tr><th></th><th>Measure</th><th>Calculated Column</th></tr></thead>
+      <tbody>
+        <tr><td><strong>What it is</strong></td><td>A formula that calculates at query time based on filter context</td><td>A new column added to a table, calculated row by row when data loads</td></tr>
+        <tr><td><strong>Stored in</strong></td><td>Not stored — computed on the fly</td><td>Stored in the model, increases file size</td></tr>
+        <tr><td><strong>When to use</strong></td><td>Aggregations, KPIs, anything that changes with slicers/filters</td><td>Row-level values you want to use in filters, slicers, or relationships</td></tr>
+        <tr><td><strong>Example</strong></td><td>Total Revenue = SUM(Sales[Amount])</td><td>Full Name = Employees[First] &amp; " " &amp; Employees[Last]</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box">
+    <strong>Interview tip:</strong> The most common wrong answer is "use a calculated column for totals." Always ask yourself: does this value change depending on what filters are applied? If yes → use a measure.
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Core DAX Functions</h3>
+
+    <p><strong>CALCULATE</strong> — Evaluates an expression in a modified filter context. The most important DAX function.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>-- Total sales for only the "North" region, regardless of what region slicer is selected
+North Sales = CALCULATE(SUM(Sales[Amount]), Sales[Region] = "North")</pre>
     </div>
 
-    <div class="tutorial-section" id="pbi-dax">
-      <h2>📊 Power BI — DAX Formulas</h2>
-      <div class="section-meta">Data Analysis Expressions: calculated columns, measures, and functions</div>
-      <div class="note-box">Content coming soon — this section will cover DAX syntax, common measures, time intelligence, and CALCULATE.</div>
+    <p><strong>SUMX</strong> — Iterates row by row over a table, evaluates an expression per row, then sums the results. Use when you need to multiply before summing.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>-- SUM(Sales[Revenue]) would fail if Revenue isn't a column.
+-- SUMX lets you calculate it row by row first.
+Total Revenue = SUMX(Sales, Sales[Quantity] * Sales[UnitPrice])</pre>
     </div>
 
-    <div class="tutorial-section" id="pbi-datamodel">
-      <h2>📊 Power BI — Data Modeling</h2>
-      <div class="section-meta">Relationships, star schema, and data transformation with Power Query</div>
-      <div class="note-box">Content coming soon — this section will cover star vs snowflake schema, relationships, and Power Query M basics.</div>
+    <p><strong>FILTER</strong> — Returns a filtered table. Usually used inside CALCULATE or SUMX.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>-- Sales only where the order amount exceeded $1,000
+High Value Sales = CALCULATE(
+    SUM(Sales[Amount]),
+    FILTER(Sales, Sales[Amount] > 1000)
+)</pre>
     </div>
 
-    <div class="tutorial-section" id="pbi-visuals">
-      <h2>📊 Power BI — Visuals &amp; Reports</h2>
-      <div class="section-meta">Charts, slicers, drill-through, and report design best practices</div>
-      <div class="note-box">Content coming soon — this section will cover choosing the right visual, drill-through, bookmarks, and RLS.</div>
+    <p><strong>IF</strong> — Standard conditional logic.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>-- Flag orders as large or small
+Order Size = IF(Sales[Amount] > 500, "Large", "Small")</pre>
     </div>
 
-    <div class="tutorial-section" id="pbi-cheatsheet">
-      <h2>📊 Power BI — Cheat Sheet</h2>
-      <div class="section-meta">Quick reference for DAX functions, keyboard shortcuts, and common patterns</div>
-      <div class="note-box">Content coming soon — cheat sheet table will go here.</div>
+    <p><strong>RELATED</strong> — Pulls a value from a related table (like a VLOOKUP across a relationship). Only works in calculated columns, not measures.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>-- In the Sales table, bring in the Category name from the Products table
+Product Category = RELATED(Products[Category])</pre>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Time Intelligence Functions</h3>
+    <p>These only work if your model has a proper Date table with a continuous date range marked as a Date Table.</p>
+
+    <p><strong>TOTALYTD</strong> — Year-to-date cumulative total.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>Revenue YTD = TOTALYTD(SUM(Sales[Amount]), Dates[Date])</pre>
     </div>
 
-    <!-- ══════════════════════════════════════════
-         SQL SECTIONS
-    ══════════════════════════════════════════ -->
-
-    <div class="tutorial-section" id="sql-overview">
-      <h2>🗄️ SQL — Overview</h2>
-      <div class="section-meta">Core SQL concepts and query execution order</div>
-      <div class="note-box">Content coming soon — this section will cover DDL vs DML, query execution order (FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY), and database types.</div>
+    <p><strong>SAMEPERIODLASTYEAR</strong> — Returns the same period from the prior year, used for year-over-year comparisons.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>Revenue LY = CALCULATE(
+    SUM(Sales[Amount]),
+    SAMEPERIODLASTYEAR(Dates[Date])
+)</pre>
     </div>
+  </div>
 
-    <div class="tutorial-section" id="sql-select">
-      <h2>🗄️ SQL — SELECT &amp; Filtering</h2>
-      <div class="section-meta">SELECT, WHERE, LIKE, IN, BETWEEN, NULL handling</div>
-      <div class="note-box">Content coming soon — this section will cover SELECT syntax, filtering with WHERE, wildcards, and NULL handling.</div>
+  <div class="tip-box">
+    <strong>Practical tip:</strong> You don't need to memorize every DAX function. What interviewers care about is whether you understand the difference between measures and calculated columns, and whether you can explain CALCULATE — because CALCULATE is the engine behind almost every advanced DAX pattern.
+  </div>
+
+  <div class="warn-box">
+    <strong>Common mistake:</strong> Writing a measure that uses RELATED. RELATED only works in calculated columns because it needs a row context. In a measure, use LOOKUPVALUE instead.
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="pbi-datamodel">
+  <h2>Data Modeling</h2>
+  <p class="section-meta">Star schema · Relationships · Fact vs dimension · Cardinality</p>
+
+  <div class="content-block">
+    <h3>Star Schema vs Snowflake Schema</h3>
+    <p>A <strong>star schema</strong> has one central fact table connected directly to multiple dimension tables. It looks like a star. A <strong>snowflake schema</strong> normalizes those dimension tables further — dimensions connect to sub-dimensions. Star schema is preferred in Power BI because it's simpler for DAX and performs better.</p>
+
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">Text</span>
+      <pre>STAR SCHEMA                        SNOWFLAKE SCHEMA
+
+   DimDate                            DimDate
+      |                                  |
+DimProduct — FactSales — DimCustomer  DimProduct — FactSales — DimCustomer
+                |                         |                        |
+           DimRegion              DimCategory              DimCity
+                                                              |
+                                                          DimCountry
+
+Flat, fast, easy to query          More normalized, more joins needed</pre>
     </div>
+  </div>
 
-    <div class="tutorial-section" id="sql-joins">
-      <h2>🗄️ SQL — JOINs</h2>
-      <div class="section-meta">INNER, LEFT, RIGHT, FULL OUTER, CROSS, and SELF JOINs</div>
-      <div class="note-box">Content coming soon — this section will cover all join types with visual diagrams and examples.</div>
+  <div class="note-box">
+    <strong>Interview tip:</strong> When asked "what data model do you prefer in Power BI and why?" — say star schema. Explain that it reduces the complexity of DAX relationships and improves query performance because Power BI's engine (VertiPaq) is optimized for it.
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Fact Tables vs Dimension Tables</h3>
+    <table class="cheat-table">
+      <thead><tr><th></th><th>Fact Table</th><th>Dimension Table</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Contains</strong></td><td>Measurable events and transactions — sales, orders, log entries</td><td>Descriptive attributes — customer info, product details, dates</td></tr>
+        <tr><td><strong>Rows</strong></td><td>Many — one row per transaction</td><td>Fewer — one row per entity (one per customer, one per product)</td></tr>
+        <tr><td><strong>Columns</strong></td><td>Foreign keys + numeric measures (Amount, Quantity)</td><td>Primary key + descriptive text columns (Name, Category, Region)</td></tr>
+        <tr><td><strong>Example</strong></td><td>FactSales: OrderID, CustomerID, ProductID, Date, Amount</td><td>DimCustomer: CustomerID, Name, City, Segment</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>Relationships and Cardinality</h3>
+    <p><strong>Cardinality</strong> describes how many rows in one table match rows in another. Power BI lets you define:</p>
+    <table class="cheat-table">
+      <thead><tr><th>Relationship Type</th><th>What it means</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>One-to-Many (1:*)</strong></td><td>One row in Table A matches many rows in Table B. The most common and preferred type.</td><td>One Customer → Many Orders</td></tr>
+        <tr><td><strong>Many-to-One (*:1)</strong></td><td>Same as one-to-many, just from the other direction</td><td>Many Orders → One Customer</td></tr>
+        <tr><td><strong>One-to-One (1:1)</strong></td><td>Each row in A matches exactly one row in B. Rare — usually means you can merge the tables.</td><td>EmployeeID → EmployeeDetails</td></tr>
+        <tr><td><strong>Many-to-Many (*:*)</strong></td><td>Multiple rows in A match multiple rows in B. Avoid if possible — causes ambiguous filter propagation.</td><td>Students ↔ Courses (without a bridge table)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>Cross-Filter Direction</h3>
+    <p>This controls how filters flow between tables. <strong>Single</strong> means filters flow from the one-side to the many-side only (recommended). <strong>Both</strong> means filters flow in both directions — can cause unexpected results in DAX and performance issues. Use "Both" sparingly and only when you understand the impact.</p>
+  </div>
+
+  <div class="warn-box">
+    <strong>Common mistake — Many-to-Many relationships:</strong> If you see a many-to-many in a model, the clean solution is to introduce a bridge table that breaks it into two one-to-many relationships. For example, instead of Students ↔ Courses directly, create an Enrollment table (StudentID, CourseID) and connect each side as one-to-many.
+  </div>
+
+  <div class="tip-box">
+    <strong>Practical tip:</strong> In interviews, if asked to critique a data model, look for: missing date table, many-to-many relationships, calculated columns where measures should be used, and dimensions not connected to the fact table.
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="pbi-visuals">
+  <h2>Visuals &amp; Reports</h2>
+  <p class="section-meta">Chart selection · Interactivity · RLS · Interview Q&A</p>
+
+  <div class="content-block">
+    <h3>Choosing the Right Visual</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Visual</th><th>Best used for</th><th>Avoid when</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bar / Column chart</strong></td><td>Comparing categories (sales by region, count by department)</td><td>You have more than ~10 categories — gets crowded</td></tr>
+        <tr><td><strong>Line chart</strong></td><td>Trends over time (monthly revenue, daily ticket volume)</td><td>You're comparing categories without a time axis</td></tr>
+        <tr><td><strong>Donut / Pie chart</strong></td><td>Part-to-whole when you have 3–5 segments max</td><td>You have many segments or need exact comparisons — use a bar chart instead</td></tr>
+        <tr><td><strong>Matrix</strong></td><td>Tabular data with row and column groupings (like a pivot table)</td><td>Users need to export raw data — a table visual is simpler</td></tr>
+        <tr><td><strong>Card</strong></td><td>Single KPI values (Total Revenue: $4.2M)</td><td>You need context or trend — pair with a sparkline or use KPI visual</td></tr>
+        <tr><td><strong>Scatter chart</strong></td><td>Correlation between two numeric measures</td><td>Non-technical stakeholders — harder to read</td></tr>
+        <tr><td><strong>Slicer</strong></td><td>User-controlled filtering (date range, region dropdown)</td><td>You have too many values — use a search slicer or dropdown mode</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box">
+    <strong>Interview tip:</strong> If asked "why would you use a matrix instead of a table?" — a matrix supports row and column groupings with subtotals and conditional formatting by group. A table is flat. Matrices are better for pivot-style reporting.
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Key Interactivity Features</h3>
+
+    <p><strong>Slicers</strong> — Panel filters that users interact with directly on the report page. They filter all visuals on the page by default. You can sync slicers across pages for consistency.</p>
+
+    <p><strong>Drill-through</strong> — A right-click navigation feature that lets users jump from a summary visual to a detail page, carrying filter context with them. Example: right-click on "North Region" in a bar chart → drill through to a detail page showing all North Region orders.</p>
+
+    <p><strong>Bookmarks</strong> — Saved states of a report page (which visuals are visible, which filters are applied). Used to build toggle buttons, guided story navigation, or "reset filters" buttons without any code.</p>
+
+    <p><strong>Drill-down</strong> — Moving down a hierarchy within the same visual. Example: Year → Quarter → Month → Day in a line chart. Different from drill-through (which navigates to a new page).</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Row-Level Security (RLS)</h3>
+    <p>RLS restricts which rows of data a user can see when they view a report. You define roles in Desktop (e.g., "North Region Manager sees only rows where Region = 'North'"), then assign users to those roles in the Service.</p>
+    <p>As a BA, you need to understand RLS because:</p>
+    <ul>
+      <li>You'll gather requirements for who should see what data</li>
+      <li>You'll define the rules with the data team or validate them during UAT</li>
+      <li>Stakeholders will ask why their report shows different numbers than a colleague's — RLS is often the answer</li>
+    </ul>
+  </div>
+
+  <div class="warn-box">
+    <strong>Common mistake:</strong> Confusing drill-through with drill-down. Drill-down stays on the same visual and moves through a hierarchy. Drill-through navigates to a separate report page. In interviews, be precise about which one you mean.
+  </div>
+
+  <div class="content-block">
+    <h3>Common Interview Questions</h3>
+    <p><strong>Q: What is the difference between a filter and a slicer?</strong><br>
+    A filter is applied in the Filters pane and is not visible to the report user by default. A slicer is a visual element on the canvas that the user can interact with directly.</p>
+    <p><strong>Q: What is RLS and why does it matter?</strong><br>
+    RLS controls data visibility at the row level based on the logged-in user. It matters for compliance, confidentiality, and ensuring users only see data relevant to their role.</p>
+    <p><strong>Q: How would you allow a manager to see only their team's data?</strong><br>
+    Define an RLS role with a DAX filter on the relevant table (e.g., [ManagerEmail] = USERPRINCIPALNAME()), then assign that manager's account to the role in the Service.</p>
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="pbi-cheatsheet">
+  <h2>Power BI Cheat Sheet</h2>
+  <p class="section-meta">Quick reference for interviews and on-the-job use</p>
+
+  <div class="content-block">
+    <h3>Core Features</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Feature</th><th>What it does</th><th>Interview tip</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Measure</strong></td><td>DAX formula calculated dynamically based on filter context</td><td>Doesn't store data; recalculates when filters change. Preferred for aggregations.</td></tr>
+        <tr><td><strong>Calculated Column</strong></td><td>New column added to a table, computed row by row at load time</td><td>Increases model size; use for values you need in slicers or relationships, not for aggregations.</td></tr>
+        <tr><td><strong>CALCULATE</strong></td><td>Evaluates a measure in a modified filter context</td><td>The most powerful DAX function. Wrap almost any filter override in CALCULATE.</td></tr>
+        <tr><td><strong>Star Schema</strong></td><td>One fact table surrounded by dimension tables with one-to-many relationships</td><td>Always recommend star schema in Power BI. It's optimized for VertiPaq and simplifies DAX.</td></tr>
+        <tr><td><strong>RLS</strong></td><td>Row-Level Security — restricts what data each user can see in a report</td><td>Defined in Desktop (roles + DAX filter rules), assigned to users in the Service.</td></tr>
+        <tr><td><strong>Drill-through</strong></td><td>Right-click navigation from a summary visual to a detail report page</td><td>Carries the filter context of the clicked item to the destination page.</td></tr>
+        <tr><td><strong>Bookmarks</strong></td><td>Saved snapshots of a report's visual state (filters, visibility, etc.)</td><td>Used for toggle buttons, guided navigation, and "reset filters" without any code.</td></tr>
+        <tr><td><strong>Power Query</strong></td><td>Data transformation layer in Desktop (M language)</td><td>Runs before the data model loads. Use it for cleaning, reshaping, and merging data.</td></tr>
+        <tr><td><strong>Dataflow</strong></td><td>Reusable Power Query transformations stored in the Service</td><td>Multiple datasets can share one dataflow — avoids duplicating transformation logic.</td></tr>
+        <tr><td><strong>Gateway</strong></td><td>Agent that connects the Power BI Service to on-premises data sources</td><td>Required for scheduled refresh when data lives on a company server, not in the cloud.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>DAX Functions Quick Reference</h3>
+    <table class="cheat-table">
+      <thead><tr><th>DAX Function</th><th>Syntax</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SUM</strong></td><td>SUM(Table[Column])</td><td>SUM(Sales[Amount])</td></tr>
+        <tr><td><strong>CALCULATE</strong></td><td>CALCULATE(expression, filter1, filter2, ...)</td><td>CALCULATE(SUM(Sales[Amount]), Sales[Region]="North")</td></tr>
+        <tr><td><strong>SUMX</strong></td><td>SUMX(Table, expression)</td><td>SUMX(Sales, Sales[Qty] * Sales[Price])</td></tr>
+        <tr><td><strong>FILTER</strong></td><td>FILTER(Table, condition)</td><td>FILTER(Sales, Sales[Amount] &gt; 1000)</td></tr>
+        <tr><td><strong>IF</strong></td><td>IF(condition, true_result, false_result)</td><td>IF(Sales[Amount] &gt; 500, "Large", "Small")</td></tr>
+        <tr><td><strong>RELATED</strong></td><td>RELATED(RelatedTable[Column])</td><td>RELATED(Products[Category]) — calculated column only</td></tr>
+        <tr><td><strong>DISTINCTCOUNT</strong></td><td>DISTINCTCOUNT(Table[Column])</td><td>DISTINCTCOUNT(Orders[CustomerID]) — unique customers</td></tr>
+        <tr><td><strong>DIVIDE</strong></td><td>DIVIDE(numerator, denominator, alternate_result)</td><td>DIVIDE(SUM(Sales[Profit]), SUM(Sales[Revenue]), 0)</td></tr>
+        <tr><td><strong>TOTALYTD</strong></td><td>TOTALYTD(expression, DateTable[Date])</td><td>TOTALYTD(SUM(Sales[Amount]), Dates[Date])</td></tr>
+        <tr><td><strong>SAMEPERIODLASTYEAR</strong></td><td>CALCULATE(expr, SAMEPERIODLASTYEAR(DateTable[Date]))</td><td>CALCULATE(SUM(Sales[Amount]), SAMEPERIODLASTYEAR(Dates[Date]))</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="sql-overview">
+  <h2>SQL Overview</h2>
+  <p class="section-meta">What SQL is · DDL vs DML vs DCL · Query execution order · Key concepts</p>
+
+  <div class="content-block">
+    <h3>What is SQL?</h3>
+    <p>SQL (Structured Query Language) is the standard language for working with relational databases. As a BA, you use SQL to query data directly from databases like SQL Server, IBM DB2, or Snowflake — pulling the data you need to analyze, validate, or hand off to stakeholders without needing a developer to run every query for you.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>DDL vs DML vs DCL</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Category</th><th>Stands for</th><th>What it covers</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td><strong>DDL</strong></td><td>Data Definition Language</td><td>Structure of the database — creating and modifying tables</td><td>CREATE, ALTER, DROP, TRUNCATE</td></tr>
+        <tr><td><strong>DML</strong></td><td>Data Manipulation Language</td><td>The data inside tables — reading and changing records</td><td>SELECT, INSERT, UPDATE, DELETE</td></tr>
+        <tr><td><strong>DCL</strong></td><td>Data Control Language</td><td>Permissions and access</td><td>GRANT, REVOKE</td></tr>
+      </tbody>
+    </table>
+    <p>As a BA, you'll mostly use DML — especially SELECT. You rarely write DDL or DCL unless you're setting up a reporting database.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Query Execution Order — Why It Matters</h3>
+    <p>SQL doesn't execute in the order you write it. The database engine processes clauses in this order:</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">Text</span>
+      <pre>1. FROM       — which table(s) to use
+2. JOIN       — combine tables
+3. WHERE      — filter rows (before grouping)
+4. GROUP BY   — group the remaining rows
+5. HAVING     — filter groups (after grouping)
+6. SELECT     — choose which columns to return
+7. ORDER BY   — sort the result
+8. LIMIT/TOP  — restrict number of rows returned</pre>
     </div>
+    <p>This is why you <strong>cannot use a column alias in a WHERE clause</strong> — the alias is defined in SELECT (step 6), but WHERE runs at step 3. By the time WHERE runs, the alias doesn't exist yet.</p>
+  </div>
 
-    <div class="tutorial-section" id="sql-aggregates">
-      <h2>🗄️ SQL — Aggregates &amp; GROUP BY</h2>
-      <div class="section-meta">COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING</div>
-      <div class="note-box">Content coming soon — this section will cover aggregate functions, GROUP BY, and filtering aggregates with HAVING.</div>
+  <div class="note-box">
+    <strong>Interview tip:</strong> Interviewers love asking "why can't you use a column alias in a WHERE clause?" The answer is execution order — WHERE runs before SELECT. You CAN use an alias in ORDER BY because ORDER BY runs after SELECT.
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Key Concepts</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Concept</th><th>Plain explanation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Primary Key</strong></td><td>A column (or combination of columns) that uniquely identifies every row in a table. Cannot be NULL, cannot be duplicated. Example: EmployeeID in an Employees table.</td></tr>
+        <tr><td><strong>Foreign Key</strong></td><td>A column in one table that references the primary key of another table. It creates the link between tables. Example: Orders.CustomerID references Customers.CustomerID.</td></tr>
+        <tr><td><strong>Index</strong></td><td>A database structure that speeds up data retrieval — like a book index. Indexing a column you frequently filter or join on makes queries faster. As a BA, you don't create indexes but should know to ask the DBA if a slow query might benefit from one.</td></tr>
+        <tr><td><strong>NULL</strong></td><td>The absence of a value — not zero, not an empty string. NULL means unknown. You must use IS NULL or IS NOT NULL to check for it; using = NULL never returns results.</td></tr>
+        <tr><td><strong>Schema</strong></td><td>A namespace or container that organizes database objects. In SQL Server: dbo.Employees. In Snowflake: database.schema.table.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>Common Interview Questions</h3>
+    <p><strong>Q: What is the difference between a primary key and a foreign key?</strong><br>
+    A primary key uniquely identifies a row within its own table. A foreign key is a reference to the primary key of another table — it's how you create a relationship between two tables.</p>
+    <p><strong>Q: What is an index and when would you use one?</strong><br>
+    An index speeds up data retrieval on a column. You'd add one to columns frequently used in WHERE clauses or JOINs. The trade-off is that indexes slow down INSERT/UPDATE operations slightly.</p>
+    <p><strong>Q: What databases have you worked with?</strong><br>
+    "I've written queries against SQL Server and IBM DB2 for operational reporting, and Snowflake for cloud data warehouse work. The syntax is largely standard SQL with minor dialect differences."</p>
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="sql-select">
+  <h2>SELECT &amp; Filtering</h2>
+  <p class="section-meta">SELECT · WHERE · LIKE · IN · BETWEEN · NULL handling · ORDER BY</p>
+
+  <div class="content-block">
+    <h3>Basic SELECT</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Get all columns from the employees table
+SELECT * FROM employees;
+
+-- Get specific columns only (preferred in production — never use * in reports)
+SELECT employee_id, first_name, last_name, department, salary
+FROM employees;</pre>
     </div>
+  </div>
 
-    <div class="tutorial-section" id="sql-window">
-      <h2>🗄️ SQL — Window Functions</h2>
-      <div class="section-meta">ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD, PARTITION BY</div>
-      <div class="note-box">Content coming soon — this section will cover OVER(), PARTITION BY, ORDER BY within windows, and common patterns.</div>
+  <div class="content-block">
+    <h3>WHERE — Filtering Rows</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Single condition
+SELECT * FROM employees WHERE department = 'Finance';
+
+-- Multiple conditions with AND
+SELECT * FROM employees
+WHERE department = 'Finance' AND salary > 70000;
+
+-- OR condition
+SELECT * FROM employees
+WHERE department = 'Finance' OR department = 'HR';
+
+-- NOT condition
+SELECT * FROM employees
+WHERE NOT department = 'Finance';</pre>
     </div>
+  </div>
 
-    <div class="tutorial-section" id="sql-cheatsheet">
-      <h2>🗄️ SQL — Cheat Sheet</h2>
-      <div class="section-meta">Quick reference for SQL syntax, functions, and common query patterns</div>
-      <div class="note-box">Content coming soon — cheat sheet table will go here.</div>
+  <div class="content-block">
+    <h3>LIKE — Pattern Matching</h3>
+    <p>% matches any sequence of characters. _ matches exactly one character.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Names starting with 'Ja'
+SELECT * FROM employees WHERE first_name LIKE 'Ja%';
+
+-- Names ending with 'son'
+SELECT * FROM employees WHERE last_name LIKE '%son';
+
+-- Names with exactly 5 characters
+SELECT * FROM employees WHERE last_name LIKE '_____';
+
+-- Email addresses from a specific domain
+SELECT * FROM employees WHERE email LIKE '%@company.com';</pre>
     </div>
+  </div>
 
-    <!-- ══════════════════════════════════════════
-         AWS SECTIONS
-    ══════════════════════════════════════════ -->
+  <div class="content-block">
+    <h3>IN, BETWEEN, DISTINCT</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- IN: match any value in a list (cleaner than multiple OR conditions)
+SELECT * FROM employees
+WHERE department IN ('Finance', 'HR', 'Operations');
 
-    <div class="tutorial-section" id="aws-overview">
-      <h2>☁️ AWS — Overview</h2>
-      <div class="section-meta">AWS core services relevant to a Business Analyst / Data role</div>
-      <div class="note-box">Content coming soon — this section will cover IAM, regions/AZs, and the key services used in data pipelines.</div>
+-- BETWEEN: inclusive range (includes both endpoints)
+SELECT * FROM employees
+WHERE salary BETWEEN 50000 AND 80000;
+
+-- DISTINCT: remove duplicate values
+SELECT DISTINCT department FROM employees;
+-- Returns each department name once, no matter how many employees are in it</pre>
     </div>
+  </div>
 
-    <div class="tutorial-section" id="aws-s3">
-      <h2>☁️ AWS — S3</h2>
-      <div class="section-meta">Simple Storage Service: buckets, objects, storage classes, and policies</div>
-      <div class="note-box">Content coming soon — this section will cover S3 concepts, bucket policies, versioning, and lifecycle rules.</div>
+  <div class="content-block">
+    <h3>NULL Handling</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Find employees with no manager assigned
+SELECT * FROM employees WHERE manager_id IS NULL;
+
+-- Find employees who do have a manager
+SELECT * FROM employees WHERE manager_id IS NOT NULL;
+
+-- WRONG — this will never return any rows:
+SELECT * FROM employees WHERE manager_id = NULL;  -- Don't do this!</pre>
     </div>
+  </div>
 
-    <div class="tutorial-section" id="aws-glue">
-      <h2>☁️ AWS — Glue &amp; ETL</h2>
-      <div class="section-meta">AWS Glue for data cataloging, crawlers, and ETL jobs</div>
-      <div class="note-box">Content coming soon — this section will cover Glue crawlers, Data Catalog, ETL jobs, and integration with S3/Redshift.</div>
+  <div class="warn-box">
+    <strong>Common mistake — = NULL:</strong> <code>WHERE column = NULL</code> always returns zero rows because NULL is not equal to anything, not even itself. Always use <code>IS NULL</code> or <code>IS NOT NULL</code>.
+  </div>
+
+  <div class="content-block">
+    <h3>ORDER BY and LIMIT / TOP</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Sort by salary descending, then name ascending
+SELECT employee_id, first_name, salary
+FROM employees
+ORDER BY salary DESC, first_name ASC;
+
+-- Top 10 highest paid employees (SQL Server / Snowflake syntax)
+SELECT TOP 10 first_name, salary
+FROM employees
+ORDER BY salary DESC;
+
+-- Same result in standard SQL / Snowflake / PostgreSQL
+SELECT first_name, salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 10;</pre>
     </div>
+  </div>
 
-    <div class="tutorial-section" id="aws-redshift">
-      <h2>☁️ AWS — Redshift</h2>
-      <div class="section-meta">Cloud data warehouse: architecture, distribution styles, and query optimization</div>
-      <div class="note-box">Content coming soon — this section will cover Redshift clusters, distribution keys, sort keys, and COPY command.</div>
+  <div class="tip-box">
+    <strong>Practical tip:</strong> In Snowflake and most modern databases, use LIMIT. In SQL Server, use TOP. In IBM DB2, use FETCH FIRST 10 ROWS ONLY. Knowing these dialect differences will come up if your interviewer asks about specific databases you've worked with.
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="sql-joins">
+  <h2>JOINs</h2>
+  <p class="section-meta">INNER · LEFT · RIGHT · FULL OUTER · SELF JOIN · NULL behavior</p>
+
+  <div class="content-block">
+    <h3>What is a JOIN?</h3>
+    <p>A JOIN combines rows from two tables based on a related column. You'll use JOINs constantly as a BA to combine data from multiple tables — for example, pulling employee names from one table and their department names from another.</p>
+    <p>The examples below use two tables: <code>employees</code> (emp_id, name, dept_id) and <code>departments</code> (dept_id, dept_name).</p>
+  </div>
+
+  <div class="content-block">
+    <h3>INNER JOIN — Only matching rows from both tables</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>SELECT e.name, d.dept_name
+FROM employees e
+INNER JOIN departments d ON e.dept_id = d.dept_id;
+-- Returns only employees who have a matching dept_id in departments.
+-- Employees with no dept_id (NULL) are excluded.
+-- Departments with no employees are excluded.</pre>
     </div>
+  </div>
 
-    <div class="tutorial-section" id="aws-cheatsheet">
-      <h2>☁️ AWS — Cheat Sheet</h2>
-      <div class="section-meta">Quick reference for AWS services, CLI commands, and key concepts</div>
-      <div class="note-box">Content coming soon — cheat sheet table will go here.</div>
+  <div class="content-block">
+    <h3>LEFT JOIN — All rows from the left table, matching rows from the right</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>SELECT e.name, d.dept_name
+FROM employees e
+LEFT JOIN departments d ON e.dept_id = d.dept_id;
+-- Returns ALL employees.
+-- If an employee has no matching department, dept_name will be NULL.
+-- Use LEFT JOIN when you want to keep all records from the left (first) table.</pre>
     </div>
+  </div>
 
-  </main>
+  <div class="content-block">
+    <h3>RIGHT JOIN — All rows from the right table, matching rows from the left</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>SELECT e.name, d.dept_name
+FROM employees e
+RIGHT JOIN departments d ON e.dept_id = d.dept_id;
+-- Returns ALL departments, even those with no employees.
+-- If a department has no employees, e.name will be NULL.
+-- In practice, most analysts just flip the table order and use a LEFT JOIN instead.</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>FULL OUTER JOIN — All rows from both tables</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>SELECT e.name, d.dept_name
+FROM employees e
+FULL OUTER JOIN departments d ON e.dept_id = d.dept_id;
+-- Returns ALL employees AND ALL departments.
+-- Where there's no match, NULLs fill in on the non-matching side.
+-- Useful for finding records that exist in one table but not the other.</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>SELF JOIN — Joining a table to itself</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Find each employee and their manager's name
+-- (assuming manager_id references emp_id in the same table)
+SELECT e.name AS employee, m.name AS manager
+FROM employees e
+LEFT JOIN employees m ON e.manager_id = m.emp_id;
+-- You must alias the table twice to treat it as two separate tables.</pre>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>Visual reference — JOIN types:</strong>
+    <pre style="font-size:0.85rem; margin-top:0.5rem;">
+INNER JOIN         LEFT JOIN          RIGHT JOIN         FULL OUTER JOIN
+  [A ∩ B]          [A + A∩B]          [B + A∩B]           [A + A∩B + B]
+   (A)(B)           (A)(B)             (A)(B)               (A)(B)
+    overlap         left+overlap       right+overlap        everything
+    only            only               only</pre>
+  </div>
+
+  <div class="content-block">
+    <h3>Common Interview Questions</h3>
+    <p><strong>Q: What is the difference between INNER JOIN and LEFT JOIN?</strong><br>
+    INNER JOIN returns only rows with a match in both tables. LEFT JOIN returns all rows from the left table plus matching rows from the right — unmatched right-side columns come back as NULL.</p>
+    <p><strong>Q: What happens to NULLs in a JOIN?</strong><br>
+    NULL does not equal NULL, so rows where the join key is NULL will never match. In an INNER JOIN they're dropped. In a LEFT JOIN, the left-side row is kept but the right-side columns will be NULL.</p>
+    <p><strong>Q: When would you use a FULL OUTER JOIN?</strong><br>
+    When you need to find discrepancies between two tables — for example, finding orders that exist in a staging table but not in production, or vice versa. Also useful in data reconciliation work.</p>
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="sql-aggregates">
+  <h2>Aggregates &amp; GROUP BY</h2>
+  <p class="section-meta">COUNT · SUM · AVG · GROUP BY rules · HAVING vs WHERE</p>
+
+  <div class="content-block">
+    <h3>Aggregate Functions</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Function</th><th>What it does</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td><strong>COUNT(*)</strong></td><td>Counts all rows in the group, including NULLs</td><td>Use when you want a row count regardless of column values</td></tr>
+        <tr><td><strong>COUNT(column)</strong></td><td>Counts non-NULL values in that column</td><td>If 5 out of 10 rows have a NULL phone number, COUNT(phone) = 5</td></tr>
+        <tr><td><strong>SUM(column)</strong></td><td>Adds up all numeric values (ignores NULLs)</td><td>SUM(salary) across a department</td></tr>
+        <tr><td><strong>AVG(column)</strong></td><td>Average of non-NULL values</td><td>Note: AVG ignores NULLs, so it may not reflect the true average if NULLs represent zero</td></tr>
+        <tr><td><strong>MIN / MAX</strong></td><td>Smallest or largest value</td><td>Works on dates too — MIN(order_date) gives the earliest order</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Example 1 — Simple COUNT</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- How many employees are in the company?
+SELECT COUNT(*) AS total_employees FROM employees;
+
+-- How many employees have a phone number on file?
+SELECT COUNT(phone_number) AS employees_with_phone FROM employees;</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>Example 2 — GROUP BY with SUM</h3>
+    <p>Every column in SELECT that is NOT inside an aggregate function must appear in GROUP BY. This is the most common GROUP BY mistake.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Total salary cost per department
+SELECT department, SUM(salary) AS total_salary_cost
+FROM employees
+GROUP BY department;
+-- 'department' is in SELECT and is not aggregated, so it must be in GROUP BY.
+
+-- Multiple grouping columns
+SELECT department, job_title, COUNT(*) AS headcount, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department, job_title;</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>Example 3 — GROUP BY with HAVING</h3>
+    <p>HAVING filters after grouping. WHERE filters before grouping. You cannot use an aggregate function in a WHERE clause — that's what HAVING is for.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Departments with more than 10 employees
+SELECT department, COUNT(*) AS headcount
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 10;
+
+-- Wrong — this will throw an error:
+SELECT department, COUNT(*) AS headcount
+FROM employees
+WHERE COUNT(*) > 10   -- Can't use aggregate in WHERE
+GROUP BY department;
+
+-- Combining WHERE and HAVING
+-- Active departments with more than 5 employees
+SELECT department, COUNT(*) AS headcount
+FROM employees
+WHERE status = 'Active'      -- filters rows before grouping
+GROUP BY department
+HAVING COUNT(*) > 5;         -- filters groups after grouping</pre>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>Interview tip:</strong> The question "what is the difference between WHERE and HAVING?" is almost guaranteed in a SQL interview. WHERE filters individual rows before grouping. HAVING filters groups after GROUP BY has been applied. HAVING can use aggregate functions; WHERE cannot.
+  </div>
+
+  <div class="warn-box">
+    <strong>Common mistake:</strong> Including a column in SELECT that isn't in GROUP BY and isn't aggregated. For example: <code>SELECT department, first_name, COUNT(*) FROM employees GROUP BY department</code> — this fails because <code>first_name</code> is neither aggregated nor in GROUP BY. Most databases will throw an error; some (older MySQL) will return an arbitrary value.
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="sql-window">
+  <h2>Window Functions</h2>
+  <p class="section-meta">ROW_NUMBER · RANK · DENSE_RANK · LAG · LEAD · Running totals</p>
+
+  <div class="content-block">
+    <h3>What is a Window Function?</h3>
+    <p>A window function performs a calculation across a set of rows related to the current row — without collapsing those rows into a single result like GROUP BY does. Each row keeps its own identity; the window function just adds an extra calculated column alongside it.</p>
+    <p>The syntax always includes an OVER() clause, which defines the "window" of rows to calculate across.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>function_name() OVER (
+    PARTITION BY column   -- optional: restart calculation for each partition
+    ORDER BY column       -- required for ranking/running total functions
+)</pre>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Example 1 — ROW_NUMBER, RANK, DENSE_RANK</h3>
+    <p>All three assign a number to rows based on ORDER BY — but handle ties differently. This is a classic interview question.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>SELECT name, salary,
+    ROW_NUMBER() OVER (ORDER BY salary DESC) AS row_num,
+    RANK()       OVER (ORDER BY salary DESC) AS rank_num,
+    DENSE_RANK() OVER (ORDER BY salary DESC) AS dense_rank_num
+FROM employees;
+
+/* Result:
+name       salary   row_num   rank_num   dense_rank_num
+Alice      90000       1          1            1
+Bob        85000       2          2            2
+Carol      85000       3          2            2      <- tie: same rank
+Dave       70000       4          4            3      <- RANK skips 3, DENSE_RANK doesn't
+*/</pre>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>Interview tip — RANK vs DENSE_RANK:</strong> RANK skips numbers after a tie (1, 2, 2, 4). DENSE_RANK does not skip (1, 2, 2, 3). ROW_NUMBER always assigns a unique number — ties are broken arbitrarily. Use DENSE_RANK when you want a true "position" ranking with no gaps.
+  </div>
+
+  <div class="content-block">
+    <h3>Example 2 — PARTITION BY (Rank within groups)</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Rank employees by salary within each department
+SELECT name, department, salary,
+    RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS dept_rank
+FROM employees;
+
+/* Result:
+name     department   salary   dept_rank
+Alice    Finance      90000       1
+Bob      Finance      85000       2
+Carol    HR           80000       1      <- rank restarts for each department
+Dave     HR           75000       2
+*/</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>Example 3 — LAG and LEAD (Compare to previous/next row)</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Month-over-month revenue comparison
+SELECT month, revenue,
+    LAG(revenue, 1)  OVER (ORDER BY month) AS prev_month_revenue,
+    LEAD(revenue, 1) OVER (ORDER BY month) AS next_month_revenue,
+    revenue - LAG(revenue, 1) OVER (ORDER BY month) AS month_over_month_change
+FROM monthly_sales;
+
+/* LAG looks back 1 row. LEAD looks forward 1 row.
+   The first row has NULL for LAG; the last row has NULL for LEAD. */</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>Example 4 — SUM OVER (Running Total)</h3>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Cumulative (running) total of revenue by month
+SELECT month, revenue,
+    SUM(revenue) OVER (ORDER BY month) AS running_total
+FROM monthly_sales;
+
+/* Result:
+month    revenue   running_total
+Jan      10000         10000
+Feb      12000         22000
+Mar       9000         31000
+*/</pre>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <strong>Practical tip:</strong> Window functions are one of the most valuable SQL skills for a BA. They let you do things like "rank stores by revenue within each region," "calculate month-over-month change," or "find each customer's most recent order" — without needing subqueries or GROUP BY that collapses your rows.
+  </div>
+
+  <div class="warn-box">
+    <strong>Common mistake:</strong> Trying to use a window function in a WHERE clause. Window functions are evaluated after WHERE, so you cannot filter on them directly. Wrap your query in a subquery or CTE, then filter on the result. Example: <code>WITH ranked AS (...) SELECT * FROM ranked WHERE dept_rank = 1</code>.
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="sql-cheatsheet">
+  <h2>SQL Cheat Sheet</h2>
+  <p class="section-meta">Quick reference for interviews and day-to-day querying</p>
+
+  <div class="content-block">
+    <h3>SQL Commands</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Command</th><th>Purpose</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SELECT</strong></td><td>Choose which columns to return</td><td>SELECT name, salary FROM employees</td></tr>
+        <tr><td><strong>WHERE</strong></td><td>Filter rows before grouping</td><td>WHERE department = 'Finance' AND salary &gt; 60000</td></tr>
+        <tr><td><strong>GROUP BY</strong></td><td>Group rows for aggregation</td><td>GROUP BY department</td></tr>
+        <tr><td><strong>HAVING</strong></td><td>Filter groups after GROUP BY (can use aggregates)</td><td>HAVING COUNT(*) &gt; 5</td></tr>
+        <tr><td><strong>ORDER BY</strong></td><td>Sort results ascending or descending</td><td>ORDER BY salary DESC</td></tr>
+        <tr><td><strong>JOIN</strong></td><td>Combine rows from two tables on a matching key</td><td>LEFT JOIN departments d ON e.dept_id = d.dept_id</td></tr>
+        <tr><td><strong>UNION</strong></td><td>Stack results of two queries (removes duplicates). UNION ALL keeps duplicates and is faster.</td><td>SELECT name FROM tableA UNION SELECT name FROM tableB</td></tr>
+        <tr><td><strong>SUBQUERY</strong></td><td>A query nested inside another query</td><td>WHERE salary &gt; (SELECT AVG(salary) FROM employees)</td></tr>
+        <tr><td><strong>CTE (WITH)</strong></td><td>Named temporary result set for readability and reuse within a query</td><td>WITH top_earners AS (SELECT * FROM employees WHERE salary &gt; 80000) SELECT * FROM top_earners</td></tr>
+        <tr><td><strong>EXISTS</strong></td><td>Returns true if a subquery returns at least one row</td><td>WHERE EXISTS (SELECT 1 FROM orders WHERE orders.emp_id = employees.emp_id)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>SQL Functions</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Function</th><th>Type</th><th>Example &amp; Note</th></tr></thead>
+      <tbody>
+        <tr><td><strong>COUNT(*)</strong></td><td>Aggregate</td><td>COUNT(*) — all rows including NULLs</td></tr>
+        <tr><td><strong>SUM</strong></td><td>Aggregate</td><td>SUM(salary) — total; ignores NULLs</td></tr>
+        <tr><td><strong>AVG</strong></td><td>Aggregate</td><td>AVG(salary) — average of non-NULL values</td></tr>
+        <tr><td><strong>ROW_NUMBER()</strong></td><td>Window</td><td>ROW_NUMBER() OVER (ORDER BY salary DESC) — unique sequential number, no ties</td></tr>
+        <tr><td><strong>RANK()</strong></td><td>Window</td><td>RANK() OVER (ORDER BY salary DESC) — ties get same rank, next rank skips</td></tr>
+        <tr><td><strong>DENSE_RANK()</strong></td><td>Window</td><td>DENSE_RANK() OVER (ORDER BY salary DESC) — ties get same rank, no gaps after</td></tr>
+        <tr><td><strong>LAG()</strong></td><td>Window</td><td>LAG(revenue, 1) OVER (ORDER BY month) — value from the previous row</td></tr>
+        <tr><td><strong>LEAD()</strong></td><td>Window</td><td>LEAD(revenue, 1) OVER (ORDER BY month) — value from the next row</td></tr>
+        <tr><td><strong>COALESCE</strong></td><td>Scalar</td><td>COALESCE(phone, email, 'No contact') — returns first non-NULL value in the list</td></tr>
+        <tr><td><strong>CASE WHEN</strong></td><td>Scalar</td><td>CASE WHEN salary &gt; 80000 THEN 'Senior' WHEN salary &gt; 50000 THEN 'Mid' ELSE 'Junior' END</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="aws-overview">
+  <h2>AWS Overview for BAs</h2>
+  <p class="section-meta">What AWS is · Key services · IAM · Cloud vs on-prem · Interview Q&amp;A</p>
+
+  <div class="content-block">
+    <h3>What is AWS?</h3>
+    <p>Amazon Web Services (AWS) is a cloud computing platform — a collection of on-demand infrastructure and services (storage, databases, computing, machine learning, etc.) that organizations use instead of running their own physical servers. As a BA, you won't manage AWS infrastructure, but you'll regularly work with data that lives in AWS — in storage buckets, databases, or data warehouses — and you'll collaborate with data engineers who build pipelines on top of it.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Region and Availability Zone</h3>
+    <p>A <strong>region</strong> is a physical geographic location where AWS has data centers (e.g., us-east-1 for Northern Virginia, eu-west-1 for Ireland). An <strong>availability zone (AZ)</strong> is an isolated data center within a region — AWS spreads infrastructure across multiple AZs for resilience. As a BA, the main reason this matters is data residency: if your organization must keep data in a specific country for compliance, you'll need to confirm the correct AWS region is being used.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>The 5 AWS Services You'll Actually Encounter</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Service</th><th>What it is</th><th>Your role as a BA</th></tr></thead>
+      <tbody>
+        <tr><td><strong>S3</strong></td><td>Object storage — store any file (CSV, JSON, Parquet, etc.) in the cloud</td><td>Data often lands here before ETL picks it up. You'll reference S3 paths in requirements and validate files during testing.</td></tr>
+        <tr><td><strong>Glue</strong></td><td>Managed ETL service — crawlers catalog data, jobs transform it</td><td>You'll define transformation requirements and validate Glue job output during UAT.</td></tr>
+        <tr><td><strong>Redshift</strong></td><td>Cloud data warehouse — columnar storage optimized for analytics queries</td><td>You'll write SQL against Redshift for reporting and analysis. It's your primary query target.</td></tr>
+        <tr><td><strong>Athena</strong></td><td>Serverless SQL query engine that queries data directly in S3 (no loading needed)</td><td>Useful for quickly exploring raw files in S3 without building a full pipeline first.</td></tr>
+        <tr><td><strong>IAM</strong></td><td>Identity and Access Management — controls who can access what AWS resources</td><td>You'll need to know what access you and your team need, and request it through IAM roles/policies. Data access issues often trace back here.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>What is IAM?</h3>
+    <p>IAM (Identity and Access Management) is AWS's system for managing permissions. Instead of giving a person direct access to everything, you create <strong>roles</strong> (a set of permissions) and <strong>policies</strong> (rules that define what those permissions allow or deny). A user or service assumes a role when they need access.</p>
+    <p>As a BA, you care about IAM because: when you can't access a dataset or an S3 bucket, the root cause is almost always an IAM policy. Understanding the concept helps you ask the right questions — "Do I have the correct role assigned?" or "Does the Glue job's role have permission to write to this S3 bucket?"</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Common Interview Questions</h3>
+    <p><strong>Q: What is the difference between cloud and on-premises?</strong><br>
+    On-premises means your company owns and maintains its own servers in its own data centers. Cloud means you rent infrastructure from a provider like AWS — you pay for what you use, and AWS handles the hardware maintenance. Cloud is more scalable and flexible; on-prem gives more direct control.</p>
+    <p><strong>Q: What is S3?</strong><br>
+    S3 (Simple Storage Service) is AWS's object storage service. You store files in "buckets." It's not a database — you can't run SQL against it directly — but it's the most common place raw data lands before being processed by ETL pipelines.</p>
+    <p><strong>Q: Have you worked with AWS?</strong><br>
+    Sample answer: "Yes — I've worked with data pipelines where raw files were stored in S3, transformed through Glue jobs, and loaded into Redshift for analysis. I queried Redshift using standard SQL for reporting and used Athena for quick ad-hoc exploration of raw S3 data. I've also worked within IAM access policies to understand and troubleshoot data permissions."</p>
+  </div>
+
+  <div class="tip-box">
+    <strong>Practical tip:</strong> You don't need to know how to build AWS infrastructure. What interviewers want to know is that you understand the data landscape — where data lives, how it moves, and who controls access. That knowledge makes you a more effective BA when working with data engineering teams.
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="aws-s3">
+  <h2>Amazon S3</h2>
+  <p class="section-meta">Object storage · Buckets · Storage classes · Data pipeline role · Access control</p>
+
+  <div class="content-block">
+    <h3>What is S3?</h3>
+    <p>Amazon S3 (Simple Storage Service) is a cloud object storage service. Think of it as a highly scalable file system in the cloud — you store files (called <strong>objects</strong>) inside containers (called <strong>buckets</strong>). S3 is not a database. You cannot run a SQL query directly against S3 in the same way you would a table — the data lives there as files (CSV, JSON, Parquet, etc.) waiting to be processed.</p>
+    <p>Almost every AWS data pipeline starts and ends with S3. Raw data lands here, ETL processes it, and processed results are often written back to a different S3 location before being loaded to a data warehouse.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Buckets and Objects</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Concept</th><th>Explanation</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bucket</strong></td><td>A container for storing objects. Bucket names must be globally unique across all of AWS.</td><td>my-company-data-lake</td></tr>
+        <tr><td><strong>Object</strong></td><td>Any file stored in a bucket, along with its metadata. An object is identified by its key (the full path/filename).</td><td>raw/sales/2024/01/transactions.csv</td></tr>
+        <tr><td><strong>Prefix</strong></td><td>Folder-like structure in the key path. S3 doesn't have real folders, but prefixes act like them.</td><td>raw/sales/2024/ is a prefix</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Storage Classes — The Concept</h3>
+    <p>S3 has different storage tiers based on how frequently data is accessed. You don't need to know every tier, but two are worth knowing for interviews:</p>
+    <table class="cheat-table">
+      <thead><tr><th>Class</th><th>Use case</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td><strong>S3 Standard</strong></td><td>Frequently accessed data — active pipeline files, recent reports</td><td>Higher storage cost, immediate retrieval</td></tr>
+        <tr><td><strong>S3 Glacier</strong></td><td>Long-term archival — data you need to keep for compliance but rarely access</td><td>Very low storage cost, retrieval takes minutes to hours</td></tr>
+      </tbody>
+    </table>
+    <p>As a BA, this matters when defining data retention requirements — "do we need instant access or just storage for compliance?" determines which tier is appropriate.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>S3 in a Data Pipeline</h3>
+    <p>A common pattern you'll encounter:</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">Text</span>
+      <pre>Source System
+     ↓
+S3 Landing Zone       (raw, unprocessed — s3://bucket/raw/)
+     ↓
+AWS Glue ETL Job      (transforms, cleans, validates the data)
+     ↓
+S3 Processed Zone     (clean data — s3://bucket/processed/)
+     ↓
+Redshift / Athena     (queryable data warehouse or ad-hoc queries)
+     ↓
+Power BI / Reports    (dashboards and analysis for stakeholders)
+
+Old or compliance data moves to:
+S3 Archive / Glacier  (s3://bucket/archive/)</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>Access Control</h3>
+    <p>Access to S3 is controlled in two ways: <strong>Bucket policies</strong> (resource-based rules attached to the bucket itself — who can read or write) and <strong>IAM policies</strong> (user or role-based rules — what that person or service is allowed to do). In practice, both work together. If you can't access a file in S3, either your IAM role doesn't have permission, or the bucket policy is blocking you.</p>
+  </div>
+
+  <div class="note-box">
+    <strong>Interview tip — "How did you use S3 in your data work?"</strong><br>
+    Sample answer: "In our data pipeline, raw data files from source systems were landed in S3 buckets organized by date. AWS Glue jobs would pick up those files, apply transformations, and write the cleaned output to a processed S3 prefix, which was then loaded into Redshift. I worked with S3 paths when writing requirements for Glue jobs and validated the output files during testing."
+  </div>
+
+  <div class="tip-box">
+    <strong>Practical tip:</strong> S3 paths are case-sensitive. "Raw/" and "raw/" are different prefixes. This is a common source of bugs in ETL pipelines — something to flag in your requirements documentation when specifying file paths.
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="aws-glue">
+  <h2>AWS Glue &amp; ETL</h2>
+  <p class="section-meta">What ETL is · Glue crawlers · Data Catalog · BA's role · Interview Q&amp;A</p>
+
+  <div class="content-block">
+    <h3>What is ETL?</h3>
+    <p>ETL stands for <strong>Extract, Transform, Load</strong> — the process of moving data from source systems into a target system (usually a data warehouse) in a usable format.</p>
+    <table class="cheat-table">
+      <thead><tr><th>Step</th><th>What happens</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Extract</strong></td><td>Pull data from the source — a database, an API, files in S3, a flat file from a vendor</td><td>Read yesterday's transaction CSV file from S3</td></tr>
+        <tr><td><strong>Transform</strong></td><td>Clean, reshape, enrich, and validate the data — fix data types, filter nulls, join to reference data, apply business rules</td><td>Convert date format, map region codes to region names, remove test accounts</td></tr>
+        <tr><td><strong>Load</strong></td><td>Write the processed data to the target — a data warehouse table, a processed S3 prefix, a reporting database</td><td>Load cleaned records into Redshift's sales_fact table</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box">
+    <strong>Note:</strong> You may also hear <strong>ELT</strong> (Extract, Load, Transform) — this is common with cloud warehouses like Snowflake and Redshift where raw data is loaded first and transformation happens inside the warehouse using SQL. The distinction may come up in interviews.
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>What AWS Glue Does</h3>
+    <p>AWS Glue is a fully managed ETL service. You don't need to set up servers — AWS handles the infrastructure. Glue has two main components a BA should understand:</p>
+
+    <p><strong>Crawlers</strong> — Automated scanners that read data sources (S3 folders, databases, etc.) and automatically figure out the schema (column names, data types, partition structure). The crawler writes this metadata to the Data Catalog.</p>
+
+    <p><strong>ETL Jobs</strong> — Scripts (written in Python or Spark) that define the actual transformation logic — reading from a source, applying transformations, and writing to a target. A data engineer writes these; as a BA you define the business rules they implement.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>The Data Catalog</h3>
+    <p>The Glue Data Catalog is a centralized metadata repository — think of it as a directory of all your data assets. It stores table definitions: what columns exist, what data types they are, where the data physically lives (S3 path or database connection), and how it's partitioned.</p>
+    <p>Once data is cataloged, it can be queried by Athena (without loading it anywhere) or referenced by Glue jobs. The Data Catalog makes data discoverable — you can search it to find out what data exists and where it is, which is directly relevant to BA work when scoping data requirements.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>How a BA Interacts with Glue</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Activity</th><th>What you do as a BA</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Requirements</strong></td><td>Define the transformation rules in clear business language: "Null values in customer_id should be excluded," "Region code 'NA' maps to 'North America'," "Load date must be populated with the processing run date."</td></tr>
+        <tr><td><strong>Validation</strong></td><td>After a Glue job runs, check that the output in S3 or Redshift matches expected row counts, has no unexpected nulls, and reflects the business rules you defined.</td></tr>
+        <tr><td><strong>UAT</strong></td><td>Run test scenarios — what happens when a source file has a duplicate key? What happens with an empty file? Verify the pipeline handles edge cases correctly.</td></tr>
+        <tr><td><strong>Data Catalog</strong></td><td>Use the catalog to understand what tables/data are already available before requesting new pipelines. Avoid duplicating work that already exists.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>Common Interview Questions</h3>
+    <p><strong>Q: Can you explain what ETL means?</strong><br>
+    Sample answer: "ETL is Extract, Transform, Load — the process of pulling data from source systems, applying business rules and cleaning to transform it, and loading the result into a target like a data warehouse. For example, we extracted daily transaction files from an S3 landing zone, used a Glue job to validate and enrich the data, then loaded it into Redshift for reporting."</p>
+    <p><strong>Q: Have you worked on data pipelines?</strong><br>
+    Sample answer: "Yes. I've been involved in defining requirements for Glue-based ETL pipelines — specifying source-to-target mappings, transformation rules, and data quality checks. I've also done UAT on pipeline output, validating that records counts and business rules were correctly implemented."</p>
+    <p><strong>Q: What is a Data Catalog?</strong><br>
+    Sample answer: "A Data Catalog is a centralized inventory of data assets — it stores metadata about what tables exist, their schemas, where the data physically lives, and how it's structured. AWS Glue's Data Catalog is populated by crawlers. It makes data discoverable and is the first place to check when assessing what data is available for a new requirement."</p>
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="aws-redshift">
+  <h2>Amazon Redshift</h2>
+  <p class="section-meta">Cloud data warehouse · OLTP vs OLAP · How BAs use it · Interview Q&amp;A</p>
+
+  <div class="content-block">
+    <h3>What is Redshift?</h3>
+    <p>Amazon Redshift is a fully managed cloud data warehouse. It's designed to store large volumes of structured data and handle complex analytical queries fast — aggregating millions of rows, joining multiple large tables, running reports across years of data. You use standard SQL to query it, so if you know SQL, you can query Redshift.</p>
+    <p>Redshift is not designed for transactional use (inserting or updating individual rows frequently). It's built for analytics — read-heavy workloads where you're asking big questions across large datasets.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>OLTP vs OLAP</h3>
+    <p>This distinction comes up constantly in data warehouse interviews.</p>
+    <table class="cheat-table">
+      <thead><tr><th></th><th>OLTP (Transactional)</th><th>OLAP (Analytical)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Stands for</strong></td><td>Online Transaction Processing</td><td>Online Analytical Processing</td></tr>
+        <tr><td><strong>Purpose</strong></td><td>Record day-to-day operations — orders, payments, bookings</td><td>Analyze historical data — trends, aggregations, KPIs</td></tr>
+        <tr><td><strong>Operations</strong></td><td>Frequent INSERT, UPDATE, DELETE on individual rows</td><td>Large SELECT queries across millions of rows</td></tr>
+        <tr><td><strong>Data volume</strong></td><td>Current/recent data, smaller tables</td><td>Historical data, very large tables</td></tr>
+        <tr><td><strong>Example system</strong></td><td>SQL Server operational database, IBM DB2 production system</td><td>Redshift, Snowflake, BigQuery</td></tr>
+        <tr><td><strong>Example query</strong></td><td>Look up one customer's current order status</td><td>Total revenue by region for the last 3 years</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box">
+    <strong>Interview tip — "What's the difference between a database and a data warehouse?"</strong><br>
+    A database (OLTP) is optimized for recording transactions — it handles many small, fast reads and writes. A data warehouse (OLAP) is optimized for analytics — it handles fewer but much larger queries across historical data. You wouldn't run your production order system on Redshift, and you wouldn't run historical trend analysis on an operational SQL Server.
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Distribution Keys and Sort Keys — High Level</h3>
+    <p>These are Redshift performance concepts. You don't need to configure them, but you should know they exist and why they matter:</p>
+    <p>A <strong>distribution key</strong> determines how data is physically distributed across Redshift's nodes. If two large tables are joined on the same column and that column is the distribution key for both, the JOIN is much faster because the matching rows sit on the same node. Poor distribution key choices lead to slow queries because data has to be shuffled across nodes.</p>
+    <p>A <strong>sort key</strong> determines the physical order rows are stored on disk. If you frequently filter or sort by a date column, making it a sort key means Redshift can skip large chunks of irrelevant data. This is called zone map filtering.</p>
+    <p>As a BA, if queries are running slowly, these are things to ask the data engineering team about.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>How a BA Queries Redshift</h3>
+    <p>Redshift uses standard SQL with minor variations. You connect via a SQL client (like DBeaver, SQL Workbench, or the Redshift Query Editor in the AWS console) and write queries just as you would in SQL Server or Snowflake.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Query a Redshift table — standard SQL syntax
+SELECT region, SUM(revenue) AS total_revenue
+FROM sales_fact
+WHERE order_date >= '2024-01-01'
+GROUP BY region
+ORDER BY total_revenue DESC;</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>The COPY Command — Concept Only</h3>
+    <p>COPY is the Redshift command used to bulk-load data from S3 into a Redshift table. It's far more efficient than INSERT for loading large volumes. You won't write COPY commands as a BA, but you'll hear about it when data engineers describe how data gets into Redshift from the S3 processed zone.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Concept only — data engineers run this, not BAs
+COPY sales_fact
+FROM 's3://my-bucket/processed/sales/2024/'
+IAM_ROLE 'arn:aws:iam::123456789:role/RedshiftS3Role'
+FORMAT AS PARQUET;</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>Common Interview Questions</h3>
+    <p><strong>Q: What is Redshift and how is it different from a regular database?</strong><br>
+    Redshift is a cloud data warehouse optimized for analytical queries — large aggregations across historical data. A regular relational database like SQL Server is designed for transactional workloads — frequent small reads and writes on current data.</p>
+    <p><strong>Q: What is the difference between OLTP and OLAP?</strong><br>
+    OLTP systems record transactions (your order system, your HR system). OLAP systems analyze that data at scale — think reporting, dashboards, trend analysis. Data typically flows from OLTP systems into OLAP systems via ETL pipelines.</p>
+    <p><strong>Q: Have you worked with Snowflake? How is it similar to Redshift?</strong><br>
+    Both are cloud data warehouses designed for analytical workloads, support standard SQL, and scale independently. Snowflake separates storage from compute (making it easier to scale each independently). Both are commonly used as the query layer for BI tools like Power BI.</p>
+  </div>
+
+  <div class="tip-box">
+    <strong>Practical tip:</strong> When asked about Redshift in an interview, connect it to the full data flow: "Data was extracted from our source systems, landed in S3, transformed by Glue, loaded into Redshift, and then Power BI connected to Redshift for reporting." That end-to-end story shows architectural awareness, which is exactly what they're testing for.
+  </div>
+</div>
+
+
+<div class="tutorial-section" id="aws-cheatsheet">
+  <h2>AWS Cheat Sheet</h2>
+  <p class="section-meta">Quick reference for interviews — BA-focused</p>
+
+  <div class="content-block">
+    <h3>AWS Services for Data Work</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Service</th><th>What it does</th><th>BA relevance</th></tr></thead>
+      <tbody>
+        <tr><td><strong>S3</strong><br>(Simple Storage Service)</td><td>Object storage — store any file in the cloud in containers called buckets</td><td>Raw data lands here. ETL jobs read from and write to S3. You reference S3 paths in requirements and validate output files during testing.</td></tr>
+        <tr><td><strong>AWS Glue</strong></td><td>Managed ETL service — crawlers scan data sources and build a catalog; ETL jobs transform data</td><td>You define transformation rules and business logic that Glue jobs implement. You do UAT on job output. The Data Catalog helps you discover existing data assets.</td></tr>
+        <tr><td><strong>Redshift</strong></td><td>Cloud data warehouse — columnar storage for large-scale analytical SQL queries</td><td>Your primary query target for reporting and analysis. Use standard SQL. It's where cleaned, processed data lives for BI tools like Power BI to connect to.</td></tr>
+        <tr><td><strong>Athena</strong></td><td>Serverless SQL engine — runs SQL queries directly on files in S3 without loading them into a database</td><td>Quick ad-hoc exploration of raw S3 data without a full pipeline. Useful for data profiling during requirements gathering or investigation.</td></tr>
+        <tr><td><strong>IAM</strong><br>(Identity &amp; Access Management)</td><td>Manages who can access what AWS resources — through users, roles, and policies</td><td>Data access problems trace back here. You need to know what IAM role you need and how to request it. Glue jobs, Redshift connections, and S3 access all require correct IAM permissions.</td></tr>
+        <tr><td><strong>CloudWatch</strong></td><td>Monitoring and logging service — tracks metrics, stores logs, sends alerts</td><td>When a Glue job fails or a pipeline hasn't run, CloudWatch logs are where the data engineering team looks. As a BA, you may need to raise a ticket referencing a CloudWatch error.</td></tr>
+        <tr><td><strong>Lambda</strong></td><td>Serverless compute — runs small pieces of code in response to events (e.g., a new file arriving in S3)</td><td>You may encounter Lambda as a trigger in a data pipeline — "when a file lands in S3, Lambda kicks off the Glue job." Useful to understand conceptually when discussing automated pipeline workflows.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Key Concepts Quick Reference</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Concept</th><th>One-line explanation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ETL</strong></td><td>Extract data from source → Transform (clean/reshape) → Load into target warehouse</td></tr>
+        <tr><td><strong>ELT</strong></td><td>Extract → Load raw into warehouse → Transform inside the warehouse using SQL</td></tr>
+        <tr><td><strong>Data Catalog</strong></td><td>Metadata inventory — what tables exist, their schemas, where data lives. Populated by Glue crawlers.</td></tr>
+        <tr><td><strong>Bucket Policy</strong></td><td>Access rules attached to an S3 bucket — controls who can read/write that specific bucket</td></tr>
+        <tr><td><strong>IAM Role</strong></td><td>A set of permissions that can be assumed by a user or service (e.g., a Glue job assumes a role to access S3)</td></tr>
+        <tr><td><strong>OLTP</strong></td><td>Operational databases for recording transactions — SQL Server, DB2 production systems</td></tr>
+        <tr><td><strong>OLAP</strong></td><td>Analytical data warehouses for querying historical data at scale — Redshift, Snowflake</td></tr>
+        <tr><td><strong>Region</strong></td><td>Geographic AWS data center location — matters for data residency and compliance requirements</td></tr>
+        <tr><td><strong>Parquet</strong></td><td>Columnar file format used in S3 — much more efficient than CSV for large data, commonly used in data pipelines</td></tr>
+        <tr><td><strong>COPY command</strong></td><td>Redshift's bulk-load command — efficiently loads large files from S3 into a Redshift table</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+    </main>
 </div>
 
 <script>
