@@ -908,6 +908,15 @@
         <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">🔄 Refresh Jobs</button>
       </div>
       <div class="refresh-status" id="refreshStatus"></div>
+      <div id="refreshProgress" style="display:none;width:220px;margin-top:4px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+          <span id="refreshProgressLabel" style="font-size:11px;color:rgba(255,255,255,.85);font-weight:600"></span>
+          <span id="refreshProgressPct" style="font-size:11px;color:rgba(255,255,255,.7)"></span>
+        </div>
+        <div style="height:5px;background:rgba(255,255,255,.2);border-radius:999px;overflow:hidden">
+          <div id="refreshProgressBar" style="height:100%;width:0%;background:#fff;border-radius:999px;transition:width .6s ease"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -3182,6 +3191,90 @@ async function loadRefreshMeta() {
   } catch(e) {}
 }
 
+// ── Refresh Jobs progress bar ──
+let _refreshProgressTimer = null;
+
+function _startRefreshProgress() {
+  const bar   = document.getElementById('refreshProgressBar');
+  const label = document.getElementById('refreshProgressLabel');
+  const pct   = document.getElementById('refreshProgressPct');
+  const wrap  = document.getElementById('refreshProgress');
+  if (!wrap) return;
+
+  wrap.style.display = 'block';
+  bar.style.width = '0%';
+  bar.style.transition = 'none';
+
+  const totalMs  = 190000; // ~3 min 10s
+  const tickMs   = 800;
+  let elapsed    = 0;
+
+  const phases = [
+    { upTo: 0.05, label: '⏳ Triggering…' },
+    { upTo: 0.15, label: '🚀 Workflow queued…' },
+    { upTo: 0.55, label: '🔍 Fetching jobs…' },
+    { upTo: 0.80, label: '📝 Processing results…' },
+    { upTo: 0.95, label: '💾 Saving to GitHub…' },
+    { upTo: 1.00, label: '✅ Done!' },
+  ];
+
+  function getPhase(p) {
+    return phases.find(ph => p <= ph.upTo) || phases[phases.length - 1];
+  }
+
+  // Ease-out curve so it slows near the end
+  function easeProgress(t) {
+    return t < 0.9 ? t / 0.9 * 0.92 : 0.92 + (t - 0.9) / 0.1 * 0.06;
+  }
+
+  _refreshProgressTimer = setInterval(() => {
+    elapsed += tickMs;
+    const t = Math.min(elapsed / totalMs, 1);
+    const p = easeProgress(t);
+    const ph = getPhase(p);
+    bar.style.transition = 'width .8s ease';
+    bar.style.width = (p * 100).toFixed(1) + '%';
+    label.textContent = ph.label;
+    pct.textContent   = Math.round(p * 100) + '%';
+
+    if (t >= 1) {
+      clearInterval(_refreshProgressTimer);
+      _refreshProgressTimer = null;
+    }
+  }, tickMs);
+}
+
+function _finishRefreshProgress(success) {
+  if (_refreshProgressTimer) {
+    clearInterval(_refreshProgressTimer);
+    _refreshProgressTimer = null;
+  }
+  const bar   = document.getElementById('refreshProgressBar');
+  const label = document.getElementById('refreshProgressLabel');
+  const pct   = document.getElementById('refreshProgressPct');
+  const wrap  = document.getElementById('refreshProgress');
+  if (!wrap) return;
+
+  if (success) {
+    bar.style.transition = 'width .4s ease';
+    bar.style.width = '100%';
+    label.textContent = '✅ Done! Reload in ~3 min.';
+    pct.textContent   = '100%';
+  } else {
+    bar.style.background = '#fca5a5';
+    label.textContent = '❌ Failed';
+    pct.textContent   = '';
+  }
+
+  setTimeout(() => {
+    wrap.style.display = 'none';
+    bar.style.width = '0%';
+    bar.style.background = '#fff';
+    label.textContent = '';
+    pct.textContent = '';
+  }, success ? 12000 : 5000);
+}
+
 // ── Refresh Jobs ──
 async function triggerRefresh() {
   const btn    = document.getElementById('refreshBtn');
@@ -3190,6 +3283,7 @@ async function triggerRefresh() {
   btn.dataset.triggered = '1';
   btn.textContent = '⏳ Triggering...';
   status.textContent = '';
+  _startRefreshProgress();
 
   try {
     const res = await fetch(
@@ -3206,20 +3300,21 @@ async function triggerRefresh() {
     );
     if (res.status === 204) {
       btn.textContent = '✅ Triggered!';
-      status.textContent = 'Workflow started — page updates in ~3 min. Reload then.';
+      status.textContent = '';
+      _finishRefreshProgress(true);
       setTimeout(() => {
         delete btn.dataset.triggered;
         btn.disabled = false;
         btn.textContent = '🔄 Refresh Jobs';
-        status.textContent = '';
         checkRefreshButton();
-      }, 15000);
+      }, 12000);
     } else {
       throw new Error(`HTTP ${res.status}`);
     }
   } catch(e) {
     btn.textContent = '❌ Failed';
     status.textContent = `Error: ${e.message}`;
+    _finishRefreshProgress(false);
     setTimeout(() => {
       delete btn.dataset.triggered;
       btn.disabled = false;
