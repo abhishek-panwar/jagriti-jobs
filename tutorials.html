@@ -420,6 +420,7 @@
         <div class="section-link" onclick="showSection('pbi-dax')">DAX Formulas</div>
         <div class="section-link" onclick="showSection('pbi-datamodel')">Data Modeling</div>
         <div class="section-link" onclick="showSection('pbi-visuals')">Visuals &amp; Reports</div>
+        <div class="section-link" onclick="showSection('pbi-advanced')">Advanced Power BI</div>
         <div class="section-link" onclick="showSection('pbi-cheatsheet')">Cheat Sheet</div>
       </div>
     </div>
@@ -437,6 +438,8 @@
         <div class="section-link" onclick="showSection('sql-joins')">JOINs</div>
         <div class="section-link" onclick="showSection('sql-aggregates')">Aggregates &amp; GROUP BY</div>
         <div class="section-link" onclick="showSection('sql-window')">Window Functions</div>
+        <div class="section-link" onclick="showSection('sql-cte')">CTEs &amp; Subqueries</div>
+        <div class="section-link" onclick="showSection('sql-advanced')">Advanced SQL</div>
         <div class="section-link" onclick="showSection('sql-cheatsheet')">Cheat Sheet</div>
       </div>
     </div>
@@ -776,6 +779,179 @@ Flat, fast, easy to query          More normalized, more joins needed</pre>
   </div>
 </div>
 
+
+<div class="tutorial-section" id="pbi-advanced">
+  <h2>Advanced Power BI</h2>
+  <p class="section-meta">Row-level security · Bookmarks &amp; drillthrough · Incremental refresh · Performance · Advanced DAX patterns</p>
+
+  <div class="content-block">
+    <h3>Row-Level Security (RLS)</h3>
+    <p>RLS restricts which rows of data a user sees when they view a report. Instead of building separate reports per region or team, you build one report and use RLS rules so each user only sees their own data.</p>
+    <p><strong>How it works:</strong></p>
+    <ol style="margin:8px 0 8px 20px;line-height:1.8">
+      <li>In Power BI Desktop, go to <strong>Modeling → Manage Roles</strong></li>
+      <li>Create a role (e.g., "Region Manager") and write a DAX filter: <code>[Region] = USERPRINCIPALNAME()</code> or a static filter like <code>[Region] = "North"</code></li>
+      <li>Publish the report, then in Power BI Service go to the dataset → Security → assign users/groups to the role</li>
+    </ol>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>-- Dynamic RLS: user only sees rows where their email matches the Region Manager column
+-- Applied as a table filter in the role definition:
+[Manager Email] = USERPRINCIPALNAME()
+
+-- Static RLS example: this role only sees North region data
+[Region] = "North"</pre>
+    </div>
+    <table class="cheat-table" style="margin-top:10px">
+      <thead><tr><th>Type</th><th>How it works</th><th>Best for</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Static RLS</strong></td><td>Hardcoded filter in the role — e.g., Region = "North"</td><td>Fixed segments, few roles</td></tr>
+        <tr><td><strong>Dynamic RLS</strong></td><td>Uses USERPRINCIPALNAME() to match the logged-in user to data in a mapping table</td><td>Many users each with their own data slice — one role handles all</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box" style="margin-top:10px">
+      <strong>Interview tip:</strong> Always mention dynamic RLS with USERPRINCIPALNAME() — it shows you understand scalable, maintainable security design rather than managing dozens of static roles.
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Bookmarks &amp; Drillthrough</h3>
+    <p><strong>Bookmarks</strong> capture the exact state of a report page — which filters are applied, which visuals are visible, what slicers are selected. You can assign a button to a bookmark, letting users toggle between views without navigating away.</p>
+    <p>Common use: a "Show Details" / "Back to Summary" toggle, or a panel that slides in when a button is clicked (using show/hide visibility on a visual).</p>
+
+    <p><strong>Drillthrough</strong> lets users right-click a data point on one report page and "drill through" to a separate detail page that's pre-filtered to that data point.</p>
+    <p>Example: a summary page shows total sales by region. User right-clicks "North" → drills through to a detail page showing every individual order in the North region.</p>
+    <p>To set up drillthrough: on the detail page, drag the field you want to filter by (e.g., Region) into the <strong>Drillthrough</strong> well in the Visualizations pane. Power BI automatically adds a back button.</p>
+
+    <div class="tip-box">
+      <strong>BA use case:</strong> Drillthrough is great for executive dashboards — the top-level page stays clean with KPIs, and drillthrough gives analysts a path to the underlying data without cluttering the main view.
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Incremental Refresh</h3>
+    <p>By default, every time a Power BI dataset refreshes, it reloads all historical data. For large datasets (millions of rows of transactions going back years), this is slow and expensive. <strong>Incremental refresh</strong> tells Power BI to only reload recent data and keep older data cached.</p>
+    <p><strong>How to set it up:</strong></p>
+    <ol style="margin:8px 0 8px 20px;line-height:1.8">
+      <li>In Power Query, create two parameters named exactly <strong>RangeStart</strong> and <strong>RangeEnd</strong> (DateTime type)</li>
+      <li>Filter your date column in Power Query using those parameters</li>
+      <li>In the dataset settings → Incremental Refresh: define how many years to keep archived and how many days to refresh</li>
+    </ol>
+    <table class="cheat-table">
+      <thead><tr><th></th><th>Without incremental refresh</th><th>With incremental refresh</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Refresh scope</strong></td><td>Reloads all 5 years of data every time</td><td>Only reloads last 3 days; 5 years of history stays cached</td></tr>
+        <tr><td><strong>Refresh time</strong></td><td>45 minutes</td><td>2 minutes</td></tr>
+        <tr><td><strong>Gateway required</strong></td><td>Yes (for on-prem sources)</td><td>Yes (same)</td></tr>
+        <tr><td><strong>License</strong></td><td>Any</td><td>Premium / Premium Per User for partitioned storage</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Report Performance Optimisation</h3>
+    <p>Slow Power BI reports are one of the most common real-world problems. Here's how to diagnose and fix them:</p>
+    <table class="cheat-table">
+      <thead><tr><th>Problem</th><th>Likely cause</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr><td>Report takes 10+ seconds to load</td><td>Too many visuals on one page, or visuals querying large tables without aggregation</td><td>Split into multiple pages, use aggregation tables, reduce visual count per page</td></tr>
+        <tr><td>Slicer feels sluggish</td><td>Slicer is on a large fact table with millions of rows</td><td>Point slicer at a dimension table instead (small lookup table, not the fat fact table)</td></tr>
+        <tr><td>DAX measure is slow</td><td>Measure iterates over a large table (SUMX, FILTER on a fact table)</td><td>Pre-aggregate with a calculated table or use CALCULATE with a simple filter instead of FILTER()</td></tr>
+        <tr><td>Dataset is too large</td><td>Columns imported that aren't used in any visual or relationship</td><td>Remove unused columns in Power Query — columnar storage means every column adds memory</td></tr>
+        <tr><td>Bidirectional relationships</td><td>Two-way cross-filtering can cause ambiguous filter paths and slow calculations</td><td>Use single-direction relationships wherever possible; use CROSSFILTER() in DAX only when needed</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Performance Analyzer:</strong> Built into Power BI Desktop (View → Performance Analyzer). Record a page load and it shows exactly how long each visual took and what DAX query it ran. First tool to use when a report is slow.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Advanced DAX Patterns</h3>
+
+    <p><strong>DIVIDE — Safe division (avoids divide-by-zero errors)</strong></p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>-- Returns 0 instead of error when denominator is 0
+Profit Margin % = DIVIDE([Total Profit], [Total Revenue], 0)</pre>
+    </div>
+
+    <p><strong>RANKX — Dynamic ranking across a table</strong></p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>-- Rank each product by revenue (highest = 1), respecting current filters
+Product Revenue Rank =
+RANKX(
+    ALL(Products[Product Name]),   -- rank across all products
+    [Total Revenue],               -- by this measure
+    ,                              -- blank = use current row's value
+    DESC,                          -- highest first
+    Dense                          -- no gaps in rank numbers
+)</pre>
+    </div>
+
+    <p><strong>SELECTEDVALUE — Respond to a slicer selection</strong></p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>-- Change a measure's behaviour based on what the user picked in a slicer
+-- Useful for "what-if" parameter-driven reports
+
+Dynamic Metric =
+VAR selected = SELECTEDVALUE('Metric Selector'[Metric], "Revenue")
+RETURN
+    SWITCH(selected,
+        "Revenue",       [Total Revenue],
+        "Orders",        [Total Orders],
+        "Avg Order",     [Avg Order Value],
+        [Total Revenue]  -- default
+    )</pre>
+    </div>
+
+    <p><strong>VAR / RETURN — Reuse expressions, avoid recalculation</strong></p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">DAX</span>
+      <pre>-- Without VAR: [Total Revenue] is calculated twice (slow)
+Revenue Growth % = DIVIDE(
+    [Total Revenue] - CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(Dates[Date])),
+    CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(Dates[Date]))
+)
+
+-- With VAR: cleaner and faster
+Revenue Growth % =
+VAR current_rev  = [Total Revenue]
+VAR prior_rev    = CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(Dates[Date]))
+RETURN
+    DIVIDE(current_rev - prior_rev, prior_rev)</pre>
+    </div>
+
+    <div class="tip-box">
+      <strong>Always use VAR/RETURN</strong> when a sub-expression appears more than once in a measure. It calculates once, stores the result, and reuses it — both faster and far more readable.
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="content-block">
+    <h3>Interview Q&amp;A</h3>
+    <p><strong>Q: How have you implemented security in Power BI?</strong><br>
+    Sample answer: "We used dynamic row-level security with USERPRINCIPALNAME(). We maintained a user-to-region mapping table in the data model, and the RLS role filtered the fact tables based on that mapping — so each regional manager only saw their own territory's data. This meant one published report served 30+ users with different data slices, rather than maintaining separate reports per region."</p>
+    <p><strong>Q: How do you handle slow Power BI reports?</strong><br>
+    Sample answer: "My first step is the Performance Analyzer to identify which visual or DAX measure is the bottleneck. Common fixes I've applied: pointing slicers at dimension tables instead of fact tables, rewriting iterating measures (SUMX over large tables) as simpler CALCULATE expressions, removing unused columns in Power Query to reduce model size, and for large datasets, setting up incremental refresh so we're only reloading recent data rather than the full history on every refresh."</p>
+    <p><strong>Q: What is a bookmark and when would you use it?</strong><br>
+    Sample answer: "A bookmark captures a specific state of the report — filter selections, visible visuals, slicer values. I've used bookmarks to build toggle buttons — for example a 'Show Chart / Show Table' button that shows one visual and hides the other, giving users a cleaner experience without navigating to a different page. Combined with drillthrough, you can build a very polished navigation experience in a single report."</p>
+  </div>
+</div>
 
 <div class="tutorial-section" id="pbi-cheatsheet">
   <h2>Power BI Cheat Sheet</h2>
@@ -1328,6 +1504,298 @@ Mar       9000         31000
   </div>
 </div>
 
+
+<div class="tutorial-section" id="sql-cte">
+  <h2>CTEs &amp; Subqueries</h2>
+  <p class="section-meta">WITH clause · Subqueries · When to use each · Recursive CTEs · Interview Q&amp;A</p>
+
+  <div class="content-block">
+    <h3>What is a CTE?</h3>
+    <p>A CTE (Common Table Expression) is a named temporary result set you define at the top of a query using the <code>WITH</code> keyword. It makes complex queries readable by breaking them into named steps — like assigning a query to a variable.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Without CTE: hard to read
+SELECT * FROM (
+    SELECT customer_id, SUM(amount) AS total
+    FROM orders
+    GROUP BY customer_id
+) ranked
+WHERE total > 1000;
+
+-- With CTE: reads like a story
+WITH customer_totals AS (
+    SELECT customer_id, SUM(amount) AS total
+    FROM orders
+    GROUP BY customer_id
+)
+SELECT * FROM customer_totals
+WHERE total > 1000;</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>Multiple CTEs — Chaining Steps</h3>
+    <p>You can chain multiple CTEs together. Each one can reference the previous ones. This is one of the most useful patterns in real-world analytical SQL.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Step 1: get all orders in Q1
+-- Step 2: sum by region
+-- Step 3: only show regions above average
+WITH q1_orders AS (
+    SELECT * FROM orders
+    WHERE order_date BETWEEN '2024-01-01' AND '2024-03-31'
+),
+regional_totals AS (
+    SELECT region, SUM(amount) AS total
+    FROM q1_orders
+    GROUP BY region
+),
+avg_total AS (
+    SELECT AVG(total) AS avg_revenue FROM regional_totals
+)
+SELECT r.region, r.total
+FROM regional_totals r
+CROSS JOIN avg_total a
+WHERE r.total > a.avg_revenue
+ORDER BY r.total DESC;</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>Subqueries — Inline vs CTE</h3>
+    <p>A subquery is a query nested inside another query. There are two kinds:</p>
+    <table class="cheat-table">
+      <thead><tr><th>Type</th><th>Where it goes</th><th>Example use</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Inline subquery</strong></td><td>In the FROM clause — acts like a temporary table</td><td>Aggregate first, then join the result to another table</td></tr>
+        <tr><td><strong>Correlated subquery</strong></td><td>In WHERE or SELECT — references the outer query's row</td><td>"For each order, get the customer's average order value"</td></tr>
+        <tr><td><strong>Scalar subquery</strong></td><td>In SELECT — returns a single value per row</td><td>Embed a lookup value inline without a JOIN</td></tr>
+      </tbody>
+    </table>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Correlated subquery: find customers whose last order was in the past 30 days
+SELECT customer_id, name
+FROM customers c
+WHERE EXISTS (
+    SELECT 1 FROM orders o
+    WHERE o.customer_id = c.customer_id
+    AND o.order_date >= CURRENT_DATE - INTERVAL '30 days'
+);
+
+-- Scalar subquery: show each order with the customer's lifetime total inline
+SELECT order_id, amount,
+    (SELECT SUM(amount) FROM orders o2
+     WHERE o2.customer_id = o1.customer_id) AS customer_lifetime_value
+FROM orders o1;</pre>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>CTE vs Subquery — when to use which:</strong> Use a CTE when the logic is complex or reused multiple times in the query — it's far more readable. Use an inline subquery for simple one-off filtering. Avoid correlated subqueries on large tables — they run once per row and are slow. Prefer a JOIN or window function instead.
+  </div>
+
+  <div class="content-block">
+    <h3>Recursive CTE — Hierarchies and Trees</h3>
+    <p>A recursive CTE calls itself. Used for hierarchical data — org charts, category trees, bill of materials — where a row has a parent-child relationship with another row in the same table.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Org chart: find all reports under a manager (recursively)
+WITH RECURSIVE org_tree AS (
+    -- Anchor: start with the top-level manager
+    SELECT employee_id, name, manager_id, 1 AS level
+    FROM employees
+    WHERE manager_id IS NULL
+
+    UNION ALL
+
+    -- Recursive step: find each employee's direct reports
+    SELECT e.employee_id, e.name, e.manager_id, ot.level + 1
+    FROM employees e
+    JOIN org_tree ot ON e.manager_id = ot.employee_id
+)
+SELECT level, name FROM org_tree ORDER BY level, name;
+
+/* Result:
+level   name
+1       CEO
+2       VP Engineering
+2       VP Sales
+3       Sr. Engineer
+3       Account Executive
+*/</pre>
+    </div>
+    <p>As a BA, recursive CTEs come up when you need to flatten a hierarchy — reporting structures, product category trees, or multi-level approval chains. Knowing they exist (and roughly how they work) is enough for most interviews.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Interview Q&amp;A</h3>
+    <p><strong>Q: What is a CTE and when would you use one over a subquery?</strong><br>
+    Sample answer: "A CTE uses the WITH keyword to define a named temporary result set before the main query. I use CTEs when the logic is complex enough that embedding it as a subquery would hurt readability, or when I need to reference the same intermediate result more than once. For example, I'd use a CTE to calculate customer totals first, then join that result back to the orders table — breaking it into readable named steps rather than nesting three subqueries."</p>
+    <p><strong>Q: What is a correlated subquery and what's its drawback?</strong><br>
+    It's a subquery that references the outer query — it re-executes for every row of the outer query. The drawback is performance: on a million-row table it runs a million times. In most cases it can be rewritten as a JOIN or window function, which is significantly faster.</p>
+  </div>
+</div>
+
+<div class="tutorial-section" id="sql-advanced">
+  <h2>Advanced SQL</h2>
+  <p class="section-meta">CASE WHEN · PIVOT · Query optimisation · Indexes · Common interview patterns</p>
+
+  <div class="content-block">
+    <h3>CASE WHEN — Conditional Logic</h3>
+    <p>CASE WHEN is SQL's if/else. It lets you create new categories, segment data, or handle conditional calculations inline in a query.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Segment customers by spend
+SELECT customer_id,
+    SUM(amount) AS total_spend,
+    CASE
+        WHEN SUM(amount) >= 10000 THEN 'Platinum'
+        WHEN SUM(amount) >= 5000  THEN 'Gold'
+        WHEN SUM(amount) >= 1000  THEN 'Silver'
+        ELSE 'Bronze'
+    END AS tier
+FROM orders
+GROUP BY customer_id;
+
+-- CASE inside an aggregate (conditional count)
+SELECT
+    COUNT(CASE WHEN status = 'completed' THEN 1 END) AS completed_orders,
+    COUNT(CASE WHEN status = 'cancelled' THEN 1 END) AS cancelled_orders,
+    COUNT(*) AS total_orders
+FROM orders;</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>PIVOT — Rows to Columns</h3>
+    <p>Pivoting transforms row values into column headers — useful for turning a narrow table into a wide report. SQL doesn't have a universal PIVOT syntax, but it can be done with CASE WHEN in any database.</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Original table: region, quarter, revenue (narrow/tall)
+-- Goal: one row per region, columns for Q1/Q2/Q3/Q4 (wide)
+
+SELECT region,
+    SUM(CASE WHEN quarter = 'Q1' THEN revenue END) AS Q1,
+    SUM(CASE WHEN quarter = 'Q2' THEN revenue END) AS Q2,
+    SUM(CASE WHEN quarter = 'Q3' THEN revenue END) AS Q3,
+    SUM(CASE WHEN quarter = 'Q4' THEN revenue END) AS Q4
+FROM sales
+GROUP BY region;
+
+/* Result:
+region    Q1      Q2      Q3      Q4
+North     45000   52000   48000   61000
+South     31000   29000   35000   40000
+*/</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>String &amp; Date Functions (Commonly Tested)</h3>
+    <table class="cheat-table">
+      <thead><tr><th>Function</th><th>What it does</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>COALESCE</strong></td><td>Returns the first non-NULL value from a list</td><td><code>COALESCE(phone, email, 'Unknown')</code></td></tr>
+        <tr><td><strong>NULLIF</strong></td><td>Returns NULL if two values are equal — prevents divide-by-zero</td><td><code>revenue / NULLIF(orders, 0)</code></td></tr>
+        <tr><td><strong>CAST / CONVERT</strong></td><td>Changes data type</td><td><code>CAST(order_date AS DATE)</code></td></tr>
+        <tr><td><strong>TRIM / UPPER / LOWER</strong></td><td>Clean and normalise text</td><td><code>TRIM(UPPER(name))</code></td></tr>
+        <tr><td><strong>SUBSTRING / LEFT / RIGHT</strong></td><td>Extract part of a string</td><td><code>LEFT(postal_code, 5)</code></td></tr>
+        <tr><td><strong>DATEPART / EXTRACT</strong></td><td>Pull year, month, day from a date</td><td><code>EXTRACT(YEAR FROM order_date)</code></td></tr>
+        <tr><td><strong>DATE_TRUNC</strong></td><td>Round date down to month/week/year — great for grouping</td><td><code>DATE_TRUNC('month', order_date)</code></td></tr>
+        <tr><td><strong>DATEDIFF</strong></td><td>Difference between two dates</td><td><code>DATEDIFF(day, start_date, end_date)</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>Query Performance &amp; Indexes</h3>
+    <p>As a BA you won't create indexes, but you need to understand why queries are slow and how to talk about it with engineers.</p>
+    <table class="cheat-table">
+      <thead><tr><th>Concept</th><th>What it means</th><th>BA relevance</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Index</strong></td><td>A data structure that speeds up lookups on a column — like an index in a book. Without it, every query scans the whole table (full table scan).</td><td>If a report is slow, the first question to ask is "is there an index on the columns in the WHERE clause and JOIN keys?"</td></tr>
+        <tr><td><strong>Full table scan</strong></td><td>The database reads every single row to find matches — slow on large tables</td><td>Happens when there's no index, or when you use a function on a column in WHERE (e.g., <code>WHERE YEAR(order_date) = 2024</code> prevents index use)</td></tr>
+        <tr><td><strong>Execution plan</strong></td><td>The database's step-by-step plan for running your query — shows where it's slow</td><td>Engineers use EXPLAIN / EXPLAIN ANALYZE to read this. Knowing it exists helps you ask the right questions when debugging slow reports.</td></tr>
+        <tr><td><strong>Partitioning</strong></td><td>Splitting a large table into smaller physical segments by a column (usually date) — queries that filter by that column only scan the relevant partition</td><td>In Redshift and large data warehouses, tables are partitioned by date. Filtering by date range in WHERE is critical for performance — never run a query without a date filter on a large table.</td></tr>
+        <tr><td><strong>SELECT *</strong></td><td>Fetches every column — bad for performance in columnar databases (Redshift, Snowflake) which store each column separately</td><td>Always specify only the columns you need. <code>SELECT *</code> in a columnar warehouse scans all columns unnecessarily.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>Classic Interview SQL Patterns</h3>
+    <p><strong>Pattern 1: Find duplicates</strong></p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Find duplicate emails in a customers table
+SELECT email, COUNT(*) AS occurrences
+FROM customers
+GROUP BY email
+HAVING COUNT(*) > 1;</pre>
+    </div>
+
+    <p><strong>Pattern 2: Find the most recent record per group</strong></p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Most recent order per customer
+WITH ranked AS (
+    SELECT *,
+        ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date DESC) AS rn
+    FROM orders
+)
+SELECT * FROM ranked WHERE rn = 1;</pre>
+    </div>
+
+    <p><strong>Pattern 3: Running total then filter</strong></p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Find the first month each region crossed $100k cumulative revenue
+WITH running AS (
+    SELECT region, month, revenue,
+        SUM(revenue) OVER (PARTITION BY region ORDER BY month) AS cumulative
+    FROM monthly_sales
+)
+SELECT region, MIN(month) AS crossed_100k_month
+FROM running
+WHERE cumulative >= 100000
+GROUP BY region;</pre>
+    </div>
+
+    <p><strong>Pattern 4: Gap detection (missing dates)</strong></p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <span class="code-lang">SQL</span>
+      <pre>-- Find dates where no orders were placed (gaps in a date series)
+WITH date_series AS (
+    SELECT generate_series(
+        MIN(order_date), MAX(order_date), INTERVAL '1 day'
+    )::DATE AS dt
+    FROM orders
+)
+SELECT dt AS missing_date
+FROM date_series
+WHERE dt NOT IN (SELECT DISTINCT order_date FROM orders);</pre>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <strong>Interview strategy:</strong> When given a SQL problem, talk through your approach before writing. Say "I'd start by aggregating X, then join to Y, then filter for Z." Interviewers care as much about your thought process as the final query. If you don't know the exact syntax, explain the logic — that's usually enough to pass.
+  </div>
+
+  <div class="warn-box">
+    <strong>Watch out for NULL:</strong> NULL is not equal to anything — including itself. <code>WHERE column = NULL</code> returns no rows. Always use <code>IS NULL</code> or <code>IS NOT NULL</code>. Also, <code>COUNT(column)</code> ignores NULLs while <code>COUNT(*)</code> counts every row — a common trap in GROUP BY questions.
+  </div>
+</div>
 
 <div class="tutorial-section" id="sql-cheatsheet">
   <h2>SQL Cheat Sheet</h2>
