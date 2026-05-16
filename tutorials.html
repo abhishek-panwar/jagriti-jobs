@@ -339,13 +339,48 @@
     margin: 28px 0;
   }
 
+  /* Hamburger button — hidden on desktop */
+  .hamburger {
+    display: none;
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.6);
+    color: #fff;
+    border-radius: 8px;
+    padding: 7px 11px;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  /* Overlay behind drawer on mobile */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 99;
+  }
+  .nav-overlay.open { display: block; }
+
   /* Mobile */
   @media (max-width: 700px) {
-    .left-nav { width: 200px; }
+    .left-nav { width: 240px; }
     .main-content { padding: 20px 16px 40px; }
   }
-  @media (max-width: 500px) {
-    .left-nav { display: none; }
+  @media (max-width: 540px) {
+    .hamburger { display: block; }
+    .left-nav {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 260px;
+      z-index: 100;
+      transform: translateX(-100%);
+      transition: transform .25s ease;
+      box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+    }
+    .left-nav.open { transform: translateX(0); }
+    .main-content { padding: 20px 14px 40px; }
   }
 </style>
 </head>
@@ -353,18 +388,24 @@
 
 <!-- ── Header ── -->
 <div class="page-header">
-  <div>
-    <h1>📚 Tutorials</h1>
-    <p>Study notes, cheat sheets &amp; code snippets for Jagriti</p>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleNav()" aria-label="Open menu">☰</button>
+    <div>
+      <h1>📚 Tutorials</h1>
+      <p>Study notes, cheat sheets &amp; code snippets for Jagriti</p>
+    </div>
   </div>
   <a class="back-btn" href="Jagriti_Job_Listings.html">← Job Listings</a>
 </div>
+
+<!-- Overlay for mobile nav -->
+<div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
 
 <!-- ── Body layout ── -->
 <div class="layout">
 
   <!-- Left nav -->
-  <nav class="left-nav">
+  <nav class="left-nav" id="left-nav">
     <div class="nav-label">Topics</div>
 
     <!-- Power BI -->
@@ -1669,6 +1710,15 @@ function toggleGroup(id) {
   }
 }
 
+function toggleNav() {
+  document.getElementById('left-nav').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('left-nav').classList.remove('open');
+  document.getElementById('navOverlay').classList.remove('open');
+}
+
 function showSection(id) {
   // Hide empty state
   document.getElementById('emptyState').style.display = 'none';
@@ -1684,6 +1734,8 @@ function showSection(id) {
   });
   // Scroll content to top
   document.getElementById('mainContent').scrollTo({ top: 0, behavior: 'smooth' });
+  // Close drawer on mobile after selection
+  closeNav();
 }
 
 // Copy button helper (used by code blocks when content is added)
