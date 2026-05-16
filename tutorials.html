@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutorials — Jagriti</title>
+<style>
+  :root {
+    --blue: #1a56a4;
+    --blue-light: #e8f0fb;
+    --accent: #0f3d78;
+    --green: #065f46;
+    --green-bg: #d1fae5;
+    --yellow: #92610a;
+    --yellow-bg: #fef9c3;
+    --red: #991b1b;
+    --red-bg: #fee2e2;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --purple: #7c3aed;
+    --purple-bg: #f5f3ff;
+    --purple-border: #ddd6fe;
+    --nav-width: 260px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13.5px;
+    background: #f0f4f8;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* ── Top header ── */
+  .page-header {
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    padding: 18px 28px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .page-header h1 { font-size: 18px; font-weight: 700; }
+  .page-header p  { font-size: 12px; opacity: .8; margin-top: 3px; }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.6);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .15s;
+    white-space: nowrap;
+  }
+  .back-btn:hover { background: rgba(255,255,255,0.28); }
+
+  /* ── Layout: left nav + main content ── */
+  .layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── Left nav ── */
+  .left-nav {
+    width: var(--nav-width);
+    background: #fff;
+    border-right: 1.5px solid var(--border);
+    overflow-y: auto;
+    flex-shrink: 0;
+    padding: 16px 0 40px;
+  }
+  .nav-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 18px 8px;
+  }
+
+  /* Topic group */
+  .topic-group { border-bottom: 1px solid var(--border); }
+  .topic-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 18px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--text);
+    transition: background .12s;
+    gap: 8px;
+  }
+  .topic-header:hover { background: var(--blue-light); }
+  .topic-header.active { color: var(--blue); background: var(--blue-light); }
+  .topic-icon { font-size: 15px; flex-shrink: 0; }
+  .topic-title { flex: 1; }
+  .topic-chevron {
+    font-size: 10px;
+    color: var(--muted);
+    transition: transform .2s;
+    flex-shrink: 0;
+  }
+  .topic-group.open .topic-chevron { transform: rotate(90deg); }
+
+  /* Section links inside a topic */
+  .topic-sections {
+    display: none;
+    flex-direction: column;
+    padding: 4px 0 8px;
+    background: #fafafa;
+  }
+  .topic-group.open .topic-sections { display: flex; }
+  .section-link {
+    padding: 7px 18px 7px 42px;
+    font-size: 12.5px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color .12s, background .12s;
+    border-left: 3px solid transparent;
+  }
+  .section-link:hover { color: var(--blue); background: var(--blue-light); }
+  .section-link.active {
+    color: var(--blue);
+    font-weight: 700;
+    border-left-color: var(--blue);
+    background: var(--blue-light);
+  }
+
+  /* ── Main content ── */
+  .main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 32px 36px 60px;
+  }
+
+  /* Empty state */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    color: var(--muted);
+    text-align: center;
+    gap: 12px;
+  }
+  .empty-state .emoji { font-size: 48px; }
+  .empty-state h2 { font-size: 18px; font-weight: 700; color: var(--text); }
+  .empty-state p  { font-size: 13px; max-width: 340px; line-height: 1.6; }
+
+  /* Tutorial section */
+  .tutorial-section { display: none; max-width: 860px; }
+  .tutorial-section.active { display: block; }
+
+  .tutorial-section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .tutorial-section .section-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  /* Content blocks */
+  .content-block { margin-bottom: 28px; }
+  .content-block h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .content-block h3::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    background: var(--blue);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .content-block p, .content-block li {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .content-block ul { padding-left: 20px; margin-top: 6px; }
+  .content-block li { margin-bottom: 4px; }
+
+  /* Notes box */
+  .note-box {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    font-size: 12.5px;
+    color: var(--accent);
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+  .tip-box {
+    background: var(--green-bg);
+    border-left: 4px solid var(--green);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    font-size: 12.5px;
+    color: var(--green);
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+  .warn-box {
+    background: var(--yellow-bg);
+    border-left: 4px solid #d97706;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    font-size: 12.5px;
+    color: var(--yellow);
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+
+  /* Code snippet */
+  .code-block {
+    background: #1e2433;
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-top: 10px;
+    overflow-x: auto;
+    position: relative;
+  }
+  .code-block pre {
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+    font-size: 12.5px;
+    color: #e2e8f0;
+    line-height: 1.65;
+    white-space: pre;
+  }
+  .code-lang {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 48px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748b;
+    background: #2d3748;
+    border: none;
+    border-radius: 4px;
+    padding: 3px 8px;
+    cursor: pointer;
+    transition: color .15s, background .15s;
+  }
+  .copy-btn:hover { color: #e2e8f0; background: #3d4f6a; }
+
+  /* Cheat sheet table */
+  .cheat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 12.5px;
+  }
+  .cheat-table th {
+    background: var(--blue);
+    color: #fff;
+    padding: 9px 14px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 11.5px;
+  }
+  .cheat-table th:first-child { border-radius: 6px 0 0 0; }
+  .cheat-table th:last-child  { border-radius: 0 6px 0 0; }
+  .cheat-table td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .cheat-table tr:nth-child(even) td { background: #f8fafc; }
+  .cheat-table tr:hover td { background: var(--blue-light); }
+  .cheat-table code {
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+    font-size: 11.5px;
+    background: #f1f5f9;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--accent);
+  }
+
+  /* Progress badge */
+  .progress-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge-todo     { background: #f1f5f9; color: var(--muted); }
+  .badge-progress { background: var(--yellow-bg); color: var(--yellow); }
+  .badge-done     { background: var(--green-bg); color: var(--green); }
+
+  /* Divider */
+  .section-divider {
+    border: none;
+    border-top: 1.5px solid var(--border);
+    margin: 28px 0;
+  }
+
+  /* Mobile */
+  @media (max-width: 700px) {
+    .left-nav { width: 200px; }
+    .main-content { padding: 20px 16px 40px; }
+  }
+  @media (max-width: 500px) {
+    .left-nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<div class="page-header">
+  <div>
+    <h1>📚 Tutorials</h1>
+    <p>Study notes, cheat sheets &amp; code snippets for Jagriti</p>
+  </div>
+  <a class="back-btn" href="Jagriti_Job_Listings.html">← Job Listings</a>
+</div>
+
+<!-- ── Body layout ── -->
+<div class="layout">
+
+  <!-- Left nav -->
+  <nav class="left-nav">
+    <div class="nav-label">Topics</div>
+
+    <!-- Power BI -->
+    <div class="topic-group" id="group-powerbi">
+      <div class="topic-header" onclick="toggleGroup('powerbi')">
+        <span class="topic-icon">📊</span>
+        <span class="topic-title">Power BI</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-sections">
+        <div class="section-link" onclick="showSection('pbi-overview')">Overview</div>
+        <div class="section-link" onclick="showSection('pbi-dax')">DAX Formulas</div>
+        <div class="section-link" onclick="showSection('pbi-datamodel')">Data Modeling</div>
+        <div class="section-link" onclick="showSection('pbi-visuals')">Visuals &amp; Reports</div>
+        <div class="section-link" onclick="showSection('pbi-cheatsheet')">Cheat Sheet</div>
+      </div>
+    </div>
+
+    <!-- SQL -->
+    <div class="topic-group" id="group-sql">
+      <div class="topic-header" onclick="toggleGroup('sql')">
+        <span class="topic-icon">🗄️</span>
+        <span class="topic-title">SQL</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-sections">
+        <div class="section-link" onclick="showSection('sql-overview')">Overview</div>
+        <div class="section-link" onclick="showSection('sql-select')">SELECT &amp; Filtering</div>
+        <div class="section-link" onclick="showSection('sql-joins')">JOINs</div>
+        <div class="section-link" onclick="showSection('sql-aggregates')">Aggregates &amp; GROUP BY</div>
+        <div class="section-link" onclick="showSection('sql-window')">Window Functions</div>
+        <div class="section-link" onclick="showSection('sql-cheatsheet')">Cheat Sheet</div>
+      </div>
+    </div>
+
+    <!-- AWS -->
+    <div class="topic-group" id="group-aws">
+      <div class="topic-header" onclick="toggleGroup('aws')">
+        <span class="topic-icon">☁️</span>
+        <span class="topic-title">AWS</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-sections">
+        <div class="section-link" onclick="showSection('aws-overview')">Overview</div>
+        <div class="section-link" onclick="showSection('aws-s3')">S3</div>
+        <div class="section-link" onclick="showSection('aws-glue')">Glue &amp; ETL</div>
+        <div class="section-link" onclick="showSection('aws-redshift')">Redshift</div>
+        <div class="section-link" onclick="showSection('aws-cheatsheet')">Cheat Sheet</div>
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- Main content -->
+  <main class="main-content" id="mainContent">
+
+    <!-- Default empty state -->
+    <div class="empty-state" id="emptyState">
+      <div class="emoji">📖</div>
+      <h2>Pick a topic to get started</h2>
+      <p>Select a section from the left panel — Power BI, SQL, or AWS. Content will be added here.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         POWER BI SECTIONS
+    ══════════════════════════════════════════ -->
+
+    <div class="tutorial-section" id="pbi-overview">
+      <h2>📊 Power BI — Overview</h2>
+      <div class="section-meta">Introduction to Power BI concepts and architecture</div>
+      <div class="note-box">Content coming soon — this section will cover Power BI Desktop, Service, and Gateway architecture.</div>
+    </div>
+
+    <div class="tutorial-section" id="pbi-dax">
+      <h2>📊 Power BI — DAX Formulas</h2>
+      <div class="section-meta">Data Analysis Expressions: calculated columns, measures, and functions</div>
+      <div class="note-box">Content coming soon — this section will cover DAX syntax, common measures, time intelligence, and CALCULATE.</div>
+    </div>
+
+    <div class="tutorial-section" id="pbi-datamodel">
+      <h2>📊 Power BI — Data Modeling</h2>
+      <div class="section-meta">Relationships, star schema, and data transformation with Power Query</div>
+      <div class="note-box">Content coming soon — this section will cover star vs snowflake schema, relationships, and Power Query M basics.</div>
+    </div>
+
+    <div class="tutorial-section" id="pbi-visuals">
+      <h2>📊 Power BI — Visuals &amp; Reports</h2>
+      <div class="section-meta">Charts, slicers, drill-through, and report design best practices</div>
+      <div class="note-box">Content coming soon — this section will cover choosing the right visual, drill-through, bookmarks, and RLS.</div>
+    </div>
+
+    <div class="tutorial-section" id="pbi-cheatsheet">
+      <h2>📊 Power BI — Cheat Sheet</h2>
+      <div class="section-meta">Quick reference for DAX functions, keyboard shortcuts, and common patterns</div>
+      <div class="note-box">Content coming soon — cheat sheet table will go here.</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         SQL SECTIONS
+    ══════════════════════════════════════════ -->
+
+    <div class="tutorial-section" id="sql-overview">
+      <h2>🗄️ SQL — Overview</h2>
+      <div class="section-meta">Core SQL concepts and query execution order</div>
+      <div class="note-box">Content coming soon — this section will cover DDL vs DML, query execution order (FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY), and database types.</div>
+    </div>
+
+    <div class="tutorial-section" id="sql-select">
+      <h2>🗄️ SQL — SELECT &amp; Filtering</h2>
+      <div class="section-meta">SELECT, WHERE, LIKE, IN, BETWEEN, NULL handling</div>
+      <div class="note-box">Content coming soon — this section will cover SELECT syntax, filtering with WHERE, wildcards, and NULL handling.</div>
+    </div>
+
+    <div class="tutorial-section" id="sql-joins">
+      <h2>🗄️ SQL — JOINs</h2>
+      <div class="section-meta">INNER, LEFT, RIGHT, FULL OUTER, CROSS, and SELF JOINs</div>
+      <div class="note-box">Content coming soon — this section will cover all join types with visual diagrams and examples.</div>
+    </div>
+
+    <div class="tutorial-section" id="sql-aggregates">
+      <h2>🗄️ SQL — Aggregates &amp; GROUP BY</h2>
+      <div class="section-meta">COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING</div>
+      <div class="note-box">Content coming soon — this section will cover aggregate functions, GROUP BY, and filtering aggregates with HAVING.</div>
+    </div>
+
+    <div class="tutorial-section" id="sql-window">
+      <h2>🗄️ SQL — Window Functions</h2>
+      <div class="section-meta">ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD, PARTITION BY</div>
+      <div class="note-box">Content coming soon — this section will cover OVER(), PARTITION BY, ORDER BY within windows, and common patterns.</div>
+    </div>
+
+    <div class="tutorial-section" id="sql-cheatsheet">
+      <h2>🗄️ SQL — Cheat Sheet</h2>
+      <div class="section-meta">Quick reference for SQL syntax, functions, and common query patterns</div>
+      <div class="note-box">Content coming soon — cheat sheet table will go here.</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         AWS SECTIONS
+    ══════════════════════════════════════════ -->
+
+    <div class="tutorial-section" id="aws-overview">
+      <h2>☁️ AWS — Overview</h2>
+      <div class="section-meta">AWS core services relevant to a Business Analyst / Data role</div>
+      <div class="note-box">Content coming soon — this section will cover IAM, regions/AZs, and the key services used in data pipelines.</div>
+    </div>
+
+    <div class="tutorial-section" id="aws-s3">
+      <h2>☁️ AWS — S3</h2>
+      <div class="section-meta">Simple Storage Service: buckets, objects, storage classes, and policies</div>
+      <div class="note-box">Content coming soon — this section will cover S3 concepts, bucket policies, versioning, and lifecycle rules.</div>
+    </div>
+
+    <div class="tutorial-section" id="aws-glue">
+      <h2>☁️ AWS — Glue &amp; ETL</h2>
+      <div class="section-meta">AWS Glue for data cataloging, crawlers, and ETL jobs</div>
+      <div class="note-box">Content coming soon — this section will cover Glue crawlers, Data Catalog, ETL jobs, and integration with S3/Redshift.</div>
+    </div>
+
+    <div class="tutorial-section" id="aws-redshift">
+      <h2>☁️ AWS — Redshift</h2>
+      <div class="section-meta">Cloud data warehouse: architecture, distribution styles, and query optimization</div>
+      <div class="note-box">Content coming soon — this section will cover Redshift clusters, distribution keys, sort keys, and COPY command.</div>
+    </div>
+
+    <div class="tutorial-section" id="aws-cheatsheet">
+      <h2>☁️ AWS — Cheat Sheet</h2>
+      <div class="section-meta">Quick reference for AWS services, CLI commands, and key concepts</div>
+      <div class="note-box">Content coming soon — cheat sheet table will go here.</div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function toggleGroup(id) {
+  const group = document.getElementById('group-' + id);
+  const isOpen = group.classList.contains('open');
+  // Close all groups
+  document.querySelectorAll('.topic-group').forEach(g => g.classList.remove('open'));
+  document.querySelectorAll('.topic-header').forEach(h => h.classList.remove('active'));
+  if (!isOpen) {
+    group.classList.add('open');
+    group.querySelector('.topic-header').classList.add('active');
+  }
+}
+
+function showSection(id) {
+  // Hide empty state
+  document.getElementById('emptyState').style.display = 'none';
+  // Hide all sections
+  document.querySelectorAll('.tutorial-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.section-link').forEach(l => l.classList.remove('active'));
+  // Show target
+  const sec = document.getElementById(id);
+  if (sec) sec.classList.add('active');
+  // Highlight nav link
+  document.querySelectorAll('.section-link').forEach(l => {
+    if (l.getAttribute('onclick') === `showSection('${id}')`) l.classList.add('active');
+  });
+  // Scroll content to top
+  document.getElementById('mainContent').scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Copy button helper (used by code blocks when content is added)
+function copyCode(btn) {
+  const code = btn.closest('.code-block').querySelector('pre').textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 1500);
+  });
+}
+
+// Open group + show section from URL hash on load (e.g. #sql-joins)
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.replace('#', '');
+  if (hash) {
+    const sec = document.getElementById(hash);
+    if (sec) {
+      // Determine which group to open
+      const groupMap = { pbi: 'powerbi', sql: 'sql', aws: 'aws' };
+      const prefix = hash.split('-')[0];
+      if (groupMap[prefix]) toggleGroup(groupMap[prefix]);
+      showSection(hash);
+    }
+  }
+});
+</script>
+</body>
+</html>
