@@ -3199,88 +3199,113 @@ async function loadRefreshMeta() {
   } catch(e) {}
 }
 
-// ── Refresh Jobs progress bar ──
+// ── Refresh Jobs — progress bar + job-completion polling ──
 let _refreshProgressTimer = null;
+let _refreshPollTimer     = null;
+let _refreshTriggeredAt   = null;
+
+const _REFRESH_PHASES = [
+  { upTo: 0.08, label: '⏳ Triggering…' },
+  { upTo: 0.18, label: '🚀 Workflow queued…' },
+  { upTo: 0.55, label: '🔍 Fetching jobs…' },
+  { upTo: 0.78, label: '📝 Processing results…' },
+  { upTo: 0.90, label: '💾 Saving to GitHub…' },
+];
+
+function _refreshPhaseLabel(p) {
+  return (_REFRESH_PHASES.find(ph => p <= ph.upTo) || _REFRESH_PHASES[_REFRESH_PHASES.length - 1]).label;
+}
+
+function _refreshSetBar(pct, label) {
+  const bar  = document.getElementById('refreshProgressBar');
+  const lbl  = document.getElementById('refreshProgressLabel');
+  const pctEl = document.getElementById('refreshProgressPct');
+  if (!bar) return;
+  bar.style.transition = 'width .9s ease';
+  bar.style.width = pct.toFixed(1) + '%';
+  if (lbl)   lbl.textContent  = label;
+  if (pctEl) pctEl.textContent = Math.round(pct) + '%';
+}
+
+function _refreshHideBar(delay) {
+  setTimeout(() => {
+    const wrap = document.getElementById('refreshProgress');
+    const bar  = document.getElementById('refreshProgressBar');
+    if (wrap) wrap.style.display = 'none';
+    if (bar)  { bar.style.width = '0%'; bar.style.background = '#fff'; }
+    const lbl  = document.getElementById('refreshProgressLabel');
+    const pctEl = document.getElementById('refreshProgressPct');
+    if (lbl)   lbl.textContent  = '';
+    if (pctEl) pctEl.textContent = '';
+  }, delay);
+}
 
 function _startRefreshProgress() {
-  const bar   = document.getElementById('refreshProgressBar');
-  const label = document.getElementById('refreshProgressLabel');
-  const pct   = document.getElementById('refreshProgressPct');
-  const wrap  = document.getElementById('refreshProgress');
+  const wrap = document.getElementById('refreshProgress');
   if (!wrap) return;
-
   wrap.style.display = 'block';
-  bar.style.width = '0%';
-  bar.style.transition = 'none';
+  const bar = document.getElementById('refreshProgressBar');
+  if (bar) { bar.style.transition = 'none'; bar.style.width = '0%'; bar.style.background = '#fff'; }
 
-  const totalMs  = 190000; // ~3 min 10s
-  const tickMs   = 800;
-  let elapsed    = 0;
-
-  const phases = [
-    { upTo: 0.05, label: '⏳ Triggering…' },
-    { upTo: 0.15, label: '🚀 Workflow queued…' },
-    { upTo: 0.55, label: '🔍 Fetching jobs…' },
-    { upTo: 0.80, label: '📝 Processing results…' },
-    { upTo: 0.95, label: '💾 Saving to GitHub…' },
-    { upTo: 1.00, label: '✅ Done!' },
-  ];
-
-  function getPhase(p) {
-    return phases.find(ph => p <= ph.upTo) || phases[phases.length - 1];
-  }
-
-  // Ease-out curve so it slows near the end
-  function easeProgress(t) {
-    return t < 0.9 ? t / 0.9 * 0.92 : 0.92 + (t - 0.9) / 0.1 * 0.06;
-  }
+  // Animate 0 → 90% over 180s, then hold at 90% waiting for poll to confirm completion
+  const totalMs = 180000;
+  const tickMs  = 1000;
+  let elapsed   = 0;
 
   _refreshProgressTimer = setInterval(() => {
     elapsed += tickMs;
     const t = Math.min(elapsed / totalMs, 1);
-    const p = easeProgress(t);
-    const ph = getPhase(p);
-    bar.style.transition = 'width .8s ease';
-    bar.style.width = (p * 100).toFixed(1) + '%';
-    label.textContent = ph.label;
-    pct.textContent   = Math.round(p * 100) + '%';
-
-    if (t >= 1) {
-      clearInterval(_refreshProgressTimer);
-      _refreshProgressTimer = null;
-    }
+    // ease-out: fast start, slows toward 90%
+    const p = 90 * (1 - Math.pow(1 - t, 2.2));
+    _refreshSetBar(p, _refreshPhaseLabel(p / 100));
   }, tickMs);
 }
 
-function _finishRefreshProgress(success) {
-  if (_refreshProgressTimer) {
-    clearInterval(_refreshProgressTimer);
-    _refreshProgressTimer = null;
-  }
-  const bar   = document.getElementById('refreshProgressBar');
-  const label = document.getElementById('refreshProgressLabel');
-  const pct   = document.getElementById('refreshProgressPct');
-  const wrap  = document.getElementById('refreshProgress');
-  if (!wrap) return;
+function _stopProgressTimer() {
+  if (_refreshProgressTimer) { clearInterval(_refreshProgressTimer); _refreshProgressTimer = null; }
+}
 
-  if (success) {
-    bar.style.transition = 'width .4s ease';
-    bar.style.width = '100%';
-    label.textContent = '✅ Done! Reload in ~3 min.';
-    pct.textContent   = '100%';
-  } else {
-    bar.style.background = '#fca5a5';
-    label.textContent = '❌ Failed';
-    pct.textContent   = '';
-  }
+function _stopPollTimer() {
+  if (_refreshPollTimer) { clearInterval(_refreshPollTimer); _refreshPollTimer = null; }
+}
 
-  setTimeout(() => {
-    wrap.style.display = 'none';
-    bar.style.width = '0%';
-    bar.style.background = '#fff';
-    label.textContent = '';
-    pct.textContent = '';
-  }, success ? 12000 : 5000);
+async function _pollForNewJobs() {
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GH_REPO}/contents/${NEW_JOBS_FILE}`,
+      { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' }, cache: 'no-store' }
+    );
+    if (!res.ok) return;
+    const data   = await res.json();
+    const parsed = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(data.content.replace(/\n/g,'')), c => c.charCodeAt(0))));
+    const fetchedAt = parsed.fetchedAt ? new Date(parsed.fetchedAt).getTime() : 0;
+
+    // New jobs arrived if the file was written after we triggered
+    if (fetchedAt > _refreshTriggeredAt && (parsed.jobs || []).length > 0) {
+      _stopProgressTimer();
+      _stopPollTimer();
+
+      // Jump to 100% then reload
+      _refreshSetBar(100, '✅ New jobs loaded!');
+
+      const btn = document.getElementById('refreshBtn');
+      if (btn) { btn.textContent = '✅ Done!'; }
+
+      // Reload grid with fresh jobs
+      await loadJobs();
+
+      // Clean up after 3s
+      setTimeout(() => {
+        _refreshHideBar(0);
+        if (btn) {
+          delete btn.dataset.triggered;
+          btn.disabled = false;
+          btn.textContent = '🔄 Refresh Jobs';
+          checkRefreshButton();
+        }
+      }, 3000);
+    }
+  } catch(e) {}
 }
 
 // ── Refresh Jobs ──
@@ -3291,6 +3316,7 @@ async function triggerRefresh() {
   btn.dataset.triggered = '1';
   btn.textContent = '⏳ Triggering...';
   status.textContent = '';
+  _refreshTriggeredAt = Date.now();
   _startRefreshProgress();
 
   try {
@@ -3307,23 +3333,46 @@ async function triggerRefresh() {
       }
     );
     if (res.status === 204) {
-      btn.textContent = '✅ Triggered!';
-      status.textContent = '';
-      _finishRefreshProgress(true);
+      btn.textContent = '🔄 Fetching jobs…';
+      // Poll new_jobs.json every 15s until fetchedAt is newer than trigger time
+      // Give workflow ~20s to start before first poll
       setTimeout(() => {
-        delete btn.dataset.triggered;
-        btn.disabled = false;
-        btn.textContent = '🔄 Refresh Jobs';
-        checkRefreshButton();
-      }, 12000);
+        _refreshPollTimer = setInterval(_pollForNewJobs, 15000);
+      }, 20000);
+
+      // Safety timeout: give up after 6 minutes
+      setTimeout(() => {
+        if (!_refreshPollTimer) return; // already finished
+        _stopProgressTimer();
+        _stopPollTimer();
+        _refreshSetBar(90, '⚠️ Taking longer than usual…');
+        const bar = document.getElementById('refreshProgressBar');
+        if (bar) bar.style.background = '#fbbf24';
+        const pctEl = document.getElementById('refreshProgressPct');
+        if (pctEl) pctEl.textContent = '';
+        setTimeout(() => {
+          _refreshHideBar(0);
+          delete btn.dataset.triggered;
+          btn.disabled = false;
+          btn.textContent = '🔄 Refresh Jobs';
+          status.textContent = 'Workflow may still be running — reload the page in a few minutes.';
+          checkRefreshButton();
+        }, 10000);
+      }, 360000);
+
     } else {
       throw new Error(`HTTP ${res.status}`);
     }
   } catch(e) {
-    btn.textContent = '❌ Failed';
+    _stopProgressTimer();
+    const bar = document.getElementById('refreshProgressBar');
+    if (bar) bar.style.background = '#fca5a5';
+    _refreshSetBar(0, '❌ Failed');
+    const pctEl = document.getElementById('refreshProgressPct');
+    if (pctEl) pctEl.textContent = '';
     status.textContent = `Error: ${e.message}`;
-    _finishRefreshProgress(false);
     setTimeout(() => {
+      _refreshHideBar(0);
       delete btn.dataset.triggered;
       btn.disabled = false;
       btn.textContent = '🔄 Refresh Jobs';
