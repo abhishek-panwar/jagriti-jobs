@@ -293,7 +293,21 @@
       "company": "Klaviyo",
       "applyUrl": "https://www.klaviyo.com/careers/jobs?gh_jid=7732233003",
       "cancelledAt": "May 20, 2026"
+    },
+    {
+      "id": "r_staff_technical_program_manager_affirm",
+      "title": "Staff Technical Program Manager",
+      "company": "Affirm",
+      "applyUrl": "https://job-boards.greenhouse.io/affirm/jobs/7728589003",
+      "cancelledAt": "May 20, 2026"
+    },
+    {
+      "id": "r_sr_solutions_architect_public_sector_sle",
+      "title": "Sr. Solutions Architect - Public Sector (SLED) ",
+      "company": "Databricks",
+      "applyUrl": "https://databricks.com/company/careers/open-positions/job?gh_jid=8397493002",
+      "cancelledAt": "May 20, 2026"
     }
   ],
-  "updatedAt": "2026-05-20T22:36:33.569Z"
+  "updatedAt": "2026-05-20T22:36:35.399Z"
 }
