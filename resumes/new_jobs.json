@@ -1,30 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Business System Analyst II/ Data Analyst",
-      "company": "Hirequill",
-      "location": "Seattle, WA",
-      "url": "https://hirequill.liveblog365.com/job/business-system-analyst-ii-data-analyst-2",
-      "description": "Agency Dept of Health and Human Services Division HEALTH BENEFITS Job Classification Title Business Systems Analyst II (NS) Position Number 65024415 Grade NC19 About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest, most complex agencies in the state, and has approximately 17,000 employees. It is responsible for ensuring the health, safety, and well-being of all North Carolinians, providing human service needs for special populations including individuals who are deaf, blind, developmentally disabled, and mentally ill, and helping poor North Carolinian",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Hirequill",
-      "listed": "2026-05-07",
-      "id": "job_business_system_analyst_ii_data_analyst_"
-    },
-    {
-      "title": "Business System Analyst II / Data Analyst",
-      "company": "Sundayy",
-      "location": "Seattle, WA",
-      "url": "https://bebee.com/us/jobs/business-system-analyst-ii-data-analyst-sundayy--theirstack-664930728",
-      "description": "About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest and most complex agencies within the state, employing approximately 17,000 dedicated professionals. Its primary mission is to ensure the health, safety, and well-being of all North Carolinians through comprehensive human services.\n\nThe department provides vital support to special populations, including individuals who are deaf, blind, developmentally disabled, or mentally ill. Additionally, DHHS plays a crucial role in assisting economically disadvantaged residents to achieve independence, thereby",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "BeBee",
-      "listed": "2026-04-16",
-      "id": "job_business_system_analyst_ii_data_analyst_"
-    },
-    {
       "title": "Technical Business Analyst – Alternate Program Manager (APM)",
       "company": "Zantech",
       "location": "Seattle, WA",
@@ -49,6 +25,6 @@
       "id": "job_business_analyst_4_change_mgmt_yakshna_s"
     }
   ],
-  "totalCount": 4,
-  "fetchedAt": "2026-05-20T22:35:00.644Z"
+  "totalCount": 2,
+  "fetchedAt": "2026-05-20T22:35:10.887Z"
 }
