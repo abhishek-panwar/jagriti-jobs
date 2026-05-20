@@ -204,7 +204,7 @@ def tier(score):
 
 def slugify(s):
     s = re.sub(r'[^a-z0-9]+', '_', s.lower().strip())
-    return re.sub(r'_+', '_', s).strip('_')[:40]
+    return re.sub(r'_+', '_', s).strip('_')[:60]
 
 def job_id(job):
     return "job_" + slugify((job["title"] or "") + "_" + (job["company"] or ""))
