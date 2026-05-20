@@ -258,7 +258,14 @@
       "company": "Stripe",
       "applyUrl": "https://stripe.com/jobs/search?gh_jid=7827184",
       "cancelledAt": "May 20, 2026"
+    },
+    {
+      "id": "r_solutions_architect_mfg_databricks",
+      "title": "Solutions Architect - MFG",
+      "company": "Databricks",
+      "applyUrl": "https://databricks.com/company/careers/open-positions/job?gh_jid=8530861002",
+      "cancelledAt": "May 20, 2026"
     }
   ],
-  "updatedAt": "2026-05-20T22:35:43.349Z"
+  "updatedAt": "2026-05-20T22:35:44.344Z"
 }
