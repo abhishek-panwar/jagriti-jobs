@@ -25,18 +25,6 @@
       "id": "job_business_system_analyst_ii_data_analyst_"
     },
     {
-      "title": "Data Analyst Product Owner",
-      "company": "AiDOOS",
-      "location": "Seattle, WA",
-      "url": "https://aidoos.com/remote-jobs/data-analyst-product-owner/",
-      "description": "The Product Owner / Data Analyst will support the Applied HVAC business by delivering data-driven insights and analytics. This role involves the creation of dashboards and reports that inform strategic decisions and operational improvements.\n\nKey Responsibilities\n\nDevelop and m…",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "AiDOOS",
-      "listed": "2026-04-24",
-      "id": "job_data_analyst_product_owner_aidoos"
-    },
-    {
       "title": "IT Systems Analyst (Data Analyst) - Clinical Vendor Solutions - Remote",
       "company": "Hirequill",
       "location": "Seattle, WA",
@@ -85,6 +73,6 @@
       "id": "job_business_analyst_4_change_mgmt_yakshna_s"
     }
   ],
-  "totalCount": 7,
-  "fetchedAt": "2026-05-20T22:34:51.429Z"
+  "totalCount": 6,
+  "fetchedAt": "2026-05-20T22:34:53.891Z"
 }
