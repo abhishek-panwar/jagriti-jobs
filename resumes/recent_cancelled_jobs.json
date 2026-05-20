@@ -286,7 +286,14 @@
       "company": "Stripe",
       "applyUrl": "https://stripe.com/jobs/search?gh_jid=7396509",
       "cancelledAt": "May 20, 2026"
+    },
+    {
+      "id": "r_senior_solutions_architect_klaviyo",
+      "title": "Senior Solutions Architect",
+      "company": "Klaviyo",
+      "applyUrl": "https://www.klaviyo.com/careers/jobs?gh_jid=7732233003",
+      "cancelledAt": "May 20, 2026"
     }
   ],
-  "updatedAt": "2026-05-20T22:35:52.559Z"
+  "updatedAt": "2026-05-20T22:36:33.569Z"
 }
