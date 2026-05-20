@@ -1642,7 +1642,7 @@ function buildCardHtml(job, i) {
   const desc = ((job.description || '').replace(/\n/g,' ').trim().substring(0, 220));
   const descText = desc.length >= 220 ? desc + '…' : desc;
   const rstem = `resume_job_${String(i+1).padStart(2,'0')}`;
-  const jid = job.id || ('job_' + (job.title||'').toLowerCase().replace(/[^a-z0-9]+/g,'_').substring(0,40));
+  const jid = job.id || ('job_' + ((job.title||'') + '_' + (job.company||'')).toLowerCase().replace(/[^a-z0-9]+/g,'_').substring(0,50));
   const dataText = escHtml(((job.title||'') + ' ' + (job.company||'') + ' ' + (job.location||'')).toLowerCase());
   const listedAttr = job.listed ? ` data-listed="${escHtml(job.listed)}"` : '';
 
@@ -1694,6 +1694,14 @@ async function loadJobs() {
     grid.innerHTML = jobs.map((job, i) => buildCardHtml(job, i)).join('');
     initAppliedState();
     initCancelledState();
+    // Purge any already-resolved jobs from the file so they don't reappear on next load
+    const resolvedIds = new Set([
+      ...getApplied().map(j => j.id),
+      ...getCancelled().map(j => j.id)
+    ]);
+    const before = newJobsCache.length;
+    newJobsCache = newJobsCache.filter(j => !resolvedIds.has(j.id));
+    if (newJobsCache.length !== before) pushNewJobs(`Auto-purge ${before - newJobsCache.length} resolved jobs`);
     applyFilters();
     renderPostingAges();
     loadChangeNotes();
