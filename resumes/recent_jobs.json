@@ -1,39 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Solutions Architect - Public Sector (SLED) ",
-      "company": "Databricks",
-      "loc": "Austin, Texas; Dallas, Texas; Houston, Texas",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8522044002",
-      "desc": "&lt;p data-renderer-start-pos=&quot;1648&quot;&gt;FEQ227R359&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Mission&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Solutions Architects at Databricks lead the growth of the Databricks Unified Analyti",
-      "listed": "2026-05-12",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_public_sector_sled_d",
-      "addedAt": "2026-05-13"
-    },
-    {
-      "title": "Sr. Solutions Architect - Public Sector (SLED) ",
-      "company": "Databricks",
-      "loc": "Illinois; Michigan; Minnesota",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8397493002",
-      "desc": "&lt;p&gt;&lt;strong&gt;FEQ427R139&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Mission&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Solutions Architects at Databricks lead the growth of the Databricks Unified Analytics Platform.",
-      "listed": "2026-05-12",
-      "source": "Greenhouse",
-      "pid": "r_sr_solutions_architect_public_sector_sle",
-      "addedAt": "2026-05-13"
-    },
-    {
-      "title": "Lead Business Analyst I",
-      "company": "Braze",
-      "loc": "Toronto",
-      "url": "https://boards.greenhouse.io/braze/jobs/7811359?gh_jid=7811359",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;At Braze, we have found our people. We’re a genuinely approachable, exceptionally kind, and intensely passionate crew.&lt;/p&gt; &lt;p&gt;We seek to ignite that passion",
-      "listed": "2026-05-12",
-      "source": "Greenhouse",
-      "pid": "r_lead_business_analyst_i_braze",
-      "addedAt": "2026-05-13"
-    },
-    {
       "title": "Staff Business Systems Analyst, People Systems",
       "company": "Oura",
       "loc": "Remote - New York, New York",
@@ -760,6 +727,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 69,
-  "updatedAt": "2026-05-20T22:36:33.951Z"
+  "totalCount": 66,
+  "updatedAt": "2026-05-20T22:36:46.266Z"
 }
