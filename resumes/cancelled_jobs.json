@@ -188,7 +188,14 @@
       "company": "State of Washington",
       "applyUrl": "https://www.governmentjobs.com/careers/washington/jobs/5330914/ecm-process-automation-and-workflow-analyst-it-business-analyst-senior-special",
       "cancelledAt": "May 20, 2026"
+    },
+    {
+      "id": "job_data_analyst_product_owner_aidoos",
+      "title": "Data Analyst Product Owner",
+      "company": "AiDOOS",
+      "applyUrl": "https://aidoos.com/remote-jobs/data-analyst-product-owner/",
+      "cancelledAt": "May 20, 2026"
     }
   ],
-  "lastUpdated": "2026-05-20T22:34:50.720Z"
+  "lastUpdated": "2026-05-20T22:34:53.188Z"
 }
