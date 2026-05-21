@@ -3182,21 +3182,21 @@ function renderPracticeCancelled() {
   `).join('');
 }
 
-// ── Refresh Jobs button meta (JSearch cooldown info only) ──
+// ── Refresh Jobs button meta ──
 async function loadRefreshMeta() {
   try {
     const res = await fetch(`https://raw.githubusercontent.com/${GH_REPO}/main/resumes/fetch_meta.json?_=` + Date.now());
     if (!res.ok) return;
-    const meta    = await res.json();
+    const meta     = await res.json();
     const statusEl = document.getElementById('refreshStatus');
-    const nextStr  = meta.jsearch_next_available;
     const calls    = meta.jsearch_calls_this_month || 0;
-    if (nextStr) {
-      const hoursLeft = Math.max(0, (new Date(nextStr) - Date.now()) / 3600000);
-      statusEl.textContent = hoursLeft > 0.1
-        ? `JSearch cooldown: ${hoursLeft.toFixed(1)}h left · ${calls}/180 calls this month`
-        : `JSearch ready · ${calls}/180 calls used this month`;
-    }
+    const lastFetch = meta.lastFetch ? new Date(meta.lastFetch) : null;
+    const lastStr  = lastFetch
+      ? lastFetch.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        + ' at ' + lastFetch.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
+      : 'never';
+    const remaining = 180 - calls;
+    statusEl.textContent = `JSearch: ${calls}/180 calls used · ${remaining} remaining · last fetched ${lastStr}`;
   } catch(e) {}
 }
 
