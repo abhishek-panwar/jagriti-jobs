@@ -9,8 +9,8 @@
       "salary_min": null,
       "salary_max": null,
       "source": "Hirequill",
-      "listed": "2026-05-15",
-      "id": "job_business_system_analyst_ii_data_analyst_"
+      "listed": "2026-05-16",
+      "id": "job_business_system_analyst_ii_data_analyst_hirequill"
     },
     {
       "title": "Business Systems Analyst (Hybrid)",
@@ -22,7 +22,7 @@
       "salary_max": null,
       "source": "Teal",
       "listed": "",
-      "id": "job_business_systems_analyst_hybrid_lower_co"
+      "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
     },
     {
       "title": "Business System Analyst II / Data Analyst",
@@ -34,7 +34,7 @@
       "salary_max": null,
       "source": "BeBee",
       "listed": "",
-      "id": "job_business_system_analyst_ii_data_analyst_"
+      "id": "job_business_system_analyst_ii_data_analyst_sundayy"
     },
     {
       "title": "Data Analyst Product Owner",
@@ -45,7 +45,7 @@
       "salary_min": null,
       "salary_max": null,
       "source": "AiDOOS",
-      "listed": "2026-04-24",
+      "listed": "2026-04-25",
       "id": "job_data_analyst_product_owner_aidoos"
     },
     {
@@ -58,7 +58,7 @@
       "salary_max": 75,
       "source": "Monster",
       "listed": "",
-      "id": "job_business_analyst_migration_project_100_r"
+      "id": "job_business_analyst_migration_project_100_remote_masco_corporat"
     },
     {
       "title": "Technical Business Analyst \u2013 Alternate Program Manager (APM)",
@@ -70,7 +70,7 @@
       "salary_max": null,
       "source": "Zantech",
       "listed": "",
-      "id": "job_technical_business_analyst_alternate_pro"
+      "id": "job_technical_business_analyst_alternate_program_manager_apm_zan"
     },
     {
       "title": "Senior Project Manager / Business Analyst - Consultant",
@@ -82,7 +82,7 @@
       "salary_max": null,
       "source": "Jobs By Workable",
       "listed": "",
-      "id": "job_senior_project_manager_business_analyst_"
+      "id": "job_senior_project_manager_business_analyst_consultant_liberum"
     },
     {
       "title": "Business Analyst 4 (Change Mgmt)",
@@ -94,9 +94,9 @@
       "salary_max": null,
       "source": "BeBee",
       "listed": "",
-      "id": "job_business_analyst_4_change_mgmt_yakshna_s"
+      "id": "job_business_analyst_4_change_mgmt_yakshna_solutions"
     }
   ],
   "totalCount": 8,
-  "fetchedAt": "2026-05-20T23:34:50.929439"
+  "fetchedAt": "2026-05-21T00:17:34.753553"
 }

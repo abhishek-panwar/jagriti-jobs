@@ -1,5 +1,102 @@
 {
-  "jobs": [],
-  "totalCount": 0,
-  "fetchedAt": "2026-05-20T23:37:13.752Z"
+  "jobs": [
+    {
+      "title": "Business System Analyst II/ Data Analyst",
+      "company": "Hirequill",
+      "location": "Seattle, WA",
+      "url": "https://hirequill.liveblog365.com/job/business-system-analyst-ii-data-analyst-2",
+      "description": "Agency Dept of Health and Human Services Division HEALTH BENEFITS Job Classification Title Business Systems Analyst II (NS) Position Number 65024415 Grade NC19 About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest, most complex agencies in the state, and has approximately 17,000 employees. It is responsible for ensuring the health, safety, and well-being of all North Carolinians, providing human service needs for special populations including individuals who are deaf, blind, developmentally disabled, and mentally ill, and helping poor North Carolinian",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Hirequill",
+      "listed": "2026-05-16",
+      "id": "job_business_system_analyst_ii_data_analyst_hirequill"
+    },
+    {
+      "title": "Business Systems Analyst (Hybrid)",
+      "company": "Lower Colorado River Authority",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/business-systems-analyst_7ea1a16b70ddb3e41d0125e1e70a466dc154f",
+      "description": "About the position\nThe Project Controls team within LCRA's Project Management Office is seeking a\\nBusiness Analyst to support the growth of projects within our portfolio. This\\nrole offers the opportunity to support a rapidly growing portion of LCRA's\\nbusiness by using project financial and schedule data to shape the way we\\ncommunicate to customers and how we use their data. If you've got a curiosity\\nand drive to explore data for understanding, the business sense to create\\nmeaningful visualizations, and enjoy being part of a team developing tools that\\nenable the success of others, we'd l",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "",
+      "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
+    },
+    {
+      "title": "Business System Analyst II / Data Analyst",
+      "company": "Sundayy",
+      "location": "Seattle, WA",
+      "url": "https://bebee.com/us/jobs/business-system-analyst-ii-data-analyst-sundayy--theirstack-664930728",
+      "description": "About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest and most complex agencies within the state, employing approximately 17,000 dedicated professionals. Its primary mission is to ensure the health, safety, and well-being of all North Carolinians through comprehensive human services.\n\nThe department provides vital support to special populations, including individuals who are deaf, blind, developmentally disabled, or mentally ill. Additionally, DHHS plays a crucial role in assisting economically disadvantaged residents to achieve independence, thereby",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "BeBee",
+      "listed": "",
+      "id": "job_business_system_analyst_ii_data_analyst_sundayy"
+    },
+    {
+      "title": "Data Analyst Product Owner",
+      "company": "AiDOOS",
+      "location": "Seattle, WA",
+      "url": "https://aidoos.com/remote-jobs/data-analyst-product-owner/",
+      "description": "The Product Owner / Data Analyst will support the Applied HVAC business by delivering data-driven insights and analytics. This role involves the creation of dashboards and reports that inform strategic decisions and operational improvements.\n\nKey Responsibilities\n\nDevelop and m\u2026",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "AiDOOS",
+      "listed": "2026-04-25",
+      "id": "job_data_analyst_product_owner_aidoos"
+    },
+    {
+      "title": "Business Analyst (Migration Project) / 100% Remote",
+      "company": "Masco Corporation",
+      "location": "Seattle, WA",
+      "url": "https://www.monster.com/job-openings/business-analyst-migration-project-100-remote-tukwila-wa--6dd5c9bd-7749-49e8-8c8f-b3486dca8f21",
+      "description": "Business Analyst (Migration Project) / 100% Remote / (12 Month Contract)\n\nWe are seeking a Business Analyst with deep experience supporting large\u2011scale enterprise migrations, system integrations, and regulated operational processes. This BA will play a critical role in requirements definition, process mapping, data and system coordination, governance support, and readiness activities throughout this complex and high\u2011visibility engagement.\n\nThe migration aims to modernize and scale the communication fulfillment ecosystem while ensuring regulatory compliance, accuracy, and operational continuity",
+      "salary_min": 60,
+      "salary_max": 75,
+      "source": "Monster",
+      "listed": "",
+      "id": "job_business_analyst_migration_project_100_remote_masco_corporat"
+    },
+    {
+      "title": "Technical Business Analyst \u2013 Alternate Program Manager (APM)",
+      "company": "Zantech",
+      "location": "Seattle, WA",
+      "url": "https://zantech-it.breezy.hr/p/7d1e2a3d7321-technical-business-analyst-alternate-program-manager-apm",
+      "description": "Are you looking for your next challenge? Are you ready to work with a performance-based small company? At Zantech, we are a dynamic Woman Owned Small Business focused on providing complex, mission-focused solutions with a proven track record of outstanding customer performance and high employee satisfaction. We would love to talk with you regarding the next step in your career. Come join our team!\n\nZantech is looking for a talented Technical Business Analyst \u2013 Alternate Program Manager (APM) to contribute to the success of our upcoming Information Technology Support Services project for a Remo",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Zantech",
+      "listed": "",
+      "id": "job_technical_business_analyst_alternate_program_manager_apm_zan"
+    },
+    {
+      "title": "Senior Project Manager / Business Analyst - Consultant",
+      "company": "Liberum",
+      "location": "Seattle, WA",
+      "url": "https://apply.workable.com/liberum/j/D7E478D8CF",
+      "description": "Who We Are\n\nLiberum exists to deliver in the environments where most firms struggle. Our clients are public sector agencies navigating enterprise-scale transformations in politically complex, high-stakes environments where the margin for error is thin, and the consequences of failure are public. We believe clients deserve real ownership, not warm bodies and hope.\n\nWe\u2019re a team first. Not a loose collection of consultants sharing a logo, but a genuine team that pushes each other\u2019s thinking, pressure-tests each other\u2019s work, and shows up when engagements get hard. The people we hire make the tea",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Jobs By Workable",
+      "listed": "",
+      "id": "job_senior_project_manager_business_analyst_consultant_liberum"
+    },
+    {
+      "title": "Business Analyst 4 (Change Mgmt)",
+      "company": "Yakshna Solutions",
+      "location": "Seattle, WA",
+      "url": "https://bebee.com/us/jobs/business-analyst-4-change-mgmt-yakshna-solutions-herndon-va--theirstack-656979274",
+      "description": "Business Analyst 4 (Change Mgmt.) - Richmond, VA 23219 (Remote-must be able to pick up equipment in person)\n\nYSI Jobs - YSI Admin\n\nID Job Title Job Description 799063 Business Analyst 4 (Change Mgmt)\n\n\u2022 *Yakshna Solutions, Inc**\n\n.,\n\u2022 *(YSI)**\n\nis a CMMI Level 3 assessed, ISO 9001, 20000:1, 27001 certified, woman-owned small business enterprises, headquartered in Herndon, Virginia, USA. YSI provides professional IT solutions and services to business corporations and government organizations. YSI is committed to serve its business communities as a leading IT vendor providing innovative, quality",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "BeBee",
+      "listed": "",
+      "id": "job_business_analyst_4_change_mgmt_yakshna_solutions"
+    }
+  ],
+  "totalCount": 8,
+  "fetchedAt": "2026-05-21T00:17:34.753553"
 }
