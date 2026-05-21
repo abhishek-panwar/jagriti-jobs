@@ -908,7 +908,7 @@
         <button class="refresh-btn" id="refreshBtn" onclick="triggerRefresh()">🔄 Refresh Jobs</button>
       </div>
       <div class="refresh-status" id="refreshStatus"></div>
-      <div id="refreshProgress" style="display:none;width:220px;margin-top:4px">
+      <div id="refreshProgress" style="display:none;width:240px;margin-top:4px">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
           <span id="refreshProgressLabel" style="font-size:11px;color:rgba(255,255,255,.85);font-weight:600"></span>
           <span id="refreshProgressPct" style="font-size:11px;color:rgba(255,255,255,.7)"></span>
@@ -916,6 +916,7 @@
         <div style="height:5px;background:rgba(255,255,255,.2);border-radius:999px;overflow:hidden">
           <div id="refreshProgressBar" style="height:100%;width:0%;background:#fff;border-radius:999px;transition:width .6s ease"></div>
         </div>
+        <div id="refreshProgressError" style="display:none;margin-top:5px;font-size:10.5px;color:#fca5a5;line-height:1.4;word-break:break-word"></div>
       </div>
     </div>
   </div>
@@ -3235,9 +3236,18 @@ function _refreshHideBar(delay) {
     if (bar)  { bar.style.width = '0%'; bar.style.background = '#fff'; }
     const lbl  = document.getElementById('refreshProgressLabel');
     const pctEl = document.getElementById('refreshProgressPct');
+    const errEl = document.getElementById('refreshProgressError');
     if (lbl)   lbl.textContent  = '';
     if (pctEl) pctEl.textContent = '';
+    if (errEl) { errEl.textContent = ''; errEl.style.display = 'none'; }
   }, delay);
+}
+
+function _refreshShowError(msg) {
+  const errEl = document.getElementById('refreshProgressError');
+  if (!errEl) return;
+  errEl.textContent = '⚠ ' + msg;
+  errEl.style.display = 'block';
 }
 
 function _startRefreshProgress() {
@@ -3275,7 +3285,10 @@ async function _pollForNewJobs() {
       `https://api.github.com/repos/${GH_REPO}/contents/${NEW_JOBS_FILE}`,
       { headers: { 'Authorization': 'Bearer ' + GH_TOKEN(), 'Accept': 'application/vnd.github+json' }, cache: 'no-store' }
     );
-    if (!res.ok) return;
+    if (!res.ok) {
+      _refreshShowError(`Poll failed: GitHub returned HTTP ${res.status}`);
+      return;
+    }
     const data   = await res.json();
     const parsed = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(data.content.replace(/\n/g,'')), c => c.charCodeAt(0))));
     const fetchedAt = parsed.fetchedAt ? new Date(parsed.fetchedAt).getTime() : 0;
@@ -3305,7 +3318,9 @@ async function _pollForNewJobs() {
         }
       }, 3000);
     }
-  } catch(e) {}
+  } catch(e) {
+    _refreshShowError(`Poll error: ${e.message}`);
+  }
 }
 
 // ── Refresh Jobs ──
@@ -3345,40 +3360,39 @@ async function triggerRefresh() {
         if (!_refreshPollTimer) return; // already finished
         _stopProgressTimer();
         _stopPollTimer();
-        _refreshSetBar(90, '⚠️ Taking longer than usual…');
         const bar = document.getElementById('refreshProgressBar');
         if (bar) bar.style.background = '#fbbf24';
+        _refreshSetBar(90, '⚠️ Taking longer than usual…');
         const pctEl = document.getElementById('refreshProgressPct');
         if (pctEl) pctEl.textContent = '';
+        _refreshShowError('Workflow is taking over 6 min — it may still be running. Reload the page in a few minutes to check.');
         setTimeout(() => {
           _refreshHideBar(0);
           delete btn.dataset.triggered;
           btn.disabled = false;
           btn.textContent = '🔄 Refresh Jobs';
-          status.textContent = 'Workflow may still be running — reload the page in a few minutes.';
           checkRefreshButton();
-        }, 10000);
+        }, 15000);
       }, 360000);
 
     } else {
-      throw new Error(`HTTP ${res.status}`);
+      throw new Error(`HTTP ${res.status} — ${await res.text()}`);
     }
   } catch(e) {
     _stopProgressTimer();
     const bar = document.getElementById('refreshProgressBar');
     if (bar) bar.style.background = '#fca5a5';
-    _refreshSetBar(0, '❌ Failed');
+    _refreshSetBar(0, '❌ Trigger failed');
     const pctEl = document.getElementById('refreshProgressPct');
     if (pctEl) pctEl.textContent = '';
-    status.textContent = `Error: ${e.message}`;
+    _refreshShowError(e.message);
     setTimeout(() => {
       _refreshHideBar(0);
       delete btn.dataset.triggered;
       btn.disabled = false;
       btn.textContent = '🔄 Refresh Jobs';
-      status.textContent = '';
       checkRefreshButton();
-    }, 5000);
+    }, 8000);
   }
 }
 
