@@ -1,8 +1,8 @@
 """
 Fetches Sr. Business Analyst jobs from multiple sources:
   1. JSearch (RapidAPI) — LinkedIn, Indeed, Glassdoor, ZipRecruiter
-     - 24h cooldown between calls (don't waste quota on rapid refresh clicks)
      - Monthly cap at 180 calls (leaves 20-call buffer on free plan)
+     - No cooldown — refresh button is disabled until jobs are resolved
      - Single combined query instead of 2 separate calls
   2. Adzuna — unlimited, runs on every refresh
   3. Remotive — unlimited, remote jobs
@@ -219,26 +219,17 @@ if __name__ == "__main__":
         "jsearch_calls_this_month": 0,
         "jsearch_month": "2000-01"
     })
-    # ── JSearch cooldown check ──
-    try:
-        jsearch_last = datetime.datetime.fromisoformat(meta.get("jsearch_last_called", "2000-01-01T00:00:00"))
-    except Exception:
-        jsearch_last = datetime.datetime(2000, 1, 1)
-
-    hours_since = (now - jsearch_last).total_seconds() / 3600
-
+    # ── JSearch monthly cap check (no cooldown — button is disabled until jobs are resolved) ──
     current_month = now.strftime("%Y-%m")
     if meta.get("jsearch_month") != current_month:
-        meta["jsearch_month"]              = current_month
-        meta["jsearch_calls_this_month"]   = 0
+        meta["jsearch_month"]            = current_month
+        meta["jsearch_calls_this_month"] = 0
 
     monthly_calls   = meta.get("jsearch_calls_this_month", 0)
-    can_use_jsearch = hours_since >= 24 and monthly_calls < 180
+    can_use_jsearch = monthly_calls < 180
 
     if can_use_jsearch:
-        print(f"JSearch: available (last used {hours_since:.1f}h ago, {monthly_calls}/180 calls this month)")
-    elif hours_since < 24:
-        print(f"JSearch: on 24h cooldown ({hours_since:.1f}h since last call) — using Adzuna + Remotive only")
+        print(f"JSearch: available ({monthly_calls}/180 calls this month)")
     else:
         print(f"JSearch: monthly cap reached ({monthly_calls}/180) — using Adzuna + Remotive only")
 
@@ -301,10 +292,5 @@ if __name__ == "__main__":
 
     # ── Save meta ──
     meta["lastFetch"] = now.isoformat()
-    meta["jsearch_next_available"] = (
-        (jsearch_last + datetime.timedelta(hours=24)).isoformat()
-        if can_use_jsearch
-        else (now + datetime.timedelta(hours=24)).isoformat()
-    )
     save_json("resumes/fetch_meta.json", meta)
     print("Done. Cache and meta saved.")
