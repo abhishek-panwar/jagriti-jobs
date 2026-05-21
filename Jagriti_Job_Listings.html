@@ -3293,30 +3293,47 @@ async function _pollForNewJobs() {
     const parsed = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(data.content.replace(/\n/g,'')), c => c.charCodeAt(0))));
     const fetchedAt = parsed.fetchedAt ? new Date(parsed.fetchedAt).getTime() : 0;
 
-    // New jobs arrived if the file was written after we triggered
-    if (fetchedAt > _refreshTriggeredAt && (parsed.jobs || []).length > 0) {
+    // Workflow has written a new file after we triggered
+    if (fetchedAt > _refreshTriggeredAt) {
       _stopProgressTimer();
       _stopPollTimer();
 
-      // Jump to 100% then reload
-      _refreshSetBar(100, '✅ New jobs loaded!');
-
       const btn = document.getElementById('refreshBtn');
-      if (btn) { btn.textContent = '✅ Done!'; }
+      const jobs = parsed.jobs || [];
 
-      // Reload grid with fresh jobs
-      await loadJobs();
-
-      // Clean up after 3s
-      setTimeout(() => {
-        _refreshHideBar(0);
-        if (btn) {
-          delete btn.dataset.triggered;
-          btn.disabled = false;
-          btn.textContent = '🔄 Refresh Jobs';
-          checkRefreshButton();
-        }
-      }, 3000);
+      if (jobs.length > 0) {
+        _refreshSetBar(100, '✅ New jobs loaded!');
+        if (btn) btn.textContent = '✅ Done!';
+        await loadJobs();
+        setTimeout(() => {
+          _refreshHideBar(0);
+          if (btn) {
+            delete btn.dataset.triggered;
+            btn.disabled = false;
+            btn.textContent = '🔄 Refresh Jobs';
+            checkRefreshButton();
+          }
+        }, 3000);
+      } else {
+        // Workflow ran but all fetched jobs were filtered out (already applied/cancelled)
+        const appliedCount   = getApplied().length;
+        const cancelledCount = getCancelled().length;
+        _refreshSetBar(100, '✅ Workflow complete');
+        const bar = document.getElementById('refreshProgressBar');
+        if (bar) bar.style.background = '#fbbf24';
+        _refreshShowError(
+          `No new listings found — all jobs fetched from the APIs were already in your applied (${appliedCount}) or cancelled (${cancelledCount}) list. Try again later when new postings appear.`
+        );
+        if (btn) btn.textContent = '🔄 Refresh Jobs';
+        setTimeout(() => {
+          _refreshHideBar(0);
+          if (btn) {
+            delete btn.dataset.triggered;
+            btn.disabled = false;
+            checkRefreshButton();
+          }
+        }, 12000);
+      }
     }
   } catch(e) {
     _refreshShowError(`Poll error: ${e.message}`);
