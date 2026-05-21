@@ -272,7 +272,13 @@ if __name__ == "__main__":
     jobs = unique[:20]
 
     if not jobs:
-        print("No jobs fetched from any source. HTML unchanged.")
+        print("No jobs fetched from any source.")
+        # Still write fetchedAt so the page poller knows the workflow ran
+        save_json("resumes/new_jobs.json", {
+            "jobs":       [],
+            "totalCount": 0,
+            "fetchedAt":  now.isoformat()
+        })
         save_json("resumes/fetch_meta.json", meta)
         exit(0)
 
