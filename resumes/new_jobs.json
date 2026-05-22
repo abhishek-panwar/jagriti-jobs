@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Business System Analyst II/ Data Analyst",
-      "company": "Hirequill",
-      "location": "Seattle, WA",
-      "url": "https://hirequill.liveblog365.com/job/business-system-analyst-ii-data-analyst-2",
-      "description": "Agency Dept of Health and Human Services Division HEALTH BENEFITS Job Classification Title Business Systems Analyst II (NS) Position Number 65024415 Grade NC19 About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest, most complex agencies in the state, and has approximately 17,000 employees. It is responsible for ensuring the health, safety, and well-being of all North Carolinians, providing human service needs for special populations including individuals who are deaf, blind, developmentally disabled, and mentally ill, and helping poor North Carolinian",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Hirequill",
-      "listed": "2026-05-16",
-      "id": "job_business_system_analyst_ii_data_analyst_hirequill"
-    },
-    {
       "title": "Business Systems Analyst (Hybrid)",
       "company": "Lower Colorado River Authority",
       "location": "Seattle, WA",
@@ -37,18 +25,6 @@
       "id": "job_business_system_analyst_ii_data_analyst_sundayy"
     },
     {
-      "title": "Business Analyst (Migration Project) / 100% Remote",
-      "company": "Masco Corporation",
-      "location": "Seattle, WA",
-      "url": "https://www.monster.com/job-openings/business-analyst-migration-project-100-remote-tukwila-wa--6dd5c9bd-7749-49e8-8c8f-b3486dca8f21",
-      "description": "Business Analyst (Migration Project) / 100% Remote / (12 Month Contract)\n\nWe are seeking a Business Analyst with deep experience supporting large‑scale enterprise migrations, system integrations, and regulated operational processes. This BA will play a critical role in requirements definition, process mapping, data and system coordination, governance support, and readiness activities throughout this complex and high‑visibility engagement.\n\nThe migration aims to modernize and scale the communication fulfillment ecosystem while ensuring regulatory compliance, accuracy, and operational continuity",
-      "salary_min": 60,
-      "salary_max": 75,
-      "source": "Monster",
-      "listed": "",
-      "id": "job_business_analyst_migration_project_100_remote_masco_corporat"
-    },
-    {
       "title": "Technical Business Analyst – Alternate Program Manager (APM)",
       "company": "Zantech",
       "location": "Seattle, WA",
@@ -59,18 +35,6 @@
       "source": "Zantech",
       "listed": "",
       "id": "job_technical_business_analyst_alternate_program_manager_apm_zan"
-    },
-    {
-      "title": "Senior Project Manager / Business Analyst - Consultant",
-      "company": "Liberum",
-      "location": "Seattle, WA",
-      "url": "https://apply.workable.com/liberum/j/D7E478D8CF",
-      "description": "Who We Are\n\nLiberum exists to deliver in the environments where most firms struggle. Our clients are public sector agencies navigating enterprise-scale transformations in politically complex, high-stakes environments where the margin for error is thin, and the consequences of failure are public. We believe clients deserve real ownership, not warm bodies and hope.\n\nWe’re a team first. Not a loose collection of consultants sharing a logo, but a genuine team that pushes each other’s thinking, pressure-tests each other’s work, and shows up when engagements get hard. The people we hire make the tea",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Jobs By Workable",
-      "listed": "",
-      "id": "job_senior_project_manager_business_analyst_consultant_liberum"
     },
     {
       "title": "Business Analyst 4 (Change Mgmt)",
@@ -85,6 +49,6 @@
       "id": "job_business_analyst_4_change_mgmt_yakshna_solutions"
     }
   ],
-  "totalCount": 7,
-  "fetchedAt": "2026-05-21T00:17:58.238Z"
+  "totalCount": 4,
+  "fetchedAt": "2026-05-22T01:33:27.002Z"
 }
