@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Business System Analyst II/ Data Analyst",
-      "company": "Hirequill",
-      "location": "Seattle, WA",
-      "url": "https://hirequill.liveblog365.com/job/business-system-analyst-ii-data-analyst-2",
-      "description": "Agency Dept of Health and Human Services Division HEALTH BENEFITS Job Classification Title Business Systems Analyst II (NS) Position Number 65024415 Grade NC19 About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest, most complex agencies in the state, and has approximately 17,000 employees. It is responsible for ensuring the health, safety, and well-being of all North Carolinians, providing human service needs for special populations including individuals who are deaf, blind, developmentally disabled, and mentally ill, and helping poor North Carolinian",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Hirequill",
-      "listed": "2026-05-16",
-      "id": "job_business_system_analyst_ii_data_analyst_hirequill"
-    },
-    {
       "title": "Business Systems Analyst (Hybrid)",
       "company": "Lower Colorado River Authority",
       "location": "Seattle, WA",
@@ -61,6 +49,18 @@
       "id": "job_business_analyst_migration_project_100_remote_masco_corporat"
     },
     {
+      "title": "Business Analyst - Federal Sector",
+      "company": "Procon Consulting",
+      "location": "Seattle, WA",
+      "url": "https://www.monster.com/job-openings/business-analyst-federal-sector-washington-dc--ad87ab2e-34cb-44ce-a1e7-5029312c22b1",
+      "description": "Procon is a top-ranked construction management and technology consulting firm with 25 years of experience delivering high\u2011impact projects across the U.S. and worldwide. An ENR Top 100 CM/PM firm for five consecutive years, we specialize in program management, project controls, commissioning, and virtual intelligence\u2014and offer an excellent platform to grow your career while shaping the future of the built environment.\nProcon now seeks a Business Analyst - Federal Sector for a long term opportunity that is fully remote. This role requires various skills and experience as listed below.\n\nRequireme",
+      "salary_min": 90000,
+      "salary_max": 115000,
+      "source": "Monster",
+      "listed": "",
+      "id": "job_business_analyst_federal_sector_procon_consulting"
+    },
+    {
       "title": "Technical Business Analyst \u2013 Alternate Program Manager (APM)",
       "company": "Zantech",
       "location": "Seattle, WA",
@@ -85,6 +85,18 @@
       "id": "job_senior_project_manager_business_analyst_consultant_liberum"
     },
     {
+      "title": "Senior Product Owner, Learning Infrastructure Ecosystem",
+      "company": "Siemens Healthineers",
+      "location": "Seattle, WA",
+      "url": "https://www.theladders.com/job/senior-product-owner-learning-infrastructure-ecosystem-varianmedicalsystemsinc-virtual-travel_86948189",
+      "description": "Develops, proposes and / or implements learning policies, methods, processes or programs, and advises managers and / or employees accordingly for (an) assigned organization(s).\n\nSiemens Healthineers is seeking a Senior Product Owner \u2013 Learning Infrastructure Ecosystem to lead the strategy, development, and continuous evolution of our global learning platforms.\n\nThis role will oversee the end-to-end ownership of our learning ecosystem (including LMS, LXP, and related technologies), ensuring it delivers a seamless user experience and acts as a strategic enabler for business performance and scala",
+      "salary_min": 169580,
+      "salary_max": 233178,
+      "source": "Ladders",
+      "listed": "2026-05-17",
+      "id": "job_senior_product_owner_learning_infrastructure_ecosystem_sieme"
+    },
+    {
       "title": "Business Analyst 4 (Change Mgmt)",
       "company": "Yakshna Solutions",
       "location": "Seattle, WA",
@@ -97,6 +109,6 @@
       "id": "job_business_analyst_4_change_mgmt_yakshna_solutions"
     }
   ],
-  "totalCount": 8,
-  "fetchedAt": "2026-05-21T00:17:34.753553"
+  "totalCount": 9,
+  "fetchedAt": "2026-05-22T01:35:54.857153"
 }
