@@ -1,26 +1,147 @@
 {
   "jobs": [
     {
-      "title": "Delivery Solutions Architect - Public Sector",
+      "title": "Specialist Solutions Architect - Data Engineering & Warehousing",
       "company": "Databricks",
-      "loc": "Charlotte, North Carolina",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8559315002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-05-21",
+      "loc": "United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8555703002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;P-226&lt;/p&gt; &lt;p data-path-to-node=&quot;3&quot;&gt;As a&amp;nbsp;&lt;span style=&quot;font-size: 10pt;&quot;&gt;Specialist Solutions Architect (SSA) - Data Engineering &amp",
+      "listed": "2026-05-29",
       "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-05-21"
+      "pid": "r_specialist_solutions_architect_data_engi",
+      "addedAt": "2026-05-31"
     },
     {
-      "title": "Partner Solutions Architect - AWS",
-      "company": "Stripe",
-      "loc": "New York",
-      "url": "https://stripe.com/jobs/search?gh_jid=7607761",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for busines",
-      "listed": "2026-05-20",
+      "title": "Product Owner - Metronome",
+      "company": "Asana",
+      "loc": "Vancouver, BC",
+      "url": "https://www.asana.com/jobs/apply/7920831?gh_jid=7920831",
+      "desc": "&lt;p&gt;We are seeking a Metronome Product Owner to own and evolve our usage-based billing infrastructure following the launch of our Metronome implementation. You will be the internal expert responsible for maintaining",
+      "listed": "2026-05-29",
       "source": "Greenhouse",
-      "pid": "r_partner_solutions_architect_aws_stripe",
-      "addedAt": "2026-05-21"
+      "pid": "r_product_owner_metronome_asana",
+      "addedAt": "2026-05-31"
+    },
+    {
+      "title": "Associate, Insurance Senior Business Analyst",
+      "company": "SoFi",
+      "loc": "UT - Cottonwood Heights; CA - San Francisco HQ; VA - Reston; TX - Frisco   ",
+      "url": "https://sofi.com/careers/job/7677710003?gh_jid=7677710003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://www.sofi.com/sofi-employee-applicant-privacy-notice/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Employee Applicant Privacy Notice&lt;/str",
+      "listed": "2026-05-29",
+      "source": "Greenhouse",
+      "pid": "r_associate_insurance_senior_business_anal",
+      "addedAt": "2026-05-31"
+    },
+    {
+      "title": "Senior Technical Program Manager, Information Security",
+      "company": "Klaviyo",
+      "loc": "Boston, MA",
+      "url": "https://www.klaviyo.com/careers/jobs?gh_jid=7727704003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;em&gt;At Klaviyo, we value the unique backgrounds, experiences and perspectives each Klaviyo (we call ourselves Klaviyos) brings to our workplace each and every day",
+      "listed": "2026-05-29",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_informa",
+      "addedAt": "2026-05-31"
+    },
+    {
+      "title": "Senior Technical Program Manager",
+      "company": "Twitch",
+      "loc": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/twitch/jobs/8563229002",
+      "desc": "&lt;h3&gt;&lt;strong&gt;About Us&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Twitch is the world’s biggest live streaming service, with global communities built around gaming, entertainment, music, sports, cooking, and more. It i",
+      "listed": "2026-05-29",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_twitch",
+      "addedAt": "2026-05-31"
+    },
+    {
+      "title": "Senior Technical Program Manager",
+      "company": "Twitch",
+      "loc": "Seattle, WA",
+      "url": "https://job-boards.greenhouse.io/twitch/jobs/8572068002",
+      "desc": "&lt;h3&gt;&lt;strong&gt;About Us&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Twitch is the world’s biggest live streaming service, with global communities built around gaming, entertainment, music, sports, cooking, and more. It i",
+      "listed": "2026-05-29",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_twitch",
+      "addedAt": "2026-05-31"
+    },
+    {
+      "title": "Senior Technical Program Manager",
+      "company": "Twitch",
+      "loc": "Irvine, CA",
+      "url": "https://job-boards.greenhouse.io/twitch/jobs/8572069002",
+      "desc": "&lt;h3&gt;&lt;strong&gt;About Us&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Twitch is the world’s biggest live streaming service, with global communities built around gaming, entertainment, music, sports, cooking, and more. It i",
+      "listed": "2026-05-29",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_twitch",
+      "addedAt": "2026-05-31"
+    },
+    {
+      "title": "Staff Technical Program Manager, Batteries ",
+      "company": "Oura",
+      "loc": "On-site - San Francisco, California",
+      "url": "https://job-boards.greenhouse.io/oura/jobs/4260161009",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Our mission at Oura is to empower every person to own their inner potential. Our award-winning products help our global community gain a deeper knowledge of their readi",
+      "listed": "2026-05-28",
+      "source": "Greenhouse",
+      "pid": "r_staff_technical_program_manager_batterie",
+      "addedAt": "2026-05-31"
+    },
+    {
+      "title": "Technical Program Manager, Infrastructure",
+      "company": "Stripe",
+      "loc": "Seattle, SF, Remote",
+      "url": "https://stripe.com/jobs/search?gh_jid=7589234",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
+      "listed": "2026-05-27",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_infrastructure",
+      "addedAt": "2026-05-31"
+    },
+    {
+      "title": "Senior Technical Program Manager, Product & Rider Loyalty",
+      "company": "Lyft",
+      "loc": "San Francisco, CA",
+      "url": "https://app.careerpuck.com/job-board/lyft/job/8433701002?gh_jid=8433701002",
+      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Lyft connects people to",
+      "listed": "2026-05-27",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_product",
+      "addedAt": "2026-05-31"
+    },
+    {
+      "title": "Staff Technical Program Manager, Mergers & Acquisition",
+      "company": "Lyft",
+      "loc": "San Francisco, CA",
+      "url": "https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002",
+      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Rooted in Lyft&#39;s mi",
+      "listed": "2026-05-27",
+      "source": "Greenhouse",
+      "pid": "r_staff_technical_program_manager_mergers_",
+      "addedAt": "2026-05-31"
+    },
+    {
+      "title": "Senior Business Systems Analyst, Finance",
+      "company": "Oura",
+      "loc": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/oura/jobs/4194704009",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Our mission at Oura is to empower every person to own their inner potential. Our award-winning products help our global community gain a deeper knowledge of their readi",
+      "listed": "2026-05-27",
+      "source": "Greenhouse",
+      "pid": "r_senior_business_systems_analyst_finance_",
+      "addedAt": "2026-05-31"
+    },
+    {
+      "title": "Technical Program Manager, Gen AI Operations Planning",
+      "company": "Scale AI",
+      "loc": "San Francisco, CA; New York, NY",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4693449005",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Role summary&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;Scale’s Operations Planning Team sits at the intersection of Engagement Management (EM), GenAI Delivery, GTM, and Growth Ops. The Planning TPM reduc",
+      "listed": "2026-05-26",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_gen_ai_operati",
+      "addedAt": "2026-05-31"
     },
     {
       "title": "Partner Solutions Architect - Billing",
@@ -34,160 +155,6 @@
       "addedAt": "2026-05-21"
     },
     {
-      "title": "Partner Solutions Architect - Consulting Partners",
-      "company": "Stripe",
-      "loc": "Chicago or Atlanta",
-      "url": "https://stripe.com/jobs/search?gh_jid=7411434",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_partner_solutions_architect_consulting_p",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Partner Solutions Architect, Germany",
-      "company": "Stripe",
-      "loc": "Berlin, Munich ",
-      "url": "https://stripe.com/jobs/search?gh_jid=7919325",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure p",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_partner_solutions_architect_germany_stri",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Solutions Architect, Enterprise, France",
-      "company": "Stripe",
-      "loc": "Paris",
-      "url": "https://stripe.com/jobs/search?gh_jid=7619227",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies - f",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_enterprise_france_st",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Solutions Architect, Enterprise (Pre-sales)",
-      "company": "Stripe",
-      "loc": "Chicago, IL or New York City, NY OR US Remote",
-      "url": "https://stripe.com/jobs/search?gh_jid=7827184",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_enterprise_pre_sales",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Solutions Architect, Italy",
-      "company": "Stripe",
-      "loc": "Milan, Barcelona, Madrid, Dublin, Amsterdam",
-      "url": "https://stripe.com/jobs/search?gh_jid=7784353",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure p",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_italy_stripe",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Solutions Architect, Platforms - UK",
-      "company": "Stripe",
-      "loc": "London",
-      "url": "https://stripe.com/jobs/search?gh_jid=7574857",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fr",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_platforms_uk_stripe",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Solutions Architect, Platforms - UKI",
-      "company": "Stripe",
-      "loc": "Dublin",
-      "url": "https://stripe.com/jobs/search?gh_jid=7601673",
-      "desc": "&lt;p&gt;&lt;strong&gt;Solutions Architect, Platforms&lt;/strong&gt;&lt;/p&gt; &lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;At Strip",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_platforms_uki_stripe",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Solutions Architect, Platforms Velocity",
-      "company": "Stripe",
-      "loc": "Chicago, IL or New York, NY",
-      "url": "https://stripe.com/jobs/search?gh_jid=7396509",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;At Stripe, you have an unprecedented opportunity to put the global economy within every",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_platforms_velocity_s",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Solutions Architect, SMB",
-      "company": "Stripe",
-      "loc": "Chicago",
-      "url": "https://stripe.com/jobs/search?gh_jid=7361440",
-      "desc": "&lt;h2&gt;Who we are&lt;/h2&gt; &lt;h3&gt;About Stripe&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—from the world’s largest enterprises to the most ambitious st",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_smb_stripe",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Solutions Architect, Startup & SMB (German-speaking)",
-      "company": "Stripe",
-      "loc": "Dublin",
-      "url": "https://stripe.com/jobs/search?gh_jid=7442995",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure p",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_startup_smb_german_s",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Technical Program Manager, Internal Systems",
-      "company": "Stripe",
-      "loc": "US Remote",
-      "url": "https://stripe.com/jobs/search?gh_jid=7680365",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_technical_program_manager_internal_syste",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Technical Program Manager, Risk",
-      "company": "Stripe",
-      "loc": "US Remote",
-      "url": "https://stripe.com/jobs/search?gh_jid=7685855",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_technical_program_manager_risk_stripe",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Technical Program Manager, Risk",
-      "company": "Stripe",
-      "loc": "Bangalore",
-      "url": "https://stripe.com/jobs/search?gh_jid=7678655",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_technical_program_manager_risk_stripe",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Sr. Solutions Architect - Public Sector (SLED)",
-      "company": "Databricks",
-      "loc": "North Carolina; Washington, D.C.",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8548982002",
-      "desc": "&lt;p&gt;&lt;strong&gt;FEQ327R56&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Mission&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Solutions Architects at Databricks lead the growth of the Databricks Unified Analytics Platform. ",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_sr_solutions_architect_public_sector_sle",
-      "addedAt": "2026-05-21"
-    },
-    {
       "title": "Product Owner, GTM AI",
       "company": "Asana",
       "loc": "Warsaw",
@@ -196,17 +163,6 @@
       "listed": "2026-05-20",
       "source": "Greenhouse",
       "pid": "r_product_owner_gtm_ai_asana",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Marketing Business Analyst",
-      "company": "Fivetran",
-      "loc": "Oakland, California, United States, AMER",
-      "url": "https://www.fivetran.com/careers/job?gh_jid=7674622003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;From Fivetran’s founding until now, our mission has remained the same: to make access to data as simple and reliable as electricity. With Fivetran, customer data arrive",
-      "listed": "2026-05-20",
-      "source": "Greenhouse",
-      "pid": "r_marketing_business_analyst_fivetran",
       "addedAt": "2026-05-21"
     },
     {
@@ -229,39 +185,6 @@
       "listed": "2026-05-19",
       "source": "Greenhouse",
       "pid": "r_delivery_solutions_architect_high_tech_m",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Remote - California",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8535384002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-05-19",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Remote - Washington",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8555912002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-05-19",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Remote - Oregon",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8555913002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-05-19",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
       "addedAt": "2026-05-21"
     },
     {
@@ -331,17 +254,6 @@
       "addedAt": "2026-05-21"
     },
     {
-      "title": "Sr. SaaS Solutions Architect",
-      "company": "Peloton",
-      "loc": "New York, New York",
-      "url": "https://careers.onepeloton.com/en/all-jobs/?gh_jid=7568890",
-      "desc": "&lt;p&gt;&lt;strong&gt;ABOUT THE ROLE&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;We&#39;re looking for a hands-on technical leader who can strategically evaluate,&amp;nbsp;architect, and build SaaS solutions. You&#39;ll be the cr",
-      "listed": "2026-05-19",
-      "source": "Greenhouse",
-      "pid": "r_sr_saas_solutions_architect_peloton",
-      "addedAt": "2026-05-21"
-    },
-    {
       "title": "Delivery Solutions Architect - Communications, Media & Entertainment",
       "company": "Databricks",
       "loc": "United States",
@@ -397,39 +309,6 @@
       "addedAt": "2026-05-21"
     },
     {
-      "title": "Product Solutions Architect - LLM Observability",
-      "company": "Datadog",
-      "loc": "Boston, Massachusetts, USA; Denver, Colorado, USA; New York, New York, USA; San Francisco, California, USA",
-      "url": "https://careers.datadoghq.com/detail/7627531/?gh_jid=7627531",
-      "desc": "&lt;p&gt;The Product Solutions Architecture (PSA) team acts as a technical multiplier across Datadog. PSAs are domain experts who partner with Field teams on complex customer use cases across pre- and post-sales engageme",
-      "listed": "2026-05-15",
-      "source": "Greenhouse",
-      "pid": "r_product_solutions_architect_llm_observab",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Product Solutions Architect - Product Analytics and Experimentation",
-      "company": "Datadog",
-      "loc": "Boston, Massachusetts, USA; Denver, Colorado, USA; New York, New York, USA; San Francisco, California, USA",
-      "url": "https://careers.datadoghq.com/detail/7732699/?gh_jid=7732699",
-      "desc": "&lt;p&gt;The Product Solutions Architecture (PSA) team acts as a technical multiplier across Datadog. PSAs are domain experts who partner with Field teams on complex customer use cases across pre- and post-sales engageme",
-      "listed": "2026-05-15",
-      "source": "Greenhouse",
-      "pid": "r_product_solutions_architect_product_anal",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Senior Product Solutions Architect - Logs",
-      "company": "Datadog",
-      "loc": "Boston, Massachusetts, USA; New York, New York, USA",
-      "url": "https://careers.datadoghq.com/detail/7750751/?gh_jid=7750751",
-      "desc": "&lt;p&gt;We are Datadog&#39;s in-house product experts. The technical solutions team enables Datadog&#39;s worldwide growth by educating potential clients and ensuring that existing customers are happy and successful. We",
-      "listed": "2026-05-15",
-      "source": "Greenhouse",
-      "pid": "r_senior_product_solutions_architect_logs_",
-      "addedAt": "2026-05-21"
-    },
-    {
       "title": "Business Analyst, Clinical & Reimbursement Policy ",
       "company": "Clover Health",
       "loc": "Remote - USA",
@@ -441,58 +320,14 @@
       "addedAt": "2026-05-21"
     },
     {
-      "title": "Delivery Solutions Architect - Public Sector",
+      "title": "Staff Technical Program Manager- Platform Features",
       "company": "Databricks",
-      "loc": "New Jersey",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8550331002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-05-14",
+      "loc": "Mountain View, California; San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8521198002",
+      "desc": "&lt;p&gt;P-1489&lt;/p&gt; &lt;h2&gt;&lt;strong&gt;Platform &amp;amp; Product Experiences | Shape How Databricks Executes at Scale&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;At Databricks, Staff TPMs don’t just run programs — the",
+      "listed": "2026-05-13",
       "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Solutions Architect - Public Sector (SLED) ",
-      "company": "Databricks",
-      "loc": "Central - United States",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8522044002",
-      "desc": "&lt;p data-renderer-start-pos=&quot;1648&quot;&gt;FEQ227R359&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Mission&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Solutions Architects at Databricks lead the growth of the Databricks Unified Analyti",
-      "listed": "2026-05-14",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_public_sector_sled_d",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Senior Solutions Architect",
-      "company": "Klaviyo",
-      "loc": "Boston, MA",
-      "url": "https://www.klaviyo.com/careers/jobs?gh_jid=7732233003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;em&gt;At Klaviyo, we value the unique backgrounds, experiences and perspectives each Klaviyo (we call ourselves Klaviyos) brings to our workplace each and every day",
-      "listed": "2026-05-14",
-      "source": "Greenhouse",
-      "pid": "r_senior_solutions_architect_klaviyo",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Senior Solutions Architect",
-      "company": "Klaviyo",
-      "loc": "Denver, CO",
-      "url": "https://www.klaviyo.com/careers/jobs?gh_jid=7712122003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;em&gt;At Klaviyo, we value the unique backgrounds, experiences and perspectives each Klaviyo (we call ourselves Klaviyos) brings to our workplace each and every day",
-      "listed": "2026-05-14",
-      "source": "Greenhouse",
-      "pid": "r_senior_solutions_architect_klaviyo",
-      "addedAt": "2026-05-21"
-    },
-    {
-      "title": "Senior Solutions Architect",
-      "company": "Klaviyo",
-      "loc": "San Francisco, CA",
-      "url": "https://www.klaviyo.com/careers/jobs?gh_jid=7710202003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;em&gt;At Klaviyo, we value the unique backgrounds, experiences and perspectives each Klaviyo (we call ourselves Klaviyos) brings to our workplace each and every day",
-      "listed": "2026-05-14",
-      "source": "Greenhouse",
-      "pid": "r_senior_solutions_architect_klaviyo",
+      "pid": "r_staff_technical_program_manager_platform",
       "addedAt": "2026-05-21"
     },
     {
@@ -603,6 +438,17 @@
       "listed": "2026-05-11",
       "source": "Greenhouse",
       "pid": "r_senior_technical_program_manager_ads_ins",
+      "addedAt": "2026-05-11"
+    },
+    {
+      "title": "Business Analyst Intern, Marketing (July to December 2026)",
+      "company": "Cloudflare",
+      "loc": "In-Office",
+      "url": "https://boards.greenhouse.io/cloudflare/jobs/7729700?gh_jid=7729700",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;div&gt;&lt;strong&gt;About Us&lt;/strong&gt;&lt;/div&gt; &lt;div&gt; &lt;p&gt;At Cloudflare, we are on a mission to help build a better Internet. Today the company runs one ",
+      "listed": "2026-05-11",
+      "source": "Greenhouse",
+      "pid": "r_business_analyst_intern_marketing_july_t",
       "addedAt": "2026-05-11"
     },
     {
@@ -1200,6 +1046,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 109,
-  "updatedAt": "2026-05-21T10:57:18.883Z"
+  "totalCount": 95,
+  "updatedAt": "2026-05-31T07:49:38.099Z"
 }
