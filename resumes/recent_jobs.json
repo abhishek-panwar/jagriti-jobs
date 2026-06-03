@@ -1,6 +1,171 @@
 {
   "jobs": [
     {
+      "title": "Solution Architect, AI / Cloudflare Developer Platform",
+      "company": "Cloudflare",
+      "loc": "Hybrid",
+      "url": "https://boards.greenhouse.io/cloudflare/jobs/7529800?gh_jid=7529800",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;div&gt;&lt;strong&gt;About Us&lt;/strong&gt;&lt;/div&gt; &lt;div&gt; &lt;p&gt;At Cloudflare, we are on a mission to help build a better Internet. Today the company runs one ",
+      "listed": "2026-06-02",
+      "source": "Greenhouse",
+      "pid": "r_solution_architect_ai_cloudflare_develop",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Salesforce Technical Architect",
+      "company": "Asana",
+      "loc": "Warsaw",
+      "url": "https://www.asana.com/jobs/apply/7918575?gh_jid=7918575",
+      "desc": "&lt;p&gt;As a Salesforce Technical Architect on the Enterprise Technology Apps RevTech team in Warsaw, you will support insights with data and the technical systems that give our teams leverage to achieve their objective",
+      "listed": "2026-06-02",
+      "source": "Greenhouse",
+      "pid": "r_salesforce_technical_architect_asana",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Senior Credit Business Analyst",
+      "company": "Robinhood",
+      "loc": "Menlo Park, CA",
+      "url": "https://boards.greenhouse.io/robinhood/jobs/7975475?t=gh_src=&gh_jid=7975475",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;Join us in building the future of finance.&lt;/h2&gt; &lt;p&gt;Our mission is to democratize finance for all. &lt;a href=&quot;https://www.cerulli.com/press-releases/c",
+      "listed": "2026-06-02",
+      "source": "Greenhouse",
+      "pid": "r_senior_credit_business_analyst_robinhood",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Business Process Analyst, Systems Engineering",
+      "company": "Fivetran",
+      "loc": "Oakland, California, United States",
+      "url": "https://www.fivetran.com/careers/job?gh_jid=7761639003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;From Fivetran’s founding until now, our mission has remained the same: to make access to data as simple and reliable as electricity. With Fivetran, customer data arrive",
+      "listed": "2026-06-02",
+      "source": "Greenhouse",
+      "pid": "r_business_process_analyst_systems_enginee",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Business Process Analyst, Systems Engineering",
+      "company": "Fivetran",
+      "loc": "Denver, Colorado, United States, AMER",
+      "url": "https://www.fivetran.com/careers/job?gh_jid=7753678003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;From Fivetran’s founding until now, our mission has remained the same: to make access to data as simple and reliable as electricity. With Fivetran, customer data arrive",
+      "listed": "2026-06-02",
+      "source": "Greenhouse",
+      "pid": "r_business_process_analyst_systems_enginee",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Staff Technical Program Manager, Guest & Host Tech",
+      "company": "Airbnb",
+      "loc": "United States",
+      "url": "https://careers.airbnb.com/positions/7972969?gh_jid=7972969",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-family: helvetica, arial, sans-serif; font-size: 12pt;&quot;&gt;Airbnb was born in 2007 when two hosts welcomed three guests to their San Fran",
+      "listed": "2026-06-01",
+      "source": "Greenhouse",
+      "pid": "r_staff_technical_program_manager_guest_ho",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Sr. Resident Solutions Architect",
+      "company": "Databricks",
+      "loc": "Central - United States; USCA; West Coast - United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8210937002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ426R653&lt;/p&gt; &lt;p&gt;As a Big Data Solutions Architect (Resident Solutions Architect) in our Professional Services team you will work with clients on short to medium ter",
+      "listed": "2026-06-01",
+      "source": "Greenhouse",
+      "pid": "r_sr_resident_solutions_architect_databric",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Sr. Solutions Architect - Global Telecommunications ",
+      "company": "Databricks",
+      "loc": "Remote - Georgia; Remote - Texas",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8476403002",
+      "desc": "&lt;p data-renderer-start-pos=&quot;7186&quot;&gt;FEQ227R233&lt;br&gt;&lt;br&gt;While candidates in the listed location(s) are encouraged for this role, candidates in other locations will be considered.&lt;br&gt;&lt;br&g",
+      "listed": "2026-06-01",
+      "source": "Greenhouse",
+      "pid": "r_sr_solutions_architect_global_telecommun",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Sr. Solutions Architect - Lakebase",
+      "company": "Databricks",
+      "loc": "United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8407197002",
+      "desc": "&lt;p&gt;&lt;strong&gt;SLSQ127R199&lt;br&gt;&lt;br&gt;Mission&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;The &lt;strong&gt;Solutions Architect (Lakebase)&lt;/strong&gt; team executes on Databricks’ strategic Product Operating Mod",
+      "listed": "2026-06-01",
+      "source": "Greenhouse",
+      "pid": "r_sr_solutions_architect_lakebase_databric",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Sr. Solutions Architect - Strat Media",
+      "company": "Databricks",
+      "loc": "Southwest - United States; West Coast - United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8434465002",
+      "desc": "&lt;p&gt;FEQ227R10&lt;/p&gt; &lt;p data-renderer-start-pos=&quot;1648&quot;&gt;While candidates in the listed location(s) are encouraged for this role, candidates in other locations will be considered.&lt;/p&gt; &lt;div ",
+      "listed": "2026-06-01",
+      "source": "Greenhouse",
+      "pid": "r_sr_solutions_architect_strat_media_datab",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Technical Program Manager, Data Science",
+      "company": "Figma",
+      "loc": "San Francisco, CA • New York, NY • United States",
+      "url": "https://boards.greenhouse.io/figma/jobs/6009613004?gh_jid=6009613004",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Figma is growing our team of passionate creatives and builders on a mission to make design accessible to all. Figma’s platform helps teams bring ideas to life—whether y",
+      "listed": "2026-06-01",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_data_science_f",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Director, Technical Program Manager",
+      "company": "Scale AI",
+      "loc": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4694435005",
+      "desc": "&lt;h3&gt;&lt;strong&gt;About This Role&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;As the &lt;strong&gt;Director of TPM, Enterprise&lt;/strong&gt;, you are not just managing programs; you are the architect of a new organizationa",
+      "listed": "2026-06-01",
+      "source": "Greenhouse",
+      "pid": "r_director_technical_program_manager_scale",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Staff Enterprise Architect",
+      "company": "SoFi",
+      "loc": "CA - San Francisco; WA - Seattle; TX - Frisco; UT - Cottonwood Heights",
+      "url": "https://sofi.com/careers/job/7661740003?gh_jid=7661740003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://www.sofi.com/sofi-employee-applicant-privacy-notice/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Employee Applicant Privacy Notice&lt;/str",
+      "listed": "2026-06-01",
+      "source": "Greenhouse",
+      "pid": "r_staff_enterprise_architect_sofi",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Senior Technical Program Manager, Product & Rider Loyalty",
+      "company": "Lyft",
+      "loc": "San Francisco, CA",
+      "url": "https://app.careerpuck.com/job-board/lyft/job/8433701002?gh_jid=8433701002",
+      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Lyft connects people to",
+      "listed": "2026-05-27",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_product",
+      "addedAt": "2026-06-03"
+    },
+    {
+      "title": "Staff Technical Program Manager, Mergers & Acquisition",
+      "company": "Lyft",
+      "loc": "San Francisco, CA",
+      "url": "https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002",
+      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Rooted in Lyft&#39;s mi",
+      "listed": "2026-05-27",
+      "source": "Greenhouse",
+      "pid": "r_staff_technical_program_manager_mergers_",
+      "addedAt": "2026-06-03"
+    },
+    {
       "title": "Specialist Solutions Architect - Data Engineering & Warehousing",
       "company": "Databricks",
       "loc": "United States",
@@ -20,17 +185,6 @@
       "listed": "2026-05-29",
       "source": "Greenhouse",
       "pid": "r_product_owner_metronome_asana",
-      "addedAt": "2026-05-31"
-    },
-    {
-      "title": "Associate, Insurance Senior Business Analyst",
-      "company": "SoFi",
-      "loc": "UT - Cottonwood Heights; CA - San Francisco HQ; VA - Reston; TX - Frisco   ",
-      "url": "https://sofi.com/careers/job/7677710003?gh_jid=7677710003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://www.sofi.com/sofi-employee-applicant-privacy-notice/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Employee Applicant Privacy Notice&lt;/str",
-      "listed": "2026-05-29",
-      "source": "Greenhouse",
-      "pid": "r_associate_insurance_senior_business_anal",
       "addedAt": "2026-05-31"
     },
     {
@@ -97,28 +251,6 @@
       "listed": "2026-05-27",
       "source": "Greenhouse",
       "pid": "r_technical_program_manager_infrastructure",
-      "addedAt": "2026-05-31"
-    },
-    {
-      "title": "Senior Technical Program Manager, Product & Rider Loyalty",
-      "company": "Lyft",
-      "loc": "San Francisco, CA",
-      "url": "https://app.careerpuck.com/job-board/lyft/job/8433701002?gh_jid=8433701002",
-      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Lyft connects people to",
-      "listed": "2026-05-27",
-      "source": "Greenhouse",
-      "pid": "r_senior_technical_program_manager_product",
-      "addedAt": "2026-05-31"
-    },
-    {
-      "title": "Staff Technical Program Manager, Mergers & Acquisition",
-      "company": "Lyft",
-      "loc": "San Francisco, CA",
-      "url": "https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002",
-      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Rooted in Lyft&#39;s mi",
-      "listed": "2026-05-27",
-      "source": "Greenhouse",
-      "pid": "r_staff_technical_program_manager_mergers_",
       "addedAt": "2026-05-31"
     },
     {
@@ -1046,6 +1178,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 95,
-  "updatedAt": "2026-05-31T07:49:38.099Z"
+  "totalCount": 107,
+  "updatedAt": "2026-06-03T06:37:13.194Z"
 }
