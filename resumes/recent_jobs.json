@@ -1,6 +1,259 @@
 {
   "jobs": [
     {
+      "title": "Solutions Architect, Enterprise (French fluency)",
+      "company": "Stripe",
+      "loc": "Paris",
+      "url": "https://stripe.com/jobs/search?gh_jid=7619227",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies - f",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_enterprise_french_fl",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Solutions Architect, (Italian fluency) ",
+      "company": "Stripe",
+      "loc": "Milan, Barcelona, Madrid, Dublin, Amsterdam",
+      "url": "https://stripe.com/jobs/search?gh_jid=7784353",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure p",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_italian_fluency_stri",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Solutions Architect, Platforms (English fluency)",
+      "company": "Stripe",
+      "loc": "Dublin",
+      "url": "https://stripe.com/jobs/search?gh_jid=7601673",
+      "desc": "&lt;p&gt;&lt;strong&gt;Solutions Architect, Platforms&lt;/strong&gt;&lt;/p&gt; &lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;At Strip",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_platforms_english_fl",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Solutions Architect, Startup & SMB (French fluency)",
+      "company": "Stripe",
+      "loc": "LOCATION",
+      "url": "https://stripe.com/jobs/search?gh_jid=7601668",
+      "desc": "&lt;div class=&quot;JobPostPage&quot;&gt; &lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_startup_smb_french_f",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Solutions Architect, Startup & SMB (German fluency)",
+      "company": "Stripe",
+      "loc": "Dublin",
+      "url": "https://stripe.com/jobs/search?gh_jid=7442995",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure p",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_startup_smb_german_f",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Technical Program Manager, Service Infrastructure",
+      "company": "Stripe",
+      "loc": "Seattle, San Francisco, Remote in the US",
+      "url": "https://stripe.com/jobs/search?gh_jid=7985196",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_service_infras",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Business Process Analyst 3",
+      "company": "Twilio",
+      "loc": "Remote - Colombia",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7979654",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_business_process_analyst_3_twilio",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Staff Solutions Architect, Contract LifeCycle Management",
+      "company": "Twilio",
+      "loc": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7979245",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_staff_solutions_architect_contract_lifec",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Staff Solutions Architect, Opportunity LifeCycle Management",
+      "company": "Twilio",
+      "loc": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7979240",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Twilio, we’re shaping the future of communications, all from the comfort of our homes. We delive",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_staff_solutions_architect_opportunity_li",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Senior Business Systems Analyst, Procure-to-Pay",
+      "company": "Oura",
+      "loc": "Remote - New York, New York",
+      "url": "https://job-boards.greenhouse.io/oura/jobs/4266503009",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Our mission at Oura is to empower every person to own their inner potential. Our award-winning products help our global community gain a deeper knowledge of their readi",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_senior_business_systems_analyst_procure_",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Solutions Architect, Platforms Velocity",
+      "company": "Stripe",
+      "loc": "Chicago, IL or New York, NY",
+      "url": "https://stripe.com/jobs/search?gh_jid=7396509",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;At Stripe, you have an unprecedented opportunity to put the global economy within every",
+      "listed": "2026-06-04",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_platforms_velocity_s",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Technical Program Manager, Core Infrastructure",
+      "company": "Stripe",
+      "loc": "Seattle, SF, Remote",
+      "url": "https://stripe.com/jobs/search?gh_jid=7589234",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
+      "listed": "2026-06-04",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_core_infrastru",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Technical Program Manager, Platform ",
+      "company": "Scale AI",
+      "loc": "San Francisco, CA; New York, NY",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4703275005",
+      "desc": "&lt;p&gt;As a Technical Program Manager for the Platform team, you will partner with engineering teams to directly accelerate the development and maturity of the&amp;nbsp;&lt;strong&gt;Scale Generative AI Platform (SGP)&",
+      "listed": "2026-06-04",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_platform_scale",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Product Owner, GTM Sales Systems",
+      "company": "Klaviyo",
+      "loc": "Boston, MA",
+      "url": "https://www.klaviyo.com/careers/jobs?gh_jid=7694788003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;em&gt;At Klaviyo, we value the unique backgrounds, experiences and perspectives each Klaviyo (we call ourselves Klaviyos) brings to our workplace each and every day",
+      "listed": "2026-06-04",
+      "source": "Greenhouse",
+      "pid": "r_product_owner_gtm_sales_systems_klaviyo",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Senior Technical Program Manager, Product & Rider Loyalty",
+      "company": "Lyft",
+      "loc": "San Francisco, CA",
+      "url": "https://app.careerpuck.com/job-board/lyft/job/8433701002?gh_jid=8433701002",
+      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Lyft connects people to",
+      "listed": "2026-06-04",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_product",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Staff Technical Program Manager, Mergers & Acquisition",
+      "company": "Lyft",
+      "loc": "San Francisco, CA",
+      "url": "https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002",
+      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Rooted in Lyft&#39;s mi",
+      "listed": "2026-06-04",
+      "source": "Greenhouse",
+      "pid": "r_staff_technical_program_manager_mergers_",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "AI Solutions Architect",
+      "company": "Instacart",
+      "loc": "United States - Remote",
+      "url": "https://instacart.careers/job/?gh_jid=7976934",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;We&#39;re transforming the grocery industry&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;span class=&quot;im&quot;&gt;At Instacart, we invite the world to share ",
+      "listed": "2026-06-04",
+      "source": "Greenhouse",
+      "pid": "r_ai_solutions_architect_instacart",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Sr. Business Analyst (Starlink Enterprise)",
+      "company": "SpaceX",
+      "loc": "Bastrop, TX",
+      "url": "https://boards.greenhouse.io/spacex/jobs/8579649002?gh_jid=8579649002",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is ac",
+      "listed": "2026-06-04",
+      "source": "Greenhouse",
+      "pid": "r_sr_business_analyst_starlink_enterprise_",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Senior Technical Program Manager, Payments",
+      "company": "Airbnb",
+      "loc": "United States",
+      "url": "https://careers.airbnb.com/positions/7980228?gh_jid=7980228",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-family: helvetica, arial, sans-serif; font-size: 12pt;&quot;&gt;Airbnb was born in 2007 when two hosts welcomed three guests to their San Fran",
+      "listed": "2026-06-03",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_payment",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Credit Business Analyst, Growth",
+      "company": "Robinhood",
+      "loc": "Menlo Park, CA; New York, NY; Washington, DC",
+      "url": "https://boards.greenhouse.io/robinhood/jobs/7961175?t=gh_src=&gh_jid=7961175",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;Join us in building the future of finance.&lt;/h2&gt; &lt;p&gt;Our mission is to democratize finance for all. &lt;a href=&quot;https://www.cerulli.com/press-releases/c",
+      "listed": "2026-06-03",
+      "source": "Greenhouse",
+      "pid": "r_credit_business_analyst_growth_robinhood",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Technical Program Manager, Enterprise",
+      "company": "Scale AI",
+      "loc": "New York, NY; San Francisco, CA; New York, NY",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4699806005",
+      "desc": "&lt;p&gt;As a&amp;nbsp;&lt;strong&gt;Technical Program Manager&lt;/strong&gt;, you will partner with our Frontier Agent Engineering teams on enterprise customer engagements — owning operational execution and delivery of ",
+      "listed": "2026-06-03",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_enterprise_sca",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Solution Architect",
+      "company": "Sigma Computing",
+      "loc": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/sigmacomputing/jobs/7748467003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18pt;&quot;&gt;&lt;strong&gt;Solution Architect&lt;/strong&gt;&lt",
+      "listed": "2026-06-03",
+      "source": "Greenhouse",
+      "pid": "r_solution_architect_sigma_computing",
+      "addedAt": "2026-06-05"
+    },
+    {
+      "title": "Staff Technical Program Manager",
+      "company": "Affirm",
+      "loc": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7728589003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Affirm is reinventing credit to make it more honest and friendly, giving consumers the flexibility to buy now and pay later without any hidden fees or compounding inter",
+      "listed": "2026-06-03",
+      "source": "Greenhouse",
+      "pid": "r_staff_technical_program_manager_affirm",
+      "addedAt": "2026-06-05"
+    },
+    {
       "title": "Solution Architect, AI / Cloudflare Developer Platform",
       "company": "Cloudflare",
       "loc": "Hybrid",
@@ -141,28 +394,6 @@
       "listed": "2026-06-01",
       "source": "Greenhouse",
       "pid": "r_staff_enterprise_architect_sofi",
-      "addedAt": "2026-06-03"
-    },
-    {
-      "title": "Senior Technical Program Manager, Product & Rider Loyalty",
-      "company": "Lyft",
-      "loc": "San Francisco, CA",
-      "url": "https://app.careerpuck.com/job-board/lyft/job/8433701002?gh_jid=8433701002",
-      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Lyft connects people to",
-      "listed": "2026-05-27",
-      "source": "Greenhouse",
-      "pid": "r_senior_technical_program_manager_product",
-      "addedAt": "2026-06-03"
-    },
-    {
-      "title": "Staff Technical Program Manager, Mergers & Acquisition",
-      "company": "Lyft",
-      "loc": "San Francisco, CA",
-      "url": "https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002",
-      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Rooted in Lyft&#39;s mi",
-      "listed": "2026-05-27",
-      "source": "Greenhouse",
-      "pid": "r_staff_technical_program_manager_mergers_",
       "addedAt": "2026-06-03"
     },
     {
@@ -1178,6 +1409,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 107,
-  "updatedAt": "2026-06-03T06:37:13.194Z"
+  "totalCount": 128,
+  "updatedAt": "2026-06-05T18:36:17.030Z"
 }
