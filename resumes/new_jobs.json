@@ -25,18 +25,6 @@
       "id": "job_business_analyst_1_careersprint"
     },
     {
-      "title": "Product Owner III",
-      "company": "IDEMIA",
-      "location": "Seattle, WA",
-      "url": "https://www.theladders.com/job/product-owner-iii-idemia-virtual-travel_86997410",
-      "description": "Responsibilities\n\nThe Product Owner drives product execution in a fast-paced environment where customer, business, and technical priorities must be balanced simultaneously. This role serves as a key bridge between Engineering, Project Management, Program Management, Operations, Client Success, and business stakeholders to ensure requirements are clear, priorities are well managed, and delivery stays aligned to customer commitments and product goals.\n\nThe Product Owner owns and prioritizes the product backlog, translating customer needs, business objectives, and technical input into clear requi",
-      "salary_min": 100000,
-      "salary_max": 130000,
-      "source": "Ladders",
-      "listed": "2026-05-20",
-      "id": "job_product_owner_iii_idemia"
-    },
-    {
       "title": "Senior Program Manager / Business Analyst",
       "company": "Neuberger Berman",
       "location": "Seattle, WA",
@@ -97,6 +85,6 @@
       "id": "job_it_business_analyst_warehouse_management_systems_e_solutions"
     }
   ],
-  "totalCount": 8,
-  "fetchedAt": "2026-06-09T21:24:11.619Z"
+  "totalCount": 7,
+  "fetchedAt": "2026-06-09T21:24:17.127Z"
 }
