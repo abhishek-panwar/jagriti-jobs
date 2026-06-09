@@ -1,5 +1,126 @@
 {
-  "jobs": [],
-  "totalCount": 0,
-  "fetchedAt": "2026-06-09T21:23:06.710Z"
+  "jobs": [
+    {
+      "title": "Business Analyst III/ PM",
+      "company": "eTeam Inc.",
+      "location": "Seattle, WA",
+      "url": "https://www.monster.com/job-openings/business-analyst-iii-pm-conshohocken-pa--697748ac-39ec-494e-bceb-057d199c3881",
+      "description": "Title: Business Analyst III/ PM\nLocation: West Conshohocken PA ( Remote in East Coast)\nDuration: 12 months\n\nThis role could be fully remote, keep candidates to east-coast/EST timeframe\n\nDescription\nResponsibilities\nLead and coordinate strategic operational initiatives focused on process improvement, workflow optimization, technology enablement, and AI integration across the MSIM Private Credit & Equity division.\nPartner with investment, operations, and technology teams to evaluate existing workflows, identify inefficiencies, and implement scalable solutions that improve execution, reporting, a",
+      "salary_min": 55,
+      "salary_max": 56.66,
+      "source": "Monster",
+      "listed": "2026-06-02",
+      "id": "job_business_analyst_iii_pm_eteam_inc"
+    },
+    {
+      "title": "Business Analyst 1",
+      "company": "careersprint",
+      "location": "Seattle, WA",
+      "url": "https://careersprint.7f.liveblog365.com/job/2432795",
+      "description": "The North Carolina Department of Agriculture and Consumer Services is seeking a Business Analyst 1 to support the technical and business needs of statewide driver and vehicle systems. This role involves performing analytical tasks, system analysis, process documentation, and stakeholder communication to ensure system enhancements function correctly. Responsibilities Review functions and assess operational needs for Driver Licensing and Motor Vehicle systems Record changes to processes and capture business requirements for updates Develop and assess testing plans to confirm system enhancements",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "CareerSprint",
+      "listed": "2026-06-09",
+      "id": "job_business_analyst_1_careersprint"
+    },
+    {
+      "title": "Product Owner III",
+      "company": "IDEMIA",
+      "location": "Seattle, WA",
+      "url": "https://www.theladders.com/job/product-owner-iii-idemia-virtual-travel_86997410",
+      "description": "Responsibilities\n\nThe Product Owner drives product execution in a fast-paced environment where customer, business, and technical priorities must be balanced simultaneously. This role serves as a key bridge between Engineering, Project Management, Program Management, Operations, Client Success, and business stakeholders to ensure requirements are clear, priorities are well managed, and delivery stays aligned to customer commitments and product goals.\n\nThe Product Owner owns and prioritizes the product backlog, translating customer needs, business objectives, and technical input into clear requi",
+      "salary_min": 100000,
+      "salary_max": 130000,
+      "source": "Ladders",
+      "listed": "2026-05-20",
+      "id": "job_product_owner_iii_idemia"
+    },
+    {
+      "title": "Business Systems Analyst (Hybrid)",
+      "company": "Lower Colorado River Authority",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/business-systems-analyst_7ea1a16b70ddb3e41d0125e1e70a466dc154f",
+      "description": "About the position\nThe Project Controls team within LCRA's Project Management Office is seeking a\\nBusiness Analyst to support the growth of projects within our portfolio. This\\nrole offers the opportunity to support a rapidly growing portion of LCRA's\\nbusiness by using project financial and schedule data to shape the way we\\ncommunicate to customers and how we use their data. If you've got a curiosity\\nand drive to explore data for understanding, the business sense to create\\nmeaningful visualizations, and enjoy being part of a team developing tools that\\nenable the success of others, we'd l",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "",
+      "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
+    },
+    {
+      "title": "Senior Program Manager / Business Analyst",
+      "company": "Neuberger Berman",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/senior-program-manager-business-analyst_7ea1afa9c44e00db1d04d14796916e9ade3b5",
+      "description": "About the position\n\nThe Senior Program Manager / Business Analyst will serve as a strategic leader and subject matter expert in driving large-scale, data-driven transformation across Asset Management. This role goes beyond project execution \u2014 it demands the ability to shape program strategy, influence senior stakeholders, and architect scalable solutions that align data capabilities with long-term\u00a0business objectives. The ideal candidate brings deep asset management domain expertise, a track record of delivering complex enterprise programs, and the credibility to operate as a trusted advisor t",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "",
+      "id": "job_senior_program_manager_business_analyst_neuberger_berman"
+    },
+    {
+      "title": "[Hiring] Business Analyst / Business Specialist @EQT Corporation",
+      "company": "EQT Corporation",
+      "location": "Seattle, WA",
+      "url": "https://remotive.com/remote/jobs/data/business-analyst-business-specialist-4726994",
+      "description": "Role Description\n\nWe are seeking a highly analytical and collaborative Business Analyst / Specialist to support business insight and reporting initiatives across EQT\u2019s Midstream and Growth Programs, including Engineering, Construction, Operations, Compliance, Growth, and Control Center. This role will serve as a key link between business operations, data analytics, and technology teams\u2014developing actionable insights, enhancing reporting capabilities, and advancing EQT\u2019s culture of data literacy and continuous improvement.\n\n\u2022\n\nBusiness Insights & Reporting:\n\n\u2022\nDevelop, maintain, and optimize da",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Remote Jobs",
+      "listed": "2026-05-20",
+      "id": "job_hiring_business_analyst_business_specialist_eqt_corporation_"
+    },
+    {
+      "title": "Product Owner (Remote in CA)",
+      "company": "careersprint",
+      "location": "Seattle, WA",
+      "url": "https://careersprint.7f.liveblog365.com/job/2431303",
+      "description": "Who We Are Join a team that puts its People First! As a member of the First American family of companies, First American Trust is a federal savings bank that has provided banking, wealth management, and trust solutions on a national, full-service basis for more than five decades. Since 1889, First American (NYSE FAF) has held an unwavering belief in its people. They are passionate about what they do, and we are equally passionate about fostering an environment where all feel welcome, supported, and empowered to be innovative and reach their full potential. Our inclusive, people-first culture h",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "CareerSprint",
+      "listed": "2026-06-09",
+      "id": "job_product_owner_remote_in_ca_careersprint"
+    },
+    {
+      "title": "Business Analyst Manager",
+      "company": "Sprezzatura",
+      "location": "Seattle, WA",
+      "url": "https://www.jobleads.com/us/job/business-analyst-manager--united-states--e1af41da91ec0259655e1aa55a67e699b",
+      "description": "Position Title\n\nBusiness Analyst Manager\n\nLocation\n\nRemote (In the U.S)\n\nOther Considerations\n\nU.S. Citizen or Permanent Resident (Required)\n\nThis position is contingent upon contract award.\n\nPosition Summary\n\nThe Business Analyst Manager will be responsible for leading complex projects and initiatives aimed at driving business growth and efficiency within a strategic program at the Department of Veterans Affairs that has the potential to impact over millions of veteran users. You should be a strategic thinker with a deep understanding of business processes, data analysis, and technology solut",
+      "salary_min": 85000,
+      "salary_max": 105000,
+      "source": "JobLeads",
+      "listed": "2026-06-02",
+      "id": "job_business_analyst_manager_sprezzatura"
+    },
+    {
+      "title": "W2 - Business Analyst (Medicaid, System Project Management, Data Analysis) - Remote/Local",
+      "company": "careersprint",
+      "location": "Seattle, WA",
+      "url": "https://careersprint.7f.liveblog365.com/job/2201886",
+      "description": "Description The client is looking for a Business Analyst/Consultant III. Will close to submissions on 5/13 at 400PM CST. Top Skills & Years of Experience 3 to 5 years of experience performing a business analyst role supporting State Medicaid and MMIS, or similar health care business o System Project Management and Oversight o Data Analysis and Policy Support o Coordination and Collaboration Nice to have skills o Certified Business Analysis Professional (CABP) preferred o Excellent interpersonal communication skills o Excellent organization and time management skills Interview Process MS Teams",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "CareerSprint",
+      "listed": "2026-06-09",
+      "id": "job_w2_business_analyst_medicaid_system_project_management_data_"
+    },
+    {
+      "title": "IT Business Analyst - Warehouse Management Systems",
+      "company": "E-Solutions",
+      "location": "Seattle, WA",
+      "url": "https://lensa.com/job-v1/e-solutions/remote/it-business-analyst/c02ef22d8038928aed9dc6c15090df70",
+      "description": "We are looking to onboard below role starting January 1st 2026.\n\nThis is URGENT and we would like to identify and interview the suitable candidates within these 2 weeks starting this week.\n\nRemote Role\n\n\u2022 Number of Positions: 4\n\u2022 Planned Start Date: 1st January 2026\n\u2022 Candidate needs to travel at least 7-10 days in month to different WAREHOUSE locations of Client to implement the roll out in US. Travel cost will be paid by WESCO Client.\nJob Description: IT Business Analyst - Warehouse Management Systems\n\nExperience Level: 10 years\n\nKey Responsibilities: \u2022 Lead IT business analysis initiatives",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Lensa",
+      "listed": "",
+      "id": "job_it_business_analyst_warehouse_management_systems_e_solutions"
+    }
+  ],
+  "totalCount": 10,
+  "fetchedAt": "2026-06-09T21:23:23.561822"
 }

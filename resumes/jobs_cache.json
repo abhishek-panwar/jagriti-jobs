@@ -1,6 +1,42 @@
 {
   "jobs": [
     {
+      "title": "Business Analyst III/ PM",
+      "company": "eTeam Inc.",
+      "location": "Seattle, WA",
+      "url": "https://www.monster.com/job-openings/business-analyst-iii-pm-conshohocken-pa--697748ac-39ec-494e-bceb-057d199c3881",
+      "description": "Title: Business Analyst III/ PM\nLocation: West Conshohocken PA ( Remote in East Coast)\nDuration: 12 months\n\nThis role could be fully remote, keep candidates to east-coast/EST timeframe\n\nDescription\nResponsibilities\nLead and coordinate strategic operational initiatives focused on process improvement, workflow optimization, technology enablement, and AI integration across the MSIM Private Credit & Equity division.\nPartner with investment, operations, and technology teams to evaluate existing workflows, identify inefficiencies, and implement scalable solutions that improve execution, reporting, a",
+      "salary_min": 55,
+      "salary_max": 56.66,
+      "source": "Monster",
+      "listed": "2026-06-02",
+      "id": "job_business_analyst_iii_pm_eteam_inc"
+    },
+    {
+      "title": "Business Analyst 1",
+      "company": "careersprint",
+      "location": "Seattle, WA",
+      "url": "https://careersprint.7f.liveblog365.com/job/2432795",
+      "description": "The North Carolina Department of Agriculture and Consumer Services is seeking a Business Analyst 1 to support the technical and business needs of statewide driver and vehicle systems. This role involves performing analytical tasks, system analysis, process documentation, and stakeholder communication to ensure system enhancements function correctly. Responsibilities Review functions and assess operational needs for Driver Licensing and Motor Vehicle systems Record changes to processes and capture business requirements for updates Develop and assess testing plans to confirm system enhancements",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "CareerSprint",
+      "listed": "2026-06-09",
+      "id": "job_business_analyst_1_careersprint"
+    },
+    {
+      "title": "Product Owner III",
+      "company": "IDEMIA",
+      "location": "Seattle, WA",
+      "url": "https://www.theladders.com/job/product-owner-iii-idemia-virtual-travel_86997410",
+      "description": "Responsibilities\n\nThe Product Owner drives product execution in a fast-paced environment where customer, business, and technical priorities must be balanced simultaneously. This role serves as a key bridge between Engineering, Project Management, Program Management, Operations, Client Success, and business stakeholders to ensure requirements are clear, priorities are well managed, and delivery stays aligned to customer commitments and product goals.\n\nThe Product Owner owns and prioritizes the product backlog, translating customer needs, business objectives, and technical input into clear requi",
+      "salary_min": 100000,
+      "salary_max": 130000,
+      "source": "Ladders",
+      "listed": "2026-05-20",
+      "id": "job_product_owner_iii_idemia"
+    },
+    {
       "title": "Business Systems Analyst (Hybrid)",
       "company": "Lower Colorado River Authority",
       "location": "Seattle, WA",
@@ -13,102 +49,78 @@
       "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
     },
     {
-      "title": "Business System Analyst II / Data Analyst",
-      "company": "Sundayy",
+      "title": "Senior Program Manager / Business Analyst",
+      "company": "Neuberger Berman",
       "location": "Seattle, WA",
-      "url": "https://bebee.com/us/jobs/business-system-analyst-ii-data-analyst-sundayy--theirstack-664930728",
-      "description": "About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest and most complex agencies within the state, employing approximately 17,000 dedicated professionals. Its primary mission is to ensure the health, safety, and well-being of all North Carolinians through comprehensive human services.\n\nThe department provides vital support to special populations, including individuals who are deaf, blind, developmentally disabled, or mentally ill. Additionally, DHHS plays a crucial role in assisting economically disadvantaged residents to achieve independence, thereby",
+      "url": "https://www.tealhq.com/job/senior-program-manager-business-analyst_7ea1afa9c44e00db1d04d14796916e9ade3b5",
+      "description": "About the position\n\nThe Senior Program Manager / Business Analyst will serve as a strategic leader and subject matter expert in driving large-scale, data-driven transformation across Asset Management. This role goes beyond project execution \u2014 it demands the ability to shape program strategy, influence senior stakeholders, and architect scalable solutions that align data capabilities with long-term\u00a0business objectives. The ideal candidate brings deep asset management domain expertise, a track record of delivering complex enterprise programs, and the credibility to operate as a trusted advisor t",
       "salary_min": null,
       "salary_max": null,
-      "source": "BeBee",
+      "source": "Teal",
       "listed": "",
-      "id": "job_business_system_analyst_ii_data_analyst_sundayy"
+      "id": "job_senior_program_manager_business_analyst_neuberger_berman"
     },
     {
-      "title": "Data Analyst Product Owner",
-      "company": "AiDOOS",
+      "title": "[Hiring] Business Analyst / Business Specialist @EQT Corporation",
+      "company": "EQT Corporation",
       "location": "Seattle, WA",
-      "url": "https://aidoos.com/remote-jobs/data-analyst-product-owner/",
-      "description": "The Product Owner / Data Analyst will support the Applied HVAC business by delivering data-driven insights and analytics. This role involves the creation of dashboards and reports that inform strategic decisions and operational improvements.\n\nKey Responsibilities\n\nDevelop and m\u2026",
+      "url": "https://remotive.com/remote/jobs/data/business-analyst-business-specialist-4726994",
+      "description": "Role Description\n\nWe are seeking a highly analytical and collaborative Business Analyst / Specialist to support business insight and reporting initiatives across EQT\u2019s Midstream and Growth Programs, including Engineering, Construction, Operations, Compliance, Growth, and Control Center. This role will serve as a key link between business operations, data analytics, and technology teams\u2014developing actionable insights, enhancing reporting capabilities, and advancing EQT\u2019s culture of data literacy and continuous improvement.\n\n\u2022\n\nBusiness Insights & Reporting:\n\n\u2022\nDevelop, maintain, and optimize da",
       "salary_min": null,
       "salary_max": null,
-      "source": "AiDOOS",
-      "listed": "2026-04-25",
-      "id": "job_data_analyst_product_owner_aidoos"
+      "source": "Remote Jobs",
+      "listed": "2026-05-20",
+      "id": "job_hiring_business_analyst_business_specialist_eqt_corporation_"
     },
     {
-      "title": "Business Analyst (Migration Project) / 100% Remote",
-      "company": "Masco Corporation",
+      "title": "Product Owner (Remote in CA)",
+      "company": "careersprint",
       "location": "Seattle, WA",
-      "url": "https://www.monster.com/job-openings/business-analyst-migration-project-100-remote-tukwila-wa--6dd5c9bd-7749-49e8-8c8f-b3486dca8f21",
-      "description": "Business Analyst (Migration Project) / 100% Remote / (12 Month Contract)\n\nWe are seeking a Business Analyst with deep experience supporting large\u2011scale enterprise migrations, system integrations, and regulated operational processes. This BA will play a critical role in requirements definition, process mapping, data and system coordination, governance support, and readiness activities throughout this complex and high\u2011visibility engagement.\n\nThe migration aims to modernize and scale the communication fulfillment ecosystem while ensuring regulatory compliance, accuracy, and operational continuity",
-      "salary_min": 60,
-      "salary_max": 75,
-      "source": "Monster",
-      "listed": "",
-      "id": "job_business_analyst_migration_project_100_remote_masco_corporat"
-    },
-    {
-      "title": "Business Analyst - Federal Sector",
-      "company": "Procon Consulting",
-      "location": "Seattle, WA",
-      "url": "https://www.monster.com/job-openings/business-analyst-federal-sector-washington-dc--ad87ab2e-34cb-44ce-a1e7-5029312c22b1",
-      "description": "Procon is a top-ranked construction management and technology consulting firm with 25 years of experience delivering high\u2011impact projects across the U.S. and worldwide. An ENR Top 100 CM/PM firm for five consecutive years, we specialize in program management, project controls, commissioning, and virtual intelligence\u2014and offer an excellent platform to grow your career while shaping the future of the built environment.\nProcon now seeks a Business Analyst - Federal Sector for a long term opportunity that is fully remote. This role requires various skills and experience as listed below.\n\nRequireme",
-      "salary_min": 90000,
-      "salary_max": 115000,
-      "source": "Monster",
-      "listed": "",
-      "id": "job_business_analyst_federal_sector_procon_consulting"
-    },
-    {
-      "title": "Technical Business Analyst \u2013 Alternate Program Manager (APM)",
-      "company": "Zantech",
-      "location": "Seattle, WA",
-      "url": "https://zantech-it.breezy.hr/p/7d1e2a3d7321-technical-business-analyst-alternate-program-manager-apm",
-      "description": "Are you looking for your next challenge? Are you ready to work with a performance-based small company? At Zantech, we are a dynamic Woman Owned Small Business focused on providing complex, mission-focused solutions with a proven track record of outstanding customer performance and high employee satisfaction. We would love to talk with you regarding the next step in your career. Come join our team!\n\nZantech is looking for a talented Technical Business Analyst \u2013 Alternate Program Manager (APM) to contribute to the success of our upcoming Information Technology Support Services project for a Remo",
+      "url": "https://careersprint.7f.liveblog365.com/job/2431303",
+      "description": "Who We Are Join a team that puts its People First! As a member of the First American family of companies, First American Trust is a federal savings bank that has provided banking, wealth management, and trust solutions on a national, full-service basis for more than five decades. Since 1889, First American (NYSE FAF) has held an unwavering belief in its people. They are passionate about what they do, and we are equally passionate about fostering an environment where all feel welcome, supported, and empowered to be innovative and reach their full potential. Our inclusive, people-first culture h",
       "salary_min": null,
       "salary_max": null,
-      "source": "Zantech",
-      "listed": "",
-      "id": "job_technical_business_analyst_alternate_program_manager_apm_zan"
+      "source": "CareerSprint",
+      "listed": "2026-06-09",
+      "id": "job_product_owner_remote_in_ca_careersprint"
     },
     {
-      "title": "Senior Project Manager / Business Analyst - Consultant",
-      "company": "Liberum",
+      "title": "Business Analyst Manager",
+      "company": "Sprezzatura",
       "location": "Seattle, WA",
-      "url": "https://apply.workable.com/liberum/j/D7E478D8CF",
-      "description": "Who We Are\n\nLiberum exists to deliver in the environments where most firms struggle. Our clients are public sector agencies navigating enterprise-scale transformations in politically complex, high-stakes environments where the margin for error is thin, and the consequences of failure are public. We believe clients deserve real ownership, not warm bodies and hope.\n\nWe\u2019re a team first. Not a loose collection of consultants sharing a logo, but a genuine team that pushes each other\u2019s thinking, pressure-tests each other\u2019s work, and shows up when engagements get hard. The people we hire make the tea",
+      "url": "https://www.jobleads.com/us/job/business-analyst-manager--united-states--e1af41da91ec0259655e1aa55a67e699b",
+      "description": "Position Title\n\nBusiness Analyst Manager\n\nLocation\n\nRemote (In the U.S)\n\nOther Considerations\n\nU.S. Citizen or Permanent Resident (Required)\n\nThis position is contingent upon contract award.\n\nPosition Summary\n\nThe Business Analyst Manager will be responsible for leading complex projects and initiatives aimed at driving business growth and efficiency within a strategic program at the Department of Veterans Affairs that has the potential to impact over millions of veteran users. You should be a strategic thinker with a deep understanding of business processes, data analysis, and technology solut",
+      "salary_min": 85000,
+      "salary_max": 105000,
+      "source": "JobLeads",
+      "listed": "2026-06-02",
+      "id": "job_business_analyst_manager_sprezzatura"
+    },
+    {
+      "title": "W2 - Business Analyst (Medicaid, System Project Management, Data Analysis) - Remote/Local",
+      "company": "careersprint",
+      "location": "Seattle, WA",
+      "url": "https://careersprint.7f.liveblog365.com/job/2201886",
+      "description": "Description The client is looking for a Business Analyst/Consultant III. Will close to submissions on 5/13 at 400PM CST. Top Skills & Years of Experience 3 to 5 years of experience performing a business analyst role supporting State Medicaid and MMIS, or similar health care business o System Project Management and Oversight o Data Analysis and Policy Support o Coordination and Collaboration Nice to have skills o Certified Business Analysis Professional (CABP) preferred o Excellent interpersonal communication skills o Excellent organization and time management skills Interview Process MS Teams",
       "salary_min": null,
       "salary_max": null,
-      "source": "Jobs By Workable",
-      "listed": "",
-      "id": "job_senior_project_manager_business_analyst_consultant_liberum"
+      "source": "CareerSprint",
+      "listed": "2026-06-09",
+      "id": "job_w2_business_analyst_medicaid_system_project_management_data_"
     },
     {
-      "title": "Senior Product Owner, Learning Infrastructure Ecosystem",
-      "company": "Siemens Healthineers",
+      "title": "IT Business Analyst - Warehouse Management Systems",
+      "company": "E-Solutions",
       "location": "Seattle, WA",
-      "url": "https://www.theladders.com/job/senior-product-owner-learning-infrastructure-ecosystem-varianmedicalsystemsinc-virtual-travel_86948189",
-      "description": "Develops, proposes and / or implements learning policies, methods, processes or programs, and advises managers and / or employees accordingly for (an) assigned organization(s).\n\nSiemens Healthineers is seeking a Senior Product Owner \u2013 Learning Infrastructure Ecosystem to lead the strategy, development, and continuous evolution of our global learning platforms.\n\nThis role will oversee the end-to-end ownership of our learning ecosystem (including LMS, LXP, and related technologies), ensuring it delivers a seamless user experience and acts as a strategic enabler for business performance and scala",
-      "salary_min": 169580,
-      "salary_max": 233178,
-      "source": "Ladders",
-      "listed": "2026-05-17",
-      "id": "job_senior_product_owner_learning_infrastructure_ecosystem_sieme"
-    },
-    {
-      "title": "Business Analyst 4 (Change Mgmt)",
-      "company": "Yakshna Solutions",
-      "location": "Seattle, WA",
-      "url": "https://bebee.com/us/jobs/business-analyst-4-change-mgmt-yakshna-solutions-herndon-va--theirstack-656979274",
-      "description": "Business Analyst 4 (Change Mgmt.) - Richmond, VA 23219 (Remote-must be able to pick up equipment in person)\n\nYSI Jobs - YSI Admin\n\nID Job Title Job Description 799063 Business Analyst 4 (Change Mgmt)\n\n\u2022 *Yakshna Solutions, Inc**\n\n.,\n\u2022 *(YSI)**\n\nis a CMMI Level 3 assessed, ISO 9001, 20000:1, 27001 certified, woman-owned small business enterprises, headquartered in Herndon, Virginia, USA. YSI provides professional IT solutions and services to business corporations and government organizations. YSI is committed to serve its business communities as a leading IT vendor providing innovative, quality",
+      "url": "https://lensa.com/job-v1/e-solutions/remote/it-business-analyst/c02ef22d8038928aed9dc6c15090df70",
+      "description": "We are looking to onboard below role starting January 1st 2026.\n\nThis is URGENT and we would like to identify and interview the suitable candidates within these 2 weeks starting this week.\n\nRemote Role\n\n\u2022 Number of Positions: 4\n\u2022 Planned Start Date: 1st January 2026\n\u2022 Candidate needs to travel at least 7-10 days in month to different WAREHOUSE locations of Client to implement the roll out in US. Travel cost will be paid by WESCO Client.\nJob Description: IT Business Analyst - Warehouse Management Systems\n\nExperience Level: 10 years\n\nKey Responsibilities: \u2022 Lead IT business analysis initiatives",
       "salary_min": null,
       "salary_max": null,
-      "source": "BeBee",
+      "source": "Lensa",
       "listed": "",
-      "id": "job_business_analyst_4_change_mgmt_yakshna_solutions"
+      "id": "job_it_business_analyst_warehouse_management_systems_e_solutions"
     }
   ],
-  "totalCount": 9,
-  "fetchedAt": "2026-05-22T01:35:54.857153"
+  "totalCount": 10,
+  "fetchedAt": "2026-06-09T21:23:23.561822"
 }
