@@ -1,6 +1,193 @@
 {
   "jobs": [
     {
+      "title": "Partner Solutions Architect, (German fluency)",
+      "company": "Stripe",
+      "loc": "Berlin, Munich ",
+      "url": "https://stripe.com/jobs/search?gh_jid=7919325",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Stripe is a financial infrastructure p",
+      "listed": "2026-06-08",
+      "source": "Greenhouse",
+      "pid": "r_partner_solutions_architect_german_fluen",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Solutions Architect, AI",
+      "company": "Stripe",
+      "loc": "US-San Francisco",
+      "url": "https://stripe.com/jobs/search?gh_jid=7975723",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies - f",
+      "listed": "2026-06-08",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_ai_stripe",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Solutions Architect, Platforms, UK",
+      "company": "Stripe",
+      "loc": "London",
+      "url": "https://stripe.com/jobs/search?gh_jid=7574857",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are &lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fr",
+      "listed": "2026-06-08",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_platforms_uk_stripe",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Solutions Architect, Platforms, UK & Ireland",
+      "company": "Stripe",
+      "loc": "Dublin",
+      "url": "https://stripe.com/jobs/search?gh_jid=7601673",
+      "desc": "&lt;h2&gt;Who we are&lt;/h2&gt; &lt;h3&gt;About Stripe&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—from the world&#39;s largest enterprises to the most ambitiou",
+      "listed": "2026-06-08",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_platforms_uk_ireland",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Technical Program Manager, Risk",
+      "company": "Stripe",
+      "loc": "Bangalore",
+      "url": "https://stripe.com/jobs/search?gh_jid=7678655",
+      "desc": "&lt;h2&gt;Who we are&lt;/h2&gt; &lt;h3&gt;About Stripe&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—from the world&#39;s largest enterprises to the most ambitiou",
+      "listed": "2026-06-08",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_risk_stripe",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Remote - Oregon",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8555913002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-08",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Remote - Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8555912002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-08",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Remote - California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8535384002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-08",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Product Owner, Revenue Technology",
+      "company": "Asana",
+      "loc": "Vancouver, BC",
+      "url": "https://www.asana.com/jobs/apply/7493882?gh_jid=7493882",
+      "desc": "&lt;p&gt;We’re looking for a Product Owner to join Asana’s Revenue Technology (RevTech) team—a key pillar within the Enterprise Technology function. RevTech supports Asana’s Go-To-Market (GTM) teams by managing the tools",
+      "listed": "2026-06-08",
+      "source": "Greenhouse",
+      "pid": "r_product_owner_revenue_technology_asana",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Solutions Architect, Platforms Velocity",
+      "company": "Stripe",
+      "loc": "Chicago, IL or New York, NY",
+      "url": "https://stripe.com/jobs/search?gh_jid=7396509",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;At Stripe, you have an unprecedented opportunity to put the global economy within every",
+      "listed": "2026-06-07",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_platforms_velocity_s",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Business Systems Analyst II",
+      "company": "Affirm",
+      "loc": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7721455003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Affirm is reinventing credit to make it more honest and friendly, giving consumers the flexibility to buy now and pay later without any hidden fees or compounding inter",
+      "listed": "2026-06-07",
+      "source": "Greenhouse",
+      "pid": "r_business_systems_analyst_ii_affirm",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Partner Solutions Architect - AWS",
+      "company": "Stripe",
+      "loc": "New York",
+      "url": "https://stripe.com/jobs/search?gh_jid=7607761",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;About Stripe&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—from the world&#39;s largest ent",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_partner_solutions_architect_aws_stripe",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Partner Solutions Architect - Consulting Partners",
+      "company": "Stripe",
+      "loc": "Chicago or Atlanta",
+      "url": "https://stripe.com/jobs/search?gh_jid=7411434",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;About Stripe&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—from the world&#39;s largest ent",
+      "listed": "2026-06-05",
+      "source": "Greenhouse",
+      "pid": "r_partner_solutions_architect_consulting_p",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Product Owner, GTM Sales Systems",
+      "company": "Klaviyo",
+      "loc": "Boston, MA",
+      "url": "https://www.klaviyo.com/careers/jobs?gh_jid=7694788003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;em&gt;At Klaviyo, we value the unique backgrounds, experiences and perspectives each Klaviyo (we call ourselves Klaviyos) brings to our workplace each and every day",
+      "listed": "2026-06-04",
+      "source": "Greenhouse",
+      "pid": "r_product_owner_gtm_sales_systems_klaviyo",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Senior Technical Program Manager, Product & Rider Loyalty",
+      "company": "Lyft",
+      "loc": "San Francisco, CA",
+      "url": "https://app.careerpuck.com/job-board/lyft/job/8433701002?gh_jid=8433701002",
+      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Lyft connects people to",
+      "listed": "2026-06-04",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_product",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Staff Technical Program Manager, Mergers & Acquisition",
+      "company": "Lyft",
+      "loc": "San Francisco, CA",
+      "url": "https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002",
+      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Rooted in Lyft&#39;s mi",
+      "listed": "2026-06-04",
+      "source": "Greenhouse",
+      "pid": "r_staff_technical_program_manager_mergers_",
+      "addedAt": "2026-06-09"
+    },
+    {
+      "title": "Staff Technical Program Manager",
+      "company": "Affirm",
+      "loc": "Remote US",
+      "url": "https://job-boards.greenhouse.io/affirm/jobs/7728589003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Affirm is reinventing credit to make it more honest and friendly, giving consumers the flexibility to buy now and pay later without any hidden fees or compounding inter",
+      "listed": "2026-06-03",
+      "source": "Greenhouse",
+      "pid": "r_staff_technical_program_manager_affirm",
+      "addedAt": "2026-06-09"
+    },
+    {
       "title": "Solutions Architect, Enterprise (French fluency)",
       "company": "Stripe",
       "loc": "Paris",
@@ -111,17 +298,6 @@
       "addedAt": "2026-06-05"
     },
     {
-      "title": "Solutions Architect, Platforms Velocity",
-      "company": "Stripe",
-      "loc": "Chicago, IL or New York, NY",
-      "url": "https://stripe.com/jobs/search?gh_jid=7396509",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;At Stripe, you have an unprecedented opportunity to put the global economy within every",
-      "listed": "2026-06-04",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_platforms_velocity_s",
-      "addedAt": "2026-06-05"
-    },
-    {
       "title": "Technical Program Manager, Core Infrastructure",
       "company": "Stripe",
       "loc": "Seattle, SF, Remote",
@@ -141,39 +317,6 @@
       "listed": "2026-06-04",
       "source": "Greenhouse",
       "pid": "r_technical_program_manager_platform_scale",
-      "addedAt": "2026-06-05"
-    },
-    {
-      "title": "Product Owner, GTM Sales Systems",
-      "company": "Klaviyo",
-      "loc": "Boston, MA",
-      "url": "https://www.klaviyo.com/careers/jobs?gh_jid=7694788003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;em&gt;At Klaviyo, we value the unique backgrounds, experiences and perspectives each Klaviyo (we call ourselves Klaviyos) brings to our workplace each and every day",
-      "listed": "2026-06-04",
-      "source": "Greenhouse",
-      "pid": "r_product_owner_gtm_sales_systems_klaviyo",
-      "addedAt": "2026-06-05"
-    },
-    {
-      "title": "Senior Technical Program Manager, Product & Rider Loyalty",
-      "company": "Lyft",
-      "loc": "San Francisco, CA",
-      "url": "https://app.careerpuck.com/job-board/lyft/job/8433701002?gh_jid=8433701002",
-      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Lyft connects people to",
-      "listed": "2026-06-04",
-      "source": "Greenhouse",
-      "pid": "r_senior_technical_program_manager_product",
-      "addedAt": "2026-06-05"
-    },
-    {
-      "title": "Staff Technical Program Manager, Mergers & Acquisition",
-      "company": "Lyft",
-      "loc": "San Francisco, CA",
-      "url": "https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002",
-      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Rooted in Lyft&#39;s mi",
-      "listed": "2026-06-04",
-      "source": "Greenhouse",
-      "pid": "r_staff_technical_program_manager_mergers_",
       "addedAt": "2026-06-05"
     },
     {
@@ -240,17 +383,6 @@
       "listed": "2026-06-03",
       "source": "Greenhouse",
       "pid": "r_solution_architect_sigma_computing",
-      "addedAt": "2026-06-05"
-    },
-    {
-      "title": "Staff Technical Program Manager",
-      "company": "Affirm",
-      "loc": "Remote US",
-      "url": "https://job-boards.greenhouse.io/affirm/jobs/7728589003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Affirm is reinventing credit to make it more honest and friendly, giving consumers the flexibility to buy now and pay later without any hidden fees or compounding inter",
-      "listed": "2026-06-03",
-      "source": "Greenhouse",
-      "pid": "r_staff_technical_program_manager_affirm",
       "addedAt": "2026-06-05"
     },
     {
@@ -1409,6 +1541,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 128,
-  "updatedAt": "2026-06-05T18:36:17.030Z"
+  "totalCount": 140,
+  "updatedAt": "2026-06-09T05:41:29.828Z"
 }
