@@ -1,6 +1,72 @@
 {
   "jobs": [
     {
+      "title": "Solutions Architect - High Tech and MFG",
+      "company": "Databricks",
+      "loc": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8434341002",
+      "desc": "&lt;p data-renderer-start-pos=&quot;1648&quot;&gt;REQ ID - FEQ327R75&lt;/p&gt; &lt;p data-renderer-start-pos=&quot;1648&quot;&gt;Location: San Francisco Bay Area only&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Mission&lt;/strong&g",
+      "listed": "2026-06-12",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_high_tech_and_mfg_da",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Specialist Solutions Architect - GCP Infrastructure",
+      "company": "Databricks",
+      "loc": "United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8589834002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ127R316&lt;/p&gt; &lt;p&gt;As an Infrastructure &amp;amp; Platform Specialist Solutions Architect (SSA), you will guide customers in the administration and security of their D",
+      "listed": "2026-06-12",
+      "source": "Greenhouse",
+      "pid": "r_specialist_solutions_architect_gcp_infra",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Sr. Solutions Architect - Manufacturing",
+      "company": "Databricks",
+      "loc": "Central - United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8583085002",
+      "desc": "&lt;p&gt;&lt;strong&gt;REQ ID - FEQ327R277&lt;br&gt;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Location: Wisconsin, Minnesota&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Mission&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;We are looking for experien",
+      "listed": "2026-06-12",
+      "source": "Greenhouse",
+      "pid": "r_sr_solutions_architect_manufacturing_dat",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Staff Business Systems Analyst, Finance",
+      "company": "Oura",
+      "loc": "Remote - United States",
+      "url": "https://job-boards.greenhouse.io/oura/jobs/4206118009",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Our mission at Oura is to empower every person to own their inner potential. Our award-winning products help our global community gain a deeper knowledge of their readi",
+      "listed": "2026-06-12",
+      "source": "Greenhouse",
+      "pid": "r_staff_business_systems_analyst_finance_o",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Senior Technical Program Manager I/II - Space Sensing & Domain Awareness (TS/SCI)",
+      "company": "Rocket Lab",
+      "loc": "Long Beach, CA",
+      "url": "https://job-boards.greenhouse.io/rocketlab/jobs/7771677003",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;ABOUT ROCKET LAB&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Rocket Lab is an end-to-end space company delivering responsive launch services, complete spacecraft de",
+      "listed": "2026-06-12",
+      "source": "Greenhouse",
+      "pid": "r_senior_technical_program_manager_i_ii_sp",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Technical Program Manager, GTM Ops",
+      "company": "Planet Labs",
+      "loc": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/planetlabs/jobs/7979301",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Welcome to Planet. We believe in using space to help life on Earth.&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Planet designs, builds, and operates the largest con",
+      "listed": "2026-06-12",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_gtm_ops_planet",
+      "addedAt": "2026-06-15"
+    },
+    {
       "title": "Solutions Architect, Platforms, UK",
       "company": "Stripe",
       "loc": "London",
@@ -9,7 +75,381 @@
       "listed": "2026-06-11",
       "source": "Greenhouse",
       "pid": "r_solutions_architect_platforms_uk_stripe",
-      "addedAt": "2026-06-11"
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Solutions Architect Opportunities - Lakebase (Solutions Architect, Sr. Solutions Architect, Lead Solutions Architect) ",
+      "company": "Databricks",
+      "loc": "United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8407197002",
+      "desc": "&lt;p&gt;&lt;strong&gt;SLSQ127R199&lt;br&gt;&lt;br&gt;&lt;/strong&gt;&lt;em data-start=&quot;317&quot; data-end=&quot;348&quot;&gt;Internal Mobility Opportunity&lt;/em&gt;&lt;br&gt;We are accepting applications from inte",
+      "listed": "2026-06-11",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_opportunities_lakeba",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Data Governance Technical Program Manager",
+      "company": "Gusto",
+      "loc": "Denver, CO",
+      "url": "https://job-boards.greenhouse.io/gusto/jobs/7982793",
+      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p style=&quot;line-height: 1.2;&quot;&gt;&amp;nbsp;&lt;/p&gt; &lt;hr&gt; &lt;p&gt;&lt;strong&gt;About Gusto&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;At Gusto, we&#39;re on a missio",
+      "listed": "2026-06-11",
+      "source": "Greenhouse",
+      "pid": "r_data_governance_technical_program_manage",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Technical Program Manager, Engineering",
+      "company": "Scale AI",
+      "loc": "San Francisco, CA; New York, NY",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4704879005",
+      "desc": "&lt;p&gt;Software is eating the world, but AI is eating software. We live in unprecedented times – AI has the potential to exponentially augment human intelligence. Every person will have a personal tutor, coach, assista",
+      "listed": "2026-06-11",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_engineering_sc",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Product Solutions Architect - LLM Observability",
+      "company": "Datadog",
+      "loc": "Boston, Massachusetts, USA; Denver, Colorado, USA; New York, New York, USA; San Francisco, California, USA",
+      "url": "https://careers.datadoghq.com/detail/7627531/?gh_jid=7627531",
+      "desc": "&lt;p&gt;The Product Solutions Architecture (PSA) team acts as a technical multiplier across Datadog. PSAs are domain experts who partner with Field teams on complex customer use cases across pre- and post-sales engageme",
+      "listed": "2026-06-11",
+      "source": "Greenhouse",
+      "pid": "r_product_solutions_architect_llm_observab",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Product Solutions Architect - Product Analytics and Experimentation",
+      "company": "Datadog",
+      "loc": "Boston, Massachusetts, USA; Denver, Colorado, USA; New York, New York, USA; San Francisco, California, USA",
+      "url": "https://careers.datadoghq.com/detail/7732699/?gh_jid=7732699",
+      "desc": "&lt;p&gt;The Product Solutions Architecture (PSA) team acts as a technical multiplier across Datadog. PSAs are domain experts who partner with Field teams on complex customer use cases across pre- and post-sales engageme",
+      "listed": "2026-06-11",
+      "source": "Greenhouse",
+      "pid": "r_product_solutions_architect_product_anal",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Solutions Architect, Enterprise (Pre-sales)",
+      "company": "Stripe",
+      "loc": "Chicago, IL or New York City, NY OR US Remote",
+      "url": "https://stripe.com/jobs/search?gh_jid=7827184",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_enterprise_pre_sales",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Remote - Washington D.C.",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8540462002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "New Jersey",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8550331002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Remote - Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8555912002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Remote - New York",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8540466002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Remote - California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8535384002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Remote - Oregon",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8555913002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Maryland",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8540465002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Philadelphia, Pennsylvania",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8540464002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Remote - Virginia",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8540463002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Delivery Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Charlotte, North Carolina",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8559315002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_delivery_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Central - United States; Northeast - United States; Southeast - United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8423296002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirements",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Austin, Texas",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494137002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirements",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Atlanta, Georgia",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494147002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirements",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Boston, Massachusetts",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8456973002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;Due to federal contract requirements and client site access obligations,&amp;nbsp;&lt;strong&gt;U.S. citizenship and",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Dallas, Texas",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8456975002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;Due to federal contract requirements and client site access obligations,&amp;nbsp;&lt;strong&gt;U.S. citizenship and",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Chicago, Illinois",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8461321002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;Due to federal contract requirements and client site access obligations,&amp;nbsp;&lt;strong&gt;U.S. citizenship and",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Philadelphia, Pennsylvania",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494149002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;Due to federal contract requirements and client site access obligations,&amp;nbsp;&lt;strong&gt;U.S. citizenship and",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Washington, D.C.",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494128002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirements",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Maryland",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494108002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R175&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirement",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Virginia",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494107002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R175&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirement",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "New York City, New York",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494130002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirements",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Resident Solutions Architect - Public Sector",
+      "company": "Databricks",
+      "loc": "Washington, D.C.",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8356289002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R175&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirement",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_resident_solutions_architect_public_sect",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Solutions Architect - Public Sector (SLED) ",
+      "company": "Databricks",
+      "loc": "Central - United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8522044002",
+      "desc": "&lt;p data-renderer-start-pos=&quot;1648&quot;&gt;FEQ227R359&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Mission&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Solutions Architects at Databricks lead the growth of the Databricks Unified Analyti",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_public_sector_sled_d",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Sr. ISV & Partner Solutions Architect",
+      "company": "Databricks",
+      "loc": "United States",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8439172002",
+      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ327R144&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;As a Partner Solutions Architect, you will focus on cultivating technical relationships with one of our largest Glo",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_sr_isv_partner_solutions_architect_datab",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Sr. Solutions Architect",
+      "company": "Databricks",
+      "loc": "Remote - Texas",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8417656002",
+      "desc": "&lt;p data-renderer-start-pos=&quot;1648&quot;&gt;Location: Houston, TX&amp;nbsp;&lt;/p&gt; &lt;p data-renderer-start-pos=&quot;1648&quot;&gt;While candidates in the listed location are encouraged for this role, candidat",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_sr_solutions_architect_databricks",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Sr. Solutions Architect - Public Sector (SLED) ",
+      "company": "Databricks",
+      "loc": "Illinois; Michigan; Minnesota",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8397493002",
+      "desc": "&lt;p&gt;&lt;strong&gt;FEQ427R139&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Mission&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Solutions Architects at Databricks lead the growth of the Databricks Unified Analytics Platform.",
+      "listed": "2026-06-10",
+      "source": "Greenhouse",
+      "pid": "r_sr_solutions_architect_public_sector_sle",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Technical Program Manager, Risk",
+      "company": "Stripe",
+      "loc": "Bangalore",
+      "url": "https://stripe.com/jobs/search?gh_jid=7678655",
+      "desc": "&lt;h2&gt;Who we are&lt;/h2&gt; &lt;h3&gt;About Stripe&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—from the world&#39;s largest enterprises to the most ambitiou",
+      "listed": "2026-06-08",
+      "source": "Greenhouse",
+      "pid": "r_technical_program_manager_risk_stripe",
+      "addedAt": "2026-06-15"
+    },
+    {
+      "title": "Solutions Architect, Platforms Velocity",
+      "company": "Stripe",
+      "loc": "Chicago, IL or New York, NY",
+      "url": "https://stripe.com/jobs/search?gh_jid=7396509",
+      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;At Stripe, you have an unprecedented opportunity to put the global economy within every",
+      "listed": "2026-06-07",
+      "source": "Greenhouse",
+      "pid": "r_solutions_architect_platforms_velocity_s",
+      "addedAt": "2026-06-15"
     },
     {
       "title": "Senior Solutions Architect - Lakebase",
@@ -34,28 +474,6 @@
       "addedAt": "2026-06-11"
     },
     {
-      "title": "Product Solutions Architect - LLM Observability",
-      "company": "Datadog",
-      "loc": "Boston, Massachusetts, USA; Denver, Colorado, USA; New York, New York, USA; San Francisco, California, USA",
-      "url": "https://careers.datadoghq.com/detail/7627531/?gh_jid=7627531",
-      "desc": "&lt;p&gt;The Product Solutions Architecture (PSA) team acts as a technical multiplier across Datadog. PSAs are domain experts who partner with Field teams on complex customer use cases across pre- and post-sales engageme",
-      "listed": "2026-06-11",
-      "source": "Greenhouse",
-      "pid": "r_product_solutions_architect_llm_observab",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Product Solutions Architect - Product Analytics and Experimentation",
-      "company": "Datadog",
-      "loc": "Boston, Massachusetts, USA; Denver, Colorado, USA; New York, New York, USA; San Francisco, California, USA",
-      "url": "https://careers.datadoghq.com/detail/7732699/?gh_jid=7732699",
-      "desc": "&lt;p&gt;The Product Solutions Architecture (PSA) team acts as a technical multiplier across Datadog. PSAs are domain experts who partner with Field teams on complex customer use cases across pre- and post-sales engageme",
-      "listed": "2026-06-11",
-      "source": "Greenhouse",
-      "pid": "r_product_solutions_architect_product_anal",
-      "addedAt": "2026-06-11"
-    },
-    {
       "title": "Solutions Architect, AI (Pre-sales)",
       "company": "Stripe",
       "loc": "US-San Francisco",
@@ -64,17 +482,6 @@
       "listed": "2026-06-10",
       "source": "Greenhouse",
       "pid": "r_solutions_architect_ai_pre_sales_stripe",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Solutions Architect, Enterprise (Pre-sales)",
-      "company": "Stripe",
-      "loc": "Chicago, IL or New York City, NY OR US Remote",
-      "url": "https://stripe.com/jobs/search?gh_jid=7827184",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—fro",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_enterprise_pre_sales",
       "addedAt": "2026-06-11"
     },
     {
@@ -97,116 +504,6 @@
       "listed": "2026-06-10",
       "source": "Greenhouse",
       "pid": "r_delivery_solutions_architect_healthcare_",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Maryland",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8540465002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Remote - California",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8535384002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Remote - Virginia",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8540463002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Charlotte, North Carolina",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8559315002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "New Jersey",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8550331002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Remote - New York",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8540466002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Philadelphia, Pennsylvania",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8540464002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Remote - Washington D.C.",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8540462002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Remote - Oregon",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8555913002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Delivery Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Remote - Washington",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8555912002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;font-size: 12pt;&quot;&gt;&lt;small&gt;CSQ426R15&lt;/small&gt;&lt;/span&gt;&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;span style=&quot;text-dec",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_delivery_solutions_architect_public_sect",
       "addedAt": "2026-06-11"
     },
     {
@@ -617,138 +914,6 @@
       "addedAt": "2026-06-11"
     },
     {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Dallas, Texas",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8456975002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;Due to federal contract requirements and client site access obligations,&amp;nbsp;&lt;strong&gt;U.S. citizenship and",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Atlanta, Georgia",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494147002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirements",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Washington, D.C.",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8356289002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R175&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirement",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Philadelphia, Pennsylvania",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494149002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;Due to federal contract requirements and client site access obligations,&amp;nbsp;&lt;strong&gt;U.S. citizenship and",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Boston, Massachusetts",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8456973002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;Due to federal contract requirements and client site access obligations,&amp;nbsp;&lt;strong&gt;U.S. citizenship and",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Virginia",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494107002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R175&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirement",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Central - United States; Northeast - United States; Southeast - United States",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8423296002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirements",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Chicago, Illinois",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8461321002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;Due to federal contract requirements and client site access obligations,&amp;nbsp;&lt;strong&gt;U.S. citizenship and",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Maryland",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494108002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R175&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirement",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Washington, D.C.",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494128002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirements",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "New York City, New York",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494130002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirements",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Resident Solutions Architect - Public Sector",
-      "company": "Databricks",
-      "loc": "Austin, Texas",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494137002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;CSQ227R88&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;&lt;strong&gt;PLEASE NOTE&lt;/strong&gt;&lt;strong&gt;:&lt;br&gt;&lt;/strong&gt;Due to federal contract requirements",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_resident_solutions_architect_public_sect",
-      "addedAt": "2026-06-11"
-    },
-    {
       "title": "Solutions Architect - Digital Native Business, Strategic",
       "company": "Databricks",
       "loc": "Remote - California; Remote - Colorado; Remote - Oregon; Remote - Washington",
@@ -771,17 +936,6 @@
       "addedAt": "2026-06-11"
     },
     {
-      "title": "Solutions Architect - Public Sector (SLED) ",
-      "company": "Databricks",
-      "loc": "Central - United States",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8522044002",
-      "desc": "&lt;p data-renderer-start-pos=&quot;1648&quot;&gt;FEQ227R359&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Mission&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Solutions Architects at Databricks lead the growth of the Databricks Unified Analyti",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_public_sector_sled_d",
-      "addedAt": "2026-06-11"
-    },
-    {
       "title": "Solutions Architect - Sports",
       "company": "Databricks",
       "loc": "Central - United States; Minnesota; Northeast - United States; Remote - Illinois; Remote - New York; Remote - Ohio; Remote - Texas",
@@ -793,17 +947,6 @@
       "addedAt": "2026-06-11"
     },
     {
-      "title": "Specialist Solutions Architect - Cloud Infrastructure & Platform",
-      "company": "Databricks",
-      "loc": "United States",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8525037002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ127R316&lt;/p&gt; &lt;p&gt;As a Specialist Solutions Architect (SSA) - Cloud Infrastructure &amp;amp; Platform, you will guide customers in the administration and security of ",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_specialist_solutions_architect_cloud_inf",
-      "addedAt": "2026-06-11"
-    },
-    {
       "title": "Sr. Delivery Solutions Architect - AI Native",
       "company": "Databricks",
       "loc": "Remote - California; Remote - Colorado; Remote - Oregon; Remote - Washington",
@@ -812,28 +955,6 @@
       "listed": "2026-06-10",
       "source": "Greenhouse",
       "pid": "r_sr_delivery_solutions_architect_ai_nativ",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Sr. ISV & Partner Solutions Architect",
-      "company": "Databricks",
-      "loc": "United States",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8439172002",
-      "desc": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;FEQ327R144&lt;/p&gt; &lt;p data-pm-slice=&quot;1 1 []&quot;&gt;As a Partner Solutions Architect, you will focus on cultivating technical relationships with one of our largest Glo",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_sr_isv_partner_solutions_architect_datab",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Sr. Solutions Architect",
-      "company": "Databricks",
-      "loc": "Remote - Texas",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8417656002",
-      "desc": "&lt;p data-renderer-start-pos=&quot;1648&quot;&gt;Location: Houston, TX&amp;nbsp;&lt;/p&gt; &lt;p data-renderer-start-pos=&quot;1648&quot;&gt;While candidates in the listed location are encouraged for this role, candidat",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_sr_solutions_architect_databricks",
       "addedAt": "2026-06-11"
     },
     {
@@ -878,28 +999,6 @@
       "listed": "2026-06-10",
       "source": "Greenhouse",
       "pid": "r_sr_solutions_architect_public_sector_hun",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Sr. Solutions Architect - Public Sector (SLED)",
-      "company": "Databricks",
-      "loc": "North Carolina; Washington, D.C.",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8548982002",
-      "desc": "&lt;p&gt;&lt;strong&gt;FEQ327R56&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Mission&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Solutions Architects at Databricks lead the growth of the Databricks Unified Analytics Platform. ",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_sr_solutions_architect_public_sector_sle",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Sr. Solutions Architect - Public Sector (SLED) ",
-      "company": "Databricks",
-      "loc": "Illinois; Michigan; Minnesota",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8397493002",
-      "desc": "&lt;p&gt;&lt;strong&gt;FEQ427R139&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Mission&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Solutions Architects at Databricks lead the growth of the Databricks Unified Analytics Platform.",
-      "listed": "2026-06-10",
-      "source": "Greenhouse",
-      "pid": "r_sr_solutions_architect_public_sector_sle",
       "addedAt": "2026-06-11"
     },
     {
@@ -955,83 +1054,6 @@
       "listed": "2026-06-09",
       "source": "Greenhouse",
       "pid": "r_solutions_architect_sf_bay_area_discord",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Technical Program Manager, Risk",
-      "company": "Stripe",
-      "loc": "Bangalore",
-      "url": "https://stripe.com/jobs/search?gh_jid=7678655",
-      "desc": "&lt;h2&gt;Who we are&lt;/h2&gt; &lt;h3&gt;About Stripe&lt;/h3&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—from the world&#39;s largest enterprises to the most ambitiou",
-      "listed": "2026-06-08",
-      "source": "Greenhouse",
-      "pid": "r_technical_program_manager_risk_stripe",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Solutions Architect, Platforms Velocity",
-      "company": "Stripe",
-      "loc": "Chicago, IL or New York, NY",
-      "url": "https://stripe.com/jobs/search?gh_jid=7396509",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who We Are&lt;/strong&gt;&lt;/h2&gt; &lt;h3&gt;&lt;strong&gt;About Stripe&lt;/strong&gt;&lt;/h3&gt; &lt;p&gt;At Stripe, you have an unprecedented opportunity to put the global economy within every",
-      "listed": "2026-06-07",
-      "source": "Greenhouse",
-      "pid": "r_solutions_architect_platforms_velocity_s",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Business Systems Analyst II",
-      "company": "Affirm",
-      "loc": "Remote US",
-      "url": "https://job-boards.greenhouse.io/affirm/jobs/7721455003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Affirm is reinventing credit to make it more honest and friendly, giving consumers the flexibility to buy now and pay later without any hidden fees or compounding inter",
-      "listed": "2026-06-07",
-      "source": "Greenhouse",
-      "pid": "r_business_systems_analyst_ii_affirm",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Partner Solutions Architect - AWS",
-      "company": "Stripe",
-      "loc": "New York",
-      "url": "https://stripe.com/jobs/search?gh_jid=7607761",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;About Stripe&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—from the world&#39;s largest ent",
-      "listed": "2026-06-05",
-      "source": "Greenhouse",
-      "pid": "r_partner_solutions_architect_aws_stripe",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Partner Solutions Architect - Consulting Partners",
-      "company": "Stripe",
-      "loc": "Chicago or Atlanta",
-      "url": "https://stripe.com/jobs/search?gh_jid=7411434",
-      "desc": "&lt;h2&gt;&lt;strong&gt;Who we are&lt;/strong&gt;&lt;/h2&gt; &lt;h2&gt;About Stripe&lt;/h2&gt; &lt;p&gt;Stripe is a financial infrastructure platform for businesses. Millions of companies—from the world&#39;s largest ent",
-      "listed": "2026-06-05",
-      "source": "Greenhouse",
-      "pid": "r_partner_solutions_architect_consulting_p",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Product Owner, GTM Sales Systems",
-      "company": "Klaviyo",
-      "loc": "Boston, MA",
-      "url": "https://www.klaviyo.com/careers/jobs?gh_jid=7694788003",
-      "desc": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;em&gt;At Klaviyo, we value the unique backgrounds, experiences and perspectives each Klaviyo (we call ourselves Klaviyos) brings to our workplace each and every day",
-      "listed": "2026-06-04",
-      "source": "Greenhouse",
-      "pid": "r_product_owner_gtm_sales_systems_klaviyo",
-      "addedAt": "2026-06-11"
-    },
-    {
-      "title": "Staff Technical Program Manager, Mergers & Acquisition",
-      "company": "Lyft",
-      "loc": "San Francisco, CA",
-      "url": "https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002",
-      "desc": "&lt;p&gt;At Lyft, our purpose is to serve and connect. We aim to achieve this by cultivating a work environment where all team members belong and have the opportunity to thrive.&lt;/p&gt; &lt;p&gt;Rooted in Lyft&#39;s mi",
-      "listed": "2026-06-04",
-      "source": "Greenhouse",
-      "pid": "r_staff_technical_program_manager_mergers_",
       "addedAt": "2026-06-11"
     },
     {
@@ -2432,6 +2454,6 @@
       "addedAt": "2026-05-01"
     }
   ],
-  "totalCount": 221,
-  "updatedAt": "2026-06-11T17:07:50.736Z"
+  "totalCount": 223,
+  "updatedAt": "2026-06-15T06:30:29.292Z"
 }
