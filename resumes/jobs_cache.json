@@ -1,28 +1,16 @@
 {
   "jobs": [
     {
-      "title": "Business Analyst III/ PM",
-      "company": "eTeam Inc.",
+      "title": "Oracle Fusion Cloud Sales and Service CRM Business Analyst(s)",
+      "company": "Acnovate Corporation",
       "location": "Seattle, WA",
-      "url": "https://www.monster.com/job-openings/business-analyst-iii-pm-conshohocken-pa--697748ac-39ec-494e-bceb-057d199c3881",
-      "description": "Title: Business Analyst III/ PM\nLocation: West Conshohocken PA ( Remote in East Coast)\nDuration: 12 months\n\nThis role could be fully remote, keep candidates to east-coast/EST timeframe\n\nDescription\nResponsibilities\nLead and coordinate strategic operational initiatives focused on process improvement, workflow optimization, technology enablement, and AI integration across the MSIM Private Credit & Equity division.\nPartner with investment, operations, and technology teams to evaluate existing workflows, identify inefficiencies, and implement scalable solutions that improve execution, reporting, a",
-      "salary_min": 55,
-      "salary_max": 56.66,
-      "source": "Monster",
-      "listed": "2026-06-02",
-      "id": "job_business_analyst_iii_pm_eteam_inc"
-    },
-    {
-      "title": "Business Analyst 1",
-      "company": "careersprint",
-      "location": "Seattle, WA",
-      "url": "https://careersprint.7f.liveblog365.com/job/2432795",
-      "description": "The North Carolina Department of Agriculture and Consumer Services is seeking a Business Analyst 1 to support the technical and business needs of statewide driver and vehicle systems. This role involves performing analytical tasks, system analysis, process documentation, and stakeholder communication to ensure system enhancements function correctly. Responsibilities Review functions and assess operational needs for Driver Licensing and Motor Vehicle systems Record changes to processes and capture business requirements for updates Develop and assess testing plans to confirm system enhancements",
+      "url": "https://www.dice.com/job-detail/7ac6c9cd-d8c2-4c5b-b718-55245a8bf30f",
+      "description": "Oracle Fusion Cloud Sales and Service CRM Business Analyst(s) associated with the project, as directed by the Client.\n\u2022 ******Canada role******\n\nThe scope of the services may include, but are not limited to:\n\u2022 Working jointly with the Oracle Fusion Cloud Sales and Service CRM Program team to ensure CRM concepts are leveraged with configuration where possible resulting in the delivery of quality software meeting the client requirements;\n\u2022 Conducting, leading, and supporting interviews and analysis with multiple stakeholders to gather user requirements, following the Client\u2019s Agile-Iterative met",
       "salary_min": null,
       "salary_max": null,
-      "source": "CareerSprint",
-      "listed": "2026-06-09",
-      "id": "job_business_analyst_1_careersprint"
+      "source": "Dice",
+      "listed": "2026-06-15",
+      "id": "job_oracle_fusion_cloud_sales_and_service_crm_business_analyst_s"
     },
     {
       "title": "Product Owner III",
@@ -33,8 +21,20 @@
       "salary_min": 100000,
       "salary_max": 130000,
       "source": "Ladders",
-      "listed": "2026-05-20",
+      "listed": "2026-05-21",
       "id": "job_product_owner_iii_idemia"
+    },
+    {
+      "title": "Senior ServiceNow Business Analyst / Project Manager",
+      "company": "careersprint",
+      "location": "Seattle, WA",
+      "url": "https://careersprint.7f.liveblog365.com/job/2454632",
+      "description": "Leidos is seeking an experienced Senior ServiceNow Business Analyst / Project Manager / Coordinator to lead and support ServiceNow platform initiatives across multiple business functions. This role combines business analysis, project management, stakeholder engagement, and coordination responsibilities to ensure successful delivery of ServiceNow solutions that align with organizational objectives.\u00a0The ideal candidate possesses strong ServiceNow platform knowledge, exceptional communication skills, and the ability to manage projects from requirements gathering through implementation, testing, d",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "CareerSprint",
+      "listed": "2026-06-13",
+      "id": "job_senior_servicenow_business_analyst_project_manager_careerspr"
     },
     {
       "title": "Business Systems Analyst (Hybrid)",
@@ -49,40 +49,40 @@
       "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
     },
     {
-      "title": "Senior Program Manager / Business Analyst",
-      "company": "Neuberger Berman",
+      "title": "Engineering Business Analyst",
+      "company": "APTIM",
       "location": "Seattle, WA",
-      "url": "https://www.tealhq.com/job/senior-program-manager-business-analyst_7ea1afa9c44e00db1d04d14796916e9ade3b5",
-      "description": "About the position\n\nThe Senior Program Manager / Business Analyst will serve as a strategic leader and subject matter expert in driving large-scale, data-driven transformation across Asset Management. This role goes beyond project execution \u2014 it demands the ability to shape program strategy, influence senior stakeholders, and architect scalable solutions that align data capabilities with long-term\u00a0business objectives. The ideal candidate brings deep asset management domain expertise, a track record of delivering complex enterprise programs, and the credibility to operate as a trusted advisor t",
+      "url": "https://www.linkedin.com/jobs/view/engineering-business-analyst-at-aptim-4428614615?position=56&pageNum=0&refId=0dcCo6NNQ2WigReae%2Bx8Ww%3D%3D&trackingId=Atrg2iIU2iTnvIfgLIPiPw%3D%3D",
+      "description": "Job Overview\n\nWe are seeking a highly motivated and technically adept Engineering Business Analyst to support our Engineering and GIS teams in optimizing and evolving our application ecosystem. This role will serve as a critical bridge between business stakeholders and IT, helping define the strategy, roadmap, and effective utilization of engineering and geospatial applications. The Engineering Business Analyst will partner across business lines to understand needs, support implementations, and continuously enhance system functionality.\n\nKey Responsibilities/Accountabilities\n\n\u2022 Serve as the pr",
       "salary_min": null,
       "salary_max": null,
-      "source": "Teal",
-      "listed": "",
-      "id": "job_senior_program_manager_business_analyst_neuberger_berman"
+      "source": "LinkedIn",
+      "listed": "2026-06-14",
+      "id": "job_engineering_business_analyst_aptim"
     },
     {
-      "title": "[Hiring] Business Analyst / Business Specialist @EQT Corporation",
-      "company": "EQT Corporation",
-      "location": "Seattle, WA",
-      "url": "https://remotive.com/remote/jobs/data/business-analyst-business-specialist-4726994",
-      "description": "Role Description\n\nWe are seeking a highly analytical and collaborative Business Analyst / Specialist to support business insight and reporting initiatives across EQT\u2019s Midstream and Growth Programs, including Engineering, Construction, Operations, Compliance, Growth, and Control Center. This role will serve as a key link between business operations, data analytics, and technology teams\u2014developing actionable insights, enhancing reporting capabilities, and advancing EQT\u2019s culture of data literacy and continuous improvement.\n\n\u2022\n\nBusiness Insights & Reporting:\n\n\u2022\nDevelop, maintain, and optimize da",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Remote Jobs",
-      "listed": "2026-05-20",
-      "id": "job_hiring_business_analyst_business_specialist_eqt_corporation_"
-    },
-    {
-      "title": "Product Owner (Remote in CA)",
+      "title": "Business System Analyst II / Data Analyst",
       "company": "careersprint",
       "location": "Seattle, WA",
-      "url": "https://careersprint.7f.liveblog365.com/job/2431303",
-      "description": "Who We Are Join a team that puts its People First! As a member of the First American family of companies, First American Trust is a federal savings bank that has provided banking, wealth management, and trust solutions on a national, full-service basis for more than five decades. Since 1889, First American (NYSE FAF) has held an unwavering belief in its people. They are passionate about what they do, and we are equally passionate about fostering an environment where all feel welcome, supported, and empowered to be innovative and reach their full potential. Our inclusive, people-first culture h",
+      "url": "https://careersprint.7f.liveblog365.com/job/2214423",
+      "description": "About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest and most complex agencies within the state, employing approximately 17,000 dedicated professionals. Its primary mission is to ensure the health, safety, and well-being of all North Carolinians through comprehensive human services. The department provides vital support to special populations, including individuals who are deaf, blind, developmentally disabled, or mentally ill. Additionally, DHHS plays a crucial role in assisting economically disadvantaged residents to achieve independence, thereby f",
       "salary_min": null,
       "salary_max": null,
       "source": "CareerSprint",
-      "listed": "2026-06-09",
-      "id": "job_product_owner_remote_in_ca_careersprint"
+      "listed": "2026-06-12",
+      "id": "job_business_system_analyst_ii_data_analyst_careersprint"
+    },
+    {
+      "title": "IT - Enterprise Platforms Admin - Technical Product Owner (Remote in CA only)",
+      "company": "Golden 1",
+      "location": "Seattle, WA",
+      "url": "https://www.theladders.com/job/it-enterprise-platforms-admin-technical-product-owner-remote-in-ca-only-golden-1-virtual-travel_87169415",
+      "description": "TITLE: Technical Product Owner\nSTATUS: Exempt\nREPORTS TO: Director - Enterprise Core Banking and Engineering\nDEPARTMENT: Enterprise Platforms Admin\nJOB CODE:11190\n\nPAY SCALE: $112,200.00 - $125,000.00 Annually\n\nGENERAL DESCRIPTION:\n\nThe Technical Product Owner will be responsible for developing and executing a comprehensive approach to deliver one or more major products, capabilities, services, or\u00a0enhancements in accordance with the product roadmap. This role works with Program Managers, Business Leaders, and a cross-functional Scrum team to deliver the product. Manages the overall effort to d",
+      "salary_min": 112000,
+      "salary_max": 125000,
+      "source": "Ladders",
+      "listed": "2026-06-03",
+      "id": "job_it_enterprise_platforms_admin_technical_product_owner_remote"
     },
     {
       "title": "Business Analyst Manager",
@@ -93,34 +93,34 @@
       "salary_min": 85000,
       "salary_max": 105000,
       "source": "JobLeads",
-      "listed": "2026-06-02",
+      "listed": "2026-06-09",
       "id": "job_business_analyst_manager_sprezzatura"
     },
     {
-      "title": "W2 - Business Analyst (Medicaid, System Project Management, Data Analysis) - Remote/Local",
-      "company": "careersprint",
+      "title": "Business Systems Analyst \u2013 Project Management Platforms",
+      "company": "Meriton",
       "location": "Seattle, WA",
-      "url": "https://careersprint.7f.liveblog365.com/job/2201886",
-      "description": "Description The client is looking for a Business Analyst/Consultant III. Will close to submissions on 5/13 at 400PM CST. Top Skills & Years of Experience 3 to 5 years of experience performing a business analyst role supporting State Medicaid and MMIS, or similar health care business o System Project Management and Oversight o Data Analysis and Policy Support o Coordination and Collaboration Nice to have skills o Certified Business Analysis Professional (CABP) preferred o Excellent interpersonal communication skills o Excellent organization and time management skills Interview Process MS Teams",
+      "url": "https://www.tealhq.com/job/business-systems-analyst-project-management-platforms_7ea1a6b9fd092d4b7e7086a4a544e71dcfd7a",
+      "description": "About the position\n\nProject Ignite is a large-scale enterprise transformation program uniting 20+ operating companies onto a single Microsoft Dynamics 365 Finance & Operations and Project Operations platform. We are building a deployment factory designed to roll out several entities per year \u2014 from common-stack migrations to mid-complexity entities with distinct operational models, service delivery structures, and customer-facing workflows. As a Business Systems Analyst on the Project Management Platforms workstream, you sit at the intersection of some of the most operationally complex stakeho",
       "salary_min": null,
       "salary_max": null,
-      "source": "CareerSprint",
-      "listed": "2026-06-09",
-      "id": "job_w2_business_analyst_medicaid_system_project_management_data_"
+      "source": "Teal",
+      "listed": "2026-06-12",
+      "id": "job_business_systems_analyst_project_management_platforms_merito"
     },
     {
-      "title": "IT Business Analyst - Warehouse Management Systems",
-      "company": "E-Solutions",
+      "title": "Senior Business Analyst, Clinical Programs",
+      "company": "Cohere Health",
       "location": "Seattle, WA",
-      "url": "https://lensa.com/job-v1/e-solutions/remote/it-business-analyst/c02ef22d8038928aed9dc6c15090df70",
-      "description": "We are looking to onboard below role starting January 1st 2026.\n\nThis is URGENT and we would like to identify and interview the suitable candidates within these 2 weeks starting this week.\n\nRemote Role\n\n\u2022 Number of Positions: 4\n\u2022 Planned Start Date: 1st January 2026\n\u2022 Candidate needs to travel at least 7-10 days in month to different WAREHOUSE locations of Client to implement the roll out in US. Travel cost will be paid by WESCO Client.\nJob Description: IT Business Analyst - Warehouse Management Systems\n\nExperience Level: 10 years\n\nKey Responsibilities: \u2022 Lead IT business analysis initiatives",
+      "url": "https://dailyremote.com/remote-job/senior-business-analyst-clinical-programs-4143347",
+      "description": "Opportunity Overview:\n\nCohere Health is seeking a hands-on Senior Business Analyst to support the execution and continuous improvement of our clinical programs. Each Business Analyst will work alongside a Program Manager, under the VP of Clinical Programs to provide the data, documentation, and process discipline required for program success.\n\nThis role is focused on \u201chands-on keyboard\u201d execution \u2014 transforming program strategy and management direction into tangible deliverables such as dashboards, performance reports, and documented processes. By providing timely insights and reliable documen",
       "salary_min": null,
       "salary_max": null,
-      "source": "Lensa",
+      "source": "DailyRemote",
       "listed": "",
-      "id": "job_it_business_analyst_warehouse_management_systems_e_solutions"
+      "id": "job_senior_business_analyst_clinical_programs_cohere_health"
     }
   ],
   "totalCount": 10,
-  "fetchedAt": "2026-06-09T21:23:23.561822"
+  "fetchedAt": "2026-06-17T16:29:47.234626"
 }

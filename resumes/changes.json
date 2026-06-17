@@ -1,24 +1,24 @@
 {
   "resume_job_01": {
-    "title": "Business Analyst III/ PM",
-    "company": "eTeam Inc.",
+    "title": "Oracle Fusion Cloud Sales and Service CRM Business Analyst(s)",
+    "company": "Acnovate Corporation",
     "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
   "resume_job_02": {
-    "title": "Business Analyst 1",
-    "company": "careersprint",
-    "changed": false,
-    "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
-    "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
-  },
-  "resume_job_03": {
     "title": "Product Owner III",
     "company": "IDEMIA",
     "changed": true,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst with 12+ years driving Agile delivery, backlog management, and cross-functional team alignment across enterprise programs. Proven record owning sprint planning for 35-member teams and translating epics into well-defined user stories with clear acceptance criteria at LSEG, Refinitiv, and Aon."
+  },
+  "resume_job_03": {
+    "title": "Senior ServiceNow Business Analyst / Project Manager",
+    "company": "careersprint",
+    "changed": false,
+    "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
+    "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
   "resume_job_04": {
     "title": "Business Systems Analyst (Hybrid)",
@@ -28,22 +28,22 @@
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
   "resume_job_05": {
-    "title": "Senior Program Manager / Business Analyst",
-    "company": "Neuberger Berman",
+    "title": "Engineering Business Analyst",
+    "company": "APTIM",
     "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
   "resume_job_06": {
-    "title": "[Hiring] Business Analyst / Business Specialist @EQT Corporation",
-    "company": "EQT Corporation",
-    "changed": false,
+    "title": "Business System Analyst II / Data Analyst",
+    "company": "careersprint",
+    "changed": true,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
-    "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
+    "new_summary": "Senior Technical Business Analyst with 12+ years delivering data platforms, API ecosystems, and analytics solutions in enterprise environments. Deep expertise in SQL, Power BI, Snowflake, and AWS with a strong record of translating complex business needs into actionable data insights for careersprint."
   },
   "resume_job_07": {
-    "title": "Product Owner (Remote in CA)",
-    "company": "careersprint",
+    "title": "IT - Enterprise Platforms Admin - Technical Product Owner (Remote in CA only)",
+    "company": "Golden 1",
     "changed": true,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst with 12+ years driving Agile delivery, backlog management, and cross-functional team alignment across enterprise programs. Proven record owning sprint planning for 35-member teams and translating epics into well-defined user stories with clear acceptance criteria at LSEG, Refinitiv, and Aon."
@@ -56,15 +56,15 @@
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
   "resume_job_09": {
-    "title": "W2 - Business Analyst (Medicaid, System Project Management, Data Analysis) - Remote/Local",
-    "company": "careersprint",
-    "changed": true,
+    "title": "Business Systems Analyst \u2013 Project Management Platforms",
+    "company": "Meriton",
+    "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
-    "new_summary": "Senior Technical Business Analyst with 12+ years delivering data platforms, API ecosystems, and analytics solutions in enterprise environments. Deep expertise in SQL, Power BI, Snowflake, and AWS with a strong record of translating complex business needs into actionable data insights for careersprint."
+    "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
   "resume_job_10": {
-    "title": "IT Business Analyst - Warehouse Management Systems",
-    "company": "E-Solutions",
+    "title": "Senior Business Analyst, Clinical Programs",
+    "company": "Cohere Health",
     "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
