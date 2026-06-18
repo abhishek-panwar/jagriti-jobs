@@ -33,7 +33,7 @@
       "salary_min": null,
       "salary_max": null,
       "source": "CareerSprint",
-      "listed": "2026-06-13",
+      "listed": "2026-06-14",
       "id": "job_senior_servicenow_business_analyst_project_manager_careerspr"
     },
     {
@@ -49,6 +49,18 @@
       "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
     },
     {
+      "title": "Business System Analyst II / Data Analyst",
+      "company": "careersprint",
+      "location": "Seattle, WA",
+      "url": "https://careersprint.7f.liveblog365.com/job/2214423",
+      "description": "About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest and most complex agencies within the state, employing approximately 17,000 dedicated professionals. Its primary mission is to ensure the health, safety, and well-being of all North Carolinians through comprehensive human services. The department provides vital support to special populations, including individuals who are deaf, blind, developmentally disabled, or mentally ill. Additionally, DHHS plays a crucial role in assisting economically disadvantaged residents to achieve independence, thereby f",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "CareerSprint",
+      "listed": "2026-06-13",
+      "id": "job_business_system_analyst_ii_data_analyst_careersprint"
+    },
+    {
       "title": "Engineering Business Analyst",
       "company": "APTIM",
       "location": "Seattle, WA",
@@ -61,18 +73,6 @@
       "id": "job_engineering_business_analyst_aptim"
     },
     {
-      "title": "Business System Analyst II / Data Analyst",
-      "company": "careersprint",
-      "location": "Seattle, WA",
-      "url": "https://careersprint.7f.liveblog365.com/job/2214423",
-      "description": "About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest and most complex agencies within the state, employing approximately 17,000 dedicated professionals. Its primary mission is to ensure the health, safety, and well-being of all North Carolinians through comprehensive human services. The department provides vital support to special populations, including individuals who are deaf, blind, developmentally disabled, or mentally ill. Additionally, DHHS plays a crucial role in assisting economically disadvantaged residents to achieve independence, thereby f",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "CareerSprint",
-      "listed": "2026-06-12",
-      "id": "job_business_system_analyst_ii_data_analyst_careersprint"
-    },
-    {
       "title": "IT - Enterprise Platforms Admin - Technical Product Owner (Remote in CA only)",
       "company": "Golden 1",
       "location": "Seattle, WA",
@@ -81,7 +81,7 @@
       "salary_min": 112000,
       "salary_max": 125000,
       "source": "Ladders",
-      "listed": "2026-06-03",
+      "listed": "2026-06-04",
       "id": "job_it_enterprise_platforms_admin_technical_product_owner_remote"
     },
     {
@@ -93,7 +93,7 @@
       "salary_min": 85000,
       "salary_max": 105000,
       "source": "JobLeads",
-      "listed": "2026-06-09",
+      "listed": "2026-06-10",
       "id": "job_business_analyst_manager_sprezzatura"
     },
     {
@@ -109,18 +109,18 @@
       "id": "job_business_systems_analyst_project_management_platforms_merito"
     },
     {
-      "title": "Senior Business Analyst, Clinical Programs",
-      "company": "Cohere Health",
+      "title": "Healthcare Payer Business Analyst - Government Programs/Risk Adjustment",
+      "company": "People Force Consulting Inc",
       "location": "Seattle, WA",
-      "url": "https://dailyremote.com/remote-job/senior-business-analyst-clinical-programs-4143347",
-      "description": "Opportunity Overview:\n\nCohere Health is seeking a hands-on Senior Business Analyst to support the execution and continuous improvement of our clinical programs. Each Business Analyst will work alongside a Program Manager, under the VP of Clinical Programs to provide the data, documentation, and process discipline required for program success.\n\nThis role is focused on \u201chands-on keyboard\u201d execution \u2014 transforming program strategy and management direction into tangible deliverables such as dashboards, performance reports, and documented processes. By providing timely insights and reliable documen",
+      "url": "https://www.dice.com/job-detail/67ea6b8f-523c-4689-beae-e4e7358ddcd2",
+      "description": "Business Analyst (Healthcare Payer Government Programs/Risk Adjustment)\n\nTentative duration - 06 Months with Possible extension\n\nREMOTE (EST candidates strongly preferred)\n\nPosition Summary\n\nWe are seeking an experienced Business Analyst to support strategic and operational initiatives for a health plan focused on government lines of business (Medicaid, Medicare, and ACA Exchange). This role will partner closely with clinical, operational, compliance, and technology teams to drive initiatives related to risk adjustment, regulatory reporting, and value-based care programs.\n\nThe ideal candidate",
       "salary_min": null,
       "salary_max": null,
-      "source": "DailyRemote",
-      "listed": "",
-      "id": "job_senior_business_analyst_clinical_programs_cohere_health"
+      "source": "Dice",
+      "listed": "2026-06-15",
+      "id": "job_healthcare_payer_business_analyst_government_programs_risk_a"
     }
   ],
   "totalCount": 10,
-  "fetchedAt": "2026-06-17T16:29:47.234626"
+  "fetchedAt": "2026-06-18T07:17:58.654390"
 }
