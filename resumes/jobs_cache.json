@@ -49,16 +49,16 @@
       "id": "job_business_systems_analyst_iii_frontendnode_production_up_rail"
     },
     {
-      "title": "Senior Technical BA (SQL, Healthcare/Pharmacy, Claims Processing, SAS) |",
-      "company": "Samprasoft",
+      "title": "Product Owner III",
+      "company": "IDEMIA",
       "location": "Seattle, WA",
-      "url": "https://lensa.com/job-v1/samprasoft/remote/senior-technical-business-analyst/3cfd7674525a062eae98ec7a261c46a8",
-      "description": "Senior Technical Business Analyst\n\nPosition: Contract\n\nWork Location: Remote Position\n\nDescription:\n\nDo you want to impact decisions to help people live healthier lives? Are you an innovative Technical Business Analyst who thrives on developing new solutions to solve tough challenges?\n\nWe believe Business Analysis and Reporting (BAR) is critical to our advanced data and analytics efforts geared towards improving the healthcare system.\n\nThe Savings Logic Team (reporting under BAR) serves as an integrated enterprise capability that serves as the liaison between the business and technical teams.",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Lensa",
+      "url": "https://www.theladders.com/job/product-owner-iii-idemia-virtual-travel_86997410",
+      "description": "Responsibilities\n\nThe Product Owner drives product execution in a fast-paced environment where customer, business, and technical priorities must be balanced simultaneously. This role serves as a key bridge between Engineering, Project Management, Program Management, Operations, Client Success, and business stakeholders to ensure requirements are clear, priorities are well managed, and delivery stays aligned to customer commitments and product goals.\n\nThe Product Owner owns and prioritizes the product backlog, translating customer needs, business objectives, and technical input into clear requi",
+      "salary_min": 100000,
+      "salary_max": 130000,
+      "source": "Ladders",
       "listed": "",
-      "id": "job_senior_technical_ba_sql_healthcare_pharmacy_claims_processin"
+      "id": "job_product_owner_iii_idemia"
     },
     {
       "title": "Business Systems Analyst (Hybrid)",
@@ -110,5 +110,5 @@
     }
   ],
   "totalCount": 9,
-  "fetchedAt": "2026-06-23T11:01:32.630227"
+  "fetchedAt": "2026-06-23T11:03:07.783168"
 }
