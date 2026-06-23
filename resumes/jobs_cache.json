@@ -1,40 +1,64 @@
 {
   "jobs": [
     {
-      "title": "Oracle Fusion Cloud Sales and Service CRM Business Analyst(s)",
-      "company": "Acnovate Corporation",
+      "title": "Product Owner / Solution Architect \u2013 Provider Data & Data Quality- REMOTE",
+      "company": "frontendnode-production.up.railway.app",
       "location": "Seattle, WA",
-      "url": "https://www.dice.com/job-detail/7ac6c9cd-d8c2-4c5b-b718-55245a8bf30f",
-      "description": "Oracle Fusion Cloud Sales and Service CRM Business Analyst(s) associated with the project, as directed by the Client.\n\u2022 ******Canada role******\n\nThe scope of the services may include, but are not limited to:\n\u2022 Working jointly with the Oracle Fusion Cloud Sales and Service CRM Program team to ensure CRM concepts are leveraged with configuration where possible resulting in the delivery of quality software meeting the client requirements;\n\u2022 Conducting, leading, and supporting interviews and analysis with multiple stakeholders to gather user requirements, following the Client\u2019s Agile-Iterative met",
+      "url": "https://frontendnode-production.up.railway.app/job/product-owner-solution-architect-provider-data-data-quality-remote",
+      "description": "This a Full Remote job, the offer is available from: New York (USA)\n\nJob Summary\n\nWe are seeking a strategic and execution-oriented Product Owner / Solution Architect with deep health plan provider data expertise to lead the product strategy, roadmap execution, and cross-functional delivery of a modern provider data platform. This role will own the end-to-end product lifecycle for the organization's provider data ecosystem \u2014 establishing a scalable \"system of truth,\u201d driving API-enabled modernization, and implementing a formal provider data quality and governance program. The ideal candidate c",
       "salary_min": null,
       "salary_max": null,
-      "source": "Dice",
-      "listed": "2026-06-15",
-      "id": "job_oracle_fusion_cloud_sales_and_service_crm_business_analyst_s"
+      "source": "Frontendnode-Production.up.railway.app - Railway",
+      "listed": "2026-06-20",
+      "id": "job_product_owner_solution_architect_provider_data_data_quality_"
     },
     {
-      "title": "Product Owner III",
-      "company": "IDEMIA",
+      "title": "Senior Business Systems Analyst",
+      "company": "frontendnode-production.up.railway.app",
       "location": "Seattle, WA",
-      "url": "https://www.theladders.com/job/product-owner-iii-idemia-virtual-travel_86997410",
-      "description": "Responsibilities\n\nThe Product Owner drives product execution in a fast-paced environment where customer, business, and technical priorities must be balanced simultaneously. This role serves as a key bridge between Engineering, Project Management, Program Management, Operations, Client Success, and business stakeholders to ensure requirements are clear, priorities are well managed, and delivery stays aligned to customer commitments and product goals.\n\nThe Product Owner owns and prioritizes the product backlog, translating customer needs, business objectives, and technical input into clear requi",
-      "salary_min": 100000,
-      "salary_max": 130000,
-      "source": "Ladders",
-      "listed": "2026-05-21",
-      "id": "job_product_owner_iii_idemia"
-    },
-    {
-      "title": "Senior ServiceNow Business Analyst / Project Manager",
-      "company": "careersprint",
-      "location": "Seattle, WA",
-      "url": "https://careersprint.7f.liveblog365.com/job/2454632",
-      "description": "Leidos is seeking an experienced Senior ServiceNow Business Analyst / Project Manager / Coordinator to lead and support ServiceNow platform initiatives across multiple business functions. This role combines business analysis, project management, stakeholder engagement, and coordination responsibilities to ensure successful delivery of ServiceNow solutions that align with organizational objectives.\u00a0The ideal candidate possesses strong ServiceNow platform knowledge, exceptional communication skills, and the ability to manage projects from requirements gathering through implementation, testing, d",
+      "url": "https://frontendnode-production.up.railway.app/job/senior-business-systems-analyst-6",
+      "description": "Does data excite you?\n\nDo you have a passion for using data to make effective business decisions?\n\nJoin our best-in-class Data Engineering and Analytics team!\n\nOur Data Engineering team democratizes data across Akamai to promote a data-driven culture. We transform data into insights built on fast, accurate, and secure analytics.\n\nPartner with the best\n\nA Senior Business Systems Analyst analyzes, designs, and implements processes to improve efficiency and support business success. This role involves collaborating with stakeholders across departments to understand needs, gather requirements, and",
       "salary_min": null,
       "salary_max": null,
-      "source": "CareerSprint",
-      "listed": "2026-06-14",
-      "id": "job_senior_servicenow_business_analyst_project_manager_careerspr"
+      "source": "Frontendnode-Production.up.railway.app - Railway",
+      "listed": "2026-06-19",
+      "id": "job_senior_business_systems_analyst_frontendnode_production_up_r"
+    },
+    {
+      "title": "[Remote] (US) Sr. Business Analyst (6 month contract)",
+      "company": "frontendnode-production.up.railway.app",
+      "location": "Seattle, WA",
+      "url": "https://frontendnode-production.up.railway.app/job/remote-us-sr-business-analyst-6-month-contract",
+      "description": "Note: The job is a remote job and is open to candidates in USA. PointClickCare is a leading health tech company focused on empowering providers to deliver exceptional care. The Sr. Business Analyst will support strategic initiatives by analyzing business needs, designing business processes, and collaborating with stakeholders to enhance data management and system integration.\n\nResponsibilities\n\u2022 Capture data, technical integration requirements and develop data flow diagrams, data dictionaries, data mapping, entity relationship diagrams and \u2018To-be\u2019/\u2019As-Is\u2019 process flow diagrams\n\u2022 Facilitate int",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Frontendnode-Production.up.railway.app - Railway",
+      "listed": "2026-06-21",
+      "id": "job_remote_us_sr_business_analyst_6_month_contract_frontendnode_"
+    },
+    {
+      "title": "Business Systems Analyst III",
+      "company": "frontendnode-production.up.railway.app",
+      "location": "Seattle, WA",
+      "url": "https://frontendnode-production.up.railway.app/job/business-systems-analyst-iii-2",
+      "description": "Are you ready to join a growing team?\n\nCTG is seeking a Business Systems Analyst III to support enterprise technology governance initiatives, with a strong focus on API governance, business analysis, requirements gathering, testing, and stakeholder collaboration. This role will work closely with business leaders, technology teams, cybersecurity, architecture, risk management, and software engineering groups to define standards, facilitate projects, and ensure compliance with governance policies and regulatory requirements.\n\nLocation: RemoteDuration: 12 Months\nKey Responsibilities\nSupport and e",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Frontendnode-Production.up.railway.app - Railway",
+      "listed": "2026-06-19",
+      "id": "job_business_systems_analyst_iii_frontendnode_production_up_rail"
+    },
+    {
+      "title": "Senior Technical BA (SQL, Healthcare/Pharmacy, Claims Processing, SAS) |",
+      "company": "Samprasoft",
+      "location": "Seattle, WA",
+      "url": "https://lensa.com/job-v1/samprasoft/remote/senior-technical-business-analyst/3cfd7674525a062eae98ec7a261c46a8",
+      "description": "Senior Technical Business Analyst\n\nPosition: Contract\n\nWork Location: Remote Position\n\nDescription:\n\nDo you want to impact decisions to help people live healthier lives? Are you an innovative Technical Business Analyst who thrives on developing new solutions to solve tough challenges?\n\nWe believe Business Analysis and Reporting (BAR) is critical to our advanced data and analytics efforts geared towards improving the healthcare system.\n\nThe Savings Logic Team (reporting under BAR) serves as an integrated enterprise capability that serves as the liaison between the business and technical teams.",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Lensa",
+      "listed": "",
+      "id": "job_senior_technical_ba_sql_healthcare_pharmacy_claims_processin"
     },
     {
       "title": "Business Systems Analyst (Hybrid)",
@@ -49,42 +73,6 @@
       "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
     },
     {
-      "title": "Business System Analyst II / Data Analyst",
-      "company": "careersprint",
-      "location": "Seattle, WA",
-      "url": "https://careersprint.7f.liveblog365.com/job/2214423",
-      "description": "About Us The North Carolina Department of Health and Human Services (DHHS) is one of the largest and most complex agencies within the state, employing approximately 17,000 dedicated professionals. Its primary mission is to ensure the health, safety, and well-being of all North Carolinians through comprehensive human services. The department provides vital support to special populations, including individuals who are deaf, blind, developmentally disabled, or mentally ill. Additionally, DHHS plays a crucial role in assisting economically disadvantaged residents to achieve independence, thereby f",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "CareerSprint",
-      "listed": "2026-06-13",
-      "id": "job_business_system_analyst_ii_data_analyst_careersprint"
-    },
-    {
-      "title": "Engineering Business Analyst",
-      "company": "APTIM",
-      "location": "Seattle, WA",
-      "url": "https://www.linkedin.com/jobs/view/engineering-business-analyst-at-aptim-4428614615?position=56&pageNum=0&refId=0dcCo6NNQ2WigReae%2Bx8Ww%3D%3D&trackingId=Atrg2iIU2iTnvIfgLIPiPw%3D%3D",
-      "description": "Job Overview\n\nWe are seeking a highly motivated and technically adept Engineering Business Analyst to support our Engineering and GIS teams in optimizing and evolving our application ecosystem. This role will serve as a critical bridge between business stakeholders and IT, helping define the strategy, roadmap, and effective utilization of engineering and geospatial applications. The Engineering Business Analyst will partner across business lines to understand needs, support implementations, and continuously enhance system functionality.\n\nKey Responsibilities/Accountabilities\n\n\u2022 Serve as the pr",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "LinkedIn",
-      "listed": "2026-06-14",
-      "id": "job_engineering_business_analyst_aptim"
-    },
-    {
-      "title": "IT - Enterprise Platforms Admin - Technical Product Owner (Remote in CA only)",
-      "company": "Golden 1",
-      "location": "Seattle, WA",
-      "url": "https://www.theladders.com/job/it-enterprise-platforms-admin-technical-product-owner-remote-in-ca-only-golden-1-virtual-travel_87169415",
-      "description": "TITLE: Technical Product Owner\nSTATUS: Exempt\nREPORTS TO: Director - Enterprise Core Banking and Engineering\nDEPARTMENT: Enterprise Platforms Admin\nJOB CODE:11190\n\nPAY SCALE: $112,200.00 - $125,000.00 Annually\n\nGENERAL DESCRIPTION:\n\nThe Technical Product Owner will be responsible for developing and executing a comprehensive approach to deliver one or more major products, capabilities, services, or\u00a0enhancements in accordance with the product roadmap. This role works with Program Managers, Business Leaders, and a cross-functional Scrum team to deliver the product. Manages the overall effort to d",
-      "salary_min": 112000,
-      "salary_max": 125000,
-      "source": "Ladders",
-      "listed": "2026-06-04",
-      "id": "job_it_enterprise_platforms_admin_technical_product_owner_remote"
-    },
-    {
       "title": "Business Analyst Manager",
       "company": "Sprezzatura",
       "location": "Seattle, WA",
@@ -93,7 +81,7 @@
       "salary_min": 85000,
       "salary_max": 105000,
       "source": "JobLeads",
-      "listed": "2026-06-10",
+      "listed": "2026-06-17",
       "id": "job_business_analyst_manager_sprezzatura"
     },
     {
@@ -109,18 +97,18 @@
       "id": "job_business_systems_analyst_project_management_platforms_merito"
     },
     {
-      "title": "Healthcare Payer Business Analyst - Government Programs/Risk Adjustment",
-      "company": "People Force Consulting Inc",
+      "title": "Business Analyst \u2013 6-Month Project (with Possible Extension)",
+      "company": "frontendnode-production.up.railway.app",
       "location": "Seattle, WA",
-      "url": "https://www.dice.com/job-detail/67ea6b8f-523c-4689-beae-e4e7358ddcd2",
-      "description": "Business Analyst (Healthcare Payer Government Programs/Risk Adjustment)\n\nTentative duration - 06 Months with Possible extension\n\nREMOTE (EST candidates strongly preferred)\n\nPosition Summary\n\nWe are seeking an experienced Business Analyst to support strategic and operational initiatives for a health plan focused on government lines of business (Medicaid, Medicare, and ACA Exchange). This role will partner closely with clinical, operational, compliance, and technology teams to drive initiatives related to risk adjustment, regulatory reporting, and value-based care programs.\n\nThe ideal candidate",
+      "url": "https://frontendnode-production.up.railway.app/job/business-analyst-6-month-project-with-possible-extension",
+      "description": "Business Analyst \u2013 6-Month Project (with Possible Extension)\n\nCountry: Poland | Work Location: Remotely\n\nSalary: 21 500 \u2013 26 500 PLN + VAT on B2B\n\nWe are looking for a Business Analyst for our multinational client, who specializes in developing marketplaces and systems aimed at lowering the costs of IT products. They emphasize transparency, price comparison, and real-time delivery options.\n\nThis is a 6-month project with a high likelihood of extension!\n\nResponsibilities\n\u2022 As Business Analyst you will be reverse-engineering business logic and workflows from the legacy system, carefully analyzin",
       "salary_min": null,
       "salary_max": null,
-      "source": "Dice",
-      "listed": "2026-06-15",
-      "id": "job_healthcare_payer_business_analyst_government_programs_risk_a"
+      "source": "Frontendnode-Production.up.railway.app - Railway",
+      "listed": "2026-06-19",
+      "id": "job_business_analyst_6_month_project_with_possible_extension_fro"
     }
   ],
-  "totalCount": 10,
-  "fetchedAt": "2026-06-18T07:17:58.654390"
+  "totalCount": 9,
+  "fetchedAt": "2026-06-23T11:01:32.630227"
 }
