@@ -1,56 +1,49 @@
 {
   "resume_job_01": {
-    "title": "Business Analyst \u2013 Technical / Financial",
-    "company": "ICONMA",
-    "changed": true,
-    "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
-    "new_summary": "Senior Technical Business Analyst with 12+ years in financial data platforms, enterprise analytics, and stakeholder-driven decision support \u2014 spanning LSEG, Refinitiv, and Aon. Expert in SQL, Power BI, and data governance on Snowflake and AWS, with a track record of translating financial requirements into scalable, governed data solutions."
-  },
-  "resume_job_02": {
     "title": "Business Analyst \u2013 Technical Writer",
     "company": "LTS",
     "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
-  "resume_job_03": {
+  "resume_job_02": {
     "title": "Senior Technical BA (SQL, Healthcare/Pharmacy, Claims Processing, SAS) |",
     "company": "Samprasoft",
     "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
+  "resume_job_03": {
+    "title": "Principal Business Systems Analyst - Pathology & Lab Tech Solutions",
+    "company": "MD Anderson",
+    "changed": false,
+    "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
+    "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
+  },
   "resume_job_04": {
-    "title": "Business Systems Analyst (Hybrid)",
-    "company": "Lower Colorado River Authority",
+    "title": "Gabriele Consulting Group - Senior Business Analyst / IT Project Manager",
+    "company": "Trinity Park Talent Opportunities",
     "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
   "resume_job_05": {
-    "title": "Workday PMO & Solution Architect",
-    "company": "ECLARO",
-    "changed": false,
-    "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
-    "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
-  },
-  "resume_job_06": {
     "title": "Lead System Analyst",
     "company": "HMSA",
     "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
-  "resume_job_07": {
-    "title": "Information Technology Business Analyst III",
-    "company": "Texas Alcoholic Beverage Commission",
+  "resume_job_06": {
+    "title": "Business Systems Analyst \u2013 Project Management Platforms",
+    "company": "Meriton",
     "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
-  "resume_job_08": {
-    "title": "Business Systems Analyst \u2013 Project Management Platforms",
-    "company": "Meriton",
+  "resume_job_07": {
+    "title": "Business Analyst, US Payroll (Hybrid)",
+    "company": "RTX",
     "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."

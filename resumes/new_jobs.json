@@ -1,5 +1,96 @@
 {
+<<<<<<< Updated upstream
   "jobs": [],
   "totalCount": 0,
   "fetchedAt": "2026-07-02T18:05:04.859363"
+=======
+  "jobs": [
+    {
+      "title": "Business Analyst \u2013 Technical Writer",
+      "company": "LTS",
+      "location": "Seattle, WA",
+      "url": "https://www.remoterocketship.com/us/company/lts/jobs/business-analyst-technical-writer-united-states-remote/",
+      "description": "Job Description:\n\u2022 Able to function as subject matter expert in order to collect complete and accurate business requirements from business SMEs by means of interviews, workflow analyses, and facilitated discussions.\n\u2022 Understand the client\u2019s business issues and challenges.\n\u2022 Translate users' business needs into detailed epics, user stories, and requirements.\n\u2022 Analyze, review, and document the requirements of a project throughout the lifecycle.\n\u2022 Complete functional analysis of requirements as needed.\n\u2022 Conduct research, analyze information needs, and perform analysis to support the delivery o",
+      "salary_min": 80000,
+      "salary_max": 85000,
+      "source": "Remote Rocketship",
+      "listed": "",
+      "id": "job_business_analyst_technical_writer_lts"
+    },
+    {
+      "title": "Senior Technical BA (SQL, Healthcare/Pharmacy, Claims Processing, SAS) |",
+      "company": "Samprasoft",
+      "location": "Seattle, WA",
+      "url": "https://lensa.com/job-v1/samprasoft/remote/senior-technical-business-analyst/3cfd7674525a062eae98ec7a261c46a8",
+      "description": "Senior Technical Business Analyst\n\nPosition: Contract\n\nWork Location: Remote Position\n\nDescription:\n\nDo you want to impact decisions to help people live healthier lives? Are you an innovative Technical Business Analyst who thrives on developing new solutions to solve tough challenges?\n\nWe believe Business Analysis and Reporting (BAR) is critical to our advanced data and analytics efforts geared towards improving the healthcare system.\n\nThe Savings Logic Team (reporting under BAR) serves as an integrated enterprise capability that serves as the liaison between the business and technical teams.",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Lensa",
+      "listed": "",
+      "id": "job_senior_technical_ba_sql_healthcare_pharmacy_claims_processin"
+    },
+    {
+      "title": "Principal Business Systems Analyst - Pathology & Lab Tech Solutions",
+      "company": "MD Anderson",
+      "location": "Seattle, WA",
+      "url": "https://www.monster.com/job-openings/principal-business-systems-analyst-pathology-lab-tech-solutions-houston-tx--5c0f5449-44d9-428b-817a-fd81139d156b",
+      "description": "The Principal Business Systems Analyst supports the Pathology & Laboratory Technology Solutions (PALTS) team by applying advanced systems knowledge to deliver effective technology solutions for pathology and laboratory operations. The Principal Business Systems Analyst works closely with clinical, operational, and Information Services partners to ensure systems align with workflows, quality standards, and organizational goals.\nThe Principal Business Systems Analyst will engage in project planning, solution design, issue resolution, and process improvement initiatives that influence multiple cl",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Monster",
+      "listed": "",
+      "id": "job_principal_business_systems_analyst_pathology_lab_tech_soluti"
+    },
+    {
+      "title": "Gabriele Consulting Group - Senior Business Analyst / IT Project Manager",
+      "company": "Trinity Park Talent Opportunities",
+      "location": "Seattle, WA",
+      "url": "https://dailyremote.com/remote-job/gabriele-consulting-group-senior-business-analyst-it-project-manager-5085376",
+      "description": "Gabriele Consulting Group is now hiring an early to mid-career Senior Business Analyst / Project Manager to support long-term projects for our clients. This is a great opportunity for someone who has 5 to 7 years of post-graduate experience in business analysis, project management, and/or management consulting.\n\nIf you have less than 5 years of experience, please see our job posting for a Business Analyst / Project Manager that requires only 2 years of experience, which can include internships and relevant experience gained during college.\n\nAbout GCG\n\nFor more than 20 years, Gabriele Consultin",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "DailyRemote",
+      "listed": "2026-06-02",
+      "id": "job_gabriele_consulting_group_senior_business_analyst_it_project"
+    },
+    {
+      "title": "Lead System Analyst",
+      "company": "HMSA",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/lead-system-analyst_7ea1a33f521e0b9194b0269515162d9f7f3ec",
+      "description": "About the position\n\nThe Lead System Analyst will lead project staff and subject matter experts in the planning and implementation of project and sub-project work efforts. This role involves leading, coordinating, facilitating, and participating in cross-functional teams to plan and complete complex corporate projects. The analyst will bring a whole-company perspective to ensure the delivery of holistic department and/or corporate solutions, and provide documentation and training on data elements, systems, or analytic methodologies. The position also requires managing ongoing project dynamics f",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "2026-06-25",
+      "id": "job_lead_system_analyst_hmsa"
+    },
+    {
+      "title": "Business Systems Analyst \u2013 Project Management Platforms",
+      "company": "Meriton",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/business-systems-analyst-project-management-platforms_7ea1a6b9fd092d4b7e7086a4a544e71dcfd7a",
+      "description": "About the position\n\nProject Ignite is a large-scale enterprise transformation program uniting 20+ operating companies onto a single Microsoft Dynamics 365 Finance & Operations and Project Operations platform. We are building a deployment factory designed to roll out several entities per year \u2014 from common-stack migrations to mid-complexity entities with distinct operational models, service delivery structures, and customer-facing workflows. As a Business Systems Analyst on the Project Management Platforms workstream, you sit at the intersection of some of the most operationally complex stakeho",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "2026-06-12",
+      "id": "job_business_systems_analyst_project_management_platforms_merito"
+    },
+    {
+      "title": "Business Analyst, US Payroll (Hybrid)",
+      "company": "RTX",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/business-analyst-us-payroll_7ea1a7fd3de7c16bcfd50f40a25c3183bf414",
+      "description": "About the position\n\nThe US Payroll organization is seeking a Business Analyst to lead high-impact system enhancements, payroll data analysis, regulatory/process-driven changes, and cross-functional projects supporting payroll accuracy, compliance, and operational efficiency. This senior individual contributor role acts as a project lead, systems analyst, and problem-solver, partnering with US Payroll leadership, HR, Finance, Timekeeping, and technical teams to deliver high quality payroll solutions.\n\nResponsibilities\n\u2022 Lead and coordinate complex US Payroll projects and operational initiatives",
+      "salary_min": 108000,
+      "salary_max": 204000,
+      "source": "Teal",
+      "listed": "2026-06-03",
+      "id": "job_business_analyst_us_payroll_hybrid_rtx"
+    }
+  ],
+  "totalCount": 7,
+  "fetchedAt": "2026-07-02T18:05:27.419419"
+>>>>>>> Stashed changes
 }

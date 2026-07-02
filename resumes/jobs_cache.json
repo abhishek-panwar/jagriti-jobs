@@ -1,18 +1,6 @@
 {
   "jobs": [
     {
-      "title": "Business Analyst \u2013 Technical / Financial",
-      "company": "ICONMA",
-      "location": "Seattle, WA",
-      "url": "https://jobgether.com/offer/6a36418d63c956434a800e1a-business-analyst---technical-financial",
-      "description": "This a Full Remote job, the offer is available from: California (USA)\nOur Client, a Leading Provider of Healthcare Delivery Systems and Solutions company, is looking for a Business Analyst \u2013 Technical / Financial for their Remote location.\n\nResponsibilities:\n\n\u2022 Gather, analyze, document, and maintain requirements from government stakeholders, SMEs, technical teams, data services, cybersecurity, testing, product support, and program leadership.\n\n\u2022 Support requirements definition for a rapid, AI-enabled healthcare-readiness application prototype.\n\n\u2022 Translate stakeholder needs into clear busines",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Jobgether",
-      "listed": "2026-06-20",
-      "id": "job_business_analyst_technical_financial_iconma"
-    },
-    {
       "title": "Business Analyst \u2013 Technical Writer",
       "company": "LTS",
       "location": "Seattle, WA",
@@ -37,28 +25,28 @@
       "id": "job_senior_technical_ba_sql_healthcare_pharmacy_claims_processin"
     },
     {
-      "title": "Business Systems Analyst (Hybrid)",
-      "company": "Lower Colorado River Authority",
+      "title": "Principal Business Systems Analyst - Pathology & Lab Tech Solutions",
+      "company": "MD Anderson",
       "location": "Seattle, WA",
-      "url": "https://www.tealhq.com/job/business-systems-analyst_7ea1a16b70ddb3e41d0125e1e70a466dc154f",
-      "description": "About the position\nThe Project Controls team within LCRA's Project Management Office is seeking a\\nBusiness Analyst to support the growth of projects within our portfolio. This\\nrole offers the opportunity to support a rapidly growing portion of LCRA's\\nbusiness by using project financial and schedule data to shape the way we\\ncommunicate to customers and how we use their data. If you've got a curiosity\\nand drive to explore data for understanding, the business sense to create\\nmeaningful visualizations, and enjoy being part of a team developing tools that\\nenable the success of others, we'd l",
+      "url": "https://www.monster.com/job-openings/principal-business-systems-analyst-pathology-lab-tech-solutions-houston-tx--5c0f5449-44d9-428b-817a-fd81139d156b",
+      "description": "The Principal Business Systems Analyst supports the Pathology & Laboratory Technology Solutions (PALTS) team by applying advanced systems knowledge to deliver effective technology solutions for pathology and laboratory operations. The Principal Business Systems Analyst works closely with clinical, operational, and Information Services partners to ensure systems align with workflows, quality standards, and organizational goals.\nThe Principal Business Systems Analyst will engage in project planning, solution design, issue resolution, and process improvement initiatives that influence multiple cl",
       "salary_min": null,
       "salary_max": null,
-      "source": "Teal",
+      "source": "Monster",
       "listed": "",
-      "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
+      "id": "job_principal_business_systems_analyst_pathology_lab_tech_soluti"
     },
     {
-      "title": "Workday PMO & Solution Architect",
-      "company": "ECLARO",
+      "title": "Gabriele Consulting Group - Senior Business Analyst / IT Project Manager",
+      "company": "Trinity Park Talent Opportunities",
       "location": "Seattle, WA",
-      "url": "https://www.linkedin.com/jobs/view/workday-pmo-solution-architect-at-eclaro-4378541854",
-      "description": "Job Number: 26-00364\n\nDo you want to work where innovation drives business? ECLARO is looking for a Workday PMO & Solution Architect for our client in Melville, NY.\n\nECLARO\u2019s client ranks in the Top 5 Companies awarded US patents annually, and is known worldwide as a leader in the technology industry. If you\u2019re up to the challenge, then take a chance at this rewarding opportunity!\n\nResponsibilities:\n\n\u2022 Perform Root Cause Analysis, Visualization& Corrective Action\n\u2022 Go beyond surface-level assessments to identify and visualize the root causes of delays in timelines and deliverables\n\u2022 Make compl",
+      "url": "https://dailyremote.com/remote-job/gabriele-consulting-group-senior-business-analyst-it-project-manager-5085376",
+      "description": "Gabriele Consulting Group is now hiring an early to mid-career Senior Business Analyst / Project Manager to support long-term projects for our clients. This is a great opportunity for someone who has 5 to 7 years of post-graduate experience in business analysis, project management, and/or management consulting.\n\nIf you have less than 5 years of experience, please see our job posting for a Business Analyst / Project Manager that requires only 2 years of experience, which can include internships and relevant experience gained during college.\n\nAbout GCG\n\nFor more than 20 years, Gabriele Consultin",
       "salary_min": null,
       "salary_max": null,
-      "source": "LinkedIn",
-      "listed": "2026-07-02",
-      "id": "job_workday_pmo_solution_architect_eclaro"
+      "source": "DailyRemote",
+      "listed": "2026-06-02",
+      "id": "job_gabriele_consulting_group_senior_business_analyst_it_project"
     },
     {
       "title": "Lead System Analyst",
@@ -73,18 +61,6 @@
       "id": "job_lead_system_analyst_hmsa"
     },
     {
-      "title": "Information Technology Business Analyst III",
-      "company": "Texas Alcoholic Beverage Commission",
-      "location": "Seattle, WA",
-      "url": "https://www.tealhq.com/job/information-technology-business-analyst-iii_7ea1a2bb3ba0ef60dc00c2c499871225c244b",
-      "description": "About the position\n\nSupport the Project Management Office (PMO) and the PMO Manager in effectively facilitating the management of projects through the various project management phases and stages within the Systems Development Life Cycle (SDLC) to include initiation, planning, execution, and monitoring and controlling and closing projects. This role involves managing project management teams, coordinating project activities, managing resources, and ensuring projects are delivered on time, within scope, and within budget. Collaborates with cross-functional teams to achieve project objectives wh",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Teal",
-      "listed": "",
-      "id": "job_information_technology_business_analyst_iii_texas_alcoholic_"
-    },
-    {
       "title": "Business Systems Analyst \u2013 Project Management Platforms",
       "company": "Meriton",
       "location": "Seattle, WA",
@@ -95,8 +71,20 @@
       "source": "Teal",
       "listed": "2026-06-12",
       "id": "job_business_systems_analyst_project_management_platforms_merito"
+    },
+    {
+      "title": "Business Analyst, US Payroll (Hybrid)",
+      "company": "RTX",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/business-analyst-us-payroll_7ea1a7fd3de7c16bcfd50f40a25c3183bf414",
+      "description": "About the position\n\nThe US Payroll organization is seeking a Business Analyst to lead high-impact system enhancements, payroll data analysis, regulatory/process-driven changes, and cross-functional projects supporting payroll accuracy, compliance, and operational efficiency. This senior individual contributor role acts as a project lead, systems analyst, and problem-solver, partnering with US Payroll leadership, HR, Finance, Timekeeping, and technical teams to deliver high quality payroll solutions.\n\nResponsibilities\n\u2022 Lead and coordinate complex US Payroll projects and operational initiatives",
+      "salary_min": 108000,
+      "salary_max": 204000,
+      "source": "Teal",
+      "listed": "2026-06-03",
+      "id": "job_business_analyst_us_payroll_hybrid_rtx"
     }
   ],
-  "totalCount": 8,
-  "fetchedAt": "2026-07-02T18:04:25.509357"
+  "totalCount": 7,
+  "fetchedAt": "2026-07-02T18:05:27.419419"
 }
