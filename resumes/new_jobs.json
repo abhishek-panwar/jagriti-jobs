@@ -1,6 +1,7 @@
 {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "jobs": [],
   "totalCount": 0,
   "fetchedAt": "2026-07-02T18:05:04.859363"
@@ -10,6 +11,10 @@
 =======
   "jobs": [
     {
+=======
+  "jobs": [
+    {
+>>>>>>> Stashed changes
       "title": "Business Analyst \u2013 Technical / Financial",
       "company": "ICONMA",
       "location": "Seattle, WA",
@@ -22,6 +27,9 @@
       "id": "job_business_analyst_technical_financial_iconma"
     },
     {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       "title": "Business Analyst \u2013 Technical Writer",
       "company": "LTS",
@@ -60,6 +68,18 @@
 >>>>>>> Stashed changes
     },
     {
+      "title": "Business Systems Analyst (Hybrid)",
+      "company": "Lower Colorado River Authority",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/business-systems-analyst_7ea1a16b70ddb3e41d0125e1e70a466dc154f",
+      "description": "About the position\nThe Project Controls team within LCRA's Project Management Office is seeking a\\nBusiness Analyst to support the growth of projects within our portfolio. This\\nrole offers the opportunity to support a rapidly growing portion of LCRA's\\nbusiness by using project financial and schedule data to shape the way we\\ncommunicate to customers and how we use their data. If you've got a curiosity\\nand drive to explore data for understanding, the business sense to create\\nmeaningful visualizations, and enjoy being part of a team developing tools that\\nenable the success of others, we'd l",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "",
+      "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
+    },
+    {
       "title": "Principal Business Systems Analyst - Pathology & Lab Tech Solutions",
       "company": "MD Anderson",
       "location": "Seattle, WA",
@@ -72,6 +92,7 @@
       "id": "job_principal_business_systems_analyst_pathology_lab_tech_soluti"
     },
     {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
       "title": "Gabriele Consulting Group - Senior Business Analyst / IT Project Manager",
       "company": "Trinity Park Talent Opportunities",
@@ -97,6 +118,8 @@
 >>>>>>> Stashed changes
     },
     {
+=======
+>>>>>>> Stashed changes
       "title": "Lead System Analyst",
       "company": "HMSA",
       "location": "Seattle, WA",
@@ -120,6 +143,7 @@
       "listed": "2026-06-12",
       "id": "job_business_systems_analyst_project_management_platforms_merito"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     },
     {
       "title": "Business Analyst, US Payroll (Hybrid)",
@@ -142,5 +166,11 @@
   ],
   "totalCount": 7,
   "fetchedAt": "2026-07-02T18:05:50.780573"
+>>>>>>> Stashed changes
+=======
+    }
+  ],
+  "totalCount": 7,
+  "fetchedAt": "2026-07-02T18:06:11.296740"
 >>>>>>> Stashed changes
 }

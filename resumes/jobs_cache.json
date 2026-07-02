@@ -1,6 +1,18 @@
 {
   "jobs": [
     {
+      "title": "Business Analyst \u2013 Technical / Financial",
+      "company": "ICONMA",
+      "location": "Seattle, WA",
+      "url": "https://jobgether.com/offer/6a36418d63c956434a800e1a-business-analyst---technical-financial",
+      "description": "This a Full Remote job, the offer is available from: California (USA)\nOur Client, a Leading Provider of Healthcare Delivery Systems and Solutions company, is looking for a Business Analyst \u2013 Technical / Financial for their Remote location.\n\nResponsibilities:\n\n\u2022 Gather, analyze, document, and maintain requirements from government stakeholders, SMEs, technical teams, data services, cybersecurity, testing, product support, and program leadership.\n\n\u2022 Support requirements definition for a rapid, AI-enabled healthcare-readiness application prototype.\n\n\u2022 Translate stakeholder needs into clear busines",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Jobgether",
+      "listed": "2026-06-20",
+      "id": "job_business_analyst_technical_financial_iconma"
+    },
+    {
       "title": "Business Analyst \u2013 Technical Writer",
       "company": "LTS",
       "location": "Seattle, WA",
@@ -26,6 +38,18 @@
       "id": "job_senior_technical_ba_sql_healthcare_pharmacy_claims_processin"
     },
     {
+      "title": "Business Systems Analyst (Hybrid)",
+      "company": "Lower Colorado River Authority",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/business-systems-analyst_7ea1a16b70ddb3e41d0125e1e70a466dc154f",
+      "description": "About the position\nThe Project Controls team within LCRA's Project Management Office is seeking a\\nBusiness Analyst to support the growth of projects within our portfolio. This\\nrole offers the opportunity to support a rapidly growing portion of LCRA's\\nbusiness by using project financial and schedule data to shape the way we\\ncommunicate to customers and how we use their data. If you've got a curiosity\\nand drive to explore data for understanding, the business sense to create\\nmeaningful visualizations, and enjoy being part of a team developing tools that\\nenable the success of others, we'd l",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "",
+      "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
+    },
+    {
       "title": "Principal Business Systems Analyst - Pathology & Lab Tech Solutions",
       "company": "MD Anderson",
 =======
@@ -42,6 +66,7 @@
       "id": "job_principal_business_systems_analyst_pathology_lab_tech_soluti"
     },
     {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
       "title": "Gabriele Consulting Group - Senior Business Analyst / IT Project Manager",
       "company": "Trinity Park Talent Opportunities",
@@ -71,6 +96,8 @@
       "id": "job_gabriele_consulting_group_senior_business_analyst_it_project"
     },
     {
+=======
+>>>>>>> Stashed changes
       "title": "Lead System Analyst",
       "company": "HMSA",
       "location": "Seattle, WA",
@@ -93,24 +120,16 @@
       "source": "Teal",
       "listed": "2026-06-12",
       "id": "job_business_systems_analyst_project_management_platforms_merito"
-    },
-    {
-      "title": "Business Analyst, US Payroll (Hybrid)",
-      "company": "RTX",
-      "location": "Seattle, WA",
-      "url": "https://www.tealhq.com/job/business-analyst-us-payroll_7ea1a7fd3de7c16bcfd50f40a25c3183bf414",
-      "description": "About the position\n\nThe US Payroll organization is seeking a Business Analyst to lead high-impact system enhancements, payroll data analysis, regulatory/process-driven changes, and cross-functional projects supporting payroll accuracy, compliance, and operational efficiency. This senior individual contributor role acts as a project lead, systems analyst, and problem-solver, partnering with US Payroll leadership, HR, Finance, Timekeeping, and technical teams to deliver high quality payroll solutions.\n\nResponsibilities\n\u2022 Lead and coordinate complex US Payroll projects and operational initiatives",
-      "salary_min": 108000,
-      "salary_max": 204000,
-      "source": "Teal",
-      "listed": "2026-06-03",
-      "id": "job_business_analyst_us_payroll_hybrid_rtx"
     }
   ],
   "totalCount": 7,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "fetchedAt": "2026-07-02T18:05:27.419419"
 =======
   "fetchedAt": "2026-07-02T18:05:50.780573"
+>>>>>>> Stashed changes
+=======
+  "fetchedAt": "2026-07-02T18:06:11.296740"
 >>>>>>> Stashed changes
 }
