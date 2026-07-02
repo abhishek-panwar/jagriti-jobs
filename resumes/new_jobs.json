@@ -7,6 +7,9 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -41,6 +44,18 @@
       "id": "job_business_analyst_technical_writer_lts"
     },
     {
+      "title": "Senior Technical BA (SQL, Healthcare/Pharmacy, Claims Processing, SAS) |",
+      "company": "Samprasoft",
+      "location": "Seattle, WA",
+      "url": "https://lensa.com/job-v1/samprasoft/remote/senior-technical-business-analyst/3cfd7674525a062eae98ec7a261c46a8",
+      "description": "Senior Technical Business Analyst\n\nPosition: Contract\n\nWork Location: Remote Position\n\nDescription:\n\nDo you want to impact decisions to help people live healthier lives? Are you an innovative Technical Business Analyst who thrives on developing new solutions to solve tough challenges?\n\nWe believe Business Analysis and Reporting (BAR) is critical to our advanced data and analytics efforts geared towards improving the healthcare system.\n\nThe Savings Logic Team (reporting under BAR) serves as an integrated enterprise capability that serves as the liaison between the business and technical teams.",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Lensa",
+      "listed": "",
+      "id": "job_senior_technical_ba_sql_healthcare_pharmacy_claims_processin"
+    },
+    {
       "title": "Business Systems Analyst (Hybrid)",
       "company": "Lower Colorado River Authority",
       "location": "Seattle, WA",
@@ -65,6 +80,7 @@
       "id": "job_principal_business_systems_analyst_pathology_lab_tech_soluti"
     },
     {
+<<<<<<< Updated upstream
       "title": "Workday PMO & Solution Architect",
       "company": "ECLARO",
       "location": "Seattle, WA",
@@ -77,6 +93,8 @@
       "id": "job_workday_pmo_solution_architect_eclaro"
     },
     {
+=======
+>>>>>>> Stashed changes
       "title": "Lead System Analyst",
       "company": "HMSA",
       "location": "Seattle, WA",
@@ -101,6 +119,7 @@
       "id": "job_business_systems_analyst_project_management_platforms_merito"
     }
   ],
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   "totalCount": 8,
 <<<<<<< Updated upstream
@@ -143,5 +162,9 @@
   "jobs": [],
   "totalCount": 0,
   "fetchedAt": "2026-07-02T18:09:03.236103"
+>>>>>>> Stashed changes
+=======
+  "totalCount": 7,
+  "fetchedAt": "2026-07-02T18:09:15.570170"
 >>>>>>> Stashed changes
 }
