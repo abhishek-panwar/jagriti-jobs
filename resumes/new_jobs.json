@@ -6,6 +6,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 >>>>>>> Stashed changes
 =======
@@ -137,5 +138,10 @@
 =======
   "totalCount": 7,
   "fetchedAt": "2026-07-02T18:08:50.340030"
+>>>>>>> Stashed changes
+=======
+  "jobs": [],
+  "totalCount": 0,
+  "fetchedAt": "2026-07-02T18:09:03.236103"
 >>>>>>> Stashed changes
 }
