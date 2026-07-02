@@ -1,20 +1,4 @@
 {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  "jobs": [],
-  "totalCount": 0,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  "fetchedAt": "2026-07-02T18:01:35.731677"
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   "jobs": [
     {
       "title": "Business Analyst \u2013 Technical / Financial",
@@ -41,6 +25,18 @@
       "id": "job_business_analyst_technical_writer_lts"
     },
     {
+      "title": "Senior Technical BA (SQL, Healthcare/Pharmacy, Claims Processing, SAS) |",
+      "company": "Samprasoft",
+      "location": "Seattle, WA",
+      "url": "https://lensa.com/job-v1/samprasoft/remote/senior-technical-business-analyst/3cfd7674525a062eae98ec7a261c46a8",
+      "description": "Senior Technical Business Analyst\n\nPosition: Contract\n\nWork Location: Remote Position\n\nDescription:\n\nDo you want to impact decisions to help people live healthier lives? Are you an innovative Technical Business Analyst who thrives on developing new solutions to solve tough challenges?\n\nWe believe Business Analysis and Reporting (BAR) is critical to our advanced data and analytics efforts geared towards improving the healthcare system.\n\nThe Savings Logic Team (reporting under BAR) serves as an integrated enterprise capability that serves as the liaison between the business and technical teams.",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Lensa",
+      "listed": "",
+      "id": "job_senior_technical_ba_sql_healthcare_pharmacy_claims_processin"
+    },
+    {
       "title": "Business Systems Analyst (Hybrid)",
       "company": "Lower Colorado River Authority",
       "location": "Seattle, WA",
@@ -51,18 +47,6 @@
       "source": "Teal",
       "listed": "",
       "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
-    },
-    {
-      "title": "Workday PMO & Solution Architect",
-      "company": "ECLARO",
-      "location": "Seattle, WA",
-      "url": "https://www.linkedin.com/jobs/view/workday-pmo-solution-architect-at-eclaro-4378541854",
-      "description": "Job Number: 26-00364\n\nDo you want to work where innovation drives business? ECLARO is looking for a Workday PMO & Solution Architect for our client in Melville, NY.\n\nECLARO\u2019s client ranks in the Top 5 Companies awarded US patents annually, and is known worldwide as a leader in the technology industry. If you\u2019re up to the challenge, then take a chance at this rewarding opportunity!\n\nResponsibilities:\n\n\u2022 Perform Root Cause Analysis, Visualization& Corrective Action\n\u2022 Go beyond surface-level assessments to identify and visualize the root causes of delays in timelines and deliverables\n\u2022 Make compl",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "LinkedIn",
-      "listed": "2026-07-02",
-      "id": "job_workday_pmo_solution_architect_eclaro"
     },
     {
       "title": "Workday PMO & Solution Architect",
@@ -113,36 +97,6 @@
       "id": "job_business_systems_analyst_project_management_platforms_merito"
     }
   ],
-<<<<<<< Updated upstream
-  "totalCount": 7,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  "fetchedAt": "2026-07-02T18:01:52.693672"
->>>>>>> Stashed changes
-=======
-  "jobs": [],
-  "totalCount": 0,
-  "fetchedAt": "2026-07-02T18:02:10.242929"
->>>>>>> Stashed changes
-=======
-  "fetchedAt": "2026-07-02T18:02:14.590601"
->>>>>>> Stashed changes
-=======
-  "fetchedAt": "2026-07-02T18:02:41.453485"
->>>>>>> Stashed changes
-=======
-  "fetchedAt": "2026-07-02T18:02:59.522937"
->>>>>>> Stashed changes
-=======
-  "jobs": [],
-  "totalCount": 0,
-  "fetchedAt": "2026-07-02T18:03:15.202644"
->>>>>>> Stashed changes
-=======
   "totalCount": 8,
-  "fetchedAt": "2026-07-02T18:03:38.802555"
->>>>>>> Stashed changes
-=======
-  "fetchedAt": "2026-07-02T18:03:49.365691"
->>>>>>> Stashed changes
+  "fetchedAt": "2026-07-02T18:04:25.509357"
 }
