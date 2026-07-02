@@ -1,64 +1,40 @@
 {
   "jobs": [
     {
-      "title": "Product Owner / Solution Architect \u2013 Provider Data & Data Quality- REMOTE",
-      "company": "frontendnode-production.up.railway.app",
+      "title": "Business Analyst \u2013 Technical / Financial",
+      "company": "ICONMA",
       "location": "Seattle, WA",
-      "url": "https://frontendnode-production.up.railway.app/job/product-owner-solution-architect-provider-data-data-quality-remote",
-      "description": "This a Full Remote job, the offer is available from: New York (USA)\n\nJob Summary\n\nWe are seeking a strategic and execution-oriented Product Owner / Solution Architect with deep health plan provider data expertise to lead the product strategy, roadmap execution, and cross-functional delivery of a modern provider data platform. This role will own the end-to-end product lifecycle for the organization's provider data ecosystem \u2014 establishing a scalable \"system of truth,\u201d driving API-enabled modernization, and implementing a formal provider data quality and governance program. The ideal candidate c",
+      "url": "https://jobgether.com/offer/6a36418d63c956434a800e1a-business-analyst---technical-financial",
+      "description": "This a Full Remote job, the offer is available from: California (USA)\nOur Client, a Leading Provider of Healthcare Delivery Systems and Solutions company, is looking for a Business Analyst \u2013 Technical / Financial for their Remote location.\n\nResponsibilities:\n\n\u2022 Gather, analyze, document, and maintain requirements from government stakeholders, SMEs, technical teams, data services, cybersecurity, testing, product support, and program leadership.\n\n\u2022 Support requirements definition for a rapid, AI-enabled healthcare-readiness application prototype.\n\n\u2022 Translate stakeholder needs into clear busines",
       "salary_min": null,
       "salary_max": null,
-      "source": "Frontendnode-Production.up.railway.app - Railway",
+      "source": "Jobgether",
       "listed": "2026-06-20",
-      "id": "job_product_owner_solution_architect_provider_data_data_quality_"
+      "id": "job_business_analyst_technical_financial_iconma"
     },
     {
-      "title": "Senior Business Systems Analyst",
-      "company": "frontendnode-production.up.railway.app",
+      "title": "Business Analyst \u2013 Technical Writer",
+      "company": "LTS",
       "location": "Seattle, WA",
-      "url": "https://frontendnode-production.up.railway.app/job/senior-business-systems-analyst-6",
-      "description": "Does data excite you?\n\nDo you have a passion for using data to make effective business decisions?\n\nJoin our best-in-class Data Engineering and Analytics team!\n\nOur Data Engineering team democratizes data across Akamai to promote a data-driven culture. We transform data into insights built on fast, accurate, and secure analytics.\n\nPartner with the best\n\nA Senior Business Systems Analyst analyzes, designs, and implements processes to improve efficiency and support business success. This role involves collaborating with stakeholders across departments to understand needs, gather requirements, and",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Frontendnode-Production.up.railway.app - Railway",
-      "listed": "2026-06-19",
-      "id": "job_senior_business_systems_analyst_frontendnode_production_up_r"
-    },
-    {
-      "title": "[Remote] (US) Sr. Business Analyst (6 month contract)",
-      "company": "frontendnode-production.up.railway.app",
-      "location": "Seattle, WA",
-      "url": "https://frontendnode-production.up.railway.app/job/remote-us-sr-business-analyst-6-month-contract",
-      "description": "Note: The job is a remote job and is open to candidates in USA. PointClickCare is a leading health tech company focused on empowering providers to deliver exceptional care. The Sr. Business Analyst will support strategic initiatives by analyzing business needs, designing business processes, and collaborating with stakeholders to enhance data management and system integration.\n\nResponsibilities\n\u2022 Capture data, technical integration requirements and develop data flow diagrams, data dictionaries, data mapping, entity relationship diagrams and \u2018To-be\u2019/\u2019As-Is\u2019 process flow diagrams\n\u2022 Facilitate int",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Frontendnode-Production.up.railway.app - Railway",
-      "listed": "2026-06-21",
-      "id": "job_remote_us_sr_business_analyst_6_month_contract_frontendnode_"
-    },
-    {
-      "title": "Business Systems Analyst III",
-      "company": "frontendnode-production.up.railway.app",
-      "location": "Seattle, WA",
-      "url": "https://frontendnode-production.up.railway.app/job/business-systems-analyst-iii-2",
-      "description": "Are you ready to join a growing team?\n\nCTG is seeking a Business Systems Analyst III to support enterprise technology governance initiatives, with a strong focus on API governance, business analysis, requirements gathering, testing, and stakeholder collaboration. This role will work closely with business leaders, technology teams, cybersecurity, architecture, risk management, and software engineering groups to define standards, facilitate projects, and ensure compliance with governance policies and regulatory requirements.\n\nLocation: RemoteDuration: 12 Months\nKey Responsibilities\nSupport and e",
-      "salary_min": null,
-      "salary_max": null,
-      "source": "Frontendnode-Production.up.railway.app - Railway",
-      "listed": "2026-06-19",
-      "id": "job_business_systems_analyst_iii_frontendnode_production_up_rail"
-    },
-    {
-      "title": "Product Owner III",
-      "company": "IDEMIA",
-      "location": "Seattle, WA",
-      "url": "https://www.theladders.com/job/product-owner-iii-idemia-virtual-travel_86997410",
-      "description": "Responsibilities\n\nThe Product Owner drives product execution in a fast-paced environment where customer, business, and technical priorities must be balanced simultaneously. This role serves as a key bridge between Engineering, Project Management, Program Management, Operations, Client Success, and business stakeholders to ensure requirements are clear, priorities are well managed, and delivery stays aligned to customer commitments and product goals.\n\nThe Product Owner owns and prioritizes the product backlog, translating customer needs, business objectives, and technical input into clear requi",
-      "salary_min": 100000,
-      "salary_max": 130000,
-      "source": "Ladders",
+      "url": "https://www.remoterocketship.com/us/company/lts/jobs/business-analyst-technical-writer-united-states-remote/",
+      "description": "Job Description:\n\u2022 Able to function as subject matter expert in order to collect complete and accurate business requirements from business SMEs by means of interviews, workflow analyses, and facilitated discussions.\n\u2022 Understand the client\u2019s business issues and challenges.\n\u2022 Translate users' business needs into detailed epics, user stories, and requirements.\n\u2022 Analyze, review, and document the requirements of a project throughout the lifecycle.\n\u2022 Complete functional analysis of requirements as needed.\n\u2022 Conduct research, analyze information needs, and perform analysis to support the delivery o",
+      "salary_min": 80000,
+      "salary_max": 85000,
+      "source": "Remote Rocketship",
       "listed": "",
-      "id": "job_product_owner_iii_idemia"
+      "id": "job_business_analyst_technical_writer_lts"
+    },
+    {
+      "title": "Senior Technical BA (SQL, Healthcare/Pharmacy, Claims Processing, SAS) |",
+      "company": "Samprasoft",
+      "location": "Seattle, WA",
+      "url": "https://lensa.com/job-v1/samprasoft/remote/senior-technical-business-analyst/3cfd7674525a062eae98ec7a261c46a8",
+      "description": "Senior Technical Business Analyst\n\nPosition: Contract\n\nWork Location: Remote Position\n\nDescription:\n\nDo you want to impact decisions to help people live healthier lives? Are you an innovative Technical Business Analyst who thrives on developing new solutions to solve tough challenges?\n\nWe believe Business Analysis and Reporting (BAR) is critical to our advanced data and analytics efforts geared towards improving the healthcare system.\n\nThe Savings Logic Team (reporting under BAR) serves as an integrated enterprise capability that serves as the liaison between the business and technical teams.",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Lensa",
+      "listed": "",
+      "id": "job_senior_technical_ba_sql_healthcare_pharmacy_claims_processin"
     },
     {
       "title": "Business Systems Analyst (Hybrid)",
@@ -73,16 +49,28 @@
       "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
     },
     {
-      "title": "Business Analyst Manager",
-      "company": "Sprezzatura",
+      "title": "Principal Business Systems Analyst - Pathology & Lab Tech Solutions",
+      "company": "MD Anderson",
       "location": "Seattle, WA",
-      "url": "https://www.jobleads.com/us/job/business-analyst-manager--united-states--e1af41da91ec0259655e1aa55a67e699b",
-      "description": "Position Title\n\nBusiness Analyst Manager\n\nLocation\n\nRemote (In the U.S)\n\nOther Considerations\n\nU.S. Citizen or Permanent Resident (Required)\n\nThis position is contingent upon contract award.\n\nPosition Summary\n\nThe Business Analyst Manager will be responsible for leading complex projects and initiatives aimed at driving business growth and efficiency within a strategic program at the Department of Veterans Affairs that has the potential to impact over millions of veteran users. You should be a strategic thinker with a deep understanding of business processes, data analysis, and technology solut",
-      "salary_min": 85000,
-      "salary_max": 105000,
-      "source": "JobLeads",
-      "listed": "2026-06-17",
-      "id": "job_business_analyst_manager_sprezzatura"
+      "url": "https://www.monster.com/job-openings/principal-business-systems-analyst-pathology-lab-tech-solutions-houston-tx--5c0f5449-44d9-428b-817a-fd81139d156b",
+      "description": "The Principal Business Systems Analyst supports the Pathology & Laboratory Technology Solutions (PALTS) team by applying advanced systems knowledge to deliver effective technology solutions for pathology and laboratory operations. The Principal Business Systems Analyst works closely with clinical, operational, and Information Services partners to ensure systems align with workflows, quality standards, and organizational goals.\nThe Principal Business Systems Analyst will engage in project planning, solution design, issue resolution, and process improvement initiatives that influence multiple cl",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Monster",
+      "listed": "",
+      "id": "job_principal_business_systems_analyst_pathology_lab_tech_soluti"
+    },
+    {
+      "title": "Lead System Analyst",
+      "company": "HMSA",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/lead-system-analyst_7ea1a33f521e0b9194b0269515162d9f7f3ec",
+      "description": "About the position\n\nThe Lead System Analyst will lead project staff and subject matter experts in the planning and implementation of project and sub-project work efforts. This role involves leading, coordinating, facilitating, and participating in cross-functional teams to plan and complete complex corporate projects. The analyst will bring a whole-company perspective to ensure the delivery of holistic department and/or corporate solutions, and provide documentation and training on data elements, systems, or analytic methodologies. The position also requires managing ongoing project dynamics f",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "2026-06-25",
+      "id": "job_lead_system_analyst_hmsa"
     },
     {
       "title": "Business Systems Analyst \u2013 Project Management Platforms",
@@ -97,6 +85,6 @@
       "id": "job_business_systems_analyst_project_management_platforms_merito"
     }
   ],
-  "totalCount": 8,
-  "fetchedAt": "2026-06-23T11:17:17.898210"
+  "totalCount": 7,
+  "fetchedAt": "2026-07-02T17:57:36.075777"
 }
