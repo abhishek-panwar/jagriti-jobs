@@ -1,10 +1,13 @@
 {
+<<<<<<< Updated upstream
   "jobs": [],
   "totalCount": 0,
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
   "fetchedAt": "2026-07-02T18:01:35.731677"
 =======
+=======
+>>>>>>> Stashed changes
   "jobs": [
     {
       "title": "Business Analyst \u2013 Technical / Financial",
@@ -92,6 +95,7 @@
     }
   ],
   "totalCount": 7,
+<<<<<<< Updated upstream
   "fetchedAt": "2026-07-02T18:01:52.693672"
 >>>>>>> Stashed changes
 =======
@@ -104,5 +108,8 @@
 >>>>>>> Stashed changes
 =======
   "fetchedAt": "2026-07-02T18:02:41.453485"
+>>>>>>> Stashed changes
+=======
+  "fetchedAt": "2026-07-02T18:02:59.522937"
 >>>>>>> Stashed changes
 }
