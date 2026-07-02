@@ -2,6 +2,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "jobs": [],
   "totalCount": 0,
   "fetchedAt": "2026-07-02T18:05:04.859363"
@@ -9,6 +10,8 @@
   "jobs": [
     {
 =======
+=======
+>>>>>>> Stashed changes
   "jobs": [
     {
 =======
@@ -28,6 +31,9 @@
     },
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -43,7 +49,6 @@
       "id": "job_business_analyst_technical_writer_lts"
     },
     {
-<<<<<<< Updated upstream
       "title": "Senior Technical BA (SQL, Healthcare/Pharmacy, Claims Processing, SAS) |",
       "company": "Samprasoft",
       "location": "Seattle, WA",
@@ -54,7 +59,8 @@
       "source": "Lensa",
       "listed": "",
       "id": "job_senior_technical_ba_sql_healthcare_pharmacy_claims_processin"
-=======
+    },
+    {
       "title": "Business Systems Analyst (Hybrid)",
       "company": "Lower Colorado River Authority",
       "location": "Seattle, WA",
@@ -65,7 +71,6 @@
       "source": "Teal",
       "listed": "",
       "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
->>>>>>> Stashed changes
     },
     {
       "title": "Business Systems Analyst (Hybrid)",
@@ -94,6 +99,7 @@
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "title": "Gabriele Consulting Group - Senior Business Analyst / IT Project Manager",
       "company": "Trinity Park Talent Opportunities",
       "location": "Seattle, WA",
@@ -120,6 +126,8 @@
     {
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
       "title": "Lead System Analyst",
       "company": "HMSA",
       "location": "Seattle, WA",
@@ -142,6 +150,7 @@
       "source": "Teal",
       "listed": "2026-06-12",
       "id": "job_business_systems_analyst_project_management_platforms_merito"
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     },
@@ -172,5 +181,11 @@
   ],
   "totalCount": 7,
   "fetchedAt": "2026-07-02T18:06:11.296740"
+>>>>>>> Stashed changes
+=======
+    }
+  ],
+  "totalCount": 7,
+  "fetchedAt": "2026-07-02T18:06:30.375416"
 >>>>>>> Stashed changes
 }

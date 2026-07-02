@@ -15,6 +15,7 @@
   },
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "resume_job_02": {
 =======
   "resume_job_03": {
@@ -40,25 +41,35 @@
   "resume_job_05": {
     "title": "Principal Business Systems Analyst - Pathology & Lab Tech Solutions",
     "company": "MD Anderson",
+=======
+  "resume_job_03": {
+    "title": "Senior Technical BA (SQL, Healthcare/Pharmacy, Claims Processing, SAS) |",
+    "company": "Samprasoft",
+>>>>>>> Stashed changes
     "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
 <<<<<<< Updated upstream
   "resume_job_04": {
-<<<<<<< Updated upstream
-    "title": "Gabriele Consulting Group - Senior Business Analyst / IT Project Manager",
-    "company": "Trinity Park Talent Opportunities",
-=======
-    "title": "Principal Business Systems Analyst - Pathology & Lab Tech Solutions",
-    "company": "MD Anderson",
->>>>>>> Stashed changes
+    "title": "Business Systems Analyst (Hybrid)",
+    "company": "Lower Colorado River Authority",
     "changed": false,
     "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
     "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
   },
   "resume_job_05": {
+<<<<<<< Updated upstream
 =======
+  "resume_job_06": {
+>>>>>>> Stashed changes
+=======
+    "title": "Principal Business Systems Analyst - Pathology & Lab Tech Solutions",
+    "company": "MD Anderson",
+    "changed": false,
+    "base_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making.",
+    "new_summary": "Senior Technical Business Analyst specializing in financial data platforms, API ecosystems, and enterprise modernization \u2014 12+ years spanning LSEG, Refinitiv, and Aon. Drives AI adoption on Snowflake and AWS by translating complex business problems into scalable, governed data solutions that accelerate delivery and improve enterprise decision-making."
+  },
   "resume_job_06": {
 >>>>>>> Stashed changes
     "title": "Lead System Analyst",
@@ -69,7 +80,11 @@
   },
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "resume_job_06": {
+=======
+  "resume_job_07": {
+>>>>>>> Stashed changes
 =======
   "resume_job_07": {
 >>>>>>> Stashed changes
