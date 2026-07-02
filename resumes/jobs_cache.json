@@ -49,16 +49,16 @@
       "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
     },
     {
-      "title": "Principal Business Systems Analyst - Pathology & Lab Tech Solutions",
-      "company": "MD Anderson",
+      "title": "Workday PMO & Solution Architect",
+      "company": "ECLARO",
       "location": "Seattle, WA",
-      "url": "https://www.monster.com/job-openings/principal-business-systems-analyst-pathology-lab-tech-solutions-houston-tx--5c0f5449-44d9-428b-817a-fd81139d156b",
-      "description": "The Principal Business Systems Analyst supports the Pathology & Laboratory Technology Solutions (PALTS) team by applying advanced systems knowledge to deliver effective technology solutions for pathology and laboratory operations. The Principal Business Systems Analyst works closely with clinical, operational, and Information Services partners to ensure systems align with workflows, quality standards, and organizational goals.\nThe Principal Business Systems Analyst will engage in project planning, solution design, issue resolution, and process improvement initiatives that influence multiple cl",
+      "url": "https://www.linkedin.com/jobs/view/workday-pmo-solution-architect-at-eclaro-4378541854",
+      "description": "Job Number: 26-00364\n\nDo you want to work where innovation drives business? ECLARO is looking for a Workday PMO & Solution Architect for our client in Melville, NY.\n\nECLARO\u2019s client ranks in the Top 5 Companies awarded US patents annually, and is known worldwide as a leader in the technology industry. If you\u2019re up to the challenge, then take a chance at this rewarding opportunity!\n\nResponsibilities:\n\n\u2022 Perform Root Cause Analysis, Visualization& Corrective Action\n\u2022 Go beyond surface-level assessments to identify and visualize the root causes of delays in timelines and deliverables\n\u2022 Make compl",
       "salary_min": null,
       "salary_max": null,
-      "source": "Monster",
-      "listed": "",
-      "id": "job_principal_business_systems_analyst_pathology_lab_tech_soluti"
+      "source": "LinkedIn",
+      "listed": "2026-07-02",
+      "id": "job_workday_pmo_solution_architect_eclaro"
     },
     {
       "title": "Lead System Analyst",
@@ -73,6 +73,18 @@
       "id": "job_lead_system_analyst_hmsa"
     },
     {
+      "title": "Information Technology Business Analyst III",
+      "company": "Texas Alcoholic Beverage Commission",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/information-technology-business-analyst-iii_7ea1a2bb3ba0ef60dc00c2c499871225c244b",
+      "description": "About the position\n\nSupport the Project Management Office (PMO) and the PMO Manager in effectively facilitating the management of projects through the various project management phases and stages within the Systems Development Life Cycle (SDLC) to include initiation, planning, execution, and monitoring and controlling and closing projects. This role involves managing project management teams, coordinating project activities, managing resources, and ensuring projects are delivered on time, within scope, and within budget. Collaborates with cross-functional teams to achieve project objectives wh",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "",
+      "id": "job_information_technology_business_analyst_iii_texas_alcoholic_"
+    },
+    {
       "title": "Business Systems Analyst \u2013 Project Management Platforms",
       "company": "Meriton",
       "location": "Seattle, WA",
@@ -85,6 +97,6 @@
       "id": "job_business_systems_analyst_project_management_platforms_merito"
     }
   ],
-  "totalCount": 7,
-  "fetchedAt": "2026-07-02T18:02:59.522937"
+  "totalCount": 8,
+  "fetchedAt": "2026-07-02T18:03:38.802555"
 }
