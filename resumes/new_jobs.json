@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "jobs": [
     {
       "title": "Business Analyst \u2013 Technical / Financial",
@@ -99,4 +100,9 @@
   ],
   "totalCount": 8,
   "fetchedAt": "2026-07-02T18:06:57.012026"
+=======
+  "jobs": [],
+  "totalCount": 0,
+  "fetchedAt": "2026-07-02T18:07:14.717555"
+>>>>>>> Stashed changes
 }
