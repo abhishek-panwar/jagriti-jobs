@@ -1,5 +1,108 @@
 {
+<<<<<<< Updated upstream
   "jobs": [],
   "totalCount": 0,
   "fetchedAt": "2026-07-02T18:14:53.322958"
+=======
+  "jobs": [
+    {
+      "title": "Business Analyst \u2013 Technical / Financial",
+      "company": "ICONMA",
+      "location": "Seattle, WA",
+      "url": "https://jobgether.com/offer/6a36418d63c956434a800e1a-business-analyst---technical-financial",
+      "description": "This a Full Remote job, the offer is available from: California (USA)\nOur Client, a Leading Provider of Healthcare Delivery Systems and Solutions company, is looking for a Business Analyst \u2013 Technical / Financial for their Remote location.\n\nResponsibilities:\n\n\u2022 Gather, analyze, document, and maintain requirements from government stakeholders, SMEs, technical teams, data services, cybersecurity, testing, product support, and program leadership.\n\n\u2022 Support requirements definition for a rapid, AI-enabled healthcare-readiness application prototype.\n\n\u2022 Translate stakeholder needs into clear busines",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Jobgether",
+      "listed": "2026-06-20",
+      "id": "job_business_analyst_technical_financial_iconma"
+    },
+    {
+      "title": "Business Analyst \u2013 Technical Writer",
+      "company": "LTS",
+      "location": "Seattle, WA",
+      "url": "https://www.remoterocketship.com/us/company/lts/jobs/business-analyst-technical-writer-united-states-remote/",
+      "description": "Job Description:\n\u2022 Able to function as subject matter expert in order to collect complete and accurate business requirements from business SMEs by means of interviews, workflow analyses, and facilitated discussions.\n\u2022 Understand the client\u2019s business issues and challenges.\n\u2022 Translate users' business needs into detailed epics, user stories, and requirements.\n\u2022 Analyze, review, and document the requirements of a project throughout the lifecycle.\n\u2022 Complete functional analysis of requirements as needed.\n\u2022 Conduct research, analyze information needs, and perform analysis to support the delivery o",
+      "salary_min": 80000,
+      "salary_max": 85000,
+      "source": "Remote Rocketship",
+      "listed": "",
+      "id": "job_business_analyst_technical_writer_lts"
+    },
+    {
+      "title": "Business Systems Analyst (Hybrid)",
+      "company": "Lower Colorado River Authority",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/business-systems-analyst_7ea1a16b70ddb3e41d0125e1e70a466dc154f",
+      "description": "About the position\nThe Project Controls team within LCRA's Project Management Office is seeking a\\nBusiness Analyst to support the growth of projects within our portfolio. This\\nrole offers the opportunity to support a rapidly growing portion of LCRA's\\nbusiness by using project financial and schedule data to shape the way we\\ncommunicate to customers and how we use their data. If you've got a curiosity\\nand drive to explore data for understanding, the business sense to create\\nmeaningful visualizations, and enjoy being part of a team developing tools that\\nenable the success of others, we'd l",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "",
+      "id": "job_business_systems_analyst_hybrid_lower_colorado_river_authori"
+    },
+    {
+      "title": "Principal Business Systems Analyst - Pathology & Lab Tech Solutions",
+      "company": "MD Anderson",
+      "location": "Seattle, WA",
+      "url": "https://www.monster.com/job-openings/principal-business-systems-analyst-pathology-lab-tech-solutions-houston-tx--5c0f5449-44d9-428b-817a-fd81139d156b",
+      "description": "The Principal Business Systems Analyst supports the Pathology & Laboratory Technology Solutions (PALTS) team by applying advanced systems knowledge to deliver effective technology solutions for pathology and laboratory operations. The Principal Business Systems Analyst works closely with clinical, operational, and Information Services partners to ensure systems align with workflows, quality standards, and organizational goals.\nThe Principal Business Systems Analyst will engage in project planning, solution design, issue resolution, and process improvement initiatives that influence multiple cl",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Monster",
+      "listed": "",
+      "id": "job_principal_business_systems_analyst_pathology_lab_tech_soluti"
+    },
+    {
+      "title": "Workday PMO & Solution Architect",
+      "company": "ECLARO",
+      "location": "Seattle, WA",
+      "url": "https://www.linkedin.com/jobs/view/workday-pmo-solution-architect-at-eclaro-4378541854",
+      "description": "Job Number: 26-00364\n\nDo you want to work where innovation drives business? ECLARO is looking for a Workday PMO & Solution Architect for our client in Melville, NY.\n\nECLARO\u2019s client ranks in the Top 5 Companies awarded US patents annually, and is known worldwide as a leader in the technology industry. If you\u2019re up to the challenge, then take a chance at this rewarding opportunity!\n\nResponsibilities:\n\n\u2022 Perform Root Cause Analysis, Visualization& Corrective Action\n\u2022 Go beyond surface-level assessments to identify and visualize the root causes of delays in timelines and deliverables\n\u2022 Make compl",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "LinkedIn",
+      "listed": "2026-07-02",
+      "id": "job_workday_pmo_solution_architect_eclaro"
+    },
+    {
+      "title": "Lead System Analyst",
+      "company": "HMSA",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/lead-system-analyst_7ea1a33f521e0b9194b0269515162d9f7f3ec",
+      "description": "About the position\n\nThe Lead System Analyst will lead project staff and subject matter experts in the planning and implementation of project and sub-project work efforts. This role involves leading, coordinating, facilitating, and participating in cross-functional teams to plan and complete complex corporate projects. The analyst will bring a whole-company perspective to ensure the delivery of holistic department and/or corporate solutions, and provide documentation and training on data elements, systems, or analytic methodologies. The position also requires managing ongoing project dynamics f",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "2026-06-25",
+      "id": "job_lead_system_analyst_hmsa"
+    },
+    {
+      "title": "Business Systems Analyst \u2013 Project Management Platforms",
+      "company": "Meriton",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/business-systems-analyst-project-management-platforms_7ea1a6b9fd092d4b7e7086a4a544e71dcfd7a",
+      "description": "About the position\n\nProject Ignite is a large-scale enterprise transformation program uniting 20+ operating companies onto a single Microsoft Dynamics 365 Finance & Operations and Project Operations platform. We are building a deployment factory designed to roll out several entities per year \u2014 from common-stack migrations to mid-complexity entities with distinct operational models, service delivery structures, and customer-facing workflows. As a Business Systems Analyst on the Project Management Platforms workstream, you sit at the intersection of some of the most operationally complex stakeho",
+      "salary_min": null,
+      "salary_max": null,
+      "source": "Teal",
+      "listed": "2026-06-12",
+      "id": "job_business_systems_analyst_project_management_platforms_merito"
+    },
+    {
+      "title": "Business Analyst, US Payroll (Hybrid)",
+      "company": "RTX",
+      "location": "Seattle, WA",
+      "url": "https://www.tealhq.com/job/business-analyst-us-payroll_7ea1a7fd3de7c16bcfd50f40a25c3183bf414",
+      "description": "About the position\n\nThe US Payroll organization is seeking a Business Analyst to lead high-impact system enhancements, payroll data analysis, regulatory/process-driven changes, and cross-functional projects supporting payroll accuracy, compliance, and operational efficiency. This senior individual contributor role acts as a project lead, systems analyst, and problem-solver, partnering with US Payroll leadership, HR, Finance, Timekeeping, and technical teams to deliver high quality payroll solutions.\n\nResponsibilities\n\u2022 Lead and coordinate complex US Payroll projects and operational initiatives",
+      "salary_min": 108000,
+      "salary_max": 204000,
+      "source": "Teal",
+      "listed": "2026-06-03",
+      "id": "job_business_analyst_us_payroll_hybrid_rtx"
+    }
+  ],
+  "totalCount": 8,
+  "fetchedAt": "2026-07-02T18:15:10.768303"
+>>>>>>> Stashed changes
 }
