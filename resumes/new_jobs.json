@@ -10,6 +10,9 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -77,7 +80,10 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
       "title": "Gabriele Consulting Group - Senior Business Analyst / IT Project Manager",
       "company": "Trinity Park Talent Opportunities",
       "location": "Seattle, WA",
@@ -90,6 +96,9 @@
       "id": "job_gabriele_consulting_group_senior_business_analyst_it_project"
     },
     {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -129,6 +138,7 @@
       "id": "job_business_systems_analyst_project_management_platforms_merito"
     }
   ],
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -186,5 +196,9 @@
 =======
   "totalCount": 7,
   "fetchedAt": "2026-07-02T18:09:52.221222"
+>>>>>>> Stashed changes
+=======
+  "totalCount": 8,
+  "fetchedAt": "2026-07-02T18:10:13.011670"
 >>>>>>> Stashed changes
 }
